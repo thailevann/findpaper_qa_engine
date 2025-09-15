@@ -14,36 +14,28 @@ class KeywordSearch:
             "_source": ["paper_id", "title", "abstract"],
             "query": {
                 "bool": {
-                    "must": [],  # nơi đặt filter
+                    "must": [],
                     "should": [
                         {"match_phrase": {"title": {"query": query_text, "boost": 5}}},
                         {"match_phrase": {"abstract": {"query": query_text, "boost": 3}}},
                         {"multi_match": {"query": query_text, "fields": ["title^2", "abstract"], "type": "best_fields"}}
                     ]
                 }
-            },
-            "highlight": {
-                "fields": {
-                    "title": {},
-                    "abstract": {}
-                }
             }
+            # highlight đã bị loại bỏ
         }
 
         # --- Apply filters ---
         if filters:
             for field, value in filters.items():
-                # Nếu filter là range dạng "start:end"
                 if ":" in value:
                     gte, lte = value.split(":")
                     body["query"]["bool"]["must"].append({"range": {field: {"gte": gte, "lte": lte}}})
                 else:
-                    # filter exact match
                     body["query"]["bool"]["must"].append({"term": {field: value}})
 
         res = self.es.search(index=self.index_name, body=body)
         scores = {}
-        highlights = {}
 
         raw_scores = [hit["_score"] for hit in res["hits"]["hits"]]
         max_score = max(raw_scores) if raw_scores else 1  # tránh chia 0
@@ -51,6 +43,5 @@ class KeywordSearch:
         for hit in res["hits"]["hits"]:
             pid = hit["_source"]["paper_id"]
             scores[pid] = hit["_score"] / max_score  # chuẩn hóa về 0-1
-            highlights[pid] = hit.get("highlight", {})
 
-        return scores, highlights
+        return scores

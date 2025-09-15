@@ -41,7 +41,7 @@ def retrieve_papers(payload: PaperQuery):
     # --- Step 3: Keyword search ---
     keyword_query_text = processed.keyword_query or processed.rewritten_query or payload.query
     key_search = KeywordSearch()
-    key_scores, highlights = key_search.search(
+    key_scores = key_search.search(
         keyword_query_text,
         top_k=payload.limit,
         filters=filters
@@ -65,7 +65,6 @@ def retrieve_papers(payload: PaperQuery):
         query_embeddings=query_embeddings,
         sem_scores=sem_scores_all,
         key_scores=key_scores,
-        highlights=highlights,
         top_final=payload.limit,
         alpha=1.0,
         beta=1.0,
@@ -95,15 +94,30 @@ def top_papers(payload: PaperQuery):
     papers_dict = {}
     for r in final_results:
         pid = r["paper_id"]
-        if pid not in papers_dict or r["cross_score"] > papers_dict[pid]["final_score"]:
+        if pid not in papers_dict:
             papers_dict[pid] = {
                 "paper_id": pid,
-                "title": r["title"],
-                "final_score": r["final_score"],
-                "evidence": r["evidence"]
+                "title": r["title"],   # <-- thêm title ở đây
+                "chunks": []
             }
+        papers_dict[pid]["chunks"].append({
+            "evidence": r["evidence"],  # r["evidence"] = semantic chunk
+            "cross_score": r["cross_score"],
+            "final_score": r["final_score"]
+        })
 
+    # Chọn chunk có cross_score cao nhất
+    for pid, paper in papers_dict.items():
+        best_chunk = max(paper["chunks"], key=lambda x: x["cross_score"])
+        paper["final_score"] = best_chunk["final_score"]
+        paper["evidence"] = best_chunk["evidence"]
+
+    # Top papers
     top_papers = sorted(papers_dict.values(), key=lambda x: x["final_score"], reverse=True)[:payload.limit]
+
+    # Loại bỏ mảng chunks để JSON gọn
+    for paper in top_papers:
+        paper.pop("chunks", None) 
 
     return {
         "original_query": payload.query,
@@ -114,3 +128,4 @@ def top_papers(payload: PaperQuery):
         "matched_count": len(top_papers),
         "matched_papers": top_papers
     }
+

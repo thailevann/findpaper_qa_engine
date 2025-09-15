@@ -6,14 +6,10 @@ from config import CROSS_ENCODER_MODEL
 
 class PaperReranker:
     def __init__(self, ce_model_name=None):
-        # Chỉ CrossEncoder và Elasticsearch để lấy text chunk
         self.ce_model = CrossEncoder(ce_model_name or CROSS_ENCODER_MODEL)
         self.es_text = Elasticsearch("http://localhost:9200", request_timeout=120)
 
     def find_best_chunk_mean(self, pid, query_embeddings, index_name):
-        """
-        Tìm chunk semantic tốt nhất dựa trên trung bình điểm từ nhiều embedding
-        """
         try:
             vec_doc = self.es_text.get(index=index_name, id=pid)["_source"]
         except:
@@ -47,11 +43,11 @@ class PaperReranker:
         return None, best_score
 
     def rerank(self, query_text, query_embeddings,
-               sem_scores, key_scores, highlights,
+               sem_scores, key_scores,
                top_final=20, alpha=1.0, beta=1.0, index_name=None):
         """
         Rerank dựa trên semantic + keyword, sau đó cross-encoder.
-        - sem_scores / key_scores / highlights phải được truyền vào từ bên ngoài
+        Bỏ hoàn toàn highlight, evidence = chunk semantic
         """
         # --- Normalize scores về [0,1] ---
         max_sem = max(sem_scores.values()) if sem_scores else 1
@@ -75,19 +71,14 @@ class PaperReranker:
             except:
                 title, abstract = "", ""
 
-            if pid in highlights and highlights[pid]:
-                hl_title = "".join(highlights[pid].get("title", [title])) or title
-                hl_abstract = "".join(highlights[pid].get("abstract", [abstract])) or abstract
-                evidence = hl_title if "title" in highlights[pid] else hl_abstract
-            else:
-                # chọn chunk tốt nhất từ nhiều embedding
-                best_chunk, sem_score = self.find_best_chunk_mean(pid, query_embeddings, index_name)
-                evidence = best_chunk or abstract
+            # --- Lấy evidence luôn từ chunk semantic ---
+            best_chunk, sem_score = self.find_best_chunk_mean(pid, query_embeddings, index_name)
+            evidence = best_chunk or abstract
 
             results.append({
                 "paper_id": pid,
                 "title": title,
-                "score": score,
+                "score": score, 
                 "evidence": evidence
             })
 

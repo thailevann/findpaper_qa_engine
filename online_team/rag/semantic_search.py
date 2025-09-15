@@ -7,9 +7,6 @@ class SemanticSearch:
         self.index_name = index_name
 
     def search(self, query_embedding, top_k=50, filters: dict = None):
-        """
-        filters: dict, ví dụ {"update_date": "2020-01-01:2025-12-31"}
-        """
         # --- Base query: match all ---
         base_query = {"match_all": {}}
 
