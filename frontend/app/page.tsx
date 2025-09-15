@@ -10,6 +10,7 @@ import { EmptyState } from "@/components/empty-state"
 import { QueryHistory } from "@/components/query-history"
 import { useLocalStorage } from "@/hooks/use-local-storage"
 import { generateMockData } from "@/lib/mock-data"
+import { FindPaperAPI } from "@/lib/api"
 
 export interface QAResult {
   original_query: string
@@ -19,28 +20,17 @@ export interface QAResult {
   raw_gemini_output: string
   qa_result: {
     query: string
-    filtered_passages: Array<{
-      paper_id: string
-      title: string
-      evidence: string
-      cross_score: number
-      final_score: number
-    }>
+    filtered_passages: string[]
     themes: Array<{
-      theme_name: string
-      quotes: Array<{
-        paper_id: string
-        title: string
-        evidence: string
-        cross_score: number
-      }>
+      name: string
+      quotes: string[]
     }>
     final_report: string
     processing_info: {
-      papers_found: number
-      quotes_selected: number
+      total_passages: number
+      selected_quotes: number
       themes_generated: number
-      processing_time: number
+      papers_used: number
     }
   }
   finding_info: {
@@ -75,24 +65,12 @@ export default function HomePage() {
         const mockData = generateMockData(query)
         setResult(mockData)
       } else {
-        const response = await fetch("http://localhost:8000/qa", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            query,
-            limit: options.limit,
-            max_themes: options.maxThemes,
-            model: options.model,
-          }),
+        const data = await FindPaperAPI.searchQA({
+          query,
+          limit: options.limit,
+          max_themes: options.maxThemes,
+          model: options.model,
         })
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`)
-        }
-
-        const data: QAResult = await response.json()
         setResult(data)
       }
 

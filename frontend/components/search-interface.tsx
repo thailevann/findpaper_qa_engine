@@ -11,6 +11,7 @@ import { Slider } from "@/components/ui/slider"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import { Card, CardContent } from "@/components/ui/card"
+import { AVAILABLE_MODELS } from "@/lib/api"
 
 interface SearchInterfaceProps {
   onSearch: (
@@ -126,9 +127,11 @@ export function SearchInterface({ onSearch }: SearchInterfaceProps) {
                         <SelectValue placeholder="Default model" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="gpt-4">GPT-4</SelectItem>
-                        <SelectItem value="gpt-3.5-turbo">GPT-3.5 Turbo</SelectItem>
-                        <SelectItem value="claude-3">Claude 3</SelectItem>
+                        {AVAILABLE_MODELS.map((model) => (
+                          <SelectItem key={model.value} value={model.value}>
+                            {model.label}
+                          </SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
                   </div>

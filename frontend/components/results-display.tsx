@@ -50,7 +50,7 @@ export function ResultsDisplay({ result }: ResultsDisplayProps) {
 
   const downloadAsPDF = () => {
     // Simple text download for now - could be enhanced with proper PDF generation
-    const content = `FindPaper QA Engine Results\n\nQuery: ${result.original_query}\n\nAnswer:\n${result.qa_result.final_report}\n\nThemes:\n${result.qa_result.themes.map((theme) => `- ${theme.theme_name}`).join("\n")}`
+    const content = `FindPaper QA Engine Results\n\nQuery: ${result.original_query}\n\nAnswer:\n${result.qa_result.final_report}\n\nThemes:\n${result.qa_result.themes.map((theme) => `- ${theme.name}`).join("\n")}`
     const blob = new Blob([content], { type: "text/plain" })
     const url = URL.createObjectURL(blob)
     const a = document.createElement("a")
@@ -102,7 +102,7 @@ export function ResultsDisplay({ result }: ResultsDisplayProps) {
         </Card>
         <Card>
           <CardContent className="p-4 text-center">
-            <div className="text-2xl font-bold text-primary">{result.qa_result.processing_info.quotes_selected}</div>
+            <div className="text-2xl font-bold text-primary">{result.qa_result.processing_info.selected_quotes}</div>
             <div className="text-sm text-muted-foreground">Quotes Selected</div>
           </CardContent>
         </Card>
@@ -114,10 +114,8 @@ export function ResultsDisplay({ result }: ResultsDisplayProps) {
         </Card>
         <Card>
           <CardContent className="p-4 text-center">
-            <div className="text-2xl font-bold text-primary">
-              {result.qa_result.processing_info.processing_time.toFixed(2)}s
-            </div>
-            <div className="text-sm text-muted-foreground">Processing Time</div>
+            <div className="text-2xl font-bold text-primary">{result.qa_result.processing_info.papers_used}</div>
+            <div className="text-sm text-muted-foreground">Papers Used</div>
           </CardContent>
         </Card>
       </div>
@@ -173,7 +171,7 @@ export function ResultsDisplay({ result }: ResultsDisplayProps) {
                       ) : (
                         <ChevronRight className="h-4 w-4" />
                       )}
-                      <span className="font-medium">{theme.theme_name}</span>
+                      <span className="font-medium">{theme.name}</span>
                       <Badge variant="secondary">{theme.quotes.length} quotes</Badge>
                     </div>
                   </Button>
@@ -182,13 +180,7 @@ export function ResultsDisplay({ result }: ResultsDisplayProps) {
                   <div className="px-4 pb-4 space-y-3">
                     {theme.quotes.map((quote, quoteIndex) => (
                       <div key={quoteIndex} className="bg-muted/50 p-3 rounded-md">
-                        <p className="text-sm mb-2">{quote.evidence}</p>
-                        <div className="flex items-center justify-between text-xs text-muted-foreground">
-                          <span className="font-medium">{quote.title}</span>
-                          <Badge variant="outline" className="text-xs">
-                            Score: {quote.cross_score.toFixed(3)}
-                          </Badge>
-                        </div>
+                        <p className="text-sm">{quote}</p>
                       </div>
                     ))}
                   </div>
@@ -221,13 +213,7 @@ export function ResultsDisplay({ result }: ResultsDisplayProps) {
               <CardContent className="space-y-3 max-h-96 overflow-y-auto">
                 {result.qa_result.filtered_passages.map((passage, index) => (
                   <div key={index} className="bg-muted/50 p-3 rounded-md">
-                    <p className="text-sm mb-2">{passage.evidence}</p>
-                    <div className="flex items-center justify-between text-xs text-muted-foreground">
-                      <span className="font-medium truncate">{passage.title}</span>
-                      <Badge variant="outline" className="text-xs ml-2">
-                        {passage.final_score.toFixed(3)}
-                      </Badge>
-                    </div>
+                    <p className="text-sm">{passage}</p>
                   </div>
                 ))}
               </CardContent>
@@ -263,10 +249,8 @@ export function ResultsDisplay({ result }: ResultsDisplayProps) {
                     <div className="text-muted-foreground">{result.finding_info.passages_used_for_qa}</div>
                   </div>
                   <div>
-                    <span className="font-medium">Processing Time:</span>
-                    <div className="text-muted-foreground">
-                      {result.qa_result.processing_info.processing_time.toFixed(2)}s
-                    </div>
+                    <span className="font-medium">Total Passages:</span>
+                    <div className="text-muted-foreground">{result.qa_result.processing_info.total_passages}</div>
                   </div>
                   <div>
                     <span className="font-medium">Themes Generated:</span>

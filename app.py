@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional, List
 from online_team.preprocess.query_processeor import decompose_query_with_gemini
@@ -14,6 +15,15 @@ from scholarqa.app.qa import process_qa_pipeline
 load_dotenv()
 
 app = FastAPI(title="FindPaper QA Engine", version="1.0.0")
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],   # Allows all headers
+)
 reranker = PaperReranker(CROSS_ENCODER_MODEL)
 model = SentenceTransformer(SEMANTIC_MODEL)
 
