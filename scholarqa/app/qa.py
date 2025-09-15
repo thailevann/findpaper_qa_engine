@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from json import load
 import os
 from typing import List, Tuple
 
@@ -7,13 +8,13 @@ import numpy as np
 from numpy.linalg import norm
 
 from .embedding import embed_texts
-
+from dotenv import load_dotenv
 try:
     from openai import OpenAI
 except Exception:
     OpenAI = None  # type: ignore
 
-
+load_dotenv()
 DEFAULT_OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
 
 
@@ -122,5 +123,87 @@ def generate_final_report(query: str, themes: List[dict], model: str | None = No
         temperature=0.3,
     )
     return (response.choices[0].message.content or "").strip()
+
+
+def process_qa_pipeline(query: str, ranked_passages: List[dict], model: str | None = None, max_themes: int = 5) -> dict:
+    """
+    Complete QA pipeline following the flow diagram:
+    1. User query + Top 50-ranked passages
+    2. LLM: Select only verbatim quotes that directly contribute to answering the query
+    3. Concatenate with paper's abstract
+    4. LLM generates themes + constructs answer outline
+    5. Assign filtered quotes to themes
+    6. LLM synthesizes content for each section
+    7. Final report/answer
+    """
+    client = _get_openai_client()
+    model_name = model or DEFAULT_OPENAI_MODEL
+    
+    # Step 1: Extract passages and abstracts
+    passages = [p["evidence"] for p in ranked_passages]
+    abstracts = []
+    paper_info = []
+    
+    for p in ranked_passages:
+        abstracts.append(f"Title: {p['title']}\nAbstract: {p['evidence']}")
+        paper_info.append({
+            "paper_id": p["paper_id"],
+            "title": p["title"],
+            "score": p["final_score"]
+        })
+    
+    # Step 2: LLM selects verbatim quotes that directly contribute to answering the query
+    SYSTEM_QUOTE_SELECTION = (
+        "You are an expert research assistant. Given a user question and a set of passages from research papers, "
+        "select only verbatim quotes that directly contribute to answering the question. "
+        "Relevant quotes should contain specific information that helps answer the query. "
+        "Irrelevant quotes should be discarded. Return only the selected quotes, one per line."
+    )
+    
+    quote_selection_prompt = (
+        f"User question: {query}\n\n"
+        f"Passages from research papers:\n"
+        + "\n\n".join(f"[{i+1}] {passage}" for i, passage in enumerate(passages)) +
+        f"\n\nInstructions:\n"
+        f"- Select only verbatim quotes that directly contribute to answering the question.\n"
+        f"- Relevant -> keep\n"
+        f"- Irrelevant -> discard\n"
+        f"- Return only the selected quotes, one per line."
+    )
+    
+    quote_response = client.chat.completions.create(
+        model=model_name,
+        messages=[
+            {"role": "system", "content": SYSTEM_QUOTE_SELECTION},
+            {"role": "user", "content": quote_selection_prompt},
+        ],
+        temperature=0.2,
+    )
+    
+    selected_quotes = [line.strip() for line in quote_response.choices[0].message.content.split('\n') if line.strip()]
+    
+    # Step 3: Concatenate selected quotes with abstracts
+    combined_content = selected_quotes + abstracts
+    
+    # Step 4: LLM generates themes and constructs answer outline
+    themes = generate_themes(query, combined_content, model_name, max_themes)
+    
+    # Step 5: Assign filtered quotes to themes (this is handled in generate_themes)
+    # Step 6: LLM synthesizes content for each section
+    # Step 7: Generate final report
+    final_report = generate_final_report(query, themes, model_name)
+    
+    return {
+        "query": query,
+        "filtered_passages": selected_quotes,
+        "themes": themes,
+        "final_report": final_report,
+        "processing_info": {
+            "total_passages": len(passages),
+            "selected_quotes": len(selected_quotes),
+            "themes_generated": len(themes),
+            "papers_used": len(paper_info)
+        }
+    }
 
 

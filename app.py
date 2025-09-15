@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 from online_team.preprocess.query_processeor import decompose_query_with_gemini
 from online_team.rag.keyword_search import KeywordSearch
 from online_team.rag.reranker import PaperReranker
@@ -9,16 +9,30 @@ from sentence_transformers import SentenceTransformer
 from config import CROSS_ENCODER_MODEL, SEMANTIC_MODEL
 from dotenv import load_dotenv
 import os
+from scholarqa.app.qa import process_qa_pipeline
 
 load_dotenv()
 
-app = FastAPI(title="Retriever API")
+app = FastAPI(title="FindPaper QA Engine", version="1.0.0")
 reranker = PaperReranker(CROSS_ENCODER_MODEL)
 model = SentenceTransformer(SEMANTIC_MODEL)
 
 class PaperQuery(BaseModel):
     query: str
     limit: Optional[int] = 5
+
+class RankedPassage(BaseModel):
+    paper_id: str
+    title: str
+    evidence: str
+    cross_score: float
+    final_score: float
+
+class QAQuery(BaseModel):
+    query: str
+    limit: Optional[int] = 50
+    max_themes: Optional[int] = 5
+    model: Optional[str] = None
 
 def convert_filters(gemini_filters: dict) -> dict:
     filters = {}
@@ -128,4 +142,56 @@ def top_papers(payload: PaperQuery):
         "matched_count": len(top_papers),
         "matched_papers": top_papers
     }
+
+@app.post("/qa")
+def qa_endpoint(payload: QAQuery):
+    """
+    Complete QA endpoint that combines finding and QA pipelines.
+    This follows the flow diagram: Finding Paper -> QA pipeline -> Final answer
+    """
+    # Step 1: Use the finding pipeline to get top-ranked passages
+    processed, raw_content, final_results = retrieve_papers(PaperQuery(query=payload.query, limit=payload.limit))
+    
+    # Step 2: Convert results to ranked passages format
+    ranked_passages = []
+    for result in final_results:
+        ranked_passages.append({
+            "paper_id": result["paper_id"],
+            "title": result["title"],
+            "evidence": result["evidence"],
+            "cross_score": result["cross_score"],
+            "final_score": result["final_score"]
+        })
+    
+    # Step 3: Process through QA pipeline
+    qa_result = process_qa_pipeline(
+        query=payload.query,
+        ranked_passages=ranked_passages,
+        model=payload.model,
+        max_themes=payload.max_themes
+    )
+    
+    return {
+        "original_query": payload.query,
+        "rewritten_query": processed.rewritten_query,
+        "keyword_query": processed.keyword_query,
+        "gemini_filters": processed.search_filters,
+        "raw_gemini_output": raw_content,
+        "qa_result": {
+            "query": qa_result["query"],
+            "filtered_passages": qa_result["filtered_passages"],
+            "themes": qa_result["themes"],
+            "final_report": qa_result["final_report"],
+            "processing_info": qa_result["processing_info"]
+        },
+        "finding_info": {
+            "total_passages_found": len(final_results),
+            "passages_used_for_qa": len(ranked_passages)
+        }
+    }
+
+@app.get("/health")
+async def health():
+    """Health check endpoint"""
+    return {"status": "ok", "message": "FindPaper QA Engine is running"}
 

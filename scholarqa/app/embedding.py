@@ -20,7 +20,7 @@ def _load_model() -> SentenceTransformer:
 
 
 def embed_texts(texts: Iterable[str]) -> np.ndarray:
-     """Return embeddings for a batch of texts as a 2D numpy array.
+    """Return embeddings for a batch of texts as a 2D numpy array.
 
     The function lazily loads the global model and ensures thread-safety.
     """

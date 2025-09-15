@@ -13,9 +13,12 @@ from .schemas import (
     GenerateThemesResponse,
     FinalReportRequest,
     FinalReportResponse,
+    QARequest,
+    QAResponse,
+    Theme,
 )
 from .embedding import embed_single
-from .qa import filter_passages, generate_themes, generate_final_report
+from .qa import filter_passages, generate_themes, generate_final_report, process_qa_pipeline
 
 app = FastAPI(title="ScholarQA Backend", version="1.0.0")
 
@@ -65,6 +68,35 @@ async def final_report_endpoint(payload: FinalReportRequest) -> FinalReportRespo
     try:
         report = generate_final_report(payload.query, [t.dict() for t in payload.themes], payload.model)
         return FinalReportResponse(report=report)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/qa-pipeline", response_model=QAResponse)
+async def qa_pipeline_endpoint(payload: QARequest) -> QAResponse:
+    """
+    Complete QA pipeline endpoint that processes ranked passages from the finding module
+    and generates a comprehensive answer following the flow diagram.
+    """
+    try:
+        # Convert RankedPassage objects to dictionaries
+        ranked_passages = [p.dict() for p in payload.ranked_passages]
+        
+        # Process through the complete QA pipeline
+        result = process_qa_pipeline(
+            query=payload.query,
+            ranked_passages=ranked_passages,
+            model=payload.model,
+            max_themes=payload.max_themes
+        )
+        
+        return QAResponse(
+            query=result["query"],
+            filtered_passages=result["filtered_passages"],
+            themes=[Theme(name=t["name"], quotes=t["quotes"]) for t in result["themes"]],
+            final_report=result["final_report"],
+            processing_info=result["processing_info"]
+        )
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
