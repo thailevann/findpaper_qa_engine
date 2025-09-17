@@ -30,7 +30,7 @@ class PassageReranker:
         """
         logger.info(f"Re-ranking {len(passages)} passages")
         
-        if not passages or not embeddings:
+        if not passages or embeddings is None or (hasattr(embeddings, '__len__') and len(embeddings) == 0):
             return passages
         
         # Calculate cosine similarities
@@ -38,8 +38,8 @@ class PassageReranker:
         passage_embeddings = np.array(embeddings[1:])
         
         # Normalize embeddings
-        query_norm = query_embedding / np.clip(norm(query_embedding), 1e-12, None)
-        passage_norms = passage_embeddings / np.clip(norm(passage_embeddings, axis=1, keepdims=True), 1e-12, None)
+        query_norm = query_embedding / np.clip(np.linalg.norm(query_embedding), 1e-12, None)
+        passage_norms = passage_embeddings / np.clip(np.linalg.norm(passage_embeddings, axis=1, keepdims=True), 1e-12, None)
         
         # Calculate similarities
         similarities = np.dot(passage_norms, query_norm)

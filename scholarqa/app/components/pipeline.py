@@ -3,13 +3,13 @@ Main pipeline orchestrator that coordinates all components.
 """
 from typing import List, Dict, Any, Optional
 import logging
-from .components.retriever import PassageRetriever
-from .components.reranker import PassageReranker
-from .components.quote_extractor import QuoteExtractor
-from .components.planner import OutlinePlanner
-from .components.comparison_generator import ComparisonGenerator
-from .components.report_synthesizer import ReportSynthesizer
-from .embedding import embed_texts
+from .retriever import PassageRetriever
+from .reranker import PassageReranker
+from .quote_extractor import QuoteExtractor
+from .planner import OutlinePlanner
+from .comparison_generator import ComparisonGenerator
+from .report_synthesizer import ReportSynthesizer
+from ..embedding import embed_texts
 
 logger = logging.getLogger(__name__)
 
