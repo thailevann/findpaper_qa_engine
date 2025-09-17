@@ -1,6 +1,7 @@
 // API service for FindPaper QA Engine
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000'
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:9000'
 
+// Legacy QA Types (backward compatibility)
 export interface QARequest {
   query: string
   limit?: number
@@ -35,7 +36,101 @@ export interface QAResponse {
   }
 }
 
+// New ScholarQA Types (enhanced structured output)
+export interface ScholarQARequest {
+  query: string
+  limit?: number
+  model?: string
+  retrieval_top_k?: number
+  rerank_top_k?: number
+}
+
+export interface QuoteWithMetadata {
+  quote_text: string
+  paper_id: string
+  title: string
+  score: number
+  similarity_score: number
+  passage_index: number
+  metadata: {
+    cross_score: number
+    final_score: number
+  }
+}
+
+export interface SectionInfo {
+  name: string
+  description: string
+  narrative: string
+  quotes: QuoteWithMetadata[]
+  quote_count: number
+  papers_referenced: string[]
+}
+
+export interface ComparisonTable {
+  section: string
+  headers: string[]
+  rows: Array<{
+    paper_title: string
+    attributes: string[]
+  }>
+  paper_count: number
+  metadata: {
+    papers: string[]
+    generated_at: string
+  }
+}
+
+export interface ProcessingTrace {
+  pipeline_start: boolean
+  query: string
+  input_passages: number
+  retrieved_passages?: number
+  embeddings_generated?: number
+  reranked_passages?: number
+  extracted_quotes?: number
+  outline_generated?: boolean
+  sections_created?: number
+  comparison_tables?: number
+  pipeline_completed?: boolean
+  final_sections?: number
+  final_quotes?: number
+  final_papers?: number
+  error?: string
+  pipeline_failed?: boolean
+}
+
+export interface ReportMetadata {
+  total_sections: number
+  total_quotes: number
+  total_papers: number
+  comparison_tables_count: number
+}
+
+export interface StructuredReport {
+  query: string
+  summary: string
+  sections: SectionInfo[]
+  comparison_tables: ComparisonTable[]
+  processing_trace: ProcessingTrace
+  metadata: ReportMetadata
+}
+
+export interface ScholarQAResponse {
+  original_query: string
+  rewritten_query: string
+  keyword_query: string
+  gemini_filters: Record<string, any>
+  raw_gemini_output: string
+  scholarqa_result: StructuredReport
+  finding_info: {
+    total_passages_found: number
+    passages_used_for_qa: number
+  }
+}
+
 export class FindPaperAPI {
+  // Legacy QA endpoint (backward compatibility)
   static async searchQA(request: QARequest): Promise<QAResponse> {
     const response = await fetch(`${API_BASE_URL}/qa`, {
       method: 'POST',
@@ -53,7 +148,25 @@ export class FindPaperAPI {
     return response.json()
   }
 
-  static async healthCheck(): Promise<{ status: string; message: string }> {
+  // New ScholarQA endpoint (enhanced structured output)
+  static async searchScholarQA(request: ScholarQARequest): Promise<ScholarQAResponse> {
+    const response = await fetch(`${API_BASE_URL}/scholarqa`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(request),
+    })
+
+    if (!response.ok) {
+      const errorText = await response.text()
+      throw new Error(`API Error: ${response.status} - ${errorText}`)
+    }
+
+    return response.json()
+  }
+
+  static async healthCheck(): Promise<{ status: string; message: string; version?: string; features?: string[] }> {
     const response = await fetch(`${API_BASE_URL}/health`)
     
     if (!response.ok) {

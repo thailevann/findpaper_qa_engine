@@ -10,11 +10,11 @@ from sentence_transformers import SentenceTransformer
 from config import CROSS_ENCODER_MODEL, SEMANTIC_MODEL
 from dotenv import load_dotenv
 import os
-from scholarqa.app.qa import process_qa_pipeline
+from scholarqa.app.qa import process_qa_pipeline, process_scholarqa_pipeline
 
 load_dotenv()
 
-app = FastAPI(title="FindPaper QA Engine", version="1.0.0")
+app = FastAPI(title="FindPaper QA Engine", version="2.0.0")
 
 # Add CORS middleware
 app.add_middleware(
@@ -43,6 +43,13 @@ class QAQuery(BaseModel):
     limit: Optional[int] = 50
     max_themes: Optional[int] = 5
     model: Optional[str] = None
+
+class ScholarQAQuery(BaseModel):
+    query: str
+    limit: Optional[int] = 50
+    model: Optional[str] = None
+    retrieval_top_k: Optional[int] = 50
+    rerank_top_k: Optional[int] = 20
 
 def convert_filters(gemini_filters: dict) -> dict:
     filters = {}
@@ -156,7 +163,7 @@ def top_papers(payload: PaperQuery):
 @app.post("/qa")
 def qa_endpoint(payload: QAQuery):
     """
-    Complete QA endpoint that combines finding and QA pipelines.
+    Legacy QA endpoint for backward compatibility.
     This follows the flow diagram: Finding Paper -> QA pipeline -> Final answer
     """
     # Step 1: Use the finding pipeline to get top-ranked passages
@@ -173,7 +180,7 @@ def qa_endpoint(payload: QAQuery):
             "final_score": result["final_score"]
         })
     
-    # Step 3: Process through QA pipeline
+    # Step 3: Process through legacy QA pipeline
     qa_result = process_qa_pipeline(
         query=payload.query,
         ranked_passages=ranked_passages,
@@ -200,8 +207,57 @@ def qa_endpoint(payload: QAQuery):
         }
     }
 
+@app.post("/scholarqa")
+def scholarqa_endpoint(payload: ScholarQAQuery):
+    """
+    New ScholarQA endpoint following AllenAI best practices.
+    
+    Features:
+    - Metadata and citations for each quote (paper_id, title, score)
+    - Planning/clustering step to generate structured outline (Background, Methods, Results, Discussion, Open Questions)
+    - Tabular comparison when multiple papers discuss the same dimension
+    - Detailed processing trace at each step for debugging and reproducibility
+    - Modular components (retriever, reranker, quote extraction, theme generation, report synthesis)
+    - Structured JSON output with sections, quotes (with metadata), optional comparison tables, and narrative report
+    """
+    # Step 1: Use the finding pipeline to get top-ranked passages
+    processed, raw_content, final_results = retrieve_papers(PaperQuery(query=payload.query, limit=payload.limit))
+    
+    # Step 2: Convert results to ranked passages format
+    ranked_passages = []
+    for result in final_results:
+        ranked_passages.append({
+            "paper_id": result["paper_id"],
+            "title": result["title"],
+            "evidence": result["evidence"],
+            "cross_score": result["cross_score"],
+            "final_score": result["final_score"]
+        })
+    
+    # Step 3: Process through new ScholarQA pipeline
+    scholarqa_result = process_scholarqa_pipeline(
+        query=payload.query,
+        ranked_passages=ranked_passages,
+        model=payload.model,
+        retrieval_top_k=payload.retrieval_top_k,
+        rerank_top_k=payload.rerank_top_k
+    )
+    
+    return {
+        "original_query": payload.query,
+        "rewritten_query": processed.rewritten_query,
+        "keyword_query": processed.keyword_query,
+        "gemini_filters": processed.search_filters,
+        "raw_gemini_output": raw_content,
+        "scholarqa_result": scholarqa_result,
+        "finding_info": {
+            "total_passages_found": len(final_results),
+            "passages_used_for_qa": len(ranked_passages)
+        }
+    }
+
 @app.get("/health")
 async def health():
     """Health check endpoint"""
-    return {"status": "ok", "message": "FindPaper QA Engine is running"}
+    return {"status": "ok", "message": "FindPaper QA Engine is running", "version": "2.0.0", "features": ["legacy_qa", "scholarqa_pipeline"]}
 

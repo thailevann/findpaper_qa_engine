@@ -5,7 +5,7 @@
  * Tests the API connection and basic functionality
  */
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000'
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:9000'
 
 async function testHealthCheck() {
   console.log('🔍 Testing health check...')
