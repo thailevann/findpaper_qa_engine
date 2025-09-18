@@ -1,5 +1,5 @@
 // API service for FindPaper QA Engine
-const API_BASE_URL = 'http://host.docker.internal:8000'
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000'
 
 // Legacy QA Types (backward compatibility)
 export interface QARequest {

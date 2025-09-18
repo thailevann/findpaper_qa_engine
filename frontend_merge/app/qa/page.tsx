@@ -20,19 +20,64 @@ export interface QAResult {
   keyword_query: string
   gemini_filters: Record<string, any>
   raw_gemini_output: string
-  qa_result: {
+  scholarqa_result: {
     query: string
-    filtered_passages: string[]
-    themes: Array<{
+    summary: string
+    sections: Array<{
       name: string
-      quotes: string[]
+      description: string
+      narrative: string
+      quotes: Array<{
+        quote_text: string
+        paper_id: string
+        title: string
+        score: number
+        similarity_score: number
+        passage_index: number
+        metadata: {
+          cross_score: number
+          final_score: number
+        }
+      }>
+      quote_count: number
+      papers_referenced: string[]
     }>
-    final_report: string
-    processing_info: {
-      total_passages: number
-      selected_quotes: number
-      themes_generated: number
-      papers_used: number
+    comparison_tables: Array<{
+      section: string
+      headers: string[]
+      rows: Array<{
+        paper_title: string
+        attributes: string[]
+      }>
+      paper_count: number
+      metadata: {
+        papers: string[]
+        generated_at: string
+      }
+    }>
+    processing_trace: {
+      pipeline_start: boolean
+      query: string
+      input_passages: number
+      retrieved_passages?: number
+      embeddings_generated?: number
+      reranked_passages?: number
+      extracted_quotes?: number
+      outline_generated?: boolean
+      sections_created?: number
+      comparison_tables?: number
+      pipeline_completed?: boolean
+      final_sections?: number
+      final_quotes?: number
+      final_papers?: number
+      error?: string
+      pipeline_failed?: boolean
+    }
+    metadata: {
+      total_sections: number
+      total_quotes: number
+      total_papers: number
+      comparison_tables_count: number
     }
   }
   finding_info: {
@@ -67,11 +112,12 @@ export default function HomePage() {
         const mockData = generateMockData(query)
         setResult(mockData)
       } else {
-        const data = await FindPaperAPI.searchQA({
+        const data = await FindPaperAPI.searchScholarQA({
           query,
           limit: options.limit,
-          max_themes: options.maxThemes,
           model: options.model,
+          retrieval_top_k: options.limit,
+          rerank_top_k: Math.min(options.limit, 20)
         })
         setResult(data)
       }

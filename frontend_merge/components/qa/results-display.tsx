@@ -50,12 +50,12 @@ export function ResultsDisplay({ result }: ResultsDisplayProps) {
 
   const downloadAsPDF = () => {
     // Simple text download for now - could be enhanced with proper PDF generation
-    const content = `FindPaper QA Engine Results\n\nQuery: ${result.original_query}\n\nAnswer:\n${result.qa_result.final_report}\n\nThemes:\n${result.qa_result.themes.map((theme) => `- ${theme.name}`).join("\n")}`
+    const content = `FindPaper ScholarQA Engine Results\n\nQuery: ${result.original_query}\n\nSummary:\n${result.scholarqa_result.summary}\n\nSections:\n${result.scholarqa_result.sections.map((section) => `- ${section.name}: ${section.narrative}`).join("\n")}`
     const blob = new Blob([content], { type: "text/plain" })
     const url = URL.createObjectURL(blob)
     const a = document.createElement("a")
     a.href = url
-    a.download = `research-qa-${Date.now()}.txt`
+    a.download = `research-scholarqa-${Date.now()}.txt`
     document.body.appendChild(a)
     a.click()
     document.body.removeChild(a)
@@ -102,20 +102,20 @@ export function ResultsDisplay({ result }: ResultsDisplayProps) {
         </Card>
         <Card>
           <CardContent className="p-4 text-center">
-            <div className="text-2xl font-bold text-primary">{result.qa_result.processing_info.selected_quotes}</div>
-            <div className="text-sm text-muted-foreground">Quotes Selected</div>
+            <div className="text-2xl font-bold text-primary">{result.scholarqa_result.metadata.total_quotes}</div>
+            <div className="text-sm text-muted-foreground">Quotes Extracted</div>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-4 text-center">
-            <div className="text-2xl font-bold text-primary">{result.qa_result.processing_info.themes_generated}</div>
-            <div className="text-sm text-muted-foreground">Themes Generated</div>
+            <div className="text-2xl font-bold text-primary">{result.scholarqa_result.metadata.total_sections}</div>
+            <div className="text-sm text-muted-foreground">Sections Created</div>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-4 text-center">
-            <div className="text-2xl font-bold text-primary">{result.qa_result.processing_info.papers_used}</div>
-            <div className="text-sm text-muted-foreground">Papers Used</div>
+            <div className="text-2xl font-bold text-primary">{result.scholarqa_result.metadata.total_papers}</div>
+            <div className="text-sm text-muted-foreground">Papers Referenced</div>
           </CardContent>
         </Card>
       </div>
@@ -126,10 +126,10 @@ export function ResultsDisplay({ result }: ResultsDisplayProps) {
           <div className="flex items-center justify-between">
             <CardTitle className="flex items-center gap-2">
               <Lightbulb className="h-5 w-5" />
-              Research Answer
+              Research Summary
             </CardTitle>
             <div className="flex gap-2">
-              <Button variant="outline" size="sm" onClick={() => copyToClipboard(result.qa_result.final_report)}>
+              <Button variant="outline" size="sm" onClick={() => copyToClipboard(result.scholarqa_result.summary)}>
                 <Copy className="h-4 w-4 mr-2" />
                 Copy
               </Button>
@@ -142,7 +142,7 @@ export function ResultsDisplay({ result }: ResultsDisplayProps) {
         </CardHeader>
         <CardContent>
           <div className="prose prose-sm max-w-none text-pretty leading-relaxed">
-            {result.qa_result.final_report.split("\n").map((paragraph, index) => (
+            {result.scholarqa_result.summary.split("\n").map((paragraph, index) => (
               <p key={index} className="mb-4 last:mb-0">
                 {paragraph}
               </p>
@@ -151,16 +151,16 @@ export function ResultsDisplay({ result }: ResultsDisplayProps) {
         </CardContent>
       </Card>
 
-      {/* Themes Section */}
+      {/* Sections Section */}
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Hash className="h-5 w-5" />
-            Research Themes ({result.qa_result.themes.length})
+            Research Sections ({result.scholarqa_result.sections.length})
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          {result.qa_result.themes.map((theme, index) => (
+          {result.scholarqa_result.sections.map((section, index) => (
             <div key={index} className="border rounded-lg">
               <Collapsible open={expandedThemes.has(index)} onOpenChange={() => toggleTheme(index)}>
                 <CollapsibleTrigger asChild>
@@ -171,16 +171,27 @@ export function ResultsDisplay({ result }: ResultsDisplayProps) {
                       ) : (
                         <ChevronRight className="h-4 w-4" />
                       )}
-                      <span className="font-medium">{theme.name}</span>
-                      <Badge variant="secondary">{theme.quotes.length} quotes</Badge>
+                      <span className="font-medium">{section.name}</span>
+                      <Badge variant="secondary">{section.quote_count} quotes</Badge>
                     </div>
                   </Button>
                 </CollapsibleTrigger>
                 <CollapsibleContent>
                   <div className="px-4 pb-4 space-y-3">
-                    {theme.quotes.map((quote, quoteIndex) => (
+                    <div className="text-sm text-muted-foreground mb-2">{section.description}</div>
+                    <div className="prose prose-sm max-w-none text-pretty leading-relaxed mb-4">
+                      {section.narrative.split("\n").map((paragraph, pIndex) => (
+                        <p key={pIndex} className="mb-2 last:mb-0">
+                          {paragraph}
+                        </p>
+                      ))}
+                    </div>
+                    {section.quotes.map((quote, quoteIndex) => (
                       <div key={quoteIndex} className="bg-muted/50 p-3 rounded-md">
-                        <p className="text-sm">{quote}</p>
+                        <div className="text-xs text-muted-foreground mb-1">
+                          From: {quote.title} (Score: {quote.score.toFixed(2)})
+                        </div>
+                        <p className="text-sm">{quote.quote_text}</p>
                       </div>
                     ))}
                   </div>
@@ -193,33 +204,38 @@ export function ResultsDisplay({ result }: ResultsDisplayProps) {
 
       {/* Supporting Information */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Selected Quotes */}
-        <Card>
-          <CardHeader>
+        {/* Comparison Tables */}
+        {result.scholarqa_result.comparison_tables.length > 0 && (
+          <Card>
+            <CardHeader>
+              <Collapsible open={showQuotes} onOpenChange={setShowQuotes}>
+                <CollapsibleTrigger asChild>
+                  <Button variant="ghost" className="w-full justify-between p-0 h-auto">
+                    <CardTitle className="flex items-center gap-2">
+                      <FileText className="h-5 w-5" />
+                      Comparison Tables ({result.scholarqa_result.comparison_tables.length})
+                    </CardTitle>
+                    {showQuotes ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
+                  </Button>
+                </CollapsibleTrigger>
+              </Collapsible>
+            </CardHeader>
             <Collapsible open={showQuotes} onOpenChange={setShowQuotes}>
-              <CollapsibleTrigger asChild>
-                <Button variant="ghost" className="w-full justify-between p-0 h-auto">
-                  <CardTitle className="flex items-center gap-2">
-                    <FileText className="h-5 w-5" />
-                    Selected Quotes ({result.qa_result.filtered_passages.length})
-                  </CardTitle>
-                  {showQuotes ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
-                </Button>
-              </CollapsibleTrigger>
+              <CollapsibleContent>
+                <CardContent className="space-y-3 max-h-96 overflow-y-auto">
+                  {result.scholarqa_result.comparison_tables.map((table, index) => (
+                    <div key={index} className="bg-muted/50 p-3 rounded-md">
+                      <div className="text-sm font-medium mb-2">{table.section}</div>
+                      <div className="text-xs text-muted-foreground">
+                        {table.paper_count} papers compared
+                      </div>
+                    </div>
+                  ))}
+                </CardContent>
+              </CollapsibleContent>
             </Collapsible>
-          </CardHeader>
-          <Collapsible open={showQuotes} onOpenChange={setShowQuotes}>
-            <CollapsibleContent>
-              <CardContent className="space-y-3 max-h-96 overflow-y-auto">
-                {result.qa_result.filtered_passages.map((passage, index) => (
-                  <div key={index} className="bg-muted/50 p-3 rounded-md">
-                    <p className="text-sm">{passage}</p>
-                  </div>
-                ))}
-              </CardContent>
-            </CollapsibleContent>
-          </Collapsible>
-        </Card>
+          </Card>
+        )}
 
         {/* Processing Details */}
         <Card>
@@ -249,12 +265,12 @@ export function ResultsDisplay({ result }: ResultsDisplayProps) {
                     <div className="text-muted-foreground">{result.finding_info.passages_used_for_qa}</div>
                   </div>
                   <div>
-                    <span className="font-medium">Total Passages:</span>
-                    <div className="text-muted-foreground">{result.qa_result.processing_info.total_passages}</div>
+                    <span className="font-medium">Sections Created:</span>
+                    <div className="text-muted-foreground">{result.scholarqa_result.metadata.total_sections}</div>
                   </div>
                   <div>
-                    <span className="font-medium">Themes Generated:</span>
-                    <div className="text-muted-foreground">{result.qa_result.processing_info.themes_generated}</div>
+                    <span className="font-medium">Quotes Extracted:</span>
+                    <div className="text-muted-foreground">{result.scholarqa_result.metadata.total_quotes}</div>
                   </div>
                 </div>
                 {Object.keys(result.gemini_filters).length > 0 && (
