@@ -1,0 +1,9 @@
+version: '3.9'
+services:
+  frontend-merge:
+    build: .
+    container_name: frontend-merge
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
