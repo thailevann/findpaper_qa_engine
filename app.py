@@ -13,6 +13,8 @@ import os
 from scholarqa.app.qa import process_qa_pipeline, process_scholarqa_pipeline
 
 load_dotenv()
+reranker = PaperReranker(CROSS_ENCODER_MODEL)
+model = SentenceTransformer(SEMANTIC_MODEL)
 
 app = FastAPI(title="FindPaper QA Engine", version="2.0.0")
 
@@ -24,8 +26,6 @@ app.add_middleware(
     allow_methods=["*"],  # Allows all methods
     allow_headers=["*"],   # Allows all headers
 )
-reranker = PaperReranker(CROSS_ENCODER_MODEL)
-model = SentenceTransformer(SEMANTIC_MODEL)
 
 class PaperQuery(BaseModel):
     query: str
@@ -47,7 +47,7 @@ class QAQuery(BaseModel):
 class ScholarQAQuery(BaseModel):
     query: str
     limit: Optional[int] = 50
-    model: Optional[str] = None
+    model: Optional[str] = None # gpt-3.5-turbo-0125
     retrieval_top_k: Optional[int] = 50
     rerank_top_k: Optional[int] = 20
 
@@ -128,11 +128,11 @@ def top_papers(payload: PaperQuery):
         if pid not in papers_dict:
             papers_dict[pid] = {
                 "paper_id": pid,
-                "title": r["title"],   # <-- thêm title ở đây
+                "title": r["title"],   
                 "chunks": []
             }
         papers_dict[pid]["chunks"].append({
-            "evidence": r["evidence"],  # r["evidence"] = semantic chunk
+            "evidence": r["evidence"],  
             "cross_score": r["cross_score"],
             "final_score": r["final_score"]
         })

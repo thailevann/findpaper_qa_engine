@@ -1,0 +1,9 @@
+version: '3.9'
+services:
+  paper-search-chatbot:
+    build: .
+    container_name: paper-search-chatbot
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
