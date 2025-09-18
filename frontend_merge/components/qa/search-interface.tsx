@@ -59,34 +59,34 @@ export function SearchInterface({ onSearch }: SearchInterfaceProps) {
 
   return (
     <div className="space-y-6">
-      <Card>
-        <CardContent className="p-6">
-          <form onSubmit={handleSubmit} className="space-y-4">
+      <Card className="border-0 shadow-lg bg-card/30">
+        <CardContent className="p-8">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
               <Input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Ask a research question... (e.g., 'What are the latest advances in machine learning?')"
-                className="pl-10 pr-4 py-6 text-lg"
+                className="pl-12 pr-4 py-6 text-lg border-0 bg-background/50 shadow-sm focus:shadow-md transition-shadow"
               />
             </div>
 
             <div className="flex items-center gap-4 flex-wrap">
-              <Button type="submit" disabled={!query.trim()} className="px-8">
-                <Sparkles className="mr-2 h-4 w-4" />
-                Search Papers
+              <Button type="submit" disabled={!query.trim()} className="px-8 py-6 text-lg font-medium shadow-lg hover:shadow-xl transition-shadow">
+                <Sparkles className="mr-2 h-5 w-5" />
+                Analyze Research
               </Button>
 
-              <Button type="button" variant="outline" onClick={handleMockData} className="px-6 bg-transparent">
-                <Zap className="mr-2 h-4 w-4" />
+              <Button type="button" variant="outline" onClick={handleMockData} className="px-6 py-6 text-lg font-medium bg-transparent">
+                <Zap className="mr-2 h-5 w-5" />
                 Try Mock Data
               </Button>
 
               <Collapsible open={showAdvanced} onOpenChange={setShowAdvanced}>
                 <CollapsibleTrigger asChild>
-                  <Button variant="outline" type="button">
-                    <Settings className="mr-2 h-4 w-4" />
+                  <Button variant="outline" type="button" className="px-6 py-6 text-lg font-medium bg-transparent">
+                    <Settings className="mr-2 h-5 w-5" />
                     Advanced Options
                   </Button>
                 </CollapsibleTrigger>
@@ -143,18 +143,17 @@ export function SearchInterface({ onSearch }: SearchInterfaceProps) {
       </Card>
 
       {/* Example Queries */}
-      <div className="space-y-3">
-        <h3 className="text-sm font-medium text-muted-foreground">Try these example queries:</h3>
-        <div className="flex flex-wrap gap-2">
+      <div className="space-y-4">
+        <h3 className="text-lg font-semibold text-foreground">Try these example queries:</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {exampleQueries.map((example, index) => (
             <Button
               key={index}
               variant="outline"
-              size="sm"
               onClick={() => handleExampleClick(example)}
-              className="text-xs"
+              className="text-left justify-start p-4 h-auto bg-transparent hover:bg-primary/5 border-primary/20 hover:border-primary/40 transition-all"
             >
-              {example}
+              <div className="text-sm leading-relaxed">{example}</div>
             </Button>
           ))}
         </div>

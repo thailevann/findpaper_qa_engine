@@ -93,26 +93,26 @@ export default function PaperSearchChatbot() {
       {/* Main Content */}
       <div className={`flex-1 flex flex-col transition-all duration-300 ${sidebarOpen ? "mr-96" : ""}`}>
         {/* Header */}
-        <header className="border-b border-green-200 bg-white/80 backdrop-blur-sm sticky top-0 z-10">
+        <header className="border-b bg-background/80 backdrop-blur-xl sticky top-0 z-10">
           <div className="max-w-4xl mx-auto px-6 py-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-                  <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center">
-                    <Search className="w-4 h-4 text-white" />
+                  <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center shadow-lg">
+                    <Search className="w-4 h-4 text-primary-foreground" />
                   </div>
-                  <h1 className="text-xl font-semibold text-green-800">Paper Search</h1>
+                  <h1 className="text-xl font-semibold text-foreground">Paper Search</h1>
                 </Link>
               </div>
               <div className="flex gap-2">
                 <Link href="/">
-                  <Button variant="outline" size="sm" className="border-green-200 text-green-700 hover:bg-green-50">
+                  <Button variant="outline" size="sm" className="font-medium bg-transparent">
                     <ArrowLeft className="h-4 w-4 mr-2" />
                     Home
                   </Button>
                 </Link>
                 <Link href="/qa">
-                  <Button size="sm" className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white">
+                  <Button size="sm" className="font-medium shadow-lg">
                     <MessageSquare className="h-4 w-4 mr-2" />
                     ScholarQA
                   </Button>
@@ -127,12 +127,12 @@ export default function PaperSearchChatbot() {
           <div className="space-y-6">
             {/* Welcome Message */}
             {!showSteps && !searchResult && (
-              <Card className="border-green-200 bg-gradient-to-br from-green-50 to-emerald-50">
-                <CardContent className="p-6">
-                  <h2 className="text-2xl font-semibold text-green-800 mb-2">Welcome to Paper Search</h2>
-                  <p className="text-green-700 text-balance">
+              <Card className="border-0 shadow-lg bg-card/30">
+                <CardContent className="p-8">
+                  <h2 className="text-3xl font-bold text-foreground mb-4">Welcome to Paper Search</h2>
+                  <p className="text-muted-foreground text-lg text-pretty leading-relaxed">
                     Describe the papers you're looking for and I'll help you find the most relevant research papers with
-                    detailed analysis and evidence.
+                    detailed analysis and evidence using our advanced AI-powered search engine.
                   </p>
                 </CardContent>
               </Card>
@@ -148,7 +148,7 @@ export default function PaperSearchChatbot() {
               <Card>
                 <CardContent className="p-6 space-y-4">
                   <div className="flex items-center gap-2">
-                    <Badge variant="secondary" className="bg-green-100 text-green-800 border-green-200">
+                    <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 font-medium">
                       Search Complete
                     </Badge>
                   </div>
@@ -162,14 +162,14 @@ export default function PaperSearchChatbot() {
                   </div>
                   <div className="space-y-4 pt-2">
                     {searchResult.matched_papers.map((paper) => (
-                      <div key={paper.paper_id} className="border border-green-200 rounded-lg p-4 bg-green-50/50">
-                        <div className="font-semibold text-green-800 mb-2">{paper.title}</div>
-                        <div className="text-sm text-green-700 mb-3">Evidence: {paper.evidence}</div>
+                      <div key={paper.paper_id} className="border rounded-xl p-6 bg-card/50 shadow-sm hover:shadow-md transition-shadow">
+                        <div className="font-semibold text-foreground mb-3 text-lg">{paper.title}</div>
+                        <div className="text-muted-foreground mb-4 leading-relaxed">Evidence: {paper.evidence}</div>
                         <a 
                           href={`https://arxiv.org/pdf/${paper.paper_id}`} 
                           target="_blank" 
                           rel="noopener noreferrer" 
-                          className="text-xs text-green-600 hover:text-green-800 underline hover:no-underline transition-colors"
+                          className="text-sm text-primary hover:text-primary/80 underline hover:no-underline transition-colors font-medium"
                         >
                           View PDF: https://arxiv.org/pdf/{paper.paper_id}
                         </a>
