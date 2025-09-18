@@ -2,14 +2,16 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional, List
-from online_team.preprocess.query_processeor import decompose_query_with_gemini
-from online_team.rag.keyword_search import KeywordSearch
-from online_team.rag.reranker import PaperReranker
-from online_team.rag.semantic_search import SemanticSearch
+from online_team.preprocess.query_processor_enhanced import EnhancedQueryProcessor, QueryProcessorConfig
+from online_team.rag.parallel_search import ParallelSearchPipeline, SearchPipelineConfig
+from online_team.rag.keyword_search import KeywordSearchConfig
+from online_team.rag.semantic_search import SemanticSearchConfig
+from online_team.rag.reranker import RerankerConfig
 from sentence_transformers import SentenceTransformer
 from config import CROSS_ENCODER_MODEL, SEMANTIC_MODEL
 from dotenv import load_dotenv
 import os
+import asyncio
 from scholarqa.app.qa import process_qa_pipeline, process_scholarqa_pipeline
 
 load_dotenv()
@@ -24,7 +26,68 @@ app.add_middleware(
     allow_methods=["*"],  # Allows all methods
     allow_headers=["*"],   # Allows all headers
 )
-reranker = PaperReranker(CROSS_ENCODER_MODEL)
+
+# Initialize optimized pipeline components
+def initialize_pipeline():
+    """Initialize the optimized search pipeline"""
+    # Configuration for balanced performance
+    keyword_config = KeywordSearchConfig(
+        top_k=50,
+        title_boost=5.0,
+        abstract_boost=3.0,
+        multi_match_boost=2.0
+    )
+    
+    semantic_config = SemanticSearchConfig(
+        top_k=50,
+        knn_num_candidates=100,
+        vector_fields=["title_embedding", "abstract_embedding", "chunks.embedding"]
+    )
+    
+    reranker_config = RerankerConfig(
+        top_final=20,
+        alpha=1.0,  # Weight for semantic scores
+        beta=1.0,   # Weight for keyword scores
+        use_crossencoder=True,
+        crossencoder_model=CROSS_ENCODER_MODEL,
+        batch_size=32,
+        use_distil=True  # Use smaller model for faster inference
+    )
+    
+    pipeline_config = SearchPipelineConfig(
+        keyword_config=keyword_config,
+        semantic_config=semantic_config,
+        reranker_config=reranker_config,
+        use_parallel_search=True,
+        use_multi_field_semantic=True,
+        enable_reranking=True,
+        search_timeout=30.0,
+        rerank_timeout=60.0
+    )
+    
+    # Initialize pipeline
+    pipeline = ParallelSearchPipeline(
+        es_url=os.getenv("ES_HOST", "http://localhost:9200"),
+        text_index=os.getenv("ES_INDEX", "papers_text"),
+        vector_index=os.getenv("ES_VECTOR_INDEX", "papers_vectors"),
+        config=pipeline_config
+    )
+    
+    # Initialize query processor with caching
+    query_processor_config = QueryProcessorConfig(
+        enable_caching=True,
+        cache_ttl=3600,  # 1 hour cache
+        enable_fallback=True,
+        gemini_timeout=30.0,
+        use_regex_fallback=True
+    )
+    
+    query_processor = EnhancedQueryProcessor(config=query_processor_config)
+    
+    return pipeline, query_processor
+
+# Initialize components
+pipeline, query_processor = initialize_pipeline()
 model = SentenceTransformer(SEMANTIC_MODEL)
 
 class PaperQuery(BaseModel):
@@ -52,14 +115,48 @@ class ScholarQAQuery(BaseModel):
     rerank_top_k: Optional[int] = 20
 
 def convert_filters(gemini_filters: dict) -> dict:
+    """Convert Gemini filters to Elasticsearch format"""
     filters = {}
     if "year" in gemini_filters:
         start_year, end_year = gemini_filters["year"].split("-")
         filters["update_date"] = f"{start_year}-01-01:{end_year}-12-31"
+    if "venue" in gemini_filters:
+        filters["venue"] = gemini_filters["venue"]
+    if "fieldsOfStudy" in gemini_filters:
+        filters["fieldsOfStudy"] = gemini_filters["fieldsOfStudy"]
     return filters
 
-def retrieve_papers(payload: PaperQuery):
+async def retrieve_papers_optimized(payload: PaperQuery):
+    """
+    Optimized paper retrieval using the new parallel pipeline
+    """
+    # --- Step 1: Process query with caching ---
+    processed, raw_content = query_processor.process_query(payload.query)
+    filters = convert_filters(processed.search_filters)
+
+    # --- Step 2: Generate embeddings ---
+    query_embeddings = [
+        model.encode(payload.query, normalize_embeddings=True).tolist(),
+        model.encode(processed.rewritten_query or payload.query, normalize_embeddings=True).tolist()
+    ]
+
+    # --- Step 3: Run optimized parallel search with reranking ---
+    final_results = await pipeline.search_with_reranking(
+        query_text=processed.rewritten_query or payload.query,
+        query_embeddings=query_embeddings,
+        filters=filters,
+        top_k=payload.limit * 2,  # Get more candidates for better reranking
+        top_final=payload.limit
+    )
+
+    return processed, raw_content, final_results
+
+def retrieve_papers_legacy(payload: PaperQuery):
+    """
+    Legacy paper retrieval for backward compatibility
+    """
     # --- Step 1: Decompose query ---
+    from online_team.preprocess.query_processeor import decompose_query_with_gemini
     processed, raw_content = decompose_query_with_gemini(payload.query)
     filters = convert_filters(processed.search_filters)
 
@@ -71,6 +168,7 @@ def retrieve_papers(payload: PaperQuery):
 
     # --- Step 3: Keyword search ---
     keyword_query_text = processed.keyword_query or processed.rewritten_query or payload.query
+    from online_team.rag.keyword_search import KeywordSearch
     key_search = KeywordSearch()
     key_scores = key_search.search(
         keyword_query_text,
@@ -79,6 +177,7 @@ def retrieve_papers(payload: PaperQuery):
     )
 
     # --- Step 4: Semantic search ---
+    from online_team.rag.semantic_search import SemanticSearch
     sem_search = SemanticSearch()
     sem_scores_all = {}
     for q_emb in query_embeddings:
@@ -91,6 +190,8 @@ def retrieve_papers(payload: PaperQuery):
             sem_scores_all[pid] = max(sem_scores_all.get(pid, 0), s)
 
     # --- Step 5: Rerank ---
+    from online_team.rag.reranker import PaperReranker
+    reranker = PaperReranker(CROSS_ENCODER_MODEL)
     final_results = reranker.rerank(
         query_text=keyword_query_text,
         query_embeddings=query_embeddings,
@@ -105,8 +206,9 @@ def retrieve_papers(payload: PaperQuery):
     return processed, raw_content, final_results
 
 @app.post("/search_passsages")
-def search_papers(payload: PaperQuery):
-    processed, raw_content, final_results = retrieve_papers(payload)
+async def search_papers(payload: PaperQuery):
+    """Optimized search endpoint using parallel pipeline"""
+    processed, raw_content, final_results = await retrieve_papers_optimized(payload)
     return {
         "original_query": payload.query,
         "rewritten_query": processed.rewritten_query,
@@ -114,12 +216,15 @@ def search_papers(payload: PaperQuery):
         "gemini_filters": processed.search_filters,
         "raw_gemini_output": raw_content,
         "matched_count": len(final_results),
-        "matched_papers": final_results
+        "matched_papers": final_results,
+        "pipeline_info": pipeline.get_pipeline_info(),
+        "cache_stats": query_processor.get_cache_stats()
     }
 
 @app.post("/top_papers")
-def top_papers(payload: PaperQuery):
-    processed, raw_content, final_results = retrieve_papers(payload)
+async def top_papers(payload: PaperQuery):
+    """Optimized top papers endpoint using parallel pipeline"""
+    processed, raw_content, final_results = await retrieve_papers_optimized(payload)
 
     # --- Aggregate chunks per paper ---
     papers_dict = {}
@@ -157,17 +262,19 @@ def top_papers(payload: PaperQuery):
         "gemini_filters": processed.search_filters,
         "raw_gemini_output": raw_content,
         "matched_count": len(top_papers),
-        "matched_papers": top_papers
+        "matched_papers": top_papers,
+        "pipeline_info": pipeline.get_pipeline_info(),
+        "cache_stats": query_processor.get_cache_stats()
     }
 
 @app.post("/qa")
-def qa_endpoint(payload: QAQuery):
+async def qa_endpoint(payload: QAQuery):
     """
-    Legacy QA endpoint for backward compatibility.
+    Optimized QA endpoint using parallel pipeline.
     This follows the flow diagram: Finding Paper -> QA pipeline -> Final answer
     """
-    # Step 1: Use the finding pipeline to get top-ranked passages
-    processed, raw_content, final_results = retrieve_papers(PaperQuery(query=payload.query, limit=payload.limit))
+    # Step 1: Use the optimized finding pipeline to get top-ranked passages
+    processed, raw_content, final_results = await retrieve_papers_optimized(PaperQuery(query=payload.query, limit=payload.limit))
     
     # Step 2: Convert results to ranked passages format
     ranked_passages = []
@@ -204,13 +311,15 @@ def qa_endpoint(payload: QAQuery):
         "finding_info": {
             "total_passages_found": len(final_results),
             "passages_used_for_qa": len(ranked_passages)
-        }
+        },
+        "pipeline_info": pipeline.get_pipeline_info(),
+        "cache_stats": query_processor.get_cache_stats()
     }
 
 @app.post("/scholarqa")
-def scholarqa_endpoint(payload: ScholarQAQuery):
+async def scholarqa_endpoint(payload: ScholarQAQuery):
     """
-    New ScholarQA endpoint following AllenAI best practices.
+    Optimized ScholarQA endpoint following AllenAI best practices.
     
     Features:
     - Metadata and citations for each quote (paper_id, title, score)
@@ -220,8 +329,8 @@ def scholarqa_endpoint(payload: ScholarQAQuery):
     - Modular components (retriever, reranker, quote extraction, theme generation, report synthesis)
     - Structured JSON output with sections, quotes (with metadata), optional comparison tables, and narrative report
     """
-    # Step 1: Use the finding pipeline to get top-ranked passages
-    processed, raw_content, final_results = retrieve_papers(PaperQuery(query=payload.query, limit=payload.limit))
+    # Step 1: Use the optimized finding pipeline to get top-ranked passages
+    processed, raw_content, final_results = await retrieve_papers_optimized(PaperQuery(query=payload.query, limit=payload.limit))
     
     # Step 2: Convert results to ranked passages format
     ranked_passages = []
@@ -253,11 +362,69 @@ def scholarqa_endpoint(payload: ScholarQAQuery):
         "finding_info": {
             "total_passages_found": len(final_results),
             "passages_used_for_qa": len(ranked_passages)
-        }
+        },
+        "pipeline_info": pipeline.get_pipeline_info(),
+        "cache_stats": query_processor.get_cache_stats()
     }
 
 @app.get("/health")
 async def health():
     """Health check endpoint"""
-    return {"status": "ok", "message": "FindPaper QA Engine is running", "version": "2.0.0", "features": ["legacy_qa", "scholarqa_pipeline"]}
+    return {
+        "status": "ok", 
+        "message": "FindPaper QA Engine is running", 
+        "version": "2.0.0", 
+        "features": ["optimized_search", "legacy_qa", "scholarqa_pipeline"],
+        "pipeline_info": pipeline.get_pipeline_info(),
+        "cache_stats": query_processor.get_cache_stats()
+    }
+
+@app.get("/pipeline/config")
+async def get_pipeline_config():
+    """Get current pipeline configuration"""
+    return {
+        "pipeline_config": pipeline.get_pipeline_info(),
+        "query_processor_config": query_processor.get_processor_info()
+    }
+
+@app.post("/pipeline/config")
+async def update_pipeline_config(config_update: dict):
+    """Update pipeline configuration (requires restart for some changes)"""
+    # Note: This is a simplified version. Full reconfiguration would require restarting the pipeline
+    return {
+        "message": "Configuration update received. Some changes may require service restart.",
+        "current_config": pipeline.get_pipeline_info(),
+        "update_requested": config_update
+    }
+
+@app.post("/cache/clear")
+async def clear_cache():
+    """Clear query processing cache"""
+    query_processor.clear_cache()
+    return {
+        "message": "Query processing cache cleared",
+        "cache_stats": query_processor.get_cache_stats()
+    }
+
+@app.get("/cache/stats")
+async def get_cache_stats():
+    """Get cache statistics"""
+    return {
+        "cache_stats": query_processor.get_cache_stats()
+    }
+
+@app.post("/search_passsages/legacy")
+def search_papers_legacy(payload: PaperQuery):
+    """Legacy search endpoint for backward compatibility"""
+    processed, raw_content, final_results = retrieve_papers_legacy(payload)
+    return {
+        "original_query": payload.query,
+        "rewritten_query": processed.rewritten_query,
+        "keyword_query": processed.keyword_query,
+        "gemini_filters": processed.search_filters,
+        "raw_gemini_output": raw_content,
+        "matched_count": len(final_results),
+        "matched_papers": final_results,
+        "pipeline_type": "legacy"
+    }
 
