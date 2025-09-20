@@ -40,7 +40,7 @@ class PaperReranker:
                 model_name = "cross-encoder/ms-marco-MiniLM-L-6-v2"
             
             try:
-                self.ce_model = CrossEncoder(model_name)
+                self.ce_model = DistilCrossEncoder(model_name)
                 print(f"Loaded CrossEncoder: {model_name}")
             except Exception as e:
                 print(f"Failed to load CrossEncoder: {e}")
