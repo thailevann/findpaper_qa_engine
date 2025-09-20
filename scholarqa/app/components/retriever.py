@@ -14,25 +14,14 @@ class PassageRetriever:
         self.top_k = top_k
     
     def retrieve_passages(self, query: str, ranked_passages: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-        """
-        Retrieve top-k passages from ranked passages.
-        
-        Args:
-            query: User query
-            ranked_passages: List of ranked passages with metadata
-            
-        Returns:
-            List of retrieved passages with metadata
-        """
         logger.info(f"Retrieving top {self.top_k} passages from {len(ranked_passages)} ranked passages")
         
-        # Sort by final_score and take top_k
-        sorted_passages = sorted(ranked_passages, key=lambda x: x.get('final_score', 0), reverse=True)
-        retrieved = sorted_passages[:self.top_k]
+        # Use heapq.nlargest for faster top-k selection
+        import heapq
+        retrieved = heapq.nlargest(self.top_k, ranked_passages, key=lambda x: x.get('final_score', 0))
         
         logger.info(f"Retrieved {len(retrieved)} passages")
         
-        # Log processing trace
         trace_info = {
             "step": "passage_retrieval",
             "query": query,
@@ -43,3 +32,4 @@ class PassageRetriever:
         logger.info(f"Retrieval trace: {trace_info}")
         
         return retrieved
+

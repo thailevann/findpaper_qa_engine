@@ -106,8 +106,8 @@ pipeline = ParallelSearchPipeline(config=config)
 #### For Maximum Quality:
 ```python
 config = SearchPipelineConfig(
-    keyword_config=KeywordSearchConfig(top_k=100),
-    semantic_config=SemanticSearchConfig(top_k=100),
+    keyword_config=KeywordSearchConfig(top_k=50),
+    semantic_config=SemanticSearchConfig(top_k=50),
     reranker_config=RerankerConfig(
         use_crossencoder=True,
         crossencoder_model="cross-encoder/ms-marco-MiniLM-L-12-v2",

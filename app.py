@@ -40,7 +40,7 @@ def initialize_pipeline():
     
     semantic_config = SemanticSearchConfig(
         top_k=50,
-        knn_num_candidates=100,
+        knn_num_candidates=50,
         vector_fields=["title_embedding", "abstract_embedding", "chunks.embedding"]
     )
     

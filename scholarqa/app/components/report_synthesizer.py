@@ -6,6 +6,7 @@ import logging
 import os
 import json
 from dotenv import load_dotenv
+from concurrent.futures import ThreadPoolExecutor
 
 try:
     from openai import OpenAI
@@ -33,35 +34,31 @@ class ReportSynthesizer:
             raise RuntimeError("OPENAI_API_KEY is not set in environment.")
         return OpenAI(api_key=api_key)
     
+
     def synthesize_report(self, query: str, clustered_quotes: Dict[str, Any], 
-                         comparison_tables: List[Dict[str, Any]], 
-                         processing_trace: Dict[str, Any]) -> Dict[str, Any]:
-        """
-        Synthesize the final structured report.
-        
-        Args:
-            query: User query
-            clustered_quotes: Dictionary of clustered quotes by section
-            comparison_tables: List of comparison tables
-            processing_trace: Processing trace information
-            
-        Returns:
-            Structured report with sections, quotes, tables, and narrative
-        """
+                        comparison_tables: List[Dict[str, Any]], 
+                        processing_trace: Dict[str, Any]) -> Dict[str, Any]:
         logger.info("Synthesizing final report")
-        
-        # Generate narrative for each section
-        section_narratives = {}
-        for section_name, section_data in clustered_quotes.items():
+
+        # Function to process a single section
+        def process_section(section_name, section_data):
             quotes = section_data.get("quotes", [])
+            narrative = ""
             if quotes:
                 narrative = self._generate_section_narrative(query, section_name, quotes)
+            return section_name, narrative
+
+        # Process all sections in parallel
+        section_narratives = {}
+        with ThreadPoolExecutor(max_workers=4) as executor:
+            results = executor.map(lambda item: process_section(*item), clustered_quotes.items())
+            for section_name, narrative in results:
                 section_narratives[section_name] = narrative
-        
-        # Generate overall summary
+
+        # Generate overall summary (can be heavy too, maybe optimize later)
         overall_summary = self._generate_overall_summary(query, section_narratives, comparison_tables)
-        
-        # Create structured report
+
+        # Build structured report
         structured_report = {
             "query": query,
             "summary": overall_summary,
@@ -79,12 +76,11 @@ class ReportSynthesizer:
                 "comparison_tables_count": len(comparison_tables)
             }
         }
-        
-        # Add sections with quotes and narratives
+
+        # Add sections
         for section_name, section_data in clustered_quotes.items():
             quotes = section_data.get("quotes", [])
             narrative = section_narratives.get(section_name, "")
-            
             section_info = {
                 "name": section_name,
                 "description": section_data.get("description", ""),
@@ -94,9 +90,9 @@ class ReportSynthesizer:
                 "papers_referenced": list(set(quote["paper_id"] for quote in quotes))
             }
             structured_report["sections"].append(section_info)
-        
+
         logger.info(f"Synthesized report with {len(structured_report['sections'])} sections")
-        
+
         # Log processing trace
         trace_info = {
             "step": "report_synthesis",
@@ -106,8 +102,9 @@ class ReportSynthesizer:
             "total_quotes": structured_report["metadata"]["total_quotes"]
         }
         logger.info(f"Report synthesis trace: {trace_info}")
-        
+
         return structured_report
+
     
     def _generate_section_narrative(self, query: str, section_name: str, 
                                    quotes: List[Dict[str, Any]]) -> str:

@@ -49,59 +49,31 @@ class PaperReranker:
                 self.config.use_crossencoder = False
 
     def find_best_chunk_mean(
-        self, 
-        pid: str, 
-        query_embeddings: List[List[float]], 
-        vector_index_name: str
+        self,
+        chunks: List[dict],
+        query_embeddings: List[List[float]]
     ) -> Tuple[Optional[str], float]:
         """
-        Find the best chunk for a paper based on semantic similarity
-        
-        Args:
-            pid: Paper ID
-            query_embeddings: List of query embeddings
-            vector_index_name: Name of the vector index
-            
-        Returns:
-            Tuple of (best_chunk_text, best_score)
+        Compute best chunk using vectorized numpy (no ES calls)
         """
-        try:
-            vec_doc = self.es_text.get(index=vector_index_name, id=pid)["_source"]
-        except:
+        if not chunks or not query_embeddings:
             return None, 0.0
 
-        chunks_vec = vec_doc.get("chunks", [])
-        if not chunks_vec:
+        chunks_emb = np.array([c['embedding'] for c in chunks if c.get('embedding')], dtype=np.float32)
+        if len(chunks_emb) == 0:
             return None, 0.0
 
-        best_score = -1
-        best_chunk_id = None
-        
-        for chunk in chunks_vec:
-            emb = chunk.get("embedding")
-            if not emb:
-                continue
-                
-            emb = np.array(emb, dtype=np.float32)
-            scores = []
-            
-            for qvec in query_embeddings:
-                qvec = np.array(qvec, dtype=np.float32)
-                # Cosine similarity
-                score = np.dot(qvec, emb) / (np.linalg.norm(qvec) * np.linalg.norm(emb) + 1e-8)
-                scores.append(score)
-            
-            mean_score = np.mean(scores)
-            if mean_score > best_score:
-                best_score = mean_score
-                best_chunk_id = chunk.get("chunk_id")
+        query_embs = np.array(query_embeddings, dtype=np.float32)
+        # cosine similarity: (num_chunks, num_queries)
+        cos_sim = (chunks_emb @ query_embs.T) / (
+            np.linalg.norm(chunks_emb, axis=1)[:, None] * np.linalg.norm(query_embs, axis=1)[None, :] + 1e-8
+        )
+        mean_scores = cos_sim.mean(axis=1)
+        best_idx = int(np.argmax(mean_scores))
+        best_chunk = chunks[best_idx]['text']
+        best_score = float(mean_scores[best_idx])
+        return best_chunk, best_score
 
-        # Find the best chunk text
-        for chunk in chunks_vec:
-            if chunk.get("chunk_id") == best_chunk_id:
-                return chunk.get("text"), best_score
-
-        return None, best_score
 
     def _normalize_scores(self, scores: Dict[str, float]) -> Dict[str, float]:
         """Normalize scores to [0, 1] range"""
@@ -196,23 +168,19 @@ class PaperReranker:
         ranked = sorted(final_scores.items(), key=lambda x: x[1], reverse=True)
         
         # Take top candidates for reranking
-        top_candidates = ranked[:top_final * 2]  # Get more candidates for better reranking
+        top_candidates = ranked[:top_final * 2]  # extra for rerank
         
+        # Fetch _source in one batch from Elasticsearch
+        res = self.es_text.mget(index=self.index_name, ids=[pid for pid, _ in top_candidates])
+        top_candidates_hits = [doc["_source"] for doc in res["docs"]]
+
         results = []
-        for pid, score in top_candidates:
-            try:
-                doc_text = self.es_text.get(index=self.index_name, id=pid)["_source"]
-                title = doc_text.get("title", "")
-                abstract = doc_text.get("abstract", "")
-            except:
-                title, abstract = "", ""
-
-            # Get best chunk as evidence
-            best_chunk, sem_score = self.find_best_chunk_mean(
-                pid, query_embeddings, vector_index_name
-            )
+        for (pid, score), hit in zip(top_candidates, top_candidates_hits):
+            chunks = hit.get("chunks", [])
+            title = hit.get("title", "")
+            abstract = hit.get("abstract", "")
+            best_chunk, sem_score = self.find_best_chunk_mean(chunks, query_embeddings)
             evidence = best_chunk or abstract
-
             results.append({
                 "paper_id": pid,
                 "title": title,

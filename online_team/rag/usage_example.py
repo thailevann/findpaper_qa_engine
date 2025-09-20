@@ -24,7 +24,7 @@ async def main():
     
     semantic_config = SemanticSearchConfig(
         top_k=50,
-        knn_num_candidates=100,
+        knn_num_candidates=50,
         vector_fields=["title_embedding", "abstract_embedding", "chunks.embedding"]
     )
     
@@ -141,8 +141,8 @@ def example_custom_configuration():
     
     # High-quality configuration
     high_quality_config = SearchPipelineConfig(
-        keyword_config=KeywordSearchConfig(top_k=100),
-        semantic_config=SemanticSearchConfig(top_k=100, knn_num_candidates=200),
+        keyword_config=KeywordSearchConfig(top_k=50),
+        semantic_config=SemanticSearchConfig(top_k=50, knn_num_candidates=200),
         reranker_config=RerankerConfig(
             top_final=50,
             use_crossencoder=True,
