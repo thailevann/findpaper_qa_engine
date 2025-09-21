@@ -17,7 +17,6 @@ const searchSteps = [
   "Attempting to fetch query",
   "Searching for papers",
   "Running keyword and semantic searches",
-  "Following citations that were mentioned in relevant passages",
   "Reranking candidate documents",
   "Assessing relevance of retrieved papers",
   "Found relevant papers",
@@ -34,35 +33,46 @@ export function SearchSteps({ isSearching, query, onComplete }: SearchStepsProps
   useEffect(() => {
     if (!isSearching) return
 
-    const stepDelays = searchSteps.map((_, index) => {
-      if (index === 2 || index === 3 || index === 5 || index === 8 ) return 1500 // tăng thời gian cho step 3 và 4
-      return 500 // bước còn lại giữ nguyên
-    })
+    // reset state mỗi lần search mới
+    setCurrentStep(0)
+    setCompletedSteps([])
+    setAllStepsCompleted(false)
 
+    const stepDelays = searchSteps.map((_, index) => (index === 4 ? 500 : 300))
     let stepIndex = 0
+    let timeoutId: ReturnType<typeof setTimeout>
 
     const nextStep = () => {
-      setCompletedSteps((completed) => [...completed, stepIndex])
-      stepIndex += 1
+      // đánh dấu step trước completed
+      if (stepIndex > 0) {
+        setCompletedSteps((completed) => [...completed, stepIndex - 1])
+      }
+
+      // nếu còn step thì chuyển currentStep
       if (stepIndex < searchSteps.length) {
         setCurrentStep(stepIndex)
-        setTimeout(nextStep, stepDelays[stepIndex])
+        timeoutId = setTimeout(() => {
+          stepIndex += 1
+          nextStep()
+        }, stepDelays[stepIndex])
       } else {
+        // hoàn tất toàn bộ steps
+        setCompletedSteps((completed) => [...completed, searchSteps.length - 1])
         setAllStepsCompleted(true)
       }
     }
 
-    setCurrentStep(0)
-    setTimeout(nextStep, stepDelays[0])
+    // bắt đầu chạy
+    nextStep()
 
-    return () => {}
+    return () => clearTimeout(timeoutId)
   }, [isSearching])
 
-
-  // When isSearching becomes false, complete the process
+  // Khi isSearching trở về false, gọi onComplete
   useEffect(() => {
     if (!isSearching && allStepsCompleted) {
-      setTimeout(onComplete, 500)
+      const timer = setTimeout(onComplete, 100)
+      return () => clearTimeout(timer)
     }
   }, [isSearching, allStepsCompleted, onComplete])
 
@@ -104,38 +114,48 @@ export function SearchSteps({ isSearching, query, onComplete }: SearchStepsProps
           </Button>
         </div>
 
-        {!isCollapsed && (
-          <div className="space-y-2">
-            {searchSteps.map((step, index) => (
-              <div
-                key={index}
-                className={`flex items-center gap-3 p-2 rounded-lg transition-all duration-200 ${
-                  completedSteps.includes(index)
-                    ? "bg-accent/10 text-foreground"
-                    : index === currentStep
-                      ? "bg-accent/5 text-foreground"
-                      : "text-muted-foreground"
-                }`}
-              >
-                <div className="w-4 h-4 flex items-center justify-center">
-                  {completedSteps.includes(index) ? (
-                    <CheckCircle className="w-3 h-3 text-accent" />
-                  ) : index === currentStep ? (
-                    <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-                  ) : (
-                    <div className="w-2 h-2 bg-muted rounded-full" />
-                  )}
-                </div>
-                <span className="text-sm">{step}</span>
+      {!isCollapsed && (
+        <div className="space-y-2">
+          {searchSteps.map((step, index) => (
+            <div
+              key={index}
+              className={`flex items-center gap-3 p-2 rounded-lg transition-all duration-200 ${
+                completedSteps.includes(index)
+                  ? "bg-accent/10 text-foreground"
+                  : index === currentStep
+                  ? "bg-accent/5 text-foreground"
+                  : "text-muted-foreground"
+              }`}
+            >
+              {/* Icon bên trái */}
+              <div className="w-4 h-4 flex items-center justify-center">
+                {completedSteps.includes(index) ? (
+                  <CheckCircle className="w-3 h-3 text-accent" />
+                ) : index === currentStep ? (
+                  <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
+                ) : (
+                  <div className="w-2 h-2 bg-muted rounded-full" />
+                )}
+              </div>
+
+              {/* Nội dung step */}
+              <span className="text-sm">{step}</span>
+
+              {/* Slot cố định cho badge */}
+              <div className="ml-auto min-w-[7rem] flex justify-end">
                 {index === currentStep && isSearching && (
-                  <Badge variant="secondary" className="ml-auto text-xs">
-                    {allStepsCompleted && index === searchSteps.length - 1 ? "Waiting for results..." : "Processing..."}
+                  <Badge variant="secondary" className="text-xs">
+                    {allStepsCompleted && index === searchSteps.length - 1
+                      ? "Waiting for results..."
+                      : "Processing..."}
                   </Badge>
                 )}
               </div>
-            ))}
-          </div>
-        )}
+            </div>
+          ))}
+        </div>
+      )}
+
       </CardContent>
     </Card>
   )
