@@ -1,0 +1,28 @@
+﻿Question
+How do different fairness metrics correlate with each other across various datasets and model architectures?
+
+
+Most Important
+* __
+        Supporting quote 1
+*  __
+        Supporting quote 2
+*  __
+        Supporting quote 3
+*  __
+        Supporting quote 4
+*  __
+        Supporting quote 5
+ ...
+Nice to have
+* __
+        Supporting quote 1
+*  __
+        Supporting quote 2
+*  __
+        Supporting quote 3
+*  __
+        Supporting quote 4
+*  __
+        Supporting quote 5
+ ...

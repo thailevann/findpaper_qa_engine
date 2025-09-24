@@ -1,0 +1,79 @@
+﻿Question
+How effective are language models at automatically generating textual descriptions of scientific concepts?
+
+
+Most Important
+* Near the beginning, the answer should mention that LLMs have been largely used in scientific contexts for generating text due to their success in other domains.
+Supporting quotes
+“Recent advancements in large language models (LLMs) have demonstrated an impressive capability in storing and recalling world knowledge, continuously expanding the boundaries of artificial intelligence. Their exceptional performance has permeated diverse specialized domains, including the scientific domain, leading to the emergence of scientific LLMs, such as Galactica [33], SciGLM [42], and ChemLLM [43].”
+https://arxiv.org/pdf/2406.09098
+“Our findings reveal a steady increase in LLM usage, with the largest and fastest growth observed in Computer Science papers (up to 17.5%). In comparison, Mathematics papers and the Nature portfolio showed the least LLM modification (up to 6.3%). Moreover, at an aggregate level, our analysis reveals that higher levels of LLM-modification are associated with papers whose first authors post preprints more frequently, papers in more crowded research areas, and papers of shorter lengths. Our findings suggests that LLMs are being broadly used in scientific writings.”
+https://arxiv.org/pdf/2404.01268
+“Language models have shown significant promise in automatically generating textual descriptions of scientific concepts, but their effectiveness varies depending on the specific task and domain. Here's an overview of their capabilities and limitations:
+## Capabilities
+**Scientific text generation**: Large language models (LLMs) have demonstrated the ability to generate plausible scientific text across various domains. For example:
+- In gene set summarization, LLMs can generate biologically valid summary term lists for input gene sets[10].
+- LLMs can be used to automatically generate programming exercises and code explanations for educational purposes[8].
+- In the field of urban renewal, fine-tuned LLMs have shown improved performance in knowledge question-answering tasks[15].
+**Hypothesis generation**: One of the most intriguing applications of LLMs in science is their potential for hypothesis formation:
+
+
+- A study using GPT-4 to generate hypotheses for breast cancer treatment discovered several drug combinations with positive synergy scores, demonstrating the model's ability to propose novel scientific ideas[11].
+**Knowledge summarization**: LLMs can effectively summarize scientific knowledge from various sources:
+- The TALISMAN approach uses generative AI to perform gene set function summarization, complementing standard enrichment analysis methods[10].
+- LLMs can generate detailed image descriptions and even create websites from hand-drawn drafts, showcasing their multi-modal capabilities in scientific contexts[9].”
+
+
+* The answer should mention the name of datasets which are usually used for evaluating the performance of LLMs in the scientific domain and discuss their properties and limitations.
+        Supporting quotes
+“While several existing LLM benchmarks [22, 45, 7] have incorporated scientific questions into their evaluations, and some benchmarks [31, 36, 4, 37, 24, 13] are specifically tailored for the scientific domain, we argue that the current benchmarks do not fully evaluate the potential of LLMs in scientific research due to their inherent limitations. Firstly, many existing benchmarks, such as AGIEval [45], SciQ [37], and ScienceQA [24], include science questions only up to the high school level, failing to tap into the deeper capability of LLMs”
+https://arxiv.org/pdf/2406.09098
+“Recent scientific domain benchmarks like ChemLLMBench [13], SciBench [36], and SciAssess [4], despite involving more specialized scientific tasks, lack a comprehensive evaluation system, resulting in a limited understanding of capabilities. Lastly, most benchmarks overlook the assessment of safety issues in scientific research, even those attempting a multi-dimensional comprehensive evaluation such as SciEval [31].”
+https://arxiv.org/pdf/2406.09098
+“SciKnowEval defines five progressive levels, aimed at deeply reflecting the breadth and depth of LLMs’ scientific knowledge. It focuses on biology and chemistry as two representative domains, encompassing 50K multi-level problems and solutions.”
+https://arxiv.org/pdf/2406.09098
+“Inspecting existing LLM benchmarks [12, 13, 14] in science field through three-level ability assessment framework, we find that they mostly focus on Memorization (L1) – the foundational knowledge base for scientific facts – while overlooking the higher-level abilities of Comprehension (L2) and Analysis & Reasoning (L3).”
+https://arxiv.org/pdf/2403.01976
+
+
+* The answer should discuss important metrics for evaluating the performance of LLM on generative scientific questions.
+Supporting quotes
+“For generative questions, we adopted different evaluation methods tailored to the characteristics of each task. For the molecule generation task, we utilize an assessment based on the average of Exact Match and Fingerprint-based Tanimoto Similarity [41]. For molecule captioning, 6 protein captioning, protein design, and single cell analysis, we calculated the average scores using BLEU [29] and ROUGE [23] metrics. For other relatively flexible generative tasks, we designed meticulous prompts for GPT-4 to evaluate the responses of LLMs”
+https://arxiv.org/pdf/2406.09098
+
+
+*  The answer should discuss the result of case studies on evaluating the performance of LLM on scientific datasets.
+        Supporting quotes
+“Proprietary LLMs, such as the GPT-4 series, Gemini1.5-Pro, and Claude3- Sonnet, have demonstrated superior performance in both biology and chemistry domains, securing their highest overall rankings. Notably, GPT-4o has shown the most outstanding performance across most proficiency levels, highlighting its exceptional capability and adaptability in the scientific domains. Open-source general-purpose LLMs, including Llama3-8B-Inst and the Qwen1.5 series, have exhibited robustness across a wide range of tasks, indicating their potential for scientific research applications. While open-source scientific LLMs generally performed moderately, they have displayed strengths surpassing proprietary LLMs in certain specific tasks.”
+https://arxiv.org/pdf/2406.09098
+“Overall, GPT-4o consistently ranks high across all ability levels, particularly excelling in memorization tasks. GPT-4 and Claude3 also demonstrate strong overall performance, especially in comprehension and reasoning. GPT-3.5, despite being an earlier model, shows limitations compared to its successors. Command R + , while competitive in some areas, generally underperforms compared to other models. Based on these observations, we suggest the following recommendations: (1) For tasks heavily reliant on memorization, GPT-4o and Qwen2 are recommended due to their high accuracy and ranking; (2) For comprehension tasks, particularly those involving complex data extraction and generation, GPT-4o is ideal choices. (3) For analysis and reasoning tasks, Claude3 and GPT-4 provide reliable performance and should be considered.”
+https://arxiv.org/pdf/2403.01976
+
+
+* The answer should discuss some of the limitations of LLMs in scientific domains.
+Supporting quotes
+“TLDR: Despite their impressive capabilities, language models face significant challenges in scientific domains. These include difficulties with specialized knowledge, abstract reasoning, and providing comprehensive information beyond given prompts.
+- Language models, while proficient in generating human-like text for general applications, often struggle with specialized scientific topics, particularly in fields like mathematics and chemistry  (130, Fauber, 2024).
+- In biomedical applications, scientific language models (SLMs) can process texts containing both human language and chemical structures. However, they perform poorly in zero-shot activity prediction tasks, indicating limitations in their ability to generalize scientific knowledge  (55, Seidl et al., 2023).
+- Large language models (LLMs) tend to generate texts that overly focus on given prompts, often failing to provide sufficient background and detailed information compared to human-generated content. This "over-concentrated information" problem limits their ability to produce comprehensive scientific descriptions  (112, Zhao et al., 2023).
+- Current LLMs face challenges in comprehending and utilizing abstraction knowledge, especially in zero-shot and few-shot settings. While training on rich abstraction knowledge can improve their performance, generalization to unseen events remains a significant hurdle  (79, Fang et al., 2023).
+- In the biomedical domain, even the best-performing models struggle to produce acceptable explanations of biomedical mechanisms, succeeding in only 32% of instances. This highlights the difficulty LLMs face in understanding and explaining complex scientific concepts  (36, Balasubramanian et al., 2022).”
+
+
+* The answer should discuss existing concerns regarding the use of LLMs in scientific contexts.
+        Supporting quotes
+“Measuring the extent of LLM-use on scientific publishing has urgent applications. Concerns about accuracy, plagiarism, anonymity, and ownership have prompted some prominent scientific institutions to take a stance on the use of LLM-modified content in academic publications. The International Conference on Machine Learning (ICML) 2023, a major machine learning conference, has prohibited the inclusion of text generated by LLMs like ChatGPT in submitted papers, unless the generated text is used as part of the paper’s experimental analysis (ICML, 2023). Similarly, the journal Science has announced an update to their editorial policies, specifying that text, figures, images, or graphics generated by ChatGPT or any other LLM tools cannot be used in published works (Thorp, 2023). Taking steps to measure the extent of LLM-use can offer a first-step in identifying risks to the scientific publishing ecosystem.”
+https://arxiv.org/pdf/2404.01268
+
+
+Nice to have
+* The answer should discuss the applications of LLMs in scientific domain.
+Supporting quotes
+“Despite LLMs not yet fully replacing scientific researchers in generating creative discoveries, they have demonstrated substantial potential in enhancing researchers’ efficiency in scientific literature analysis [9]. Specific applications such as automatic literature summarization and knowledge extraction have seen practical deployments, significantly boosting researchers’ productivity and expanding the range of literature that can be effectively utilized [10]”
+https://arxiv.org/pdf/2403.01976
+“Applications in Scientific Writing
+TLDR: Language models are increasingly being applied to various aspects of scientific writing, from literature reviews to hypothesis generation. These tools show promise in automating and enhancing multiple stages of the scientific writing process, though their outputs still require human oversight.
+- Language models can assist in automating various aspects of scientific writing, including generating text for research papers, abstracts, and literature reviews  (131, Olshevska et al., 2024).
+- LLMs demonstrate capabilities in summarizing research literature, completing literature review tasks, and even creating full literature review articles. They also show potential in peer review processes, with their evaluations often aligning with those of human experts  (132, Research et al., 2024).
+- These models can be used to automatically evaluate the quality of generated texts, potentially streamlining the review process for scientific writing  (137, Tian et al., 2024).
+- LLMs have the potential to contribute significantly to scientific hypothesis generation by interpreting and exploiting current knowledge in a given scientific domain, effectively digesting relevant literature  (78, Abrahao et al., 2023).”

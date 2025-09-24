@@ -1,0 +1,47 @@
+﻿Question
+What are some tasks where fine tuning smaller models is beneficial over using LLMs?
+
+
+Most Important
+*  The answer should begin with limitations of the fine-tuning of LLMs.
+        Supporting quotes
+“However, fine-tuning LLMs on large-scale recommendation data demands substantial computational resources and time costs [26], thereby diminishing the practicality of LLM-based recommender models in real-world applications.”
+https://dl.acm.org/doi/pdf/10.1145/3626772.3657807 
+“Despite its efficiency, randomly sampled data may lack sufficient representativeness to enable LLMs to effectively comprehend new items and user behaviour.”
+https://dl.acm.org/doi/pdf/10.1145/3626772.3657807 
+* The answer should provide the tasks where fine tuning smaller models is beneficial over using LLMs.
+        Supporting quotes
+“Light, local, fine-tuned models should be considered rather than LLMs, especially for those who are sensitive to the cost or have strict latency requirements. ParameterEfficient tuning can be a viable option for model deployment and delivery.”
+https://dl.acm.org/doi/pdf/10.1145/3649506 
+“ The zero-shot approach of LLMs prohibits the learning of shortcuts from task-specific datasets, which is prevalent in fine-tuned models. Nevertheless, LLMs still demonstrate a degree of shortcut learning issues.”
+https://dl.acm.org/doi/pdf/10.1145/3649506 
+“a novel data pruning method incorporating two scores, namely influence score and effort score, to efficiently identify the influential samples. Particularly, the influence score is introduced to accurately estimate the influence of removing each sample on the overall performance. To achieve low costs of the data pruning process, we employ a small-sized surrogate model to replace LLMs to obtain the influence score.”
+https://dl.acm.org/doi/pdf/10.1145/3626772.3657807 
+“To achieve high efficiency, one possible solution is to train a surrogate model for sample selection, e.g., using a small-sized traditional recommender model, which can drastically reduce the GPU memory usage and the training time compared to LLMs.”
+https://dl.acm.org/doi/pdf/10.1145/3626772.3657807 
+“To reduce the costs, we propose utilizing a surrogate model, e.g., a small-sized traditional recommender model, to compute the influence scores. Nevertheless, since LLMs acquire rich world knowledge during the pre-training stage, they intricately possess different learning abilities compared to the surrogate model. Therefore, the influential samples on LLMs might deviate from the ones for LLMs.”
+https://dl.acm.org/doi/pdf/10.1145/3626772.3657807 
+“If the group size is smaller than the average sampling budget, we select all users from this group and update the average sampling budget for the remaining groups.”
+https://dl.acm.org/doi/pdf/10.1145/3626772.3657807 
+“Fine-tuned smaller models often outperform larger language models on specific, well-defined tasks when sufficient training data is available. These tasks range from basic language understanding to more complex reasoning and information extraction tasks.”
+“Specifically for sentiment analysis, fine-tuned models have demonstrated better performance on datasets like SST-2.”
+“ Smaller models fine-tuned with techniques like distilling step-by-step have outperformed larger language models on tasks such as ANLI (Adversarial Natural Language Inference), using over 700 times fewer parameters.”
+“Additionally, adapter-based PEFT approaches have enabled smaller models to surpass GPT-3.5 on simpler arithmetic reasoning tasks like MultiArith, AddSub, and SingleEq.”
+“Fine-tuned smaller models have shown notable advantages in Named Entity Recognition (NER) and Relation Extraction (RE) tasks, especially when domain-specific training data is available.”
+“For more complex tasks like text infilling, fine-tuned models, even with significantly fewer parameters, have tended to outperform few-shot learning with larger models.”
+“When sufficient in-domain data is available, fine-tuning smaller domain-specific models has proven to be particularly effective, especially for structure prediction tasks like NER.”
+“Fine-tuned smaller models have shown benefits in tasks involving counterfactual data generation, particularly for sentiment analysis, where they achieved significant performance improvements.”
+“Smaller language models that are fine-tuned on instructions, trained on dialog data, and/or trained on multiple dialog tasks outperform larger language models.”
+“Specialized smaller models can operate on low-cost, in-house computing infrastructure, offering advantages in speed and reduced training costs that outweigh any performance gains from large foundation LLMs.”
+Nice to have
+* __
+        Supporting quote 1
+*  __
+        Supporting quote 2
+*  __
+        Supporting quote 3
+*  __
+        Supporting quote 4
+*  __
+        Supporting quote 5
+ ...

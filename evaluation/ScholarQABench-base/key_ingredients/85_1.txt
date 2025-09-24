@@ -1,0 +1,77 @@
+﻿Question
+How can I use an hybridization of ontology and machine learning for text summarization ?
+
+
+Most Important
+* Near the beginning, the answer should briefly define ontology.         
+Supporting quotes
+“Ontology is defined as a formal and explicit specification of a shared conceptualization. Generally, ontologies are defined for particular domains. Since information extraction is essentially concerned with the task of retrieving information for a particular domain, formally and explicitly specifying the concepts of that domain through an ontology can be helpful to this process. Ontology together with a set of individual instances of classes constitutes a knowledge base [3]”
+A Study on Ontology Based Abstractive Summarization - ScienceDirect
+“### What is an Ontology?
+An ontology in the context of computer science and information science is a formal representation of a set of concepts within a domain and the relationships between those concepts. It typically includes:
+- **Classes**: Categories of objects or concepts.
+- **Properties**: Characteristics or attributes of the classes.
+- **Relationships**: How classes and properties relate to one another.
+Ontologies are used to encode domain knowledge so that it can be utilized by computational systems to improve understanding and processing of information.”
+
+
+* The answer should briefly explain the motivation behind the use of ontology for text summarization.
+Supporting quotes
+“Ontology has been used in different domains for providing metadata of concepts and their relationships. This metadata can be used for ensuring interoperability among different systems, modeling contextual information, inferencing, reasoning and efficient searching of contents and resources.”
+A Study on Ontology Based Abstractive Summarization - ScienceDirect
+“2.1. Reasons for developing Ontology x Sharing common understanding of the structure of information among people or software agents is one of the goals in developing ontologies. For example, suppose several different Web sites contain medical information or provide medical e-commerce services. If these Web sites share and publish the same underlying ontology of the terms they all use, then computer agents can extract and aggregate information from these different sites. The agents can use this aggregated information to answer user queries or as input data to other applications”
+A Study on Ontology Based Abstractive Summarization - ScienceDirect
+“### Role of Ontologies in Text Summarization
+Ontologies can be used in text summarization to:
+- **Semantic Understanding**: Enhance the semantic understanding of the text by providing domain-specific knowledge.
+- **Relevance Filtering**: Filter out non-relevant information and ensure that the summary contains the most pertinent facts.
+- **Disambiguation**: Help in disambiguating terms that might have multiple meanings by using context provided by the ontology.”
+
+
+* The answer should highlight the difficulty of building an ontology and discuss that in addition to human experts, ML and LLMs can be used to build ontologies automatically.
+Supporting quotes
+“Creating a topic-oriented ontology (TOO) can pose a significant challenge for researchers and may require a substantial amount of time to accomplish. Despite the difculties involved in creating a TOO, researchers are still actively seeking solutions for developing it, given its potential applicability to a wide range of areas, particularly for topic-driven research.”
+https://link.springer.com/article/10.1007/s41870-023-01575-2
+“Similar to the rule-based method, this method is also time-consuming. Okumura et al. [248] proposed a Wordnet ontology in his research work. In other work, Mohan et al. [249] proposed some methods for evaluating ontology, such as; ontometric, ontoclean and evalexon. A suitable ontology preparation is a very time-consuming process and cannot be generalized to other domains.”
+https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9623462
+“At first, our approach for constructing the TOO revolved around utilizing the SVM technique to classify the members or instances of the ontology into various groups [3]. However, we found that this approach was not optimal due to the complex computations involved and the extensive eforts required to prepare the training dataset. As a solution to these issues, we turned to the tools of natural language processing to construct the TOO.”
+https://link.springer.com/article/10.1007/s41870-023-01575-2
+“The conventional process of building Ontologies and Knowledge Graphs (KGs) heavily relies on human domain experts to define entities and relationship types, establish hierarchies, maintain relevance to the domain, fill the ABox (or populate with instances), and ensure data quality (including amongst others accuracy and completeness). On the other hand, Large Language Models (LLMs) have recently gained popularity for their ability to understand and generate human-like natural language, offering promising ways to automate aspects of this process. This work explores the (semi-)automatic construction of KGs facilitated by open-source LLMs.”
+
+
+https://arxiv.org/abs/2403.08345
+
+
+* The answer should list potential ways ontology can be integrated with ML for text summarization. Also, it should mention that the way ontology can be used together with ML for summarization should be similar to the way it is used for other information retrieval tasks.
+Supporting quotes
+“### Approaches for Integration
+1. **Pre-processing with Ontology**: Enhancing the input text before feeding it into the machine learning model.
+- **Named Entity Recognition (NER)**: Ontology can help in identifying and tagging important entities in the text, which are then emphasized in the summarization process.
+- **Semantic Expansion**: Using ontological relationships to expand and enrich the text with relevant information.
+2. **Feature Engineering**: Using ontological knowledge to create features that improve the machine learning model’s understanding of the text.
+- **Custom Features**: Extract features based on the properties and relationships defined in the ontology.
+- **Semantic Similarity**: Calculate similarity metrics using ontological terms to aid in clustering and summarization.
+3. **Post-processing**: Refining the machine learning output using ontology.
+- **Summary Enhancement**: Ensure that the generated summary aligns with ontological rules and enhances readability.
+ - **Contextual Relevance**: Adjust the summary content to ensure that it remains relevant and accurate within the domain context specified by the ontology.”
+“Use an IE process guided by an ontology: we believe that ‘guide’ is a suitable word to describe the interaction between the ontology and the IE process in an OBIE system. In all OBIE systems,the IE process is guided by the ontology to extract things such as classes, properties and instances.This means that no new IE method is invented but an existing one is oriented to identify the components of an ontology.”
+https://journals.sagepub.com/doi/epdf/10.1177/0165551509360123
+
+
+* The answer should mention that in one case study for news summarization, text summarization based on ML has been assisted by ontology for information extraction. 
+        Supporting quotes
+“The search engine collects all domain information from web document to the information extractor extracts all the information from those documents and submits it to the ontology. From the ontology all domain related documents are clustered separately with the related domain names. The information extractor again extracts all needed information from the ontology clusters and passes it to the multi document summarizer.” 
+https://link.springer.com/article/10.1007/s41870-019-00367-x
+“The summarizes all the important relevant information from multiple documents without any redundant data and stores it into the database. From the database according to user query the query extractor extracts the data and submits it to the user. The user will give the query in the search engine. The query extractor extracts the given query and hits the database to search and fetch relevant data’s for the given query. Once the data’s are fetched from the database the query extractor passes those query to the report generator. The report generator generates report from the extracted data and produces only relevant abstract documents and posts it to the user.”
+        https://link.springer.com/article/10.1007/s41870-019-00367-x
+
+
+Nice to have
+* The answer should mention some of the ML models used for text summarization.
+Supporting quotes
+“## Machine Learning in Text Summarization
+### Supervised and Unsupervised Learning
+- **Supervised Learning**: Involves training summarization models on a labeled dataset, where the input text and corresponding summarized output are provided. Popular algorithms include sequence-to-sequence models with attention mechanisms, such as BERT, GPT, and T5.  
+- **Unsupervised Learning**: Techniques that do not rely on labeled datasets. Methods like extractive summarization using clustering algorithms or latent semantic analysis fall into this category. 
+### Sequence-to-Sequence (Seq2Seq) Models
+Seq2Seq models are a type of neural network particularly effective for text generation tasks, including summarization. They consist of two main parts: an encoder that processes the input text and a decoder that generates the summary.”

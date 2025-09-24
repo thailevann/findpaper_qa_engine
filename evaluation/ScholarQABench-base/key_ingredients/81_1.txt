@@ -1,0 +1,71 @@
+﻿Question
+What are leading approaches for evaluating complex scientific question answering systems in NLP?
+
+
+Most Important
+* Near the beginning, the answer should provide a brief definition of complex scientific question answering systems.
+        Supporting quotes
+“To address the limitations of current technology, researchers have begun to explore techniques for answering more complex questions such as the following: • Who is Aaron Copland? • How have South American drug cartels been using banks in Liechtenstein to launder money? • What was the Pentagon panel’s position with respect to the dispute over the US Navy training range on the island of Vieques? The first is an example of a so-called “definition” question, where the goal is to generate a profile of a person, entity, or event that integrates information from multiple sources within a given text collection. The second is an example of a “relationship” question, focused on the ties (economic, familial, etc.) between different entities. The last is an example of a so-called “opinion” question, which might involve sentiment detection and analysis of language use.”
+https://cs.uwaterloo.ca/~jimmylin/publications/Lin_Demner-Fushman_IR2006.pdf
+“Natural Language Processing (NLP) for scientific question answering (QA) is a challenging task that requires specialized approaches for effective evaluation. These systems must comprehend and reason over intricate and domain-specific content, often requiring more sophisticated evaluation metrics and methodologies than general QA systems. Below are the leading approaches for evaluating such systems.”
+
+
+*  The answer should list some of the benchmark datasets for evaluating complex scientific question answering systems in NLP.
+        Supporting quotes
+“The evaluation of complex scientific question answering systems relies heavily on diverse benchmark datasets. These datasets serve as standardized measures to assess the performance and capabilities of QA models across various domains and task types. Here is a list of notable benchmark datasets:
+1. Traditional QA Benchmarks:
+   - Natural Questions
+   - TriviaQA
+   - WebQuestions
+   - SearchQA
+   These datasets have been widely used but are now considered largely solved by modern large language models  (104, Chau et al., 2024).
+2. Comprehensive Science QA Benchmarks:
+   - ScienceQA
+   - C-EVAL
+   - AGIEVAL
+   - MMMU
+   - SciBench
+   These more recent benchmarks provide a broader scope of assessment for scientific QA tasks  (105, Zhou et al., 2024).”
+
+
+*  The answer should list important performance metrics for evaluating question answering systems.
+        Supporting quotes
+“The evaluation of complex scientific question answering (QA) systems in natural language processing (NLP) employs a variety of metrics and methods, each with its own strengths and limitations. Traditional evaluation approaches often rely on lexical matching techniques, such as exact match (EM) and F1 scores  (1, Hashimoto et al., 2019)  (86, Jiang et al., 2023). These metrics, along with top-n-accuracy, have been widely used due to their simplicity and ease of implementation  (57, Risch et al., 2021). However, as QA tasks become more complex and require more nuanced responses, the limitations of these traditional metrics have become apparent. Researchers have noted that simple lexical matching can be easily gamed and may not accurately reflect the quality of generated answers  (53, Krishna et al., 2021). This has led to a growing interest in more sophisticated evaluation approaches.”
+“Overall, these scores can be broadly classified into two categories, see Figure 8: (i) Human Centric Evaluation Score (HCES) (ii) Automatic Evaluation Score (AES)”
+https://arxiv.org/pdf/2209.12617
+“HCES is considered the best evaluation that gives the most trustworthy score. Typically, HCES relies on a group of people (e.g. experts or specialists) to evaluate the output of a QA system based on certain guidelines and criteria, e.g., regarding adequacy, fluency, and coherence of a text. However, it is also prone to human errors caused by subjectivity and bias in opinion. Frequently, a 5-point Springer Nature 2021 LATEX template 26 Article Title Likert-scale [164] or numerical ranking criteria is used as a measurement tool for HCES evaluations [165]. Conceptually, HCES can be further classified into two sub-categories: Absolute evaluation and relative evaluation.”
+https://arxiv.org/pdf/2209.12617
+“Unlike HCES, the AES are cheaper evaluation techniques (e.g., do not require domain experts as the HCES do) and found to be more practical when dealing with a large task that may involve some dynamic behavior [171]. Importantly, such scores are usually correlated well with human judgments [162]. AES can be further sub-categorized into: context-based and context-free evaluation”
+https://arxiv.org/pdf/2209.12617
+“Both context-free and context-based AES scores can be further subcategorized into: (i) Untrained Automatic Evaluation Score (UAES) (ii) Machine-Trained Evaluation Score (MTES)”
+https://arxiv.org/pdf/2209.12617
+“A UAES does not require any pre-training because such scores do not depend on pre-defined parameters. The lack of parameters makes UAES easy to use, so it becomes very popular. Such category can be further sub-categorized based on the operation level among the text units, which can be: • Character-based • Word-based • Embeddings-based”
+https://arxiv.org/pdf/2209.12617
+“In contrast to UAES, a MTES contains adjustable components, i.e., parameters, which are specifically estimated for a given task via a learnable model. That means an MTES is a parametric model which needs to be trained based on data. MTES can be classified into two sub-categories: (i) Composite measures (ii) Holistic measures”
+        https://arxiv.org/pdf/2209.12617
+
+
+* The answer should discuss some of the proposed automatic evaluation methods using Machine-Trained Evaluation Scores proposed in the literature. 
+Supporting quotes
+“Composite measures: This category of error scores combines features using a parametric model whereas the features can correspond to any score in the categories S-UAES or A-UAES, e.g, precision, recall, or BLEU. Typically, a large number of such heuristic scores are used. For combining those features either simple parametric models are used, e.g., linear regression (see BEER [184] or BLEND [185]), or complex models based on neural networks (see [186]).”
+https://arxiv.org/pdf/2209.12617
+“Holistic measures: This category of error scores utilizes end-to-end models based on neural networks, e.g., transformers, to perform the evaluation. The end-to-end models can be directly applied to statistical or contextualized features that exist within the response or reference to compute the scores. Such models may use different strategies to perform the evaluation process: (i) referenced scores, which compare the generated response with a provided gold answer, by learning an alignment score between context and response to approximate human judgments [170], (ii) hybrid referenced-unreferenced evaluation score [187], where the score is trained without needs for human responses by smoothing the negative samples directly from the dataset, or (iii) unreferenced scores (i.e., learned in an unsupervised manner) that uses large pre-trained language models to extract latent representations of text units (i.e., utterances or words), and take advantage of the time shifts that exist between them [188]. The MTES based on end-to-end models include a wide range of error scores such as BertScore[183], RUSE [189], RUBER [187], BLEURT [190], ADEM [170], MaUde [188].”
+https://arxiv.org/pdf/2209.12617
+“AVA uses Transformer-based language models to encode question, answer, and reference texts. This allows for effectively assessing answer correctness using similarity between the reference and an automatic answer, biased towards the question semantics.”
+https://assets.amazon.science/0d/0d/2220da924ca1ba72f8fb8e4e8f97/ava-an-automatic-evaluation-approach-for-question-answering-systems.pdf
+* The answer should discuss some other methodologies for evaluating QS systems such as adversarial testing, cross-domain evaluation, and logical consistency.
+Supporting quotes  
+“### Adversarial Testing
+Adversarial examples can be used to test the robustness of scientific QA systems. This involves presenting the system with tricky, ambiguous, or intentionally misleading questions to evaluate its resilience and accuracy in less-than-ideal scenarios.”
+“### Cross-Domain Evaluation
+Evaluating the system's performance across different scientific domains can provide insights into its generalizability. A robust scientific QA system should maintain high performance when subjected to diverse topics and types of scientific literature.”
+“### Explanation Quality: Given the importance of explanation in scientific reasoning, evaluating how well a QA system can justify its answers is crucial. This can be assessed through:**Rationales and Justifications**: Evaluating the quality and relevance of the explanations provided by the system for its answers.**Chain-of-Thought Analysis**: Examining the system’s reasoning process, which can provide insights into its understanding and inference capabilities [4].”
+“### Causality and Logical Consistency
+For scientific questions often requiring causal relationships and logical consistency, specific evaluation criteria include:**Causal Inference**: How well the system can extract and reason about causal relationships within the text [5].**Consistency Checks**: Assessing whether the system's responses are logically consistent with known scientific knowledge and principles.”
+
+
+Nice to have
+* The answer should discuss some general guidelines for assessing the response to complex problems.
+Supporting quotes
+“By viewing complex questions as requests for collections of facts that address a particular information need, it becomes possible to characterize the properties of a “good” answer. From this basic idea, one can develop the desiderata for an evaluation metric: • Answers that contain more relevant facts are preferred over answers that contain fewer relevant facts. • Shorter answers are preferred over longer answers containing the same number of facts. Verbosity should be punished. • Some facts are more important than others, and this should be reflected accordingly.”
+https://cs.uwaterloo.ca/~jimmylin/publications/Lin_Demner-Fushman_IR2006.pdf
