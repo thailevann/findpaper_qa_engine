@@ -1,0 +1,28 @@
+﻿Question
+What are advantages and disadvantages of top methods for picking the right number of topics in topic modeling?
+
+
+Most Important
+* __
+        Supporting quote 1
+*  __
+        Supporting quote 2
+*  __
+        Supporting quote 3
+*  __
+        Supporting quote 4
+*  __
+        Supporting quote 5
+ ...
+Nice to have
+* __
+        Supporting quote 1
+*  __
+        Supporting quote 2
+*  __
+        Supporting quote 3
+*  __
+        Supporting quote 4
+*  __
+        Supporting quote 5
+ ...

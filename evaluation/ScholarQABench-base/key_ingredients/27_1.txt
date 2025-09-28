@@ -1,0 +1,86 @@
+﻿Question
+What datasets and methods are used to pre-train models on table specific tasks?
+
+
+Most Important
+* Near the beginning, the answer should briefly define table-specific tasks and their significance in pre-training models.
+Supporting quotes
+“Table is one of such structured data types with many applications such as Table-based Question Answering (TQA) (Chen et al., 2020b; Iyyer et al., 2017), Table-based Fact Verification (TFV) (Chen et al., 2020a; Xie et al., 2022), Table-to-Text (Wang et al., 2021) and Column Type & Relation Classification (Iida et al., 2021; Deng et al., 2020). The adoption of structured data has significantly contributed to the advancement of information retrieval and knowledge extraction in web mining and content analysis (Engelmann et al., 2023; Trabelsi et al., 2022).”
+Table Meets LLM: Can Large Language Models Understand Structured Table Data? A Benchmark and Empirical Study (arxiv.org)
+“Pre-training models on table-specific tasks involves leveraging large datasets and advanced methods to train models that can perform well on various natural language processing (NLP) tasks. This section will discuss the datasets and methods used for pre-training models on table-specific tasks.”
+“Introduction to Table-Specific Pre-training
+Table-specific pre-training involves developing models that can understand and process tabular data effectively. This is crucial for various applications, including data analysis, information retrieval, and question-answering systems based on tabular information.”
+
+
+* The answer should mention key datasets used for pre-training models on table-specific tasks, such as WikiTables, TabFact, and PubTabNet
+Supporting quotes
+“WIKITABLETEXT [3] is an open domain dataset containing 13,318 interpreted statements for 4962 tables. Therefore, a table representation method is needed to better express the contents of the table and reflect its characteristics.”
+Generating Natural Language Descriptions From Tables | IEEE Journals & Magazine | IEEE Xplore
+“WikiSQL [22] is a collection of 80,654 hand-crafted question-SQL pairs along with 24,241 HTML tables collected from Wikipedia. The tables are collected from [78], and the small tables that have less than five columns or five rows are filtered. WDC WebTables [79] is a large-scale table collection, which contains over 233 million tables and has been extracted from the July 2015 version of the CommonCrawl. Those tables are classified as either relational (90 million), entity (139 million), or matrix (3 million). WikiTables [80]”
+arxiv.org/pdf/2208.13629
+“In the WikiTableQuestions dataset, each question comes with a table from Wikipedia. Given the question and the table, the task is to answer the question based on the table. The dataset contains 2108 tables from a large variety of topics (more breadth) and 22033 questions with different complexity (more depth). Tables in the test set do not appear in the training set, so a system must be able to generalize to unseen tables.”
+WikiTableQuestions: a Complex Real-World Question Understanding Dataset - The Stanford Natural Language Processing Group
+“The PubTabNet dataset contains 509k tables delivered as annotated PNG images. The annotations consist of the table structure represented in HTML format, the tokenized text and its bounding boxes per table”
+openaccess.thecvf.com/content/CVPR2022/papers/Nassar_TableFormer_Table_Structure_Understanding_With_Transformers_CVPR_2022_paper.pdf
+“The TABFACT dataset (Chen et al., 2020) for example, uses tables as the premise, or source of information to resolve whether a statement is entailed or refuted.”
+arxiv.org/pdf/2104.01099
+“However, existing studies are mainly restricted to dealing with unstructured evidence (e.g., natural language sentences and documents, news, etc), while verification under structured evidence, such as tables, graphs, and databases, remains under-explored. This paper specifically aims to study the fact verification given semi-structured data as evidence. To this end, we construct a large-scale dataset called TabFact with 16k Wikipedia tables as the evidence for 118k human-annotated natural language statements, which are labeled as either ENTAILED or REFUTED.”
+arxiv.org/pdf/1909.02164
+“Several large-scale datasets are used for pre-training models on table-specific tasks. These datasets include:
+1. **BERT (Bidirectional Encoder Representations from Transformers)**: Trained on a large dataset of unannotated text, BERT is a state-of-the-art language representation model developed by Google.
+2. **GPT-2 (Generative Pretrained Transformer 2)**: Trained on a massive English corpus in a self-supervised manner, GPT-2 is a transformer-based model developed by OpenAI.
+3. **ELMo (Embeddings from Language Models)**: Trained on a large dataset of text, ELMo is a deep contextualized word representation model that can be fine-tuned for specific tasks.
+4. **RoBERTa (Robustly Optimized BERT Pretraining Approach)**: Trained on a large dataset of text, RoBERTa is a variant of BERT that uses a different approach to pre-training.”
+“2.1 WikiTables
+WikiTables is a large-scale dataset extracted from Wikipedia tables. It contains millions of tables with diverse content and structure.
+Citation: Bhagavatula, C., Noraset, T., & Downey, D. (2015). TabEL: Entity Linking in Web Tables. In Proceedings of the 14th International Semantic Web Conference.
+2.2 TableBank
+TableBank is a large-scale image-based table detection and recognition dataset with fine-grained annotations.
+Citation: Li, M., Cui, L., Huang, S., Wei, F., Zhou, M., & Li, Z. (2020). TableBank: Table Benchmark for Image-based Table Detection and Recognition. In Proceedings of the 12th Language Resources and Evaluation Conference.
+2.3 WebTables
+WebTables is a large corpus of relational HTML tables extracted from the Web.
+Citation: Cafarella, M. J., Halevy, A., Wang, D. Z., Wu, E., & Zhang, Y. (2008). WebTables: Exploring the Power of Tables on the Web. Proceedings of the VLDB Endowment, 1(1), 538-549.
+2.4 TabFact
+TabFact is a large-scale dataset with 118K manually annotated statements with corresponding tables for table-based fact verification.
+Citation: Chen, W., Wang, H., Chen, J., Zhang, Y., Wang, H., Li, S., ... & Wang, W. Y. (2020). TabFact: A Large-scale Dataset for Table-based Fact Verification. In International Conference on Learning Representations.”
+
+
+* The answer should describe popular methods used for pre-training models on table-specific tasks, such as transfer learning from language models, table-specific transformers, and hybrid models.
+Supporting quotes
+“the initial phase, illustrated in the left section of the figure, involves pretraining the LLM through a Mask-Then-Predict task, aiming to assimilate unstructured knowledge from tables. The subsequent phase, depicted in the right section, engages in tailored multi-task training for downstream applications, encompassing both classification and regression tasks.”
+arxiv.org/pdf/2403.20208
+“To conduct pretraining, we employ the Mask-Then-Predict objective, which mirrors the established Masked Language Model (MLM) approach in NLP, aiming to improve the model’s contextual understanding and its grasp of relationships within table-related data.”
+arxiv.org/pdf/2403.20208
+“Adaptation of Transformers
+To account for structured tables in the input, several pre-trained transformer-based LM and systems have been developed. Vanilla LMs are customized to make the model more “data structure-aware”, thus rendering a modified transformer-based encoder to be utilized on other tasks.”
+Transformers for Tabular Data Representation: A Survey of Models and Applications | Transactions of the Association for Computational Linguistics | MIT Press
+“We introduce two intermediate pre-training tasks, which are learned from a trained MASK- LM model, one based on synthetic and the other from counterfactual statements. The first one generates a sentence by sampling from a set of logical expressions that filter, combine and compare the information on the table, which is required in table entailment (e.g., knowing that Gerald Ford is taller than the average president requires summing all presidents and dividing by the number of presidents). The second one corrupts sentences about tables appearing on Wikipedia by swapping entities for plausible alternatives.”
+arxiv.org/pdf/2010.00571
+“Impact of Pretraining Objectives TABERT uses two objectives (§ 3.2), a masked column prediction (MCP) and a cell value recovery (CVR) objective, to learn column representations that could capture both the general information of the column (via MCP) and its representative cell values related to the utterance (via CVR).”
+arxiv.org/pdf/2005.08314
+“The methods used for pre-training models on table-specific tasks include:
+1. **Fine-tuning**: Fine-tuning involves adjusting the pre-trained model's parameters to fit a specific task. This is done by adding task-specific layers on top of the pre-trained model and training the entire model on the task-specific dataset.
+2. **Embeddings**: Embeddings involve using the pre-trained model to generate vector representations of text data. These embeddings can then be used for various NLP tasks such as semantic search.
+3. **Self-Supervised Learning**: Self-supervised learning involves training the model on a large dataset without explicit labels. This is done by using techniques such as masked language modeling, where some words in the input text are randomly replaced with a special token, and the model is trained to predict the original word.”
+“3.1 TAPAS (Table Parser)
+TAPAS is a method that extends BERT to encode tables as input. It uses relative position embeddings and numerical value embeddings to represent tabular structures.
+Citation: Herzig, J., Nowak, P. K., Müller, T., Piccinno, F., & Eisenschlos, J. M. (2020). TaPas: Weakly Supervised Table Parsing via Pre-training. In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics.
+3.2 TaBERT
+TaBERT is a pre-trained model for joint understanding of textual and tabular data. It learns representations for tables and associated natural language utterances.
+Citation: Yin, P., Neubig, G., Yih, W. T., & Riedel, S. (2020). TaBERT: Pretraining for Joint Understanding of Textual and Tabular Data. In Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics.
+3.3 TUTA (Table Understanding with Tree-based Attention)
+TUTA is a tree-based model that captures the hierarchical structure of tables using a tree-based encoder with table-aware attention mechanisms.
+Citation: Wang, Z., Wo, T., Huang, H., & Xu, B. (2020). TUTA: Tree-based Transformers for Generally Structured Table Pre-training. In Proceedings of the 26th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining.
+3.4 TableGPT
+TableGPT is a generative pre-training approach for table understanding and generation tasks. It uses a transformer-based architecture to model tables as sequences.
+Citation: Gong, H., Bhat, S., Wu, L., Xiong, J., & Hwu, W. M. (2020). TableGPT: Few-shot Table-to-Text Generation with Table Structure Reconstruction and Content Matching. In Proceedings of the 28th International Conference on Computational Linguistics.”
+
+
+Nice to have
+* The answer should mention some applications of pre-trained models on table-specific tasks.
+Supporting quotes
+“Pre-trained models on table-specific tasks have various applications, including:
+1. **Language Translation**: Pre-trained models can be fine-tuned for language translation tasks, enabling automatic translation of text or speech.
+2. **Sentiment Analysis**: Pre-trained models can be fine-tuned for sentiment analysis tasks, enabling automated analysis of text or speech to discern sentiment.
+3. **Text Summarization**: Pre-trained models can be fine-tuned for text summarization tasks, enabling automatic summarization of long documents or articles.
+4. **Chatbot Development**: Pre-trained models can be fine-tuned for chatbot development, enabling chatbots to understand and respond to human language.”

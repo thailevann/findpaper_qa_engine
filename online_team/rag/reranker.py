@@ -7,8 +7,6 @@ from dataclasses import dataclass
 from config import CROSS_ENCODER_MODEL
 import asyncio
 
-logger = logging.getLogger(__name__)
-logging.basicConfig(level=logging.INFO)
 
 @dataclass
 class RerankerConfig:

@@ -1,0 +1,42 @@
+﻿Question
+How does in-context learning for LLMs differ from traditional machine learning model training?
+
+
+Most Important
+* Near the beginning, the answer should briefly define in-context learning and traditional machine learning training.
+        Supporting quotes
+“With the increasing scale of these LLMs, in-context learning (ICL) has emerged as a striking property of LLMs [5, 6]. Unlike learning methods that require updating model parameters, in-context learning allows for good model performance with a prompt that only includes natural language instructions and/or a few demonstration examples”
+In-context Vectors: Making In Context Learning More Effective and Controllable Through Latent Space Steering (arxiv.org)
+“Brown et al. (2020) have shown that Large Language Models (LLMs) (Radford et al., 2019; Chowdhery et al., 2022; Hoffmann et al., 2022; Zhang et al., 2022a) can perform so-called in-context learning (ICL) of supervised tasks. In contrast to standard in-weights learning, e.g. gradient-based finetuning of model parameters, ICL requires no parameter updates. Instead, examples of the input– label relationship of the downstream task are simply prepended to the query for which the LLM predicts. This is sometimes also referred to as few-shot ICL to differentiate from other ICL variants that do not use example demonstrations (Liu et al., 2023). Few-shot ICL is widely used, e.g. in all LLM publications cited above, to improve predictions across a variety of established NLP tasks, such as sentiment or document classification, question answering, or natural language inference.”
+2307.12375 (arxiv.org)
+“Transformer-based [ 41] pre-trained large language models (LLMs) have demonstrated significant advancements in a variety of natural language processing (NLP) tasks. As the size of these LLMs increases, they gain “in-context learning” capabilities, whereby the models achieve state-of-the-art (SOTA) or near-SOTA performance by conditioning on a small number of demonstration examples at inference time, without any need for updating model parameters [4 ].”
+proceedings.neurips.cc/paper_files/paper/2023/file/3255a7554605a88800f4e120b3a929e1-Paper-Conference.pdf
+
+
+* The answer should highlight that in-context learning requires significantly less data compared to traditional machine learning.
+Supporting quotes
+“In-context learning (ICL)  (Brown et al., 2020) is an emerging learning paradigm that allows LLMs to perform tasks with few-shot examples, without requiring any updates to the model parameters. This approach stands in stark contrast to traditional machine learning, where models are typically trained on large datasets of labeled examples  (Devlin et al., 2019). In-context learning offers a significant advantage in domains where labeled data is scarce or expensive to obtain, as it greatly reduces the amount of required labeled data.”
+Learning to Retrieve In-Context Examples for Large Language Models (arxiv.org)
+
+
+* The answer should emphasize that in-context learning does not involve updating the model's parameters compared to traditional machine learning models
+Supporting quotes
+“As the size of these LLMs increases, they gain “in-context learning” capabilities, whereby the models achieve state-of-the-art (SOTA) or near-SOTA performance by conditioning on a small number of demonstration examples at inference time, without any need for updating model parameters [4].”
+proceedings.neurips.cc/paper_files/paper/2023/file/3255a7554605a88800f4e120b3a929e1-Paper-Conference.pdf
+“In-context learning is a surprising and important phenomenon that emerged when modern language models were scaled to billions of learned parameters. Without modifying a large language model’s weights, it can be tuned to perform various downstream natural language tasks simply by including concatenated training examples of these tasks in its input.”
+proceedings.neurips.cc/paper_files/paper/2023/file/73950f0eb4ac0925dc71ba2406893320-Paper-Conference.pdf
+
+
+* The answer should mention task adaptation, and model size dependence features of ICLs compared to traditional machine learning models
+Supporting quotes
+“3. Task adaptation: LLMs can quickly adapt to novel tasks by conditioning on a prompt containing relevant task examples  (41, Singh et al., 2023)  (79, Cachola et al., 2023).
+4. Emergent behavior: ICL is considered an emergent property of LLMs, arising from their pretraining on vast amounts of data, though the exact mechanisms are not fully understood  (23, Wang et al., 2023).
+5. Model size dependence: The effectiveness of ICL tends to improve with larger model sizes and more extensive training data  (94, Tang et al., 2024).”
+
+
+Nice to have
+* The answer should include some applications of ICLs
+Supporting quotes
+“### **Applications**
+1. **Natural Language Processing**: In-context learning excels in various natural language processing tasks, such as sentiment analysis, text classification, machine translation, question-answering systems, text summarization, content generation, conversational AI, and knowledge extraction.
+2. **Real-World Scenarios**: Its ability to operate without extensive training data and parameter updates makes it suitable for real-world applications where data is limited or diverse.”

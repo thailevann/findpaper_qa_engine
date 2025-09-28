@@ -1,0 +1,28 @@
+﻿Question
+Have large langauge models been applied to the schema matching problem in databases and are they effective?
+
+
+Most Important
+* __
+        Supporting quote 1
+*  __
+        Supporting quote 2
+*  __
+        Supporting quote 3
+*  __
+        Supporting quote 4
+*  __
+        Supporting quote 5
+ ...
+Nice to have
+* __
+        Supporting quote 1
+*  __
+        Supporting quote 2
+*  __
+        Supporting quote 3
+*  __
+        Supporting quote 4
+*  __
+        Supporting quote 5
+ ...

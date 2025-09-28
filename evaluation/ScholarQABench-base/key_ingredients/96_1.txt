@@ -1,0 +1,43 @@
+﻿Question
+How does the tree covering technique differ in its application to ordinal trees versus binary trees?
+
+
+Most Important
+* Near the beginning, the answer should briefly define what tree covering technique is.
+        Supporting quotes
+“Tree covering is a technique used in computer science to represent trees by covering them with a set of subtrees that have useful properties for various algorithms, such as efficient query handling in data structures, compression, and indexing.”
+“The tree covering technique involves partitioning a tree into subtrees (called mini-trees) and further partitioning these mini-trees into smaller subtrees (called micro-trees). This hierarchical decomposition allows for efficient representation and manipulation of the tree structure.”
+
+
+* The answer should detail the difference between cardinal and ordinal trees, and specify that the binary tree is a cardinal tree of degree 2. So, the order of children doesn’t matter in the binary tree.
+Supporting quotes
+“We consider both cardinal trees (or k-ary tries), where each node has k slots, labeled {1, . . . , k}, each of which may have a reference to a child, and ordinal trees, where the children of each node are simply ordered”
+https://erikdemaine.org/papers/MaryTrees_Algorithmica/paper.pdf
+“An ordinal tree is a rooted tree of arbitrary degree in which the children of each node are ordered, hence we speak of the ith child. The one-to-one mapping between these trees and binary trees is a well known undergraduate example [20, p. 333], and so about 2n bits are necessary for representation of such a tree”
+https://erikdemaine.org/papers/MaryTrees_Algorithmica/paper.pdf
+“By a cardinal tree (or trie) of degree k, we mean a rooted tree in which each node has k positions for an edge to a child. Each node has up to k children and each child of a given node is labeled by a unique integer from the set {1, 2, . . . , k}. A binary tree is a cardinal tree of degree 2.”
+https://erikdemaine.org/papers/MaryTrees_Algorithmica/paper.pdf
+
+
+* The answer should discuss that the covering technique for ordinal trees should consider the order of nodes when identifying isomorphic subtrees, while the covering technique for binary trees focuses on creating universal trees that can represent all binary trees of a given size. 
+        Supporting quotes
+“TLDR: The tree covering technique for ordinal trees requires considering the order of nodes when identifying isomorphic subtrees. It was introduced for ordinal trees and later simplified, forming the basis for applications to other tree types.”
+“TLDR: The tree covering technique for binary trees focuses on creating universal trees that can represent all binary trees of a given size. It involves partitioning the tree into subtrees and using NCA-universal trees for efficient representation.”
+
+
+* The answer should discuss that while the application of covering technique for both types of trees considers efficient representation, ordinal trees require more complex representations to handle their arbitrary branching, whereas binary trees benefit from simpler structures that facilitate efficient parallel algorithms and RMQ implementations.
+Supporting quotes
+“It's worth noting that the application of tree covering to binary trees maintains some similarities with its use in ordinal trees, particularly in terms of its goal of efficient representation. However, the specific implementation and focus on universal trees and NCA-universal structures represent key differences in its application to binary trees.”
+“The tree covering technique for ordinal trees focuses on creating a succinct representation that supports various navigational operations efficiently. Key aspects include:
+- **Succinct Representation**: Ordinal trees are represented using structures like balanced parenthesis sequences or depth-first unary degree sequences. These representations allow for efficient encoding and decoding of tree structures while minimizing space usage to around $2n + o(n)$ bits, where $n$ is the number of nodes[1].
+- **Multiple Traversal Orders**: The technique supports multiple traversal orders (e.g., level-order traversal) that are useful for different types of queries and operations[1].
+- **Micro Tree Compression**: The tree is decomposed into smaller micro trees, each of which can be compressed and represented efficiently. This allows for efficient navigational queries and operations within the tree structure[2].”
+“The tree covering technique for binary trees often leverages their simpler structure to optimize certain operations:
+- **Balanced Parentheses Representation**: Similar to ordinal trees, binary trees can also use balanced parenthesis representations. However, the simpler structure of binary trees allows for more straightforward implementations and optimizations[2].
+- **Efficient Range Minimum Queries (RMQ)**: The tree covering technique for binary trees can be applied to implement efficient RMQ data structures. These structures are optimized for average-case performance and use less than $2n$ bits of space while processing queries in practical timeframes[2].
+- **Parallel Algorithms**: The binary tree structure lends itself well to parallel algorithms, which can solve various combinatorial problems efficiently. This includes problems like minimum covering sets, maximum independent sets, and depth-first spanning tree constructions[4].”
+
+
+
+
+Nice to have

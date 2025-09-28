@@ -1,0 +1,71 @@
+﻿Question
+What are some systems papers that conduct an observational study as the formative study instead of just interviews?
+
+
+Most Important
+* The answer should begin with defining the observational study.
+Supporting quotes
+“Cochran [12] defined an observational study as an empiric comparison of treated and control groups in which: the objective is to elucidate cause-and-effect relationships [... in which it] is not feasible to use controlled experimentation, in the sense of being able to impose the procedures or treatments whose effects it is desired to discover, or to assign subjects at random to different procedures.”
+https://psn.com.pk/wp-content/uploads/2023/05/Observational-studies.pdf 
+“Analytical adjustments, such as matching, are used to control for overt biases, that is, pretreatment differences between treated and control groups that are visible in observed covariates. Analytical adjustments may fail because of hidden biases, that is, important covariates that were not measured and therefore not controlled by adjustments. Sensitivity analysis indicates the magnitude of hidden bias that would need to be present to alter the qualitative conclusions of the study.”
+*  The answer should provide the list of papers with contribution of each along with reference which conduct observational study as the formative study in systems instead of just interviews.
+Supporting quotes
+“To gather multi-modal data, we propose an IoT-based smart ambient behavior observation system (SABOS). SABOS provides unobtrusive monitoring of daily living activities by utilizing various sensors integrated into the residential house. To reduce the amount of data, we present a data reduction algorithm. The data reduction algorithm effectively reduces over 90% of the submitted data with full recovery in the cloud. 
+Irfan, M., Jawad, H., Felix, B. B., Abbasi, S. F., Nawaz, A., Akbarzadeh, S., ... & Chen, W. (2021). Non-wearable IoT-based smart ambient behavior observation system. IEEE Sensors Journal, 21(18), 20857-20869.”
+https://ieeexplore.ieee.org/abstract/document/9486939 
+
+
+“Objective To assess the short term association of inpatient implementation of electronic health records (EHRs) with patient outcomes of mortality, readmissions, and adverse safety events.
+Barnett, M. L., Mehrotra, A., & Jena, A. B. (2016). Adverse inpatient outcomes during the transition to a new electronic health record system: observational study. bmj, 354. ”
+https://www.bmj.com/content/354/bmj.i3835.abstract 
+
+“Objective To evaluate on a large scale, across 272 common types of laboratory tests, the impact of healthcare processes on the predictive value of electronic health record (EHR) data.
+Agniel, D., Kohane, I. S., & Weber, G. M. (2018). Biases in electronic health record data due to processes within the healthcare system: retrospective observational study. Bmj, 361.”
+https://www.bmj.com/content/361/bmj.k1479.abstract 
+
+
+“In an observational study in head-injured patients, cerebrovascular pressure transmission was investigated using a systems analysis approach whereby the blood pressure (BP) waveform was used as a measure of an input stimulus to the cerebrovascular bed (CVB) and the intracranial pressure (ICP) waveform as the response to that stimulus. The transfer function is a measure of how much pressure is transmitted through the CVB at a given frequency and is calculated using Fourier analysis of the pressure waveforms. The transfer function allows quantification of the pressure transmission performance of the CVB, thus providing a basis for comparison between normal and abnormal function.
+Piper, I. R., Miller, J. D., Dearden, N. M., Leggate, J. R., & Robertson, I. (1990). Systems analysis of cerebrovascular pressure transmission: an observational study in head-injured patients. Journal of neurosurgery, 73(6), 871-880.”
+https://thejns.org/view/journals/j-neurosurg/73/6/article-p871.xml 
+
+
+“[Aim]: The detection and characterization of common bug-fix patterns in software repositories play an important role in advancing the field of automatic program repair. In this paper, we aim to characterize the occurrence of known bug-fix patterns in Java repositories at an unprecedented large scale. [Method]: The study was conducted for Java GitHub projects organized in two distinct data sets: the first one (i.e., Boa data set) contains more than 4 million bug-fix commits from 101,471 projects and the second one (i.e., Defects4J data set) contains 369 real bug fixes from five open-source projects. We used a domain-specific programming language called Boa in the first data set and conducted a manual analysis on the second data set in order to confront the results.
+Campos, E. C., & de Almeida Maia, M. (2017, November). Common bug-fix patterns: A large-scale observational study. In 2017 ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM) (pp. 404-413). IEEE.”
+https://ieeexplore.ieee.org/abstract/document/8170127 
+
+
+“We start with a general characterization of the failure dataset examined in this study, where interesting findings are presented, e.g., the most frequent failure types per period of a day and per different workplaces. Next, we investigate the existence of failure patterns. For this purpose, we introduce an OS failure pattern discovery protocol that identifies failure patterns exhibiting consistency across different computers used in the same as well as different workplaces. In total, we discovered 45 failure patterns with 153,511 occurrences.
+dos Santos, C. A. R., & Matias Jr, R. (2018). Failure patterns in operating systems: An exploratory and observational study. Journal of Systems and Software, 137, 512-530.”
+https://www.sciencedirect.com/science/article/abs/pii/S0164121217300675 
+
+
+“ Böhm et al. (10, Böhm et al., 2010) conducted a longitudinal field study of IYOUIT, a context-aware mobile application, observing 19 users over a one-month period to evaluate its usage and impact on digital lifestyle sharing.”
+
+
+“Wixon et al.  (3, Wixon et al., 1985) recorded and analyzed command usage on a VMS system, observing frequency patterns and comparing them to UNIX systems, demonstrating the applicability of observational techniques across different computing environments.”
+“ "A Field Study of Refactoring Challenges and Benefits" by Kim et al. (2012)
+This paper used a combination of observational techniques, including tool usage monitoring and mining of version control systems, to study refactoring practices in industry. The researchers observed professional developers at Microsoft over a three-month period [2].
+Citation: [2] Kim, M., Zimmermann, T., & Nagappan, N. (2012, November). A field study of refactoring challenges and benefits. In Proceedings of the ACM SIGSOFT 20th International Symposium on the Foundations of Software Engineering (pp. 1-11).”
+
+
+“"An Empirical Study on Configuration Errors in Commercial and Open Source Systems" by Yin et al. (2011)
+This paper conducted a large-scale observational study of configuration errors in real-world systems. The researchers analyzed customer support databases and bug repositories to understand the nature and impact of configuration errors [4].
+Citation: [4] Yin, Z., Ma, X., Zheng, J., Zhou, Y., Bairavasundaram, L. N., & Pasupathy, S. (2011, October). An empirical study on configuration errors in commercial and open source systems. In Proceedings of the Twenty-Third ACM Symposium on Operating Systems Principles (pp. 159-172).”
+
+
+
+
+Nice to have
+* The answer should discuss the benefits of observational study with others.
+        Supporting quotes
+“ Observational studies in systems research are often combined with other methodologies, particularly interviews, to provide a more comprehensive understanding. This multi-method approach allows researchers to capture both observed behaviors and participant perspectives.”
+“Observational studies in systems research are frequently complemented by other research methodologies to enhance the depth and breadth of insights gained. A notable trend is the combination of observational techniques with interview methods. According to a comprehensive review by McDonald et al., observations were reported in 30.3% of the papers analyzed, and among these, the vast majority (81.6%) also incorporated interviews alongside observations  (18, MCDONALD, 2019). This combination allows researchers to not only observe user behaviors directly but also to gain insights into participants' thoughts, motivations, and explanations for their actions.”
+*  __
+        Supporting quote 2
+*  __
+        Supporting quote 3
+*  __
+        Supporting quote 4
+*  __
+        Supporting quote 5
+ ...

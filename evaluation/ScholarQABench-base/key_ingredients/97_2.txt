@@ -1,0 +1,128 @@
+﻿Question
+What are the leading approaches to automatic scientific paper review generation and what are their strengths and weaknesses?
+
+
+Most Important
+* The answer should begin with providing the leading approaches used in scientific paper review generation.
+        Supporting quotes
+“it builds upon a relatively small knowledge base (some tens of reviews) while commonly used methods for text generation, such as Artificial Neural Networks (ANN), typically require a very large amount of data in order to build an effective generative model.”
+https://link.springer.com/chapter/10.1007/978-3-319-45507-5_2 
+“From a broader point of view, our proposal is a form of Natural Language Generation (NLG), which is widely used in many different fields such as spoken dialogue systems [16], machine translation [17], and as a mean for creating editorial content by turning structured data into prose [18].”
+https://link.springer.com/chapter/10.1007/978-3-319-45507-5_2 
+“A notable use of NLG for scientific purpose, which is particularly relevant to our work, is the software SCIgen.
+https://link.springer.com/chapter/10.1007/978-3-319-45507-5_2 
+“This tool generates pdf files consisting of syntactically correct random text which is formatted like a scientific publication, including randomly generated figures, plots, and code fragments.”
+https://link.springer.com/chapter/10.1007/978-3-319-45507-5_2 
+“Our work proposes a corpus-based NLG method. Corpus-based methods aim at training text generation rules automatically from text examples of the desired text generator output.”
+https://link.springer.com/chapter/10.1007/978-3-319-45507-5_2 
+“When generating a review for a paper a with a specified recommendation o, our method performs 3 steps, described below in full detail: (i) it builds a set S of sentences from reviews in R and replaces each specific term in each sentence with a specific term of a; (ii) it removes from S the sentences which express a sentiment which is not consistent with o; (iii) it reorders and concatenates the sentences in S obtaining a review for a.”
+https://link.springer.com/chapter/10.1007/978-3-319-45507-5_2 
+“Sentiment analysis. In this step, we aim at selecting the sentences of S which express a sentiment consistent with the specified overall recommendation o. To this end, we apply a pre-trained Naive Bayes sentiment classifier to each sentence s∈S, basing on the assumption that a positive sentiment can be associated with an accept recommendation, a negative sentiment with a reject recommendation, and a neutral sentiment with a neutral recommendation.”
+https://link.springer.com/chapter/10.1007/978-3-319-45507-5_2 
+“This method consists of two main parts. The first part identifies key papers in the area by their bibliometric parameters, such as a graph of co-citations. The second stage uses a BERT based architecture that we train on existing reviews for extractive summarization of these key papers.”
+https://ieeexplore.ieee.org/abstract/document/9356351 
+“a novel method for automatic review generation that combines bibliometric analysis of a specific research area to identify key papers together with a BERT-based deep neural network trained to extract the most relevant sentence from these key papers.”
+https://ieeexplore.ieee.org/abstract/document/9356351 
+
+
+“We preprocess the raw data into the following data tables. Each has a PMID (a unique identifier of the paper) as key: • Lists of sentences of each paper that we can use to quickly find all sentences of a paper or sentences under certain numbers. It contains sentence’s number in the paper, and the text of the sentence itself. • Abstracts. • Image caption texts. • Table caption texts. • List of review paper PMIDs. Lists PMIDs of all review papers that cite this paper. • Citations. PMIDs of cited papers.”
+https://ieeexplore.ieee.org/abstract/document/9356351 
+“The automatic review pipeline starts with a search query by keywords or phrases, where users can choose the most recent, the most cited, or the most relevant papers and limit the size of search results. A citation graph is built on-thefly and shows overall publication dynamics in time and is used to detect the most popular articles, authors, and journals. We use a hybrid approach for papers similarity determination - a combination of citation, co-citation graph features, bibliographic coupling, and text-based similarity based on the TF-IDF metric”
+https://ieeexplore.ieee.org/abstract/document/9356351 
+“We employ one of the most popular algorithms for community detection - Louvain [28] algorithm to extract closely related groups of papers (topics) from the similarity graph. For each topic, the service shows a word cloud of topic-specific keywords and detailed information about included papers.”
+https://ieeexplore.ieee.org/abstract/document/9356351 
+“The model introduced takes in several sentences separated by specific tags “[CLS]” and “[SEP]” that mark the beginning and end of the fragments of interest, i.e., the sentences. For each input sentence i the BERTSUM model produces a vector Ti, which will be further perceived as a vector representation of the original sentence. Then these vectors are transferred to the linear layer, which will give an estimate of the quality of the sentence for the summary Yi.”
+https://ieeexplore.ieee.org/abstract/document/9356351 
+“ Our system consists of two steps: sentence ranking and sentence selection. In the sentence ranking step, the system ranks sentences in the input papers by regarding aspects as queries. We use LexRank and also incorporate query expansion and word embedding to compensate for tersely expressed queries. In the sentence selection step, the system selects sentences that remain in the final output.”
+https://ceur-ws.org/Vol-1888/paper6.pdf 
+“Actually, LexRank was demonstrated as useful for query-focused summarization with a small modification to the algorithm [17], which we will call QLexRank. Q-LexRank adds query relevance to edge weights to value sentences. Overview of the proposed method. that are related to the query. The score p(s | q) of a sentence s given a query q.”
+https://ceur-ws.org/Vol-1888/paper6.pdf 
+“Add words that frequently co-occur with the query words in document Di the system is processing (cooccur). – In addition to the words added to cooccur, add frequently co-occurring words in the entire document set D1, . . . , DK (cooccur+).”
+https://ceur-ws.org/Vol-1888/paper6.pdf
+“In the sentence selection step, the system selects sentences from the rankings computed in the ranking step to reduce the redundancy of the resulting summaries. We use an ILP-based model.”
+https://ceur-ws.org/Vol-1888/paper6.pdf
+“Generally, deep learning classifiers using CNN layers, LSTM layers, or a hybrid combination have achieved good accuracy results when applied to annotated datasets with human-generated fake reviews.”
+https://www.sciencedirect.com/science/article/pii/S0040162523000653 
+“One of the fundamental approaches to automatic review generation involves using advanced NLP techniques to summarize and analyze the content of scientific papers.”
+“Multi-modal Approaches
+These methods incorporate not just text but also figures, tables, and other visual elements in scientific papers.”
+“Template-based methods utilize pre-defined templates to generate reviews.”
+“These approaches rely on machine learning models, particularly NLP and deep learning techniques, to understand and generate human-like text. BERT (Bidirectional Encoder Representations from Transformers) and GPT (Generative Pre-trained Transformer) are often employed.”
+“As AI and NLP technologies advance, hybrid and domain-specific models, augmented with explainable AI and human oversight, hold promise for significantly enhancing the scientific review process, creating a collaborative future between AI and human reviewers.”
+
+
+*  The answer should provide the strengths of leading approaches to automatic scientific paper review generation.
+        Supporting quotes
+“The goal of comparative summarization is to highlight differences among given documents.”
+https://ceur-ws.org/Vol-1888/paper6.pdf 
+“Automatic scientific paper review generation is an emerging field within natural language processing and artificial intelligence. This task aims to automatically produce comprehensive, critical evaluations of scientific papers, similar to those written by human peer reviewers.”
+“Strengths of NLP:
+- Can efficiently process large volumes of text
+- Capable of extracting key information and main ideas
+- Can identify structural elements of papers (e.g., abstract, methodology, results)”
+“Strengths of sentiment analysis:
+- Can assess the overall tone and stance of a paper
+- Useful for identifying potential biases or overly positive self-presentation”
+“Strengths of supervised learning model:
+- Can learn from a wide range of existing reviews
+- Capable of generating human-like text
+- Can be fine-tuned for specific scientific domains
+
+
+“Strengths of transformer-based models:
+- Can generate coherent and fluent text
+- Capable of understanding and generating domain-specific language
+- Can be prompted to focus on specific aspects of paper review”
+“Strengths of multi-modal approaches:
+- Can provide a more holistic evaluation of the paper
+- Better suited for fields where visual elements are crucial (e.g., computer vision, medical imaging)”
+
+
+*  The answer should provide the weaknesses of leading approaches to automatic scientific paper review generation.
+        Supporting quotes
+“A scientific paper’s text is generally much longer than BERT can process during one iteration. BERT model can accept 10-15 sentences per iteration.”
+https://ieeexplore.ieee.org/abstract/document/9356351 
+“The task is more challenging than multi-document summarization of generic text since each scientific paper has its own characteristics, contributions, approach, and specific content to its own work.”
+https://www.sciencedirect.com/science/article/pii/S1319157820303554 
+“the candidate summary is compared with a reference summary where there is no single ‘ideal.’ Therefore, a good summary may be penalized for including relevant sentences that are not in the reference summary.”
+https://www.sciencedirect.com/science/article/pii/S1319157820303554 
+“ They adopted the pyramid evaluation method (Nenkova and Passonneau, 2004) and compared their proposed approaches with state-of-the-art baselines such as LexRank (Erkan and Radev, 2004), C-LexRank (Qazvinian and Radev, 2008), and MMR (Carbonell and Goldstein, 1998). Their approach outperformed the other baselines for n-grams of sizes 1, 2, and 3. However, it produced low variation and more stable results with respect to summary quality for equivalent n-gram sizes.”
+https://www.sciencedirect.com/science/article/pii/S1319157820303554 
+“The main related issues include the unavailability of training and test benchmark corpora, gold standard summaries for comparison, suitable evaluation metrics, and baseline systems needed for comparison purposes.”
+https://www.sciencedirect.com/science/article/pii/S1319157820303554 
+“Most of the surveyed studies are centered around citation-based approaches and targeted a single article. Further research is needed to advance knowledge in this field by shifting from single-article to multi-article summarization and from extractive to abstractive in order to enhance the coherence and readability of the output.”
+https://www.sciencedirect.com/science/article/pii/S1319157820303554 
+“However, the ability of automatic generators to resemble truthful reviews has improved so much that they represent a real threat to current discriminators.”
+https://www.sciencedirect.com/science/article/pii/S0040162523000653 
+“Weaknesses of NLP:
+- May struggle with understanding complex scientific concepts
+- Limited ability to provide critical analysis or identify flaws in methodology
+- Lacks domain-specific knowledge required for in-depth evaluation”
+“Weaknesses of Sentiment analysis:
+- May not capture nuanced scientific arguments
+- Can be misled by technical jargon or field-specific terminology”
+Weaknesses of supervised learning model:
+- Heavily dependent on the quality and diversity of training data
+- May perpetuate biases present in human-written reviews
+- Limited ability to generate novel insights or critiques
+“Weaknesses of transformer-based models:
+- May generate plausible-sounding but factually incorrect content
+- Ethical concerns regarding the use of AI in peer review processes
+- High computational requirements”
+“Weaknesses of multi-modal approaches:
+- Increased complexity in data processing and model architecture
+- May struggle with interpreting complex visualizations or datasets”
+
+
+Nice to have
+* __
+        Supporting quote 1
+*  __
+        Supporting quote 2
+*  __
+        Supporting quote 3
+*  __
+        Supporting quote 4
+*  __
+        Supporting quote 5
+ ...

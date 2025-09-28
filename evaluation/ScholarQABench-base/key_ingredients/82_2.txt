@@ -1,0 +1,58 @@
+﻿Question
+What is a good Ontology semantic similarity measure that considers multiple inheritance cases of concepts?
+
+
+Most Important
+* The answer should begin with providing a background on ontology semantic similarity. 
+        Supporting quotes
+“Computation of semantic similarity between words for text understanding is a vital issue in many applications such as word sense disambiguation, document categorization, and information retrieval.”
+https://onlinelibrary.wiley.com/doi/full/10.1155/2015/305369 
+“Ontologies, as abstract description systems for domain-specific knowledge composition, hence receive more and more attention in computational biology and bioinformatics. Particularly, many applications relying on domain ontologies require quantitative measures of relationships between terms in the ontologies, making it indispensable to develop computational methods for the derivation of ontology-based semantic similarity between terms.”
+https://onlinelibrary.wiley.com/doi/full/10.1155/2013/793091 
+“The knowledge in ontologies may be used to constrain the search for solutions to an optimization problem and thereby finding a solution faster, finding a better solution or finding a solution that is generalized better.”
+https://academic.oup.com/bib/article/22/4/bbaa199/5922325 
+“In many biomedical and computer science applications it is useful to determine how similar two concepts are. Measures that compute similarity between concepts are semantic similarity measures, and semantic similarity measures have received renewed interest recently with the development of novel methods based on representation learning. Semantic similarity measures are used to compare words and terms in natural language texts, entities represented in graphs and knowledge graphs and ontology classes based on the knowledge within the ontologies.”
+https://academic.oup.com/bib/article/22/4/bbaa199/5922325 
+“Semantic similarity measures exploit knowledge sources as the base to perform the estimations. In recent years, ontologies have grown in interest thanks to global initiatives such as the Semantic Web, offering an structured knowledge representation. Thanks to the possibilities that ontologies enable regarding semantic interpretation of terms many ontology-based similarity measures have been developed.”
+https://www.sciencedirect.com/science/article/abs/pii/S0957417412000954 
+“Semantic similarity measures are vital in various applications, such as information retrieval, natural language processing (NLP), and bioinformatics. These measures assess how similar two concepts are within an ontology, often represented as a structured form of knowledge such as a taxonomy or graph.”
+*  The answer should provide information on good Ontology semantic similarity measure that considers multiple inheritance cases of concepts
+        Supporting quotes
+“The common specificity feature considers the depth of the Least Common Subsumer (LCS) of two concepts and the depth of the ontology to obtain more semantic evidence.”
+https://onlinelibrary.wiley.com/doi/full/10.1155/2015/305369
+“In a view of an independent domain, in order to get high accuracy, most path-based measures rely on large and general purpose taxonomy. Usually, researchers may choose WordNet to apply these measures because of its perfect structure. However, the coverage of biomedical terms in WordNet is so limited that the accuracy of similarity assessments for medical terms is poor. So Pedersen et al. [11], Al-Mubaid and Nguyen [24], and Batet et al. [25] adopted these measures to the biomedical domain by exploiting SNOMED CT as the input ontology.”
+https://onlinelibrary.wiley.com/doi/full/10.1155/2015/305369 
+“Note that there exists the case of multiple inheritance in which concepts may be subsumed by several superconcepts in the largest and most widely used knowledge source such as SNOMED CT, MeSH in the UMLS, or WordNet.”
+https://onlinelibrary.wiley.com/doi/full/10.1155/2015/305369
+“In the experiments, we use SNOMED CT, a large and detailed ontology with multiple inheritance between concepts, as input ontology. The experimental results show that our measure has rather high correlation values with respect to both physicians and coders and the measure outperforms most approaches based on taxonomical structure and IC and context vectors.”
+https://onlinelibrary.wiley.com/doi/full/10.1155/2015/305369 
+“exclusively inherited shared information (EISI) that captured the information shared by two terms based on an intuitive observation on the multiple inheritance relationships among the terms in the GO graph. EISI was derived from the information content of the exclusively inherited common ancestors (EICAs), which were screened from the common ancestors according to the attribute of their direct children.”
+https://www.sciencedirect.com/science/article/abs/pii/S0378111914014887 
+“The promising features of EISI are the following: (1) it provides a more effective way to characterize the semantic relationship between two GO terms by taking into account multiple common ancestors related, and (2) can quickly detect all EICAs with time complexity of O(n), which is much more efficient than other methods based on disjunctive common ancestors.”
+https://www.sciencedirect.com/science/article/abs/pii/S0378111914014887 
+“To address the problem caused by multiple inheritance, Couto et al. employed the concept of disjunctive common ancestors and defined a graph-based similarity measure (GraSM) (Couto et al., 2007), where the information two terms share was derived from all their disjunctive common ancestors by taking the average of their information content.”
+https://www.sciencedirect.com/science/article/abs/pii/S0378111914014887 
+“They later updated GraSM and proposed a new method, dubbed Disjunctive Shared Information (DiShIn) (Couto and Silva, 2011), to address the computational complexity problem caused by its recursive definition for disjunctive common ancestors and the problem caused by parallel interpretations shared by two terms.”
+https://www.sciencedirect.com/science/article/abs/pii/S0378111914014887 
+“Because ontology can provide explicit concept specification, we establish an ontology-based semantic similarity computation model. This model quantifies the semantic similarity between concepts considering the semantic distance, concept level and the overlapping degree between sets of the hypernyms and hyponyms. The association between the semantic distance and concept level is also presented so that the number of parameters is reduced.”
+https://ieeexplore.ieee.org/abstract/document/8367176 
+“constructing fuzzy ontologies from fuzzy EER models may be valuable to the development of fuzzy ontologies, and in turn the constructed fuzzy ontologies may be useful for reasoning about the fuzzy EER models.”
+https://www.sciencedirect.com/science/article/abs/pii/S0165011413001462 
+“A Measure Combining Superconcepts and Common Specificity**:   This measure integrates both the superconcepts of the evaluated concepts and their common specificity feature. It considers the depth of the Least Common Subsumer (LCS) and the overall depth of the ontology to provide more semantic evidence. By taking into account all superconcepts of the evaluated concepts, it effectively handles multiple inheritance scenarios.”
+“ The traditional Wu & Palmer measure is extended to consider all subsumed concepts (ASC) rather than just the LCS. This extension is particularly useful in large and complex taxonomies with multiple overlapping hierarchies and extensive use of multiple inheritance. By including all relevant superconcepts, this measure captures more explicit knowledge, leading to improved similarity values compared to the original Wu & Palmer measure.”
+“Ontology-based semantic similarity measures typically rely on the "is-a" relations found in the underlying taxonomy or ontology  (66, Jiang et al., 2020). These measures can be broadly classified into three categories: path-based, feature-based, and information content (IC) based approaches  (50, McInnes et al., 2016). Path-based methods often utilize graph-based features such as the shortest path length between concepts and the position of their lowest common ancestors to capture semantic similarity  (66, Jiang et al., 2020).”
+
+
+
+
+*  The answer should provide the challenges in multiple inheritance. 
+        Supporting quotes
+“Multiple inheritance in ontologies occurs when a concept has more than one parent concept. This presents challenges for traditional semantic similarity measures, as they often assume a single inheritance hierarchy. Multiple inheritance can lead to:
+a) Ambiguity in concept relationships
+b) Increased complexity in similarity calculations
+c) Potential overestimation or underestimation of similarity scores”
+
+
+Nice to have
+* __
+        Supporting quote 1
