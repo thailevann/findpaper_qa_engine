@@ -46,14 +46,12 @@ def initialize_pipeline():
     
     reranker_config = RerankerConfig(
         top_final=20,
-        alpha=1.0,  # Weight for semantic scores
-        beta=1.0,   # Weight for keyword scores
         use_crossencoder=True,
         crossencoder_model=CROSS_ENCODER_MODEL,
         batch_size=32,
-        use_distil=True  # Use smaller model for faster inference
+        use_distil=True
     )
-    
+
     pipeline_config = SearchPipelineConfig(
         keyword_config=keyword_config,
         semantic_config=semantic_config,
@@ -78,7 +76,6 @@ def initialize_pipeline():
         enable_caching=True,
         cache_ttl=3600,  # 1 hour cache
         enable_fallback=True,
-        gemini_timeout=30.0,
         use_regex_fallback=True
     )
     
@@ -143,11 +140,13 @@ async def retrieve_papers_optimized(payload: PaperQuery):
     # --- Step 3: Run optimized parallel search with reranking ---
     final_results = await pipeline.search_with_reranking(
         query_text=processed.rewritten_query or payload.query,
-        query_embeddings=query_embeddings,
+        query_embedding=query_embeddings[0],  # <-- truyền vector đã encode
         filters=filters,
-        top_k=payload.limit * 2,  # Get more candidates for better reranking
+        top_k=payload.limit,
         top_final=payload.limit
     )
+
+
 
     return processed, raw_content, final_results
 
@@ -223,37 +222,73 @@ async def search_papers(payload: PaperQuery):
 
 @app.post("/top_papers")
 async def top_papers(payload: PaperQuery):
-    """Optimized top papers endpoint using parallel pipeline"""
-    processed, raw_content, final_results = await retrieve_papers_optimized(payload)
+    """Top papers endpoint: sort by final_score, pick highest-scoring evidence per paper,
+    remove papers with negative score and log reason"""
+    import logging
+    logging.basicConfig(level=logging.INFO)
+    
+    # --- Process query ---
+    processed, raw_content = query_processor.process_query(payload.query)
+    filters = convert_filters(processed.search_filters)
+
+    # --- Generate embeddings ---
+    query_embeddings = [
+        model.encode(payload.query, normalize_embeddings=True).tolist(),
+        model.encode(processed.rewritten_query or payload.query, normalize_embeddings=True).tolist()
+    ]
+
+    # --- Candidate window for retrieval/rerank ---
+    candidate_top_k = max(payload.limit * 10, 200)
+    candidate_top_final = max(payload.limit * 4, 200)
+
+    final_results = await pipeline.search_with_reranking(
+        query_text=processed.rewritten_query or payload.query,
+        query_embedding=query_embeddings[0],
+        filters=filters,
+        top_k=candidate_top_k,
+        top_final=candidate_top_final
+    )
 
     # --- Aggregate chunks per paper ---
     papers_dict = {}
     for r in final_results:
         pid = r["paper_id"]
+        evidence = r.get("evidence")
+        title = r.get("title") or ""
+        cross_score = r.get("cross_score", 0.0)
+        final_score = r.get("final_score", 0.0)
+
         if pid not in papers_dict:
             papers_dict[pid] = {
                 "paper_id": pid,
-                "title": r["title"],   # <-- thêm title ở đây
-                "chunks": []
+                "title": title,
+                "best_evidence": evidence or "",
+                "best_final_score": final_score,
+                "best_cross_score": cross_score,
             }
-        papers_dict[pid]["chunks"].append({
-            "evidence": r["evidence"],  # r["evidence"] = semantic chunk
-            "cross_score": r["cross_score"],
-            "final_score": r["final_score"]
+        else:
+            entry = papers_dict[pid]
+            if final_score > entry["best_final_score"]:
+                entry["best_final_score"] = final_score
+                entry["best_cross_score"] = cross_score
+                entry["best_evidence"] = evidence or ""
+
+    # --- Convert dict to list and filter negative scores ---
+    papers_list = []
+    for entry in papers_dict.values():
+        if entry["best_final_score"] < 0:
+            logging.info(f"Skipping paper {entry['paper_id']} due to negative score: {entry['best_final_score']}")
+            continue
+        papers_list.append({
+            "paper_id": entry["paper_id"],
+            "title": entry["title"],
+            "evidence": entry["best_evidence"],
+            "final_score": entry["best_final_score"],
+            "cross_score": entry["best_cross_score"],
         })
 
-    # Chọn chunk có cross_score cao nhất
-    for pid, paper in papers_dict.items():
-        best_chunk = max(paper["chunks"], key=lambda x: x["cross_score"])
-        paper["final_score"] = best_chunk["final_score"]
-        paper["evidence"] = best_chunk["evidence"]
-
-    # Top papers
-    top_papers = sorted(papers_dict.values(), key=lambda x: x["final_score"], reverse=True)[:payload.limit]
-
-    # Loại bỏ mảng chunks để JSON gọn
-    for paper in top_papers:
-        paper.pop("chunks", None) 
+    # --- Sort papers by final_score descending ---
+    top_papers = sorted(papers_list, key=lambda x: x["final_score"], reverse=True)[:payload.limit]
 
     return {
         "original_query": payload.query,
@@ -266,6 +301,7 @@ async def top_papers(payload: PaperQuery):
         "pipeline_info": pipeline.get_pipeline_info(),
         "cache_stats": query_processor.get_cache_stats()
     }
+
 
 @app.post("/qa")
 async def qa_endpoint(payload: QAQuery):

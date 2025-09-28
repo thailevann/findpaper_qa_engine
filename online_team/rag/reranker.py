@@ -1,247 +1,160 @@
+import logging
 import numpy as np
 from sentence_transformers import CrossEncoder
 from elasticsearch import Elasticsearch
-from typing import Dict, List, Optional, Tuple, Union
+from typing import List, Dict, Union, Optional
 from dataclasses import dataclass
-import asyncio
-import concurrent.futures
 from config import CROSS_ENCODER_MODEL
+import asyncio
 
+logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO)
 
 @dataclass
 class RerankerConfig:
-    """Configuration for paper reranker"""
     top_final: int = 20
-    alpha: float = 1.0  # Weight for semantic scores
-    beta: float = 1.0   # Weight for keyword scores
-    use_crossencoder: bool = True
     crossencoder_model: str = None
     batch_size: int = 32
-    use_distil: bool = False  # Use smaller DistilCrossEncoder for speed
-
+    use_distil: bool = False
+    use_crossencoder: bool = True
+    max_candidates_for_rerank: int = 300  
 
 class PaperReranker:
-    def __init__(
-        self, 
-        es_url: str = "http://localhost:9200",
-        index_name: str = "papers_text",
-        config: Optional[RerankerConfig] = None
-    ):
+    def __init__(self, 
+                 es_url: str = "http://localhost:9200",
+                 index_name: str = "papers_text",
+                 config: Optional[RerankerConfig] = None):
         self.config = config or RerankerConfig()
-        self.es_text = Elasticsearch(es_url, request_timeout=120)
+        self.batch_size = self.config.batch_size
+        self.es = Elasticsearch(es_url, request_timeout=120)
         self.index_name = index_name
         
-        # Initialize CrossEncoder if enabled
-        self.ce_model = None
-        if self.config.use_crossencoder:
-            model_name = self.config.crossencoder_model or CROSS_ENCODER_MODEL
-            if self.config.use_distil and "distil" not in model_name.lower():
-                # Use a smaller DistilCrossEncoder for faster inference
-                model_name = "cross-encoder/ms-marco-MiniLM-L-6-v2"
-            
+        # Init CrossEncoder
+        model_name = self.config.crossencoder_model or CROSS_ENCODER_MODEL
+        if self.config.use_distil and "distil" not in model_name.lower():
+            model_name = "cross-encoder/ms-marco-MiniLM-L-6-v2"
+        self.ce_model = CrossEncoder(model_name)
+        logger.info(f"Loaded CrossEncoder: {model_name}")
+
+    def _get_best_chunk(self, chunks: List[dict]) -> str:
+        for ch in chunks:
+            if isinstance(ch, dict) and "text" in ch:
+                return ch["text"]
+            elif isinstance(ch, str):
+                return ch
+        return ""
+
+    def rerank(self, query_text: str, candidate_results: List[dict], top_final: Optional[int] = None):
+        """
+        Rerank merged search results (not just IDs).
+        candidate_results should be a list of dicts with structure:
+        [{"paper_id": str, "field": str, "text": str, "evidence": str, ...}, ...]
+        """
+        top_final = top_final or self.config.top_final
+        if not candidate_results:
+            logger.info("No candidate papers to rerank.")
+            return []
+
+        # Limit candidates to avoid excessive reranking time
+        max_candidates = getattr(self.config, 'max_candidates_for_rerank', 200)
+        if len(candidate_results) > max_candidates:
+            candidate_results = candidate_results[:max_candidates]
+
+        logger.info(f"Number of candidate results before rerank: {len(candidate_results)}")
+
+        # Extract unique paper IDs for fetching additional data
+        unique_paper_ids = list(set(r.get("paper_id") for r in candidate_results if r.get("paper_id")))
+        
+        # Fetch paper metadata if needed (for title, abstract, chunks)
+        paper_data = {}
+        if unique_paper_ids:
             try:
-                self.ce_model = DistilCrossEncoder(model_name)
-                print(f"Loaded CrossEncoder: {model_name}")
+                res = self.es.mget(index=self.index_name, ids=unique_paper_ids)
+                paper_data = {doc["_id"]: doc.get("_source", {}) for doc in res["docs"] if doc.get("found", False)}
             except Exception as e:
-                print(f"Failed to load CrossEncoder: {e}")
-                print("Falling back to hybrid scoring only")
-                self.ce_model = None
-                self.config.use_crossencoder = False
+                logger.warning(f"Failed to fetch paper data from ES: {e}")
 
-    def find_best_chunk_mean(
-        self,
-        chunks: List[dict],
-        query_embeddings: List[List[float]]
-    ) -> Tuple[Optional[str], float]:
-        """
-        Compute best chunk using vectorized numpy (no ES calls)
-        """
-        if not chunks or not query_embeddings:
-            return None, 0.0
-
-        chunks_emb = np.array([c['embedding'] for c in chunks if c.get('embedding')], dtype=np.float32)
-        if len(chunks_emb) == 0:
-            return None, 0.0
-
-        query_embs = np.array(query_embeddings, dtype=np.float32)
-        # cosine similarity: (num_chunks, num_queries)
-        cos_sim = (chunks_emb @ query_embs.T) / (
-            np.linalg.norm(chunks_emb, axis=1)[:, None] * np.linalg.norm(query_embs, axis=1)[None, :] + 1e-8
-        )
-        mean_scores = cos_sim.mean(axis=1)
-        best_idx = int(np.argmax(mean_scores))
-        best_chunk = chunks[best_idx]['text']
-        best_score = float(mean_scores[best_idx])
-        return best_chunk, best_score
-
-
-    def _normalize_scores(self, scores: Dict[str, float]) -> Dict[str, float]:
-        """Normalize scores to [0, 1] range"""
-        if not scores:
-            return {}
-        
-        max_score = max(scores.values())
-        if max_score == 0:
-            return scores
+        # Prepare results for reranking
+        results = []
+        for result in candidate_results:
+            paper_id = result.get("paper_id")
             
-        return {pid: score / max_score for pid, score in scores.items()}
+            # Use evidence from the merged result, fallback to text, then to paper data
+            evidence = result.get("evidence", "")
+            if not evidence:
+                evidence = result.get("text", "")
+            
+            # If still no evidence, try to get from paper data
+            if not evidence and paper_id in paper_data:
+                paper = paper_data[paper_id]
+                chunks = paper.get("chunks", [])
+                evidence = self._get_best_chunk(chunks) or paper.get("abstract", "")
+            
+            if not evidence.strip():
+                logger.warning(f"Skipping result with empty evidence for paper_id={paper_id}")
+                continue
+                
+            # Prepare result for reranking
+            rerank_result = {
+                "paper_id": paper_id,
+                "title": paper_data.get(paper_id, {}).get("title", result.get("title", "")),
+                "evidence": evidence,
+                "field": result.get("field", ""),
+                "original_result": result  # Keep original for reference
+            }
+            results.append(rerank_result)
 
-    def _combine_scores(
-        self, 
-        sem_scores: Dict[str, float], 
-        key_scores: Dict[str, float]
-    ) -> Dict[str, float]:
-        """Combine semantic and keyword scores with weights"""
-        # Normalize scores
-        norm_sem = self._normalize_scores(sem_scores)
-        norm_key = self._normalize_scores(key_scores)
-        
-        final_scores = {}
-        all_ids = set(norm_sem.keys()) | set(norm_key.keys())
-        
-        for pid in all_ids:
-            sem_score = norm_sem.get(pid, 0)
-            key_score = norm_key.get(pid, 0)
-            final_scores[pid] = self.config.alpha * sem_score + self.config.beta * key_score
-        
-        return final_scores
+        if not results:
+            logger.warning("No valid results to rerank after filtering")
+            return []
 
-    def _batch_crossencoder_predict(
-        self, 
-        pairs: List[Tuple[str, str]]
-    ) -> List[float]:
-        """Batch CrossEncoder prediction for efficiency"""
-        if not self.ce_model or not pairs:
-            return [0.0] * len(pairs)
+        # Calculate CrossEncoder scores in batches
+        pairs = [(query_text, r["evidence"]) for r in results]
+        ce_scores = []
         
         try:
-            # Process in batches
-            all_scores = []
-            for i in range(0, len(pairs), self.config.batch_size):
-                batch = pairs[i:i + self.config.batch_size]
-                batch_scores = self.ce_model.predict(batch)
-                all_scores.extend(batch_scores.tolist())
-            
-            return all_scores
+            for i in range(0, len(pairs), self.batch_size):
+                batch = pairs[i:i+self.batch_size]
+                batch_scores = self.ce_model.predict(batch).tolist()
+                ce_scores.extend(batch_scores)
         except Exception as e:
-            print(f"Error in CrossEncoder prediction: {e}")
-            return [0.0] * len(pairs)
+            logger.error(f"CrossEncoder prediction failed: {e}")
+            # Fallback: return original results without reranking
+            return candidate_results[:top_final]
 
-    def rerank(
-        self, 
-        query_text: str, 
-        query_embeddings: List[List[float]],
-        sem_scores: Dict[str, float], 
-        key_scores: Dict[str, float],
-        vector_index_name: str,
-        top_final: Optional[int] = None,
-        alpha: Optional[float] = None,
-        beta: Optional[float] = None
-    ) -> List[Dict[str, Union[str, float]]]:
-        """
-        Rerank papers based on semantic + keyword scores, optionally with CrossEncoder
-        
-        Args:
-            query_text: Original query text
-            query_embeddings: List of query embeddings
-            sem_scores: Semantic similarity scores
-            key_scores: Keyword search scores
-            vector_index_name: Name of the vector index
-            top_final: Number of final results to return
-            alpha: Weight for semantic scores
-            beta: Weight for keyword scores
-            
-        Returns:
-            List of ranked results with paper info and scores
-        """
-        # Use config values if not provided
-        top_final = top_final or self.config.top_final
-        if alpha is not None:
-            self.config.alpha = alpha
-        if beta is not None:
-            self.config.beta = beta
-        
-        # Combine scores
-        final_scores = self._combine_scores(sem_scores, key_scores)
-        
-        # Sort by combined score
-        ranked = sorted(final_scores.items(), key=lambda x: x[1], reverse=True)
-        
-        # Take top candidates for reranking
-        top_candidates = ranked[:top_final * 2]  # extra for rerank
-        
-        # Fetch _source in one batch from Elasticsearch
-        res = self.es_text.mget(index=self.index_name, ids=[pid for pid, _ in top_candidates])
-        top_candidates_hits = [doc["_source"] for doc in res["docs"]]
+        # Assign scores and sort
+        for r, score in zip(results, ce_scores):
+            r["cross_score"] = float(score)
+            r["final_score"] = float(score)
 
-        results = []
-        for (pid, score), hit in zip(top_candidates, top_candidates_hits):
-            chunks = hit.get("chunks", [])
-            title = hit.get("title", "")
-            abstract = hit.get("abstract", "")
-            best_chunk, sem_score = self.find_best_chunk_mean(chunks, query_embeddings)
-            evidence = best_chunk or abstract
-            results.append({
-                "paper_id": pid,
-                "title": title,
-                "score": score,
-                "evidence": evidence,
-                "semantic_score": sem_score
+        results.sort(key=lambda x: x["final_score"], reverse=True)
+        final_results = results[:top_final]
+        
+        logger.info(f"Number of papers after rerank (top_final={top_final}): {len(final_results)}")
+        
+        # Return results in the expected format
+        output_results = []
+        for r in final_results:
+            output_result = r["original_result"].copy()  # Start with original result
+            output_result.update({
+                "cross_score": r["cross_score"],
+                "final_score": r["final_score"],
+                "title": r["title"]  # Add title if not present
             })
-
-        # Apply CrossEncoder reranking if enabled
-        if self.config.use_crossencoder and self.ce_model and results:
-            pairs = [(query_text, r["evidence"]) for r in results]
-            ce_scores = self._batch_crossencoder_predict(pairs)
+            output_results.append(output_result)
             
-            for result, ce_score in zip(results, ce_scores):
-                result["cross_score"] = float(ce_score)
-                result["final_score"] = result["score"] + result["cross_score"]
-        else:
-            # Use hybrid score as final score
-            for result in results:
-                result["cross_score"] = 0.0
-                result["final_score"] = result["score"]
-
-        # Sort by final score and return top results
-        final_results = sorted(results, key=lambda x: x["final_score"], reverse=True)
-        return final_results[:top_final]
-
-    async def rerank_async(
-        self, 
-        query_text: str, 
-        query_embeddings: List[List[float]],
-        sem_scores: Dict[str, float], 
-        key_scores: Dict[str, float],
-        vector_index_name: str,
-        top_final: Optional[int] = None,
-        alpha: Optional[float] = None,
-        beta: Optional[float] = None
-    ) -> List[Dict[str, Union[str, float]]]:
-        """Async version of rerank for parallel execution"""
+        return output_results
+    
+    async def rerank_async(self, query_text: str, candidate_results: List[dict], top_final: Optional[int] = None):
         loop = asyncio.get_event_loop()
-        with concurrent.futures.ThreadPoolExecutor() as executor:
-            return await loop.run_in_executor(
-                executor,
-                self.rerank,
-                query_text,
-                query_embeddings,
-                sem_scores,
-                key_scores,
-                vector_index_name,
-                top_final,
-                alpha,
-                beta
-            )
+        return await loop.run_in_executor(None, self.rerank, query_text, candidate_results, top_final)
 
-    def get_reranker_info(self) -> Dict[str, Union[str, bool, int]]:
-        """Get information about the current reranker configuration"""
+    def get_reranker_info(self) -> dict:
+        """Return current reranker configuration"""
         return {
             "use_crossencoder": self.config.use_crossencoder,
-            "crossencoder_model": self.config.crossencoder_model or "None",
+            "crossencoder_model": self.config.crossencoder_model,
             "use_distil": self.config.use_distil,
             "top_final": self.config.top_final,
-            "alpha": self.config.alpha,
-            "beta": self.config.beta,
             "batch_size": self.config.batch_size
         }

@@ -95,7 +95,7 @@ export default function ScholarQAPage() {
   const [result, setResult] = useState<QAResult | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [query, setQuery] = useState("Recent research about transformer in NLP")
+  const [query, setQuery] = useState("Transformer for low-resource languages")
   const [queryHistory, setQueryHistory] = useLocalStorage<string[]>("qa-history", [])
 
   const handleSearch = async (

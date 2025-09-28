@@ -53,7 +53,7 @@ export default function PaperSearchChatbot() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ query, limit: 20 }),
+        body: JSON.stringify({ query, limit: 50 }),
       });
       if (!response.ok) {
         throw new Error("Failed to fetch papers");

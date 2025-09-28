@@ -1,20 +1,16 @@
-"""
-Enhanced query processor with caching and fallback mechanisms
-"""
-import os
 import json
 import logging
 import re
+import time
+import hashlib
 from typing import Tuple, List, Union, Optional, Dict
 from collections import namedtuple
 from dataclasses import dataclass
 from pydantic import BaseModel, Field
-from google import genai 
-import hashlib
-import time
+import openai
 
 from online_team.llms.prompts import QUERY_DECOMPOSER_PROMPT
-from config import get_gemini_client
+import config  # import để openai.api_key đã được set
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -27,37 +23,31 @@ LLMProcessedQuery = namedtuple("LLMProcessedQuery",
 
 @dataclass
 class QueryProcessorConfig:
-    """Configuration for query processor"""
     enable_caching: bool = True
-    cache_ttl: int = 3600  # Cache TTL in seconds (1 hour)
+    cache_ttl: int = 3600  # 1 hour
     enable_fallback: bool = True
-    gemini_timeout: float = 30.0  # Gemini API timeout in seconds
     use_regex_fallback: bool = True
 
 
 class DecomposedQuery(BaseModel):
-    earliest_search_year: str = Field(description="The earliest year to search for papers", default="")
-    latest_search_year: str = Field(description="The latest year to search for papers", default="")
-    venues: str = Field(description="Comma separated list of venues to search for papers", default="")
-    authors: Union[List[str], str] = Field(description="List of authors to search for papers", default=[])
-    field_of_study: str = Field(description="Comma separated list of field of study to search for papers", default="")
-    rewritten_query: str = Field(description="The rewritten simplified query", default="")
-    rewritten_query_for_keyword_search: str = Field(description="The rewritten query for keyword search", default="")
+    earliest_search_year: str = Field(default="")
+    latest_search_year: str = Field(default="")
+    venues: str = Field(default="")
+    authors: Union[List[str], str] = Field(default=[])
+    field_of_study: str = Field(default="")
+    rewritten_query: str = Field(default="")
+    rewritten_query_for_keyword_search: str = Field(default="")
 
 
 class QueryCache:
-    """Simple in-memory cache for query processing results"""
-    
     def __init__(self, ttl: int = 3600):
         self.cache: Dict[str, Tuple[LLMProcessedQuery, str, float]] = {}
         self.ttl = ttl
     
     def _get_cache_key(self, query: str) -> str:
-        """Generate cache key from query"""
         return hashlib.md5(query.lower().strip().encode()).hexdigest()
     
     def get(self, query: str) -> Optional[Tuple[LLMProcessedQuery, str]]:
-        """Get cached result if valid"""
         key = self._get_cache_key(query)
         if key in self.cache:
             result, raw_content, timestamp = self.cache[key]
@@ -65,56 +55,40 @@ class QueryCache:
                 logger.info(f"Cache hit for query: {query[:50]}...")
                 return result, raw_content
             else:
-                # Expired, remove from cache
                 del self.cache[key]
         return None
     
     def set(self, query: str, result: LLMProcessedQuery, raw_content: str):
-        """Cache the result"""
         key = self._get_cache_key(query)
         self.cache[key] = (result, raw_content, time.time())
         logger.info(f"Cached result for query: {query[:50]}...")
-    
-    def clear(self):
-        """Clear all cached results"""
-        self.cache.clear()
-        logger.info("Query cache cleared")
-    
+
+    # <-- Thêm method này
     def size(self) -> int:
-        """Get cache size"""
         return len(self.cache)
 
 
+
 class RegexQueryProcessor:
-    """Fallback regex-based query processor"""
-    
+    # Giữ nguyên logic regex fallback như cũ
     def __init__(self):
-        # Common venue patterns
         self.venue_patterns = [
             r'\b(?:in|at|from)\s+([A-Z][a-zA-Z\s]+(?:Conference|Workshop|Symposium|Journal|Proceedings))\b',
-            r'\b(?:NeurIPS|ICML|ICLR|AAAI|IJCAI|ACL|EMNLP|NAACL|CVPR|ICCV|ECCV)\b',
-            r'\b(?:NIPS|ICML|ICLR|AAAI|IJCAI|ACL|EMNLP|NAACL|CVPR|ICCV|ECCV)\b'
+            r'\b(?:NeurIPS|ICML|ICLR|AAAI|IJCAI|ACL|EMNLP|NAACL|CVPR|ICCV|ECCV)\b'
         ]
-        
-        # Year patterns
         self.year_patterns = [
             r'\b(?:from|since|after)\s+(\d{4})\b',
             r'\b(?:before|until|up\s+to)\s+(\d{4})\b',
             r'\b(\d{4})\s*(?:to|-)\s*(\d{4})\b',
             r'\b(\d{4})\b'
         ]
-        
-        # Author patterns
         self.author_patterns = [
             r'\b(?:by|author|written\s+by)\s+([A-Z][a-z]+\s+[A-Z][a-z]+)\b',
             r'\b([A-Z][a-z]+\s+[A-Z][a-z]+)\s+(?:et\s+al\.?|and\s+others)\b'
         ]
     
     def extract_filters(self, query: str) -> Dict[str, str]:
-        """Extract filters using regex patterns"""
         filters = {}
-        
-        # Extract years
         years = []
         for pattern in self.year_patterns:
             matches = re.findall(pattern, query, re.IGNORECASE)
@@ -123,7 +97,6 @@ class RegexQueryProcessor:
                     years.extend(match)
                 else:
                     years.append(match)
-        
         if years:
             years = [int(y) for y in years if y.isdigit()]
             if len(years) >= 2:
@@ -131,40 +104,27 @@ class RegexQueryProcessor:
             elif len(years) == 1:
                 filters["year"] = f"{years[0]}-{years[0]}"
         
-        # Extract venues
         venues = []
         for pattern in self.venue_patterns:
-            matches = re.findall(pattern, query, re.IGNORECASE)
-            venues.extend(matches)
-        
+            venues.extend(re.findall(pattern, query, re.IGNORECASE))
         if venues:
             filters["venue"] = ",".join(venues)
         
-        # Extract authors
         authors = []
         for pattern in self.author_patterns:
-            matches = re.findall(pattern, query, re.IGNORECASE)
-            authors.extend(matches)
-        
+            authors.extend(re.findall(pattern, query, re.IGNORECASE))
         if authors:
             filters["authors"] = ",".join(authors)
         
         return filters
     
     def process_query(self, query: str) -> Tuple[LLMProcessedQuery, str]:
-        """Process query using regex patterns"""
         logger.info("Using regex fallback for query processing")
-        
-        # Extract filters
         filters = self.extract_filters(query)
-        
-        # Clean query (remove filter-related terms)
         cleaned_query = query
         for pattern in self.year_patterns + self.venue_patterns + self.author_patterns:
             cleaned_query = re.sub(pattern, "", cleaned_query, flags=re.IGNORECASE)
-        
         cleaned_query = re.sub(r'\s+', ' ', cleaned_query).strip()
-        
         return LLMProcessedQuery(
             rewritten_query=cleaned_query,
             keyword_query=cleaned_query,
@@ -173,51 +133,65 @@ class RegexQueryProcessor:
 
 
 class EnhancedQueryProcessor:
-    """Enhanced query processor with caching and fallback mechanisms"""
-    
     def __init__(self, config: Optional[QueryProcessorConfig] = None):
         self.config = config or QueryProcessorConfig()
-        self.client = get_gemini_client()
         self.cache = QueryCache(self.config.cache_ttl) if self.config.enable_caching else None
         self.regex_processor = RegexQueryProcessor() if self.config.use_regex_fallback else None
     
-    def decompose_query_with_gemini(self, query: str) -> Tuple[LLMProcessedQuery, str]:
-        """
-        Send query to Gemini, enforce JSON response, parse into DecomposedQuery
-        """
+    def decompose_query_with_gpt(self, query: str) -> Tuple[LLMProcessedQuery, str]:
         search_filters = {}
-        
         prompt = QUERY_DECOMPOSER_PROMPT + query
-        
         try:
-            # Call Gemini with timeout
-            resp = self.client.models.generate_content(
-                model="gemini-1.5-flash",
-                contents=prompt
+            # Ask model to produce JSON only in the assistant message to make parsing easier
+            messages = [
+                {"role": "system", "content": "You are a JSON generator. Respond ONLY with a single valid JSON object that matches the expected schema. Do not include any extra explanation."},
+                {"role": "user", "content": prompt}
+            ]
+            resp = openai.chat.completions.create(
+                model="gpt-4",
+                messages=messages,
+                temperature=0
             )
-            
-            # Get response text
-            content = resp.text.strip()
-            logger.info(f"Raw Gemini output:\n{content}")
-            
-            # Find JSON in text (Gemini sometimes adds ```json)
-            start = content.find("{")
-            end = content.rfind("}") + 1
-            json_str = content[start:end]
-            
-            data = json.loads(json_str)
+            content = resp.choices[0].message.content
+            if content is None:
+                content = ""
+            content = content.strip()
+            logger.info(f"Raw GPT output:\n{content}")
+            # Try to parse the whole content as JSON first (best case)
+            try:
+                data = json.loads(content)
+            except Exception:
+                # Fallback: extract a balanced JSON object substring from the content
+                def _extract_json(s: str) -> Optional[str]:
+                    start_idx = s.find('{')
+                    if start_idx == -1:
+                        return None
+                    depth = 0
+                    for i in range(start_idx, len(s)):
+                        if s[i] == '{':
+                            depth += 1
+                        elif s[i] == '}':
+                            depth -= 1
+                            if depth == 0:
+                                return s[start_idx:i+1]
+                    return None
+
+                json_str = _extract_json(content)
+                if not json_str:
+                    # nothing parseable
+                    logger.error("Failed to extract JSON substring from LLM output")
+                    raise ValueError("No JSON found in LLM output")
+                data = json.loads(json_str)
             decomposed_query = {k: str(v) if isinstance(v, int) else v for k, v in data.items()}
             dq = DecomposedQuery(**decomposed_query)
             
             rewritten_query = dq.rewritten_query
             keyword_query = dq.rewritten_query_for_keyword_search
             
-            # Build search filters
             if dq.earliest_search_year or dq.latest_search_year:
                 earliest = dq.earliest_search_year or "1900"
                 latest = dq.latest_search_year or "2030"
                 search_filters["year"] = f"{earliest}-{latest}"
-            
             if dq.venues:
                 search_filters["venue"] = dq.venues
             if dq.field_of_study:
@@ -228,98 +202,60 @@ class EnhancedQueryProcessor:
                 keyword_query=keyword_query,
                 search_filters=search_filters
             ), content
-            
+        
         except Exception as e:
-            logger.error(f"Error while decomposing query with Gemini: {e}")
+            logger.error(f"Error while decomposing query with GPT: {e}")
+            logger.debug("Full GPT output (for debugging): %s", locals().get('content', None))
             raise e
     
     def process_query(self, query: str) -> Tuple[LLMProcessedQuery, str]:
-        """
-        Process query with caching and fallback mechanisms
-        
-        Args:
-            query: Input query string
-            
-        Returns:
-            Tuple of (LLMProcessedQuery, raw_content)
-        """
-        # Check cache first
         if self.cache:
             cached_result = self.cache.get(query)
             if cached_result:
                 return cached_result
         
-        # Try Gemini processing
         try:
-            result, raw_content = self.decompose_query_with_gemini(query)
-            
-            # Cache the result
+            result, raw_content = self.decompose_query_with_gpt(query)
             if self.cache:
                 self.cache.set(query, result, raw_content)
-            
             return result, raw_content
-            
         except Exception as e:
-            logger.error(f"Gemini processing failed: {e}")
-            
-            # Try regex fallback
+            logger.error(f"GPT processing failed: {e}")
             if self.regex_processor:
                 try:
                     result, raw_content = self.regex_processor.process_query(query)
-                    
-                    # Cache the fallback result
                     if self.cache:
                         self.cache.set(query, result, raw_content)
-                    
                     return result, raw_content
-                    
                 except Exception as fallback_error:
                     logger.error(f"Regex fallback also failed: {fallback_error}")
-            
-            # Ultimate fallback: return original query
-            logger.warning("Using ultimate fallback: returning original query")
             fallback_result = LLMProcessedQuery(
                 rewritten_query=query,
                 keyword_query=query,
                 search_filters={}
             )
-            
             return fallback_result, f"Fallback processing for: {query}"
     
     def get_cache_stats(self) -> Dict[str, Union[int, bool]]:
-        """Get cache statistics"""
         if not self.cache:
             return {"enabled": False}
-        
-        return {
-            "enabled": True,
-            "size": self.cache.size(),
-            "ttl": self.config.cache_ttl
-        }
+        return {"enabled": True, "size": self.cache.size(), "ttl": self.config.cache_ttl}
     
     def clear_cache(self):
-        """Clear the query cache"""
         if self.cache:
             self.cache.clear()
     
     def get_processor_info(self) -> Dict[str, Union[str, bool, int, float]]:
-        """Get processor configuration information"""
         return {
             "enable_caching": self.config.enable_caching,
             "cache_ttl": self.config.cache_ttl,
             "enable_fallback": self.config.enable_fallback,
-            "gemini_timeout": self.config.gemini_timeout,
             "use_regex_fallback": self.config.use_regex_fallback,
             "cache_stats": self.get_cache_stats()
         }
 
 
-# Backward compatibility function
-def decompose_query_with_gemini(query: str) -> Tuple[LLMProcessedQuery, str]:
-    """
-    Backward compatibility function for existing code
-    """
+# Backward compatibility
+def decompose_query_with_gpt(query: str) -> Tuple[LLMProcessedQuery, str]:
     processor = EnhancedQueryProcessor()
     return processor.process_query(query)
-
-
