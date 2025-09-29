@@ -1,0 +1,19 @@
+Question
+
+What is the known evidence for pervasiveness of gaming of citation metrics like citation count and h-index?
+
+
+
+
+
+Nice to have
+
+* The answer should mention about debate and criticism on the use of citation metrics in research evaluation
+
+Supporting quotes
+
+"#### **Debate and Criticism**1. **Criticism of Metrics**: The use of citation metrics in research evaluation has been criticized for creating an environment where gaming is possible and for not accurately reflecting research quality.2. **Need for Responsible Metrics Use**: Scholars argue for a responsible use of metrics, with careful design to avoid unintended consequences, such as gaming."
+
+
+
+

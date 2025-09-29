@@ -1,0 +1,19 @@
+Question
+
+What data structures are commonly used to solve the Range Minimum Query (RMQ) problem?
+
+
+
+
+
+Nice to have
+
+* The answer should explain why Range Minimum Query (RMQ) is used.
+
+Supporting quotes
+
+"The Range Minimum Query (RMQ) problem is a fundamental problem in computer science, particularly in the field of data structures and algorithms. It involves efficiently finding the minimum element in a given range of an array."
+
+
+
+

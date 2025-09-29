@@ -1,28 +1,105 @@
-﻿Question
-How does the addition of XAI techniques such as SHAP or LIME impact model interpretability in complex machine learning models ?
-
-
-Most Important
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
-Nice to have
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
+Question
+
+How does the addition of XAI techniques such as SHAP or LIME impact model interpretability in complex machine learning models ?
+
+
+
+
+
+Most Important
+
+* The answer should begin with introducing XAI.
+
+Supporting quotes
+
+"In general, the main aim of these interpretability techniques is to shed light and provide insights into the prediction process of the machine learning models and to be able to explain how the results from the prediction was generated."
+
+"The capacity of LIME to be interpreted locally faithfully and SHAP to provide feature significance through its Shapley values was crucial in revealing the decision-making processes of these models. The focus on XAI increases the openness of our machine-learning models. It provides essential resources to examine and understand their complex workings, enabling us to take a wise and educated approach to using artificial intelligence."
+
+"Model interpretations are often used in practice to extract real world insights from machine learning models. These interpretations have a wide range of applications; they can be presented as business recommendations or used to evaluate model bias. It is vital for a data scientist to choose trustworthy interpretations to drive real world impact."
+
+"machine learning interpretability allows users to comprehend the results of the learning models by providing reasoning for the decisions that it has arrived at. This nature of Explainable AI(XAI) and Interpretable Machine Learning (IML) is particularly helpful in the context of AI applications pertaining to healthcare and medical diagnosis."
+
+"Explainable AI (XAI) methods are used to improve the interpretability of these complex models, and in doing so improve transparency. However, the inherent fitness of these explainable methods can be hard to evaluate. In particular, methods to evaluate the fidelity of the explanation to the underlying black box require further development, especially for tabular data."
+
+
+
+
+
+* The answer should discuss the performance of SHAP regarding the model interpretiability in complex machine learning models
+
+Supporting quotes
+
+"On average, SHAP has the smallest average time to output explanation across all data sets included in this study. For detecting the bias, SHAP and MAPLE enable the participants to better detect the bias."
+
+"the SHAP summary plot aids in identifying the pivotal features crucial for the model's predictive accuracy. Features with the highest mean (|SHAP values|) are identified as pivotal for the model to make precise predictions. In scholarly contexts, the SHAP summary plot emerges as an invaluable tool for comprehending the functioning of a machine learning model and pinpointing features pivotal for accurate predictions."
+
+"The SHAP beeswarm plot aids in pinpointing crucial features for accurate predictions, with features exhibiting a broader spread of SHAP values considered most important for the model."
+
+"From a technical standpoint, SHAP values are derived from a meticulous formula, capturing the average alteration in the model output magnitude consequent to a modification in the value of a specific feature, with all other features held constant. This intricate formulation facilitates a granular comprehension of the nuanced contributions of individual features to the overall model predictions."
+
+"In the academic milieu, the SHAP summary plot emerges as an invaluable analytical instrument, elucidating the intricacies of a machine learning model, revealing features pivotal for precision in predictions, and unraveling their respective impacts on the model output magnitude."
+
+"Similar to LIME, Shapley Additive Explanations (SHAP) is a feature explanation algorithm that fits a separate additive explanation model that is easier to interpret than the original [7]."
+
+""SHAP exploits the principle that there exists a unique solution for the feature attribution values that satisfies the properties of local accuracy, missingness, and consistency."
+
+"For both global and local feature explanations, XGBoost with SHAP is the best performing method in the low accuracy bucket."
+
+"However, when the predictive accuracy of all models is low, XGBoost with SHAP may be the best choice to obtain trustworthy interpretations."
+
+"Based on the analysis performed, as opposed to the traditional ML models, the use of SHAPley (used interchangeably with SHAP, both meaning the same) additive functions helps us to identify the output of the given classifier, observe, infer and interpret it in a way that the AI model's reasoning is valid and justified."
+
+"SHAP's superiority is often attributed to its more precise interpretation mechanism and its ability to provide both local and global explanations  (132, Martino et al., 2022). This versatility makes SHAP a preferred choice in many applications, including healthcare and finance  (81, Vivek et al., 2021)."
+
+"SHAP is based on game theory concepts and provides a unified approach to explaining the output of any machine learning model. It calculates Shapley values, which represent the importance of each feature in a prediction [1]."
+
+
+
+
+
+* The answer should discuss the performance of LIME regarding the model interpretiability in complex machine learning models
+
+Supporting quotes
+
+"LIME achieves the lowest performance for the identity metric. LIME achieves the highest performance for the separability metric across all data sets."
+
+"The LIME technique has been introduced as a local interpretability technique that relies on the assumption that the decision boundary of a complex machine learning model is linear locally around the instance to be explained. It explains the instance of interest by fitting an interpretable model on perturbed sample around the input instance of interest. In particular, LIME generates a perturbed sample around the instance to be explained."
+
+"For each instance in the perturbed sample, LIME gets the prediction from the model to be explained (the perturbed sample along with the prediction will act as the training data set for the interpretable model). Then, the technique assign weights to the instances in the new training data set according to their proximity to the instance to be explained. Finally, LIME fits an interpretable model on the new training data set."
+
+"Local Interpretable Model-Agnostic Explanations (LIME) is a feature explanation algorithm that fits localized explainer models to explain how individual predictions are made [11]. The method is model agnostic; it does not depend on how the model is built, rather only on the predictions the model makes."
+
+"Basically, LIME explanations are based on local surrogate models. These, surrogate models are interpretable models (like a linear model or decision tree) that are learned on the predictions of the original black box model. But instead of trying to fit a global surrogate model, LIME focuses on fitting local surrogate models to explain why single predictions were made. LIME can be used for traditional machine learning tasks and even contentbased recommendation system algorithms, as it is model-agnostic."
+
+"However, LIME may have advantages in specific scenarios. Roberts et al. discovered that LIME performs better than SHAP in dense segments of datasets, while SHAP excels in sparse segments  (174, Roberts et al., 2022). This difference is attributed to the varying bias-variance characteristics of the underlying estimators used by LIME and SHAP."
+
+"LIME creates a local, interpretable model around a specific prediction to explain how the model arrived at that decision. It works by perturbing the input and observing how the predictions change [2]."
+
+
+
+
+
+* The answer should provide the limitaitons in XAI approaches.
+
+Supporting quotes
+
+"A major problem in this context is that both the quality of the interpretability techniques and trust of the machine learning model predictions are challenging to measure."
+
+"Generally speaking, there is a trade-off between the performance of machine learning models and their interpretability. That is the more interpretable the model such as linear models and decision trees, the lower their performance would be compared with complex models such as deep learning models."
+
+"LIME does not guarantee a fair distribution of the effect among the features, while Shapley value does."
+
+"It is important to note that LIME local explanations are not additive and can not be combined into a global feature importance score. Linden et al. found that when aggregated, LIME local explanations fail to reliably represent global model behavior [13]."
+
+"Calculating SHAP values, especially for large datasets and complex models, can be computationally intensive, as it requires evaluating multiple permutations of feature sets."
+
+"LIME's approach of generating synthetic data and training a local surrogate model for each instance can also be resource-heavy, particularly when dealing with a large number of predictions."
+
+"Since LIME builds local surrogate models, the fidelity of these models to the original complex model may vary, potentially leading to inaccurate explanations in some instances."
+
+"While SHAP provides a theoretically sound method, approximations or sampling methods used in practice to estimate SHAP values can sometimes lead to imprecise explanations."
+
+
+
+

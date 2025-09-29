@@ -1,0 +1,19 @@
+Question
+
+Suggest some ways in which precise positioning and context-aware networking can be achieved in 6G mobile communication?
+
+
+
+
+
+Nice to have
+
+* The answer should briefly discuss positioning methods used indoors.
+
+Supporting quotes
+
+"The lack of service coverage of GNSSs in indoor environments has generated a richresearch activity on the design of indoor localization solutions in the last two decades.Some solutions exploit acoustic, infrared, laser, inertial, and vision technologies,whereas others are based on measurements of specific features of radio signals (e.g.,TOA, RSSI, etc.) [11]. In the context of radio-based positioning technologies, research efforts followed two main directions: exploitation of existing standards designed only for communication; and design of ad-hoc standards/solutions for positioning. Recently, particular emphasis has been given to technologies for IoT applications which typically use low-cost, low-complexity, and low-energy devices."
+
+
+
+

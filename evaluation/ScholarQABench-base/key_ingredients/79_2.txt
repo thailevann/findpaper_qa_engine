@@ -1,0 +1,19 @@
+Question
+
+What are the leading approaches for anomoly detection in process mining?
+
+
+
+
+
+Nice to have
+
+* The answer should describe the type of data collected from the process mining systems for operational support and anomaly detection.
+
+Supporting quotes
+
+"Process Mining evaluates event data that was recorded during the execution of a process. An event is any data that is recorded during the execution of a process and is considered the smallest unit within a process. The granularity of an event depends on the application domain as well as the way it is recorded. For example, an event can describe which activity of a process was executed at what time. In the same way, it can also describe the different stages of the execution of an activity, e.g. events refer to the scheduling, starting, suspending, continuing or completing of an activity (van Zelst et al., 2018)."
+
+
+
+

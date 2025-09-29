@@ -1,0 +1,57 @@
+Question
+
+What data structures are commonly used to solve the Range Minimum Query (RMQ) problem?
+
+
+
+
+
+Most Important
+
+* The answer should begin with a brief explanation of Range Minimum Query.
+
+Supporting quotes
+
+"Given a static array of n totally ordered objects, the range minimum query problem is to build a data structure that allows us to answer efficiently subsequent on-line queries of the form "what is the position of a minimum element in the subarray ranging from i to j?"."
+
+"The Range Minimum Query (RMQ) problem is, given an array A[1,n] with elements from a totally ordered set, build a data structure that receives any pair of positions 1 [?] i [?] j [?] n and returns rmqA(i, j) = argmini[?]k[?] jA[k], that is, the position of a minimum value in A[i, j]. In many cases one prefers the leftmost position when there are ties."
+
+"- The array is preprocessed into a table where each entry \(ST[i][j]\) stores the minimum value in the subarray starting at index \(i\) of length \(2^j\).- RMQ can be served using two overlapping intervals covered by \(2^j\) length, minimizing through constant-time comparisons."
+
+
+
+
+
+* The answer should provide information on the data structures used to solve the Range Minimum Query (RMQ) problem.
+
+Supporting quotes
+
+"Most of the previous linear data structures for solving the 1D RMQ problem are based on the following fact: there exists an O(N )-bits structure (also built within N comparisons) such that any RMQ query can be answered without any comparison. A popular structure that has this property is the Cartesian tree [20]. Unfortunately, as shown by Demaine, Landau and Weimann[8], it is impossible to generalize the Cartesian tree to higher dimensions."
+
+"There exists a data structure supporting four-sided queries in O(log log n + k) time and O(m log m) bits of space where m is the number of points in a slab. The data structure relies on a universal data structure for two-dimensional range selection queries."
+
+"There exists a data structure that supports five-sided three-dimensional range report-ing queries in O((k + 1) log log n) time and uses O (n log log n) space."
+
+"The new data structure is described in steps, starting with a previous O(n), O( [?]n) data structure, extending it to O(n log logn), O(log logn) by applying the technique recursively, eliminating recursion to obtain O(n log logn), O(1), and finally reducing the space to O(n), O(1)."
+
+
+
+
+
+* The answer should have the types of data structures used to solve the Range Minimum Query (RMQ) problem.
+
+Supporting quotes
+
+"1. Segment TreeA segment tree is a versatile data structure that can be used to solve the RMQ problem efficiently.Characteristics:- Time Complexity: O(log n) for query, O(n log n) for construction- Space Complexity: O(n)"
+
+"2. Sparse TableThe sparse table is another popular data structure for solving RMQ, especially when the array is static (i.e., no updates are needed).Characteristics:- Time Complexity: O(1) for query, O(n log n) for construction- Space Complexity: O(n log n)"
+
+"3. Cartesian TreeA Cartesian tree is a binary tree structure that can be used in conjunction with other techniques to solve RMQ efficiently.Characteristics:- Time Complexity: O(1) for query (with additional preprocessing), O(n) for construction- Space Complexity: O(n)"
+
+"4. Block DecompositionBlock decomposition is a technique that can be combined with other data structures to achieve a good balance between query time and space complexity.Characteristics:- Time Complexity: O(1) for query, O(n) for construction- Space Complexity: O(n)"
+
+"5. Fischer-Heun StructureThe Fischer-Heun structure combines ideas from sparse tables and block decomposition to achieve optimal time and space complexity for RMQ.Characteristics:- Time Complexity: O(1) for query, O(n) for construction- Space Complexity: O(n)"
+
+
+
+

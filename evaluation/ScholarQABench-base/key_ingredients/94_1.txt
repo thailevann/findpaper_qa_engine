@@ -1,95 +1,91 @@
-﻿Question
-During pre-training, why is the transformer embedding layer initialized randomly, rather than with pre-trained embeddings from existing models?
-
-
-Most Important
-* Near the beginning, the answer should briefly define the pre-training phase in the context of transformer models and explain its importance, particularly given the high computational cost.
-Supporting quotes
-“Transformers-based models are well suited for transfer learning. In fact, many language models are pre-trained on huge amounts of unlabelled data with different techniques and finally are fine-tuned on the target task. Pre-training is the phase that requires most computational effort, but then the languages models can be shared and fine-tuned on many different tasks in only a few training steps.”
-https://arxiv.org/pdf/2104.09694
-
-
-* The answer should define the embedding layer in transformer models and emphasize the importance of proper initialization.
-        Supporting quotes
-“The goal of an embedding layer is to enable a model to learn more about the relationships between words, tokens, or other inputs. This embedding layer can be viewed as transforming data from a higher-dimension space to a lower-dimension space, or it could be viewed as mapping data from a lower-dimension space to a higher-dimension space.”
-https://medium.com/@hunter-j-phillips/the-embedding-layer-27d9c980d124
-“The embedding layer is a crucial component of the transformer architecture, responsible for converting raw input tokens into dense vector representations.”
-“### The Role of Embeddings in Transformers
-Transformers rely on embedding layers to map discrete input tokens (words, subwords, or even characters) into continuous vector spaces. These embeddings are then fed into the multi-head attention and feed-forward layers, which help capture complex patterns and relationships between tokens.”
-“Because of the massive amount of resources and time required to train these models, any types of optimizations would be beneficial to save costs. Therefore, when training future transformer-based language models, initializing the right parameter values can be one of many methods that can help train the model more effectively.”
-        https://arxiv.org/pdf/2407.12514
-
-
-* The answer should explain how the embedding layer can be initialized randomly. 
-        Supporting quotes
-“3.1 Random Embeddings Xavier (Glorot and Bengio, 2010): Each xij is sampled from the uniform distribution U(− p 6/(N + D), p 6/(N + D)) in an i.i.d. manner. As mentioned in (Glorot and Bengio, 2010), since the variance depends on the forward and backward pass gradients, the restricted range keeps the variance constant across layers to prevent exploding or vanishing gradients. The range is inversely proportional to √ N and in most cases, N > D, meaning that a larger vocabulary size equates to a smaller range. With such a dependency on the vocabulary size, there are cases when this initialization may not be optimal especially when only a small portion of the vocabulary is being used.” 
-https://arxiv.org/pdf/2407.12514
-
-
-* The answer should explain how the embedding layer can be initialized using pre-trained embeddings. 
-        Supporting quotes
-“3.2 Pre-trained Word Embeddings GloVe (Pennington et al., 2014): We use the GloVe word embedding vectors that are trained by the following objective. J(w, b) = X V i,j=1 f(xi,j )(w T i w˜j + bi + ˜bj − log xi,j ) 2 Here, wi and w˜i are the word and context vectors, respectively, and b and ˜b are the respective bias parameters. Note that unlike the Xavier initialization, the above objective does not constrain the range of the vectors and thus can, in principle, be unbounded. In practice, the range of the values depend upon the initialization of the word vectors during Glove training and the size and nature of the training data itself.”
-https://arxiv.org/pdf/2407.12514
-
-
-* The answer should discuss that although pre-trained parameters can help improve training effectiveness in non-transformer based models, it has become common practice now to use random initialization schemes, rather than the pre-trained embeddings, when training transformer based models from scratch due to better performance. 
-        Supporting quotes
-“There are many good reasons for initializing the embedding layer with pre-trained word vectors such as Glove (Pennington et al., 2014), Word2Vec (Mikolov et al.,2013), and more recently sub-word vectors (Bojanowski et al., 2017) from language models such as BERT (Devlin et al., 2019). For one, they have been shown to capture a range of useful knowledge including lexical, syntactic, and even some types of factual relations (Pennington et al., 2014). Also, from a transfer learning perspective, pre-trained parameters can help improve training effectiveness and convergence in downstream tasks, especially when training data is limited. Indeed, pre-trained token vectors1 have been shown to be useful for a wide-range of applications in other non-transformer based models (Kocmi and Bojar, 2017; Kim, 2014; Collobert et al., 2011; Qi et al., 2018; Lample et al., 2016).”
-https://arxiv.org/pdf/2407.12514
-“However, when training transformer based models from scratch, it has become standard practice to prefer randomly initialized embeddings over pre-trained embeddings. Our experiments also indicate that random initialization performs better than pre-trained word embeddings, while for sub-word embeddings the trends are not consistent.”
-        https://arxiv.org/pdf/2407.12514
-
-
-* The answer should explain that model sensitivity to parameter distribution and positional encodings can make certain pre-trained embeddings ineffective in transformers. However, standardizing some pre-trained embeddings to the Xavier range can fix this problem.
-Supporting quotes
-“### **Parameter Distribution Sensitivity**
-Transformers are highly sensitive to the initial distribution of parameters. Pre-trained embeddings, such as those from GloVe or T5, often have a wider distribution of values compared to random initialization schemes. This wider distribution can lead to issues like:
-- **Saturated Outputs**: Large initial values can cause neurons to saturate, making gradients very small and hindering effective learning during the early stages of training.
-- **Training Instability**: The non-convex nature of the optimization landscape in transformer models can make training with pre-trained embeddings less stable.
-Random initialization, often using schemes like Xavier or He initialization, provides a more controlled and narrow range of values, which helps in maintaining stable gradients and effective learning dynamics from the start[3].
-### **Interactions with Positional Encodings**
-Transformers rely on positional encodings to capture the order of tokens in a sequence, as they do not inherently understand sequence order. When pre-trained embeddings with large values are used, they can overshadow the positional encodings, leading to a loss of positional information. This can degrade the model's performance on tasks that require understanding the order of tokens.
-Random initialization ensures that the embedding values are small enough to allow positional encodings to have a significant impact, preserving the sequence information crucial for many tasks[3].”
-“Finding 1: Pre-trained embeddings, such as GloVe, T5, and mT5, with variance many orders of magnitude higher than the variance of Xavier initialized embeddings tend to fare worse. Meanwhile, BERT and mBERT embeddings with a more similar range to Xavier performs on par or better than Xavier. Although the exact range for the optimal performance is not known, the Xavier initialization range have been widely used and tested to perform well. Therefore, pre-trained embeddings that do not fall within the Xavier specifications tend to be less effective. We know the embedding variance is important as experiments show that standardizing GloVe, T5, and mT5 embeddings to match the variance of the Xavier initialization scheme lead to substantial improvements. However, standardizing BERT and mBERT embeddings usually either made a neutral or negative effect to the performance”
-https://arxiv.org/pdf/2407.12514
-
-
-* The answer should conclude that due to lack of theoretical backing and mixed empirical results, the true effect of pre-trained embedding on the training performance of transformer models needs further investigation.
-Supporting quotes
-“### **Empirical Performance**
-Empirical studies have shown mixed results when using pre-trained embeddings in transformers. For instance, while some embeddings like those from BERT and mBERT have shown to perform better than random initialization, others like GloVe and T5 have not fared as well. This discrepancy can be attributed to the differences in value distributions and their interactions with the model's architecture and training dynamics[3].”
-“With only a marginal performance increase using Pre-trained_Xavier embeddings compared to Xavier initialization, its potential value needs further investigation. The storage space and computational costs required for pre-trained word vectors with lower-than-expected returns also calls for additional development. Meanwhile, there are other many well-researched and developed forms of knowledge transfer with more effective training strategies. Depending on how much gains an uncompromised embedding including position and semantic information can provide, further studies are required to come to a conclusion on the value of initializing pre-trained embeddings.”
-https://arxiv.org/pdf/2407.12514
-
-
-Nice to have
-* The answer should discuss some benefits of random initialization.
-Supporting quotes
-“a) Flexibility and Adaptability:
-Random initialization allows the model to learn representations specific to the task and dataset at hand. This approach enables the model to adapt its embeddings to the particular nuances and patterns present in the training data.”
-“b) Avoiding Bias:
-Starting with random weights helps prevent the model from inheriting biases present in pre-trained embeddings, which might not be suitable for the specific task or domain.”
-“c) Computational Efficiency:
-Random initialization is computationally simpler and faster than loading and potentially fine-tuning pre-trained embeddings.”
-“a) Task-Specific Learning:
-Random initialization encourages the model to learn task-specific representations from scratch, which can be advantageous when dealing with specialized domains or novel tasks.”
-“b) Consistency with Other Layers:
-Since other layers in the transformer (e.g., attention mechanisms, feed-forward networks) are typically initialized randomly, using random embeddings maintains consistency in the learning process across all model components.”
-“c) Potential for Better Generalization:
-Learning embeddings from scratch may lead to better generalization, especially when the pre-training dataset is large and diverse (Devlin et al., 2019)[2].”
-
-
-* The answer should discuss the alternatives to random initialization such as transfer learning, and multilingual models.
-Supporting quotes
-“4. Alternatives to Random Initialization
-While random initialization is common, there are scenarios where using pre-trained embeddings can be beneficial:
-a) Transfer Learning:
-When working with limited data or in domains similar to those of existing pre-trained models, initializing with pre-trained embeddings can provide a good starting point (Peters et al., 2018)[3].
-b) Multilingual Models:
-For multilingual transformers, using pre-trained embeddings from monolingual models can help in aligning representations across languages (Conneau et al., 2020)[4].
-5. Hybrid Approaches
-Some researchers have explored hybrid approaches:
-a) Partial Initialization:
-Initializing only a portion of the embedding layer with pre-trained vectors while randomly initializing the rest.
-b) Gradual Unfreezing:
-Starting with pre-trained embeddings but allowing them to be fine-tuned after initial training phases (Howard and Ruder, 2018)[5].”
+Question
+
+During pre-training, why is the transformer embedding layer initialized randomly, rather than with pre-trained embeddings from existing models?
+
+
+
+
+
+Most Important
+
+* Near the beginning, the answer should briefly define the pre-training phase in the context of transformer models and explain its importance, particularly given the high computational cost.
+
+Supporting quotes
+
+"Transformers-based models are well suited for transfer learning. In fact, many language models are pre-trained on huge amounts of unlabelled data with different techniques and finally are fine-tuned on the target task. Pre-training is the phase that requires most computational effort, but then the languages models can be shared and fine-tuned on many different tasks in only a few training steps."
+
+
+
+
+
+* The answer should define the embedding layer in transformer models and emphasize the importance of proper initialization.
+
+Supporting quotes
+
+"The goal of an embedding layer is to enable a model to learn more about the relationships between words, tokens, or other inputs. This embedding layer can be viewed as transforming data from a higher-dimension space to a lower-dimension space, or it could be viewed as mapping data from a lower-dimension space to a higher-dimension space."
+
+"The embedding layer is a crucial component of the transformer architecture, responsible for converting raw input tokens into dense vector representations."
+
+"### The Role of Embeddings in TransformersTransformers rely on embedding layers to map discrete input tokens (words, subwords, or even characters) into continuous vector spaces. These embeddings are then fed into the multi-head attention and feed-forward layers, which help capture complex patterns and relationships between tokens."
+
+"Because of the massive amount of resources and time required to train these models, any types of optimizations would be beneficial to save costs. Therefore, when training future transformer-based language models, initializing the right parameter values can be one of many methods that can help train the model more effectively."
+
+
+
+
+
+* The answer should explain how the embedding layer can be initialized randomly.
+
+Supporting quotes
+
+"3.1 Random Embeddings Xavier (Glorot and Bengio, 2010): Each xij is sampled from the uniform distribution U([?] p 6/(N + D), p 6/(N + D)) in an i.i.d. manner. As mentioned in (Glorot and Bengio, 2010), since the variance depends on the forward and backward pass gradients, the restricted range keeps the variance constant across layers to prevent exploding or vanishing gradients. The range is inversely proportional to [?] N and in most cases, N > D, meaning that a larger vocabulary size equates to a smaller range. With such a dependency on the vocabulary size, there are cases when this initialization may not be optimal especially when only a small portion of the vocabulary is being used."
+
+
+
+
+
+* The answer should explain how the embedding layer can be initialized using pre-trained embeddings.
+
+Supporting quotes
+
+"3.2 Pre-trained Word Embeddings GloVe (Pennington et al., 2014): We use the GloVe word embedding vectors that are trained by the following objective. J(w, b) = X V i,j=1 f(xi,j )(w T i w~j + bi + ~bj [?] log xi,j ) 2 Here, wi and w~i are the word and context vectors, respectively, and b and ~b are the respective bias parameters. Note that unlike the Xavier initialization, the above objective does not constrain the range of the vectors and thus can, in principle, be unbounded. In practice, the range of the values depend upon the initialization of the word vectors during Glove training and the size and nature of the training data itself."
+
+
+
+
+
+* The answer should discuss that although pre-trained parameters can help improve training effectiveness in non-transformer based models, it has become common practice now to use random initialization schemes, rather than the pre-trained embeddings, when training transformer based models from scratch due to better performance.
+
+Supporting quotes
+
+"There are many good reasons for initializing the embedding layer with pre-trained word vectors such as Glove (Pennington et al., 2014), Word2Vec (Mikolov et al.,2013), and more recently sub-word vectors (Bojanowski et al., 2017) from language models such as BERT (Devlin et al., 2019). For one, they have been shown to capture a range of useful knowledge including lexical, syntactic, and even some types of factual relations (Pennington et al., 2014). Also, from a transfer learning perspective, pre-trained parameters can help improve training effectiveness and convergence in downstream tasks, especially when training data is limited. Indeed, pre-trained token vectors1 have been shown to be useful for a wide-range of applications in other non-transformer based models (Kocmi and Bojar, 2017; Kim, 2014; Collobert et al., 2011; Qi et al., 2018; Lample et al., 2016)."
+
+"However, when training transformer based models from scratch, it has become standard practice to prefer randomly initialized embeddings over pre-trained embeddings. Our experiments also indicate that random initialization performs better than pre-trained word embeddings, while for sub-word embeddings the trends are not consistent."
+
+
+
+
+
+* The answer should explain that model sensitivity to parameter distribution and positional encodings can make certain pre-trained embeddings ineffective in transformers. However, standardizing some pre-trained embeddings to the Xavier range can fix this problem.
+
+Supporting quotes
+
+"### **Parameter Distribution Sensitivity**Transformers are highly sensitive to the initial distribution of parameters. Pre-trained embeddings, such as those from GloVe or T5, often have a wider distribution of values compared to random initialization schemes. This wider distribution can lead to issues like:- **Saturated Outputs**: Large initial values can cause neurons to saturate, making gradients very small and hindering effective learning during the early stages of training.- **Training Instability**: The non-convex nature of the optimization landscape in transformer models can make training with pre-trained embeddings less stable.Random initialization, often using schemes like Xavier or He initialization, provides a more controlled and narrow range of values, which helps in maintaining stable gradients and effective learning dynamics from the start[3].### **Interactions with Positional Encodings**Transformers rely on positional encodings to capture the order of tokens in a sequence, as they do not inherently understand sequence order. When pre-trained embeddings with large values are used, they can overshadow the positional encodings, leading to a loss of positional information. This can degrade the model's performance on tasks that require understanding the order of tokens.Random initialization ensures that the embedding values are small enough to allow positional encodings to have a significant impact, preserving the sequence information crucial for many tasks[3]."
+
+"Finding 1: Pre-trained embeddings, such as GloVe, T5, and mT5, with variance many orders of magnitude higher than the variance of Xavier initialized embeddings tend to fare worse. Meanwhile, BERT and mBERT embeddings with a more similar range to Xavier performs on par or better than Xavier. Although the exact range for the optimal performance is not known, the Xavier initialization range have been widely used and tested to perform well. Therefore, pre-trained embeddings that do not fall within the Xavier specifications tend to be less effective. We know the embedding variance is important as experiments show that standardizing GloVe, T5, and mT5 embeddings to match the variance of the Xavier initialization scheme lead to substantial improvements. However, standardizing BERT and mBERT embeddings usually either made a neutral or negative effect to the performance"
+
+
+
+
+
+* The answer should conclude that due to lack of theoretical backing and mixed empirical results, the true effect of pre-trained embedding on the training performance of transformer models needs further investigation.
+
+Supporting quotes
+
+"### **Empirical Performance**Empirical studies have shown mixed results when using pre-trained embeddings in transformers. For instance, while some embeddings like those from BERT and mBERT have shown to perform better than random initialization, others like GloVe and T5 have not fared as well. This discrepancy can be attributed to the differences in value distributions and their interactions with the model's architecture and training dynamics[3]."
+
+"With only a marginal performance increase using Pre-trained_Xavier embeddings compared to Xavier initialization, its potential value needs further investigation. The storage space and computational costs required for pre-trained word vectors with lower-than-expected returns also calls for additional development. Meanwhile, there are other many well-researched and developed forms of knowledge transfer with more effective training strategies. Depending on how much gains an uncompromised embedding including position and semantic information can provide, further studies are required to come to a conclusion on the value of initializing pre-trained embeddings."
+
+
+
+

@@ -1,0 +1,23 @@
+Question
+
+What are good benchmarks and evaluation strategies for comparing obstacle avoidance strategies in mobile robots?
+
+
+
+
+
+Nice to have
+
+* The answer should provide information about the testing frameworks to evaluate obstacle avoidance strategies in mobile robots.
+
+Supporting quotes
+
+"Several testing frameworks have been developed particularly for the domains of robot motion planning. These include MoVeMa [11], Framework for Obstacle Avoidance [21] and SAMPLE [16]."
+
+"Simulated environments offer a controlled and reproducible setting for evaluating obstacle avoidance strategies. Some popular simulation platforms include:a) Gazebo: An open-source 3D robotics simulator [1]b) V-REP (now CoppeliaSim): A versatile robot simulation platform [2]c) MATLAB Robotics Toolbox: Provides simulation capabilities for various robotic systems [3]"
+
+"For evaluating mobile robot local planning approaches, the MRPB 1.0 benchmark has been proposed  (122, Fang et al., 2020). It features carefully designed simulation scenarios that challenge the applicability of local planners in large-scale, partially unknown, and dynamic complex environments. MRPB 1.0 also includes three types of evaluation metrics that consider safety, efficiency, and smoothness of motions."
+
+
+
+

@@ -1,0 +1,63 @@
+Question
+
+Apart from preventing overfitting, are there any side effects (desirable or otherwise) of applying dropout in deep neural networks?
+
+
+
+
+
+Most Important
+
+* Near the beginning, the answer should briefly explain the dropout technique in deep neural networks and the main motivation behind its usage for overfitting prevention.
+
+Supporting quotes
+
+"The term "dropout" refers to dropping out units (hidden and visible) in a neural network. By dropping a unit out, we mean temporarily removing it from the network, along with all its incoming and outgoing connections, as shown in Figure 1. The choice of which units to drop is random. In the simplest case, each unit is retained with a fixed probability p independent of other units, where p can be chosen using a validation set or can simply be set at 0.5, which seems to be close to optimal for a wide range of networks and tasks."
+
+"Deep neural nets with a large number of parameters are very powerful machine learning systems. However, overfitting is a serious problem in such networks. Large networks are also slow to use, making it difficult to deal with overfitting by combining the predictions of many different large neural nets at test time. Dropout is a technique for addressing this problem"
+
+"The central idea of dropout is to take a large model that overfits easily and repeatedly sample and train smaller sub-models from it. Since all the sub-models share parameters with the large model, this process trains the large model which is then used at test time. We demonstrated that this idea works in the context of feed forward neural networks."
+
+
+
+
+
+* The answer should enumerate desirable side effects of using dropout technique, such as improved generalization, robustness, and quality of features.
+
+Supporting quotes
+
+"1. Improved Generalization. One of the most significant desirable side effects of dropout is improved generalization. By randomly dropping out neurons during training, dropout creates an ensemble of subnetworks, which leads to better generalization on unseen data [1]."
+
+"1. **Sparse Activations**:Dropout can lead to sparse activations in hidden units, even without sparsity-inducing regularizers. This is because the random dropping of nodes forces other nodes to take on more responsibility, resulting in a sparse representation of the data."
+
+"2. **Robustness to Co-Adaptation**:Dropout can break up situations where network layers co-adapt to correct mistakes from prior layers, making the model more robust. This is because nodes are forced to adapt to different configurations during training, reducing the likelihood of complex co-adaptations that do not generalize well to unseen data."
+
+
+
+
+
+* The answer should enumerate places where the use of dropout technique can lead to undesirable side effects, such as when training time and data is limited and when the drop probability is not set properly relative to the size of the network.
+
+Supporting quotes
+
+"#### Increased Training Time.Applying dropout increases the training time because each update is noisier, leading to longer convergence times. This can be particularly challenging in resource-constrained environments or when working with very large datasets [Goodfellow et al., 2016]."
+
+"#### Hyperparameter Sensitivity. Dropout introduces an additional hyperparameter: the dropout rate. Choosing an inappropriate dropout rate can either negate the benefits of dropout or degrade performance. Hence, additional effort in hyperparameter tuning is required [Hinton et al., 2012]."
+
+"#### Possible Underfitting with High Dropout Rates. Using a very high dropout rate can lead to underfitting since too much information is discarded in each training iteration. This considerably hampers the network's ability to learn and represent underlying patterns in the data [Goodfellow et al., 2016].""2. **Need for Larger Networks**:Dropout can require a wider network (more nodes) to compensate for the reduced capacity during training. This is because the random subsampling of layer outputs reduces the effective capacity of the network."
+
+
+
+
+
+* The answer should discuss that determining the correct dropout rate, network size, data size, and training time is very important for this technique to be effective.
+
+Supporting quotes
+
+"Therefore, it is important to determine an appropriate dropout rate and the number of nodes in designing neural network models to apply to real-world problems."
+
+"This suggests that for any given architecture and dropout rate, there is a "sweet spot" corresponding to some amount of data that is large enough to not be memorized in spite of the noise but not so large that overfitting is not a problem anyways."
+
+
+
+

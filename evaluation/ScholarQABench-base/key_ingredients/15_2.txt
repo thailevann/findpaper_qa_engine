@@ -1,28 +1,9 @@
-﻿Question
-How good are LLMs at solving traditional tabular ML datasets using ICL?
-
-
-Most Important
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
-Nice to have
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
+Question
+
+How good are LLMs at solving traditional tabular ML datasets using ICL?
+
+
+
+
+
+Nice to have

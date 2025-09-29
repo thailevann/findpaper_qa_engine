@@ -1,28 +1,21 @@
-﻿Question
-What are advantages and disadvantages of top methods for picking the right number of topics in topic modeling?
-
-
-Most Important
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
-Nice to have
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
+Question
+
+What are advantages and disadvantages of top methods for picking the right number of topics in topic modeling?
+
+
+
+
+
+Nice to have
+
+* The answer could name LDA as one of the most important methods for topic modeling.
+
+Supporting quotes
+
+"Latent Dirichlet Allocation (LDA), as it is the most used [6,12,17,20,32], state-of-the-art method [25] and simplest method [8]."
+
+"The topic modelling method LDA is an unsupervised, probabilistic modelling method which extracts topics from a collection of papers."
+
+
+
+

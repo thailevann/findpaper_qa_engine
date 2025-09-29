@@ -1,76 +1,63 @@
-﻿Question
-Have large language models been applied to the schema matching problem in databases and are they effective?
-
-
-Most Important
-* Near the beginning, the answer should confirm that LLMs have recently been used in schema matching problems, requiring only minimal fine-tuning and demonstrating promising results.
-Supporting quotes
-“TLDR: Large Language Models (LLMs) have been applied to schema matching tasks in databases, showing promising initial results. Their ability to understand semantics and context makes them potentially powerful tools for various data integration challenges.
-Recent research has explored the application of Large Language Models (LLMs) to schema matching and related data integration tasks in databases. The use of LLMs for these purposes is still in its early stages, but initial results are promising  (1, Matentzoglu et al., 2023)  (2, Mishaeli et al., 2024). LLMs' capability to understand and interpret the semantics and context of data schemas makes them particularly well-suited for schema matching tasks  (2, Mishaeli et al., 2024).”
-“Our study shows that LLMs have potential in bootstrapping the schema matching process and are able to assist data engineers in speeding up this task solely based on schema element names and descriptions without the need for data instances.”
-https://arxiv.org/html/2407.11852v1#:~:text=Our%20study%20shows%20that%20LLMs,the%20need%20for%20data%20instances.
-“A benefit of LLMs over the string similarity baseline is that they can be instructed to provide an explanation as to why they identify a certain attribute pair as a match or a non-match. We believe that such explanations can be a valuable instrument for a data engineer tasked to construct a schema mapping, to identify and rectify misclassifications.”
-https://arxiv.org/html/2407.11852v1#:~:text=Our%20study%20shows%20that%20LLMs,the%20need%20for%20data%20instances.
-
-
-* The answer should discuss some of the LLMs used for schema mapping by quoting relevant works.
-Supporting quotes
-“Several studies and implementations have demonstrated the effectiveness of LLMs in schema matching:
-3.1 BERT-based Approaches
-Researchers have utilized BERT (Bidirectional Encoder Representations from Transformers) for schema matching tasks. For instance, a study by Li et al. (2020) proposed a BERT-based method for schema matching in data integration scenarios, showing significant improvements over traditional approaches [1].
-3.2 GPT-based Solutions
-More recent studies have explored the use of GPT (Generative Pre-trained Transformer) models for schema matching. These models have shown promise in generating schema mappings and understanding complex relationships between schema elements [2].
-3.3 Multi-modal Approaches
-Some researchers have combined LLMs with other techniques, such as graph neural networks, to enhance schema matching performance. This multi-modal approach leverages both textual and structural information in schemas [3].”
-“Mishaeli et al. introduced ReMatch, an approach inspired by information retrieval techniques and LLMs, specifically designed for schema matching  (2, Mishaeli et al., 2024).” 
-“In this paper, we aim to exploit this information and present an experimental study on schema matching using an off-the-shelf generative Large Language Model (LLM). We investigate how LLMs can be prompted to generate a set of match candidates. We focus on the use of schema documentation as the sole signal and evaluate the performance against a newly defined real-world benchmark.”
-https://arxiv.org/html/2407.11852v1#:~:text=Our%20study%20shows%20that%20LLMs,the%20need%20for%20data%20instances.
-
-
-* The answer should discuss the limitations of LLMs for schema matching and suggest directions for future works.
-Supporting quotes
-“### Challenges and Considerations
-Despite their advantages, applying LLMs to schema matching is not without challenges:
-1. **Computational Resources**:
- LLMs require significant computational resources, which might be prohibitive for smaller organizations.
-2. **Domain-Specific Training Data**:
-Fine-tuning LLMs requires substantial domain-specific data, which might not always be available.
-3. **Interpretability**:
- The decision-making process of LLMs can be opaque, making it difficult to understand why certain matches were made.”
-
-
-* The answer should discuss other ML-based methods used for schema matching and their limitations. 
-Supporting quotes
-“Other methods rely on machine learning techniques to create models to predict if a matching candidate is a true matching or not.”
-https://journal-bcs.springeropen.com/articles/10.1186/s13173-021-00119-5
-“Also related is SMAT [13] which uses an attention-based neural network to match GLoVe embeddings [14] of schema elements, but requires a majority of the data to be labelled: 80% of the data that needs to be matched is used for training, and subsequently an additional 10% is used for tuning weights, leaving only 10% to evaluate the model. For practical applications, this presents a significant limitation, as requiring 90% of the input schemas to be labeled, amounts to almost completely matching the schemas by hand.”
-https://arxiv.org/html/2407.11852v1#:~:text=Our%20study%20shows%20that%20LLMs,the%20need%20for%20data%20instances.
-“Recent work, such as SMAT [28] and LSM [29], leverages advancements in natural language processing to achieve semantic mappings between source and target schemas. While these methods improve previous results, they still require extensive data tagging, limiting their practicality in real-world applications. Finally, the majority of previous methods dealt with schema matching as a binary classification task over A1 × A2. While simplifying training and evaluation, in normalized schemas positive labels scale by 𝑂(𝑛), whereas negative labels scale by 𝑂(𝑛 2 ), which is problematic when inference is expensive, as in the case of LLMs”
-https://arxiv.org/pdf/2403.01567
-“Since learning classifiers require a training set, the user must often classify a large number of instances, which may be hard to carry out..”
-https://journal-bcs.springeropen.com/articles/10.1186/s13173-021-00119-5
-
-
-Nice to have
-* The answer should briefly define the core problem in schema matching.        
-Supporting quotes
-“Schema matching is the task of finding semantic correspondences between elements (or attributes) of two given database schemas [1–5]. Such a task is essential for enabling data integration and systems interoperability in domains such as e-commerce, geospace, biology, health, etc.”
-https://journal-bcs.springeropen.com/articles/10.1186/s13173-021-00119-5
-“Schema matching [1] constitutes a core task in data integration [2]. It refers to the problem of identifying semantic correspondences between elements of two relational schemas that represent the same real-world concept. For example, a schema matching system may conclude that an attribute admittime from one table in a medical information system semantically corresponds to an attribute visit_start_date in another table. Once correspondences are identified, they can be used to translate data from the source schema into data conforming to the target schema [2], a process known as schema mapping. In this paper, we focus on schema matching.”
-https://arxiv.org/html/2407.11852v1#:~:text=Our%20study%20shows%20that%20LLMs,the%20need%20for%20data%20instances.
-
-
-*  The answer should discuss the challenges behind manual schema matching.
-        Supporting quotes
-“The schema matching task is challenging for many reasons. First, schema elements, e.g., attributes representing the same concept, may have different names in different schemas. On the other hand, elements with similar names may refer to distinct concepts. Also, equivalent elements in two schemas may have a different structure. Finally, there may be the case in which many elements from one schema represent a concept represented by a single element in the other schema.”
-https://journal-bcs.springeropen.com/articles/10.1186/s13173-021-00119-5
-“To generate match candidates, a wide variety of signals that hint at element correspondence have been considered in the research literature. These include syntactic similarity of attribute names; consulting thesauri; looking at data values and their distributions in concrete database instances; and exploiting database constraints [1, 3, 4, 5]. Unfortunately, many such signals remain unavailable in real-world schemas [6]: attribute names are often cryptic and involve domain-specific abbreviations not occurring in thesauri. Use of actual data values and concrete database instances may be restricted for legal reasons; e.g., this is the case in the health domain where real database instances are problematic to obtain due to privacy constraints.”
-https://arxiv.org/html/2407.11852v1#:~:text=Our%20study%20shows%20that%20LLMs,the%20need%20for%20data%20instances.
-“Traditionally, the schema matching task is performed manually by specialists with extensive knowledge about the schemas and their domain. However, even for a specialist, this task may be time-consuming, costly, and error-prone.”
-https://journal-bcs.springeropen.com/articles/10.1186/s13173-021-00119-5
-
-
-* The answer should mention schema matching network as a more complex version of binary schema mapping.
-Supporting quotes
-“As the problem evolved, schema matching tasks have appeared in settings where more than two data sources (e.g., database, query forms) need to be matched [9, 16–20], as if they compose a network of schemas. The task that involves more than two schemas is known as the schema matching network task.”
-https://journal-bcs.springeropen.com/articles/10.1186/s13173-021-00119-5
+Question
+
+Have large langauge models been applied to the schema matching problem in databases and are they effective?
+
+
+
+
+
+Most Important
+
+* Near the beginning, the answer should confirm that LLMs have recently been used in schema matching problems, requiring only minimal fine-tuning and demonstrating promising results.
+
+Supporting quotes
+
+"TLDR: Large Language Models (LLMs) have been applied to schema matching tasks in databases, showing promising initial results. Their ability to understand semantics and context makes them potentially powerful tools for various data integration challenges.Recent research has explored the application of Large Language Models (LLMs) to schema matching and related data integration tasks in databases. The use of LLMs for these purposes is still in its early stages, but initial results are promising  (1, Matentzoglu et al., 2023)  (2, Mishaeli et al., 2024). LLMs' capability to understand and interpret the semantics and context of data schemas makes them particularly well-suited for schema matching tasks  (2, Mishaeli et al., 2024)."
+
+"Our study shows that LLMs have potential in bootstrapping the schema matching process and are able to assist data engineers in speeding up this task solely based on schema element names and descriptions without the need for data instances."
+
+"A benefit of LLMs over the string similarity baseline is that they can be instructed to provide an explanation as to why they identify a certain attribute pair as a match or a non-match. We believe that such explanations can be a valuable instrument for a data engineer tasked to construct a schema mapping, to identify and rectify misclassifications."
+
+
+
+
+
+* The answer should discuss some of the LLMs used for schema mapping by quoting relevant works.
+
+Supporting quotes
+
+"Several studies and implementations have demonstrated the effectiveness of LLMs in schema matching:3.1 BERT-based ApproachesResearchers have utilized BERT (Bidirectional Encoder Representations from Transformers) for schema matching tasks. For instance, a study by Li et al. (2020) proposed a BERT-based method for schema matching in data integration scenarios, showing significant improvements over traditional approaches [1].3.2 GPT-based SolutionsMore recent studies have explored the use of GPT (Generative Pre-trained Transformer) models for schema matching. These models have shown promise in generating schema mappings and understanding complex relationships between schema elements [2].3.3 Multi-modal ApproachesSome researchers have combined LLMs with other techniques, such as graph neural networks, to enhance schema matching performance. This multi-modal approach leverages both textual and structural information in schemas [3]."
+
+"Mishaeli et al. introduced ReMatch, an approach inspired by information retrieval techniques and LLMs, specifically designed for schema matching  (2, Mishaeli et al., 2024)."
+
+"In this paper, we aim to exploit this information and present an experimental study on schema matching using an off-the-shelf generative Large Language Model (LLM). We investigate how LLMs can be prompted to generate a set of match candidates. We focus on the use of schema documentation as the sole signal and evaluate the performance against a newly defined real-world benchmark."
+
+
+
+
+
+* The answer should discuss the limitations of LLMs for schema matching and suggest directions for future works.
+
+Supporting quotes
+
+"### Challenges and ConsiderationsDespite their advantages, applying LLMs to schema matching is not without challenges:1. **Computational Resources**:LLMs require significant computational resources, which might be prohibitive for smaller organizations.2. **Domain-Specific Training Data**:Fine-tuning LLMs requires substantial domain-specific data, which might not always be available.3. **Interpretability**:The decision-making process of LLMs can be opaque, making it difficult to understand why certain matches were made."
+
+
+
+
+
+* The answer should discuss other ML-based methods used for schema matching and their limitations.
+
+Supporting quotes
+
+"Other methods rely on machine learning techniques to create models to predict if a matching candidate is a true matching or not."
+
+"Also related is SMAT [13] which uses an attention-based neural network to match GLoVe embeddings [14] of schema elements, but requires a majority of the data to be labelled: 80% of the data that needs to be matched is used for training, and subsequently an additional 10% is used for tuning weights, leaving only 10% to evaluate the model. For practical applications, this presents a significant limitation, as requiring 90% of the input schemas to be labeled, amounts to almost completely matching the schemas by hand."
+
+"Recent work, such as SMAT [28] and LSM [29], leverages advancements in natural language processing to achieve semantic mappings between source and target schemas. While these methods improve previous results, they still require extensive data tagging, limiting their practicality in real-world applications. Finally, the majority of previous methods dealt with schema matching as a binary classification task over A1 x A2. While simplifying training and evaluation, in normalized schemas positive labels scale by (), whereas negative labels scale by ( 2 ), which is problematic when inference is expensive, as in the case of LLMs"
+
+"Since learning classifiers require a training set, the user must often classify a large number of instances, which may be hard to carry out.."
+
+
+
+

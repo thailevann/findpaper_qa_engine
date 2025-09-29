@@ -1,28 +1,83 @@
-﻿Question
-What are existing methods to elicit user intents when an automation encounters ambiguity, especially in failure cases?
-
-
-Most Important
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
-Nice to have
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
+Question
+
+What are existing methods to elicit user intents when an automation encounters ambiguity, especially in failure cases?
+
+
+
+
+
+Most Important
+
+* The answer should provide the methods to extract user intents when an automation encounters ambiguity, especially in failure cases.
+
+Supporting quotes
+
+"TaskLint is our system for helping task authors to identify ambiguities before the task is posted (i.e., proactive). Like lint tools for code, it identifes possible problems during the process of authoring the instructions. Like grammar checkers and other computer-assisted writing tools, it uses a wide range of NLP methods, drawing on many existing tools."
+
+"We present TaskLint, a system to automatically detect problems with task instructions. Leveraging a diverse set of existing NLP tools, TaskLint identifes words and sentences that might foretell worker confusion. This is analogous to static analysis tools for code ("linters"), which detect possible features in code that might indicate the presence of bugs."
+
+"The study had two stages. In Phase 1, a novice requester created instructions for several task scenarios (na"ive), used our tool to detect ambiguities in the task instructions, and modifed the instructions based on the feedback from the tool (TaskLint). In Phase 2, we posted their instructions to Amazon Mechanical Turk (AMT) and measured the performance of tasks created (na"ive, TaskLint)."
+
+"Failures due to ambiguity occurred when there were multiple reasonable interpretations of a request, and the response was misaligned with what the user intended while still accurately answering the question."
+
+"People generally expect to have functional conversations with voice assistants. The lack of social conversations may reduce users' ability to build trust in their voice assistants. Indeed, past research has shown that users trust embodied conversational agents more when they engage in small talk, although this varies by user personality type and level of embodiment of the agent."
+
+"Broadly, past research has evaluated how various factors such as accuracy and errors affect people's trust in algorithms."
+
+"We reference Herbert Clark's grounding model for human communication, which relies on four different levels to achieve mutual understanding: channel, signal, intention, and conversation."
+
+"If users are repeatedly unable to repair failures with voice assistant, this weakens their trust and causes them to reduce their scope of commands to simple tasks with low risk of failure."
+
+"In particular, we find that failures due to spurious triggers and ambiguity are less detrimental to user trust than failures due to incorrect action execution, missed triggers, or overcapture."
+
+"Robust evidence across two experiments demonstrates that users attribute successful service outcomes internally, while robot-induced service failures are blamed on the firm (and not the robot), confirming the well-known self-serving bias."
+
+"While this external attributional shift occurs regardless of the robot design (i.e., it is the same for warm vs. competent robots), the findings imply that service recovery minimizes the undesirable external shift and that this effect is particularly pronounced for warm robots. For practitioners, this implies prioritizing service robots with a warm design for maximizing user retention for either type of service outcome (i.e., success, failure, and failure with recovery)."
+
+"service recovery through human handover mitigates the deleterious externalization of attribution by shifting back attribution internally and getting users to take their share of responsibility for failures that are created during their interactions with robots."
+
+"Specifically, users internalize responsibility for an outcome if the service robot has warm (vs. competent) design features."
+
+"While users are indifferent to the type of robot in case of a non-resolved failure, service robot design alters how users attribute responsibility for a recovered failure in that they are more forgiving toward robots with warm design."
+
+"varying levels of human involvement in repair strategies depending on the risk factors involved. In high-risk situations, such as those pertaining to safety, users suggested designing protocols that include a preliminary interactive checking process with the user before the robot initiates an automated repair."
+
+"Unclear or inaccurate instructions: Users may struggle to articulate their intentions clearly, especially when dealing with complex or unfamiliar tasks. This can lead to ambiguous or imprecise instructions that automated systems find difficult to interpret accurately  (29, Li et al., 2022)."
+
+"Unexpressed or evolving intentions: Users may not always know exactly what they want at the outset of an interaction. Their intentions can be initially vague or may evolve as they engage with the system, requiring a more dynamic approach to intent recognition  (24, Tanaka et al., 2021)."
+
+"Complex multi-turn interactions: In real-world settings, determining a user's true intent often requires multiple rounds of dialogue. This is particularly true when dealing with intricate or nuanced requests that cannot be fully captured in a single interaction  (36, Hao et al., 2023)."
+
+"Changing context and requirements: User intentions can change over time due to shifting contexts or evolving needs. This dynamism poses challenges for context-aware systems that may be designed to provide standardized services based on initial assumptions about user intent  (7, Oyama et al., 2011)."
+
+" Providing users with better context about what the system knows and how well it can interpolate or extrapolate helps users refine their own intents in complex settings. This method can reveal subtle low-level inconsistencies in desired task requirements that might otherwise lead to undesirable behaviors."
+
+"Open-Ended Clarification Requests: To prevent user frustration, systems can generate open-ended requests that explicitly mention two or three of the most likely interpretations  (16, Jackson et al., 2020)."
+
+"For visual inputs with ambiguity or uncertainty, systems can involve users in resolving these issues, combining automated planning and execution monitoring to track task states and recover from mistakes  (21, Mohomed et al., 2020)."
+
+"When user intent expressions contain semantic ambiguity, AI/ML techniques become necessary to infer the intended meaning. This approach bridges the gap between expressed and intended intents  (33, Glassman, 2023)."
+
+"Systems can be designed to identify instances of high aleatoric uncertainty, where user intent is inherently ambiguous, and low epistemic uncertainty, where the system's knowledge is insufficient. This classification helps in determining when and how to seek clarification  (31, Choi et al., 2023)."
+
+"User interactions with control interfaces can be modeled as probabilistic goal-directed actions. This approach allows systems to reason about user intentions with adjustable rationality, accounting for uncertainty in user inputs  (11, Jain et al., 2019)."
+
+"XAI methods can help users understand the system's reasoning, which can be crucial in resolving ambiguities:a) Decision Tree Visualization: Showing the logic path that led to a particular interpretation.b) Confidence Scores: Providing transparency about the system's certainty in its understanding.c) Counterfactual Explanations: Showing how different inputs would change the system's interpretation."
+
+
+
+
+
+* The answer should provide limitations of some of the techniques.
+
+Supporting quotes
+
+"The performance of TaskLint depends on the accuracy of the NLP tools we use in detecting ambiguities. Most of the NLP tools we used can detect ambiguities occurring only at the word level or at the sentence level."
+
+"When faced with ambiguities in a task, humans may intuit what the requester was expecting based on context, common sense, and prior experience with similar tasks. When we post tasks with ambiguities, we may get the correct result even without using any mechanism to disambiguate. Hence, it is very diffcult to show that any new method to disambiguate will produce better accuracy of results signifcantly."
+
+"Each method has its strengths and limitations, and an effective system often combines multiple approaches to achieve the best results."
+
+
+
+

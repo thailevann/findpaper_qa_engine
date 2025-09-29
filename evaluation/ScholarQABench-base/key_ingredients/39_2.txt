@@ -1,0 +1,9 @@
+Question
+
+What are some practically-relevant properties of k-node subgraphs that can be counted in faster than cubic time in the size of the input graph?
+
+
+
+
+
+Nice to have

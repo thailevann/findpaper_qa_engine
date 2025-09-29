@@ -1,84 +1,115 @@
-﻿Question
-How can question generation be used to mitigate hallucination in LLMs?
-
-
-Most Important
-* Near the beginning, the answer should breifly define what hallucination is in the context of NLP and emphasize its importance in the era of LLMs.
-        Supporting quotes
-“In the field of NLP, hallucination typically refers that the model output contains undesired content that is nonsensical or deviates from the source material (Ji et al., 2023a), in loose analogy with the phenomenon of hallucination in human psychology (Macpherson and Platchias, 2013). Recently, hallucination has gained prominence alongside the emergence of LLMs such as ChatGPT. One prominent feature of LLMs is that they possess rich world knowledge, and can utilize such knowledge to solve various downstream tasks. However, it has been shown that LLMs tend to generate the hallucinatory content, especially under an open-domain setting (Zhang et al., 2023b; Ye et al., 2023; Huang et al., 2023).”
-https://arxiv.org/html/2401.03205v1
-“In the field of NLP, hallucination typically refers to a phenomenon where the generated content from LLMs is nonsensical, unfaithful, or incorrect in response to a given query (Filippova, 2020;Maynez et al., 2020). Recently, this issue has triggered a notable discussion among thousands of AI researchers around the world, resulting in over 30,000 signatures on an open letter 2, calling for a six-month pause on "giant AI experiment" (Pause Giant, 2023).”
-https://arxiv.org/pdf/2402.09733
-“The recent roll-out of Google’s highly anticipated ChatGPT rival, Bard, led to a fiasco owing to it hallucinating a factually inaccurate answer in the company’s advertisement, which cost Google a $140 billion wipeout in terms of market value (Reuters, 2023).”
-https://arxiv.org/pdf/2310.04988
-
-
-* The answer should explain what question generation technique is in the context of NLP. 
-Supporting quotes
-“We take a mainstream NLG task, namely question generation, as a case study (Du et al., 2017; Yuan et al., 2017; Du and arXiv:2209.11000v1 [cs.CL] 22 Sep 2022 Cardie, 2018; Pan et al., 2019; Liu et al., 2020; Pyatkin et al., 2021). In this task, a model is trained to generate a natural language question conditioned on a context and an answer, such that the generated question can be answered by the provided answer using the context as supporting evidence. Question generation is the cornerstone for many NLP applications including education (Kurdi et al., 2020; Abdelghani et al., 2022), automatically FAQ generation (Mass et al., 2020), information seeking (Qi et al., 2020), etc.”
-https://arxiv.org/pdf/2209.11000
-“We perform evaluations on question generation (Du & Cardie, 2018), the task of automatically producing relevant questions that ask for the given answer and context. The input of the sequence-to-sequence problem is defined as the concatenation of a paragraph and an answer”
-https://proceedings.mlr.press/v119/bao20a/bao20a.pdf
-“Given the output of the Fact Extraction component T, the task of Question Generation is to generate questions for each t ∈ T such that the answer to the question is the Object part of t. In this way, various answers retrieved from different sources can be used to verify each triple t. Depending on the format of triple t (flat or extended), we introduce two different question generation paradigms.”
-https://arxiv.org/pdf/2310.17119
-
-
-* The answer should discuss how question generation can be utilized to mitigate hallucination in LLMs through targeting queries that challenge and verify the content produced by LLMs. The generated questions can be either answered by the model itself in an iterative approach or guide external knowledge extraction.
-        Supporting quotes
-“Question generation (QG) has emerged as a powerful tool for mitigating hallucinations in large language models (LLMs). This approach leverages the ability to create targeted questions that can challenge and verify the content produced by these models.”
-        “2.1.1 Retrieval Augmented Generation
-Retrieval-Augmented Generation (RAG) enhances the responses of LLMs by tapping into external, authoritative knowledge bases rather than relying on potentially outdated training data or the model’s internal knowledge. This approach addresses the key challenges of accuracy and currency in LLM outputs (Kang et al., 2023). RAG effectively mitigates the issue of hallucination in LLMs by generating responses that are not only pertinent and current but also verifiable, thereby reinforcing user confidence and offering developers an economical way to enhance the fidelity and utility of LLMs across different applications.”
-https://arxiv.org/pdf/2401.01313
-“Chain-of-Verification (CoVe): (Dhuliawala et al., 2023) develop the CoVe method where the model 1. Drafts an initial response. 2. Plans verification questions to fact-check its draft. 3. Answers those questions independently so the answers are unbiased. 4. Generates a final verified response. Experiments show CoVe decreases hallucinations across tasks like list-based Wikidata questions and long-form text generation. Given a user query, an LLM generates a baseline response that may contain inaccuracies like factual hallucinations. CoVe first generates verification questions to ask, then answers them to check for agreement”
-https://arxiv.org/pdf/2401.01313
-“FactuaL Error detection and correction with Evidence Retrieved from external Knowledge (FLEEK): (Bayat et al., 2023) introduce FLEEK, an intelligent and model-agnostic tool aimed at aiding end users, such as human graders, in fact verification and correction. FLEEK features a user-friendly interface capable of autonomously identifying potentially verifiable facts within the input text. It formulates questions for each fact and queries both curated knowledge graphs and the open web to gather evidence. The tool subsequently verifies the correctness of the facts using the acquired evidence and proposes revisions to the original text. The verification process is inherently interpretable, with extracted facts, generated questions, and retrieved evidence directly reflecting the information units contributing to the verification process.”
-        https://arxiv.org/pdf/2401.01313
-
-
-* The answer should discuss different external sources that the LLMs can use for evidence retrieval. 
-Supporting quotes
-2.1.3 Evidence Retrieval The generated questions will be sent to two retrieval systems: a knowledge graph (KG)-based system and a web-based system. Knowledge Graph-based: We send the question generated for each triple t to our KG question answering (KGQA) system and collect the retrieved short answers. The answer and can either be a single value (e.g., birth date, birthplace) or a list (e.g., profession, spouses). The ensuing entailment decision is derived differently for these two forms of answers (more details in Section 2.1.4). 
-https://arxiv.org/pdf/2310.17119
-“Web-based: Similarly, we also submit the same question(s) to our web search engine (Web Search). We then take the top-k (e.g., 5) web passages returned for each question and combine them to create a consolidated set of answers. Additionally, Web Search is able to highlight the short answer a for each retrieved passage p. The final retrieval list from Web Search is in the format [(p1, a1),(p2, a2), ...,(pk, ak)].”
-https://arxiv.org/pdf/2310.17119
-
-
-* The answer should provide examples of verification questions which can be used to verify facts in the generated response.
-Supporting quotes
-“Type-aware Question Generation (TQGen). Consider the triple (Taylor Swift; birthdate; 1989). If the output of the QGen component is: “When was Taylor Swift born?”, the retrieved evidence would probably be the exact birthdate. To generate a question as specific and close to the answer as desired, we propose a type-aware question generation approach. Using TQGen, the generated question will be: “In which year was Taylor Swift born?”. To this end, we adopt the Chain-ofThought paradigm. This involves two steps: we instruct our model to first find the “type” of the Object in the input triple, and then generate a question conditioned on the obtained type information. TQGen guides the subsequent information retrieval component to target and retrieve the exact fact that we aim to verify. Prompting LLMs with two human demonstrations was sufficient for this task”
-https://arxiv.org/pdf/2310.17119
-“Context-driven Question Generation (CQGen). In addition to generating a precise type-aware question, we need to provide context for extended triples so that the retrieved evidence corresponds to the exact situation that requires verification. Consider the extended triples mentioned earlier, (Taylor Swift; moved; move_ID; place; Nashville) (Taylor Swift; moved; move_ID; age; 14) where the focus is on generating a question for the first triple. If we only feed the first triple to QGen, the output would not consider the time when the relocation happened. To generate a context-driven question, we need to also feed the second triple, the context triple, to Context-driven QGen (CQGen). The output of CQGen in this example is “To which city did Taylor Swift move to at the age of 14?”. For this task, we prompt LLMs with two examples.”
-        https://arxiv.org/pdf/2310.17119
-
-
-* The answer should discuss the challenges of question generation technique for hallucination mitigation, such as computation overhead and question quality.
-Supporting quotes
-“5. Challenges and Considerations
-- Computational Overhead: Implementing question generation may increase processing time and resource requirements.
-- Question Quality: The effectiveness of this approach depends on the quality and relevance of generated questions.
-- Integration Complexity: Incorporating question generation into existing LLM architectures may present technical challenges.”
-
-
-
-
- Nice to have
-* The answer should mention different types of hallucination.
-        Supporting quotes
-“• Entity-error Hallucination. This type of hallucination refers to the situations where the generated text of LLMs contains erroneous entities, such as person, date, location, and object, that contradict with the world knowledge. As shown in Table 1, when inquired about “the announcement date of Nokia 3510 phone”, the model generates an erroneous date “October 2002”, in conflict with the real fact “March, 2002”.”
-https://arxiv.org/html/2401.03205v1/#S2
-“• Relation-error Hallucination. This type of hallucination refers to instances where the generated text of LLMs contains wrong relations between entities such as quantitative and chronological relation. As shown in Table 1, the model generates “Among the chemical elements that make up the human body, calcium is more than oxygen” (wrong quantitative relation) and “Aaron Gillespie was born before Nathan Leone” (wrong chronological relation).”
-https://arxiv.org/html/2401.03205v1/#S2
-“• Incompleteness Hallucination. LLMs might exhibit incomplete output when generating lengthy or listed responses. This hallucination arises when LLMs are asked about aggregated facts and they fail to reserve the factual completeness. For example, as presented in Table 1, when inquired “list ten book titles on social cognitive theory”, the model only generates eight book titles; and the statement “in an ecosystem organisms include consumers and producers” is factually incomplete.”
-https://arxiv.org/html/2401.03205v1/#S2
-“• Outdatedness Hallucination. This type of hallucination refers to situations where the generated content of LLMs is outdated for the present moment, but was correct at some point in the past. This phenomenon arises primarily due to the fact that most LLMs were trained on time-limited corpora. For example, when asked about “the present president of the United States”, the model trained on corpora before 2021 will generate “Donald Trump” instead of the latest fact “Joe Biden”.”
-https://arxiv.org/html/2401.03205v1/#S2
-“• Overclaim Hallucination. This type of hallucination refers to cases where the statement expressed in the generated text of LLMs is beyond the scale of factual knowledge (Schlichtkrull et al., 2023). For example, as shown in Table 1, the model generates overclaimed statements “the only way to lose weight is to exercise” and “you can grow taller just by drinking milk”.”
-https://arxiv.org/html/2401.03205v1/#S2
-“• Unverifiability Hallucination. In some cases, the information generated by LLMs cannot be verified by available information sources. For example, LLMs might generate plausible but non-existent academic reading lists. As demonstrated in Table 1, it cannot find any information about the book “Cognitive Foundations of Social Behavior” from existing sources.”
-https://arxiv.org/html/2401.03205v1/#S2
-
-
-* The answer should discuss that hallucination mitigation can happen during training and generation phases.
-        Supporting quotes
-“Thus far, two classes of approaches have been proposed to address the issue of hallucination: (i) preventing LLMs from hallucinating, which involves implementing strategies during the training and/or generation processes; (ii) mitigating hallucination after generation. (Manakul et al., 2023) introduced another taxonomy of classification, categorizing methods into black-box and gray-box. Factuality checks during and/or after generation without relying on external resources are known as black-box methods, while those using external resources are referred to as gray-box methods”
-https://arxiv.org/pdf/2310.04988
+Question
+
+How can question generation be used to mitigate hallucination in LLMs?
+
+
+
+
+
+Most Important
+
+* Near the beginning, the answer should breifly define what hallucination is in the context of NLP and emphasize its importance in the era of LLMs.
+
+Supporting quotes
+
+"In the field of NLP, hallucination typically refers that the model output contains undesired content that is nonsensical or deviates from the source material (Ji et al., 2023a), in loose analogy with the phenomenon of hallucination in human psychology (Macpherson and Platchias, 2013). Recently, hallucination has gained prominence alongside the emergence of LLMs such as ChatGPT. One prominent feature of LLMs is that they possess rich world knowledge, and can utilize such knowledge to solve various downstream tasks. However, it has been shown that LLMs tend to generate the hallucinatory content, especially under an open-domain setting (Zhang et al., 2023b; Ye et al., 2023; Huang et al., 2023)."
+
+"In the field of NLP, hallucination typically refers to a phenomenon where the generated content from LLMs is nonsensical, unfaithful, or incorrect in response to a given query (Filippova, 2020;Maynez et al., 2020). Recently, this issue has triggered a notable discussion among thousands of AI researchers around the world, resulting in over 30,000 signatures on an open letter 2, calling for a six-month pause on "giant AI experiment" (Pause Giant, 2023)."
+
+"The recent roll-out of Google's highly anticipated ChatGPT rival, Bard, led to a fiasco owing to it hallucinating a factually inaccurate answer in the company's advertisement, which cost Google a $140 billion wipeout in terms of market value (Reuters, 2023)."
+
+
+
+
+
+* The answer should explain what question generation technique is in the context of NLP.
+
+Supporting quotes
+
+"We take a mainstream NLG task, namely question generation, as a case study (Du et al., 2017; Yuan et al., 2017; Du and arXiv:2209.11000v1 [cs.CL] 22 Sep 2022 Cardie, 2018; Pan et al., 2019; Liu et al., 2020; Pyatkin et al., 2021). In this task, a model is trained to generate a natural language question conditioned on a context and an answer, such that the generated question can be answered by the provided answer using the context as supporting evidence. Question generation is the cornerstone for many NLP applications including education (Kurdi et al., 2020; Abdelghani et al., 2022), automatically FAQ generation (Mass et al., 2020), information seeking (Qi et al., 2020), etc."
+
+"We perform evaluations on question generation (Du & Cardie, 2018), the task of automatically producing relevant questions that ask for the given answer and context. The input of the sequence-to-sequence problem is defined as the concatenation of a paragraph and an answer"
+
+"Given the output of the Fact Extraction component T, the task of Question Generation is to generate questions for each t [?] T such that the answer to the question is the Object part of t. In this way, various answers retrieved from different sources can be used to verify each triple t. Depending on the format of triple t (flat or extended), we introduce two different question generation paradigms."
+
+
+
+
+
+* The answer should discuss how question generation can be utilized to mitigate hallucination in LLMs through targeting queries that challenge and verify the content produced by LLMs. The generated questions can be either answered by the model itself in an iterative approach or guide external knowledge extraction.
+
+Supporting quotes
+
+"Question generation (QG) has emerged as a powerful tool for mitigating hallucinations in large language models (LLMs). This approach leverages the ability to create targeted questions that can challenge and verify the content produced by these models."
+
+"2.1.1 Retrieval Augmented GenerationRetrieval-Augmented Generation (RAG) enhances the responses of LLMs by tapping into external, authoritative knowledge bases rather than relying on potentially outdated training data or the model's internal knowledge. This approach addresses the key challenges of accuracy and currency in LLM outputs (Kang et al., 2023). RAG effectively mitigates the issue of hallucination in LLMs by generating responses that are not only pertinent and current but also verifiable, thereby reinforcing user confidence and offering developers an economical way to enhance the fidelity and utility of LLMs across different applications."
+
+"Chain-of-Verification (CoVe): (Dhuliawala et al., 2023) develop the CoVe method where the model 1. Drafts an initial response. 2. Plans verification questions to fact-check its draft. 3. Answers those questions independently so the answers are unbiased. 4. Generates a final verified response. Experiments show CoVe decreases hallucinations across tasks like list-based Wikidata questions and long-form text generation. Given a user query, an LLM generates a baseline response that may contain inaccuracies like factual hallucinations. CoVe first generates verification questions to ask, then answers them to check for agreement"
+
+"FactuaL Error detection and correction with Evidence Retrieved from external Knowledge (FLEEK): (Bayat et al., 2023) introduce FLEEK, an intelligent and model-agnostic tool aimed at aiding end users, such as human graders, in fact verification and correction. FLEEK features a user-friendly interface capable of autonomously identifying potentially verifiable facts within the input text. It formulates questions for each fact and queries both curated knowledge graphs and the open web to gather evidence. The tool subsequently verifies the correctness of the facts using the acquired evidence and proposes revisions to the original text. The verification process is inherently interpretable, with extracted facts, generated questions, and retrieved evidence directly reflecting the information units contributing to the verification process."
+
+
+
+
+
+* The answer should discuss different external sources that the LLMs can use for evidence retrieval.
+
+Supporting quotes
+
+"Web-based: Similarly, we also submit the same question(s) to our web search engine (Web Search). We then take the top-k (e.g., 5) web passages returned for each question and combine them to create a consolidated set of answers. Additionally, Web Search is able to highlight the short answer a for each retrieved passage p. The final retrieval list from Web Search is in the format [(p1, a1),(p2, a2), ...,(pk, ak)]."
+
+
+
+
+
+* The answer should provide examples of verification questions which can be used to verify facts in the generated response.
+
+Supporting quotes
+
+"Type-aware Question Generation (TQGen). Consider the triple (Taylor Swift; birthdate; 1989). If the output of the QGen component is: "When was Taylor Swift born?", the retrieved evidence would probably be the exact birthdate. To generate a question as specific and close to the answer as desired, we propose a type-aware question generation approach. Using TQGen, the generated question will be: "In which year was Taylor Swift born?". To this end, we adopt the Chain-ofThought paradigm. This involves two steps: we instruct our model to first find the "type" of the Object in the input triple, and then generate a question conditioned on the obtained type information. TQGen guides the subsequent information retrieval component to target and retrieve the exact fact that we aim to verify. Prompting LLMs with two human demonstrations was sufficient for this task"
+
+"Context-driven Question Generation (CQGen). In addition to generating a precise type-aware question, we need to provide context for extended triples so that the retrieved evidence corresponds to the exact situation that requires verification. Consider the extended triples mentioned earlier, (Taylor Swift; moved; move_ID; place; Nashville) (Taylor Swift; moved; move_ID; age; 14) where the focus is on generating a question for the first triple. If we only feed the first triple to QGen, the output would not consider the time when the relocation happened. To generate a context-driven question, we need to also feed the second triple, the context triple, to Context-driven QGen (CQGen). The output of CQGen in this example is "To which city did Taylor Swift move to at the age of 14?". For this task, we prompt LLMs with two examples."
+
+
+
+
+
+* The answer should discuss the challenges of question generation technique for hallucination mitigation, such as computation overhead and question quality.
+
+Supporting quotes
+
+"5. Challenges and Considerations- Computational Overhead: Implementing question generation may increase processing time and resource requirements.- Question Quality: The effectiveness of this approach depends on the quality and relevance of generated questions.- Integration Complexity: Incorporating question generation into existing LLM architectures may present technical challenges."
+
+
+
+
+
+* The answer should mention different types of hallucination.
+
+Supporting quotes
+
+"* Entity-error Hallucination. This type of hallucination refers to the situations where the generated text of LLMs contains erroneous entities, such as person, date, location, and object, that contradict with the world knowledge. As shown in Table 1, when inquired about "the announcement date of Nokia 3510 phone", the model generates an erroneous date "October 2002", in conflict with the real fact "March, 2002"."
+
+"* Relation-error Hallucination. This type of hallucination refers to instances where the generated text of LLMs contains wrong relations between entities such as quantitative and chronological relation. As shown in Table 1, the model generates "Among the chemical elements that make up the human body, calcium is more than oxygen" (wrong quantitative relation) and "Aaron Gillespie was born before Nathan Leone" (wrong chronological relation)."
+
+"* Incompleteness Hallucination. LLMs might exhibit incomplete output when generating lengthy or listed responses. This hallucination arises when LLMs are asked about aggregated facts and they fail to reserve the factual completeness. For example, as presented in Table 1, when inquired "list ten book titles on social cognitive theory", the model only generates eight book titles; and the statement "in an ecosystem organisms include consumers and producers" is factually incomplete."
+
+"* Outdatedness Hallucination. This type of hallucination refers to situations where the generated content of LLMs is outdated for the present moment, but was correct at some point in the past. This phenomenon arises primarily due to the fact that most LLMs were trained on time-limited corpora. For example, when asked about "the present president of the United States", the model trained on corpora before 2021 will generate "Donald Trump" instead of the latest fact "Joe Biden"."
+
+"* Overclaim Hallucination. This type of hallucination refers to cases where the statement expressed in the generated text of LLMs is beyond the scale of factual knowledge (Schlichtkrull et al., 2023). For example, as shown in Table 1, the model generates overclaimed statements "the only way to lose weight is to exercise" and "you can grow taller just by drinking milk"."
+
+"* Unverifiability Hallucination. In some cases, the information generated by LLMs cannot be verified by available information sources. For example, LLMs might generate plausible but non-existent academic reading lists. As demonstrated in Table 1, it cannot find any information about the book "Cognitive Foundations of Social Behavior" from existing sources."
+
+
+
+
+
+* The answer should discuss that hallucination mitigation can happen during training and generation phases.
+
+Supporting quotes
+
+"Thus far, two classes of approaches have been proposed to address the issue of hallucination: (i) preventing LLMs from hallucinating, which involves implementing strategies during the training and/or generation processes; (ii) mitigating hallucination after generation. (Manakul et al., 2023) introduced another taxonomy of classification, categorizing methods into black-box and gray-box. Factuality checks during and/or after generation without relying on external resources are known as black-box methods, while those using external resources are referred to as gray-box methods"
+
+
+
+

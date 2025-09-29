@@ -1,0 +1,21 @@
+Question
+
+Why do quadruped robots typically use 3 degrees of freedom for each leg?  What would be the disadvantages of 2 dof?
+
+
+
+
+
+Nice to have
+
+* The answer should introduce Quadruped robots.
+
+Supporting quotes
+
+"Quadruped robots are legged mobile robots that increase their popularity in robotic and control areas due to their complex dynamic structure with high mobility in different terrain conditions compared to wheeled systems."
+
+"Quadruped robots are four-legged robots designed to mimic the locomotion of animals such as dogs, cats, or horses. These robots have gained significant attention in robotics research due to their potential for navigating complex terrains and performing tasks in challenging environments."
+
+
+
+

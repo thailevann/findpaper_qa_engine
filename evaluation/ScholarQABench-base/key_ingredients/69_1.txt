@@ -1,0 +1,69 @@
+Question
+
+Is it possible to get frequency domain information in a fenquency band beyond the limitation of nyquist theory?
+
+
+
+
+
+Most Important
+
+* The answer should begin with providing informaiton about Nyquist criteria/theory.
+
+Supporting quotes
+
+"In the classic band-limited scenarios employing orthogonal pulse shapes, the bound of an inter-symbol interference (ISI)-free symbol interval is given by T0= 1/(2W), assuming that the symbols are strictly bandlimited to W Hz. This constraint enables a simple receiver structure, relying on a matched filter and a low-complexity optimal symbol-by-symbol detection algorithm."
+
+"At a high signal-to-noise ratio the main sources of interference at the input to the receiver are the intersymbol interference and crosstalk; by crosstalk we mean the interference between the different waveforms. It is desirable, therefore, for the receiver to eliminate both types of interference and to minimize the remaining error due to additive noise in the channel. This constraint on the intersymbol interference and crosstalk is defined as the generalized Nyquist criterion."
+
+"At this point we can restate the Nyquist criterion as it applies to broadband signals:A signal of bandwidth BW must be sampled at a rate equal to or greater than twice its bandwidth (2BW) in order to preserve all the signal information."
+
+" The Nyquist theorem then states that if we were to sample this signal we would need samples with a frequency larger than twice the maximum frequency contained in the signal, that is fsample[?] 2fmax.  If this is the case, we have not lost any information during the sampling process and we could theoretically reconstruct the original signal from the sampled signal."
+
+
+
+
+
+* The answer should provide information on where the Nyquest criteria is inefficient.
+
+Supporting quotes
+
+"Wideband analog signals push contemporary analog-to-digital conversion (ADC) systems to their performance limits. In many applications, however, sampling at the Nyquist rate is inefficient because the signals of interest contain only a small number of significant frequencies relative to the band limit, although the locations of the frequencies may not be known a priori. For this type of sparse signal, other sampling strategies are possible."
+
+"The Nyquist theorem imposes a fundamental limitation on the frequency content that can be accurately represented in a sampled signal. Frequencies above the Nyquist frequency (fs/2) will be aliased, meaning they will appear as lower frequencies in the sampled signal, leading to potential misinterpretation of the frequency content [2]."
+
+
+
+
+
+* The answer should provide information on getting the drefequency domain knowledge in a frequency band beyond the limittion of Nyquist theory.
+
+Supporting quotes
+
+"A reduced-complexity three-stage-concatenated faster-than-Nyquist signaling (FTNS)-based transceiver architecture is proposed, which operates with the aid of soft decision (SoD) frequency-domain equalization (FDE) at the receiver. More specifically, the decoding algorithm conceived allows us to attain near-capacity performance as an explicit benefit of iterative detection, which is capable of eliminating the intersymbol interference imposed by FTNS."
+
+"Let K denote the total number of frequencies in the signal, and let W denote its band limit in hertz. Simulations suggest that the random demodulator requires just O(K log(W/K)) samples per second to stably reconstruct the signal. This sampling rate is exponentially lower than the Nyquist rate of W hertz. In contrast to Nyquist sampling, one must use nonlinear methods, such as convex programming, to recover the signal from the samples taken by the random demodulator."
+
+" the first proposal of the faster-than-Nyquist (FTN) concept in the 1970s [1], it has recently been rediscovered as a means of boosting a transmission rate beyond that defined by the Nyquist criterion [2], without imposing any additional bandwidth expansion."
+
+"in the FTN signaling scheme transmitted symbol's interval T is typically set such that T<T0, hence more symbols are packed in the time domain than in the conventional arrangement."
+
+"Compressive sensing is a signal processing technique that exploits the sparsity of signals in certain domains to reconstruct signals from fewer samples than required by the Nyquist theorem [3]. This approach can potentially recover frequency information beyond the Nyquist limit for signals that have a sparse representation in the frequency domain."
+
+"Super-resolution methods aim to enhance the resolution of a signal beyond the limits imposed by the sampling rate. These techniques often rely on additional information or assumptions about the signal structure [4]."
+
+"In audio processing, bandwidth extension techniques are used to estimate and synthesize high-frequency components based on the available low-frequency information [5]."
+
+"Some techniques deliberately use aliasing to fold high-frequency components into the observable frequency range, and then use additional information or assumptions to unfold and recover the original high-frequency content [6]."
+
+"By using multiple sampling rates or combining information from multiple sensors, it's possible to extend the observable frequency range beyond what a single sensor operating at the Nyquist rate could achieve [7]."
+
+"Recent advancements in the analysis of the Estimation of Signal Parameters via Rotational Invariant Techniques (ESPRIT) algorithm have shown that it can achieve "noisy super-resolution scaling" beyond the Nyquist limit under certain conditions. This subspace-based signal processing technique can potentially attain an improved error scaling of $$\mathcal{\tilde{O}}(n^{-3/2})$$ with respect to the cutoff frequency n, even in high-noise scenarios[5]."
+
+"Other sub-Nyquist sampling strategies include multicoset sampling, coprime sampling, and generalized sampling  (8, Cohen et al., 2013)  (236, Govindarajan et al., 2023)  (232, Manganaro et al., 2023). These techniques often rely on multiple parallel sampling channels or specific sampling patterns to capture the signal information at sub-Nyquist rates."
+
+"Multi-rate asynchronous sub-Nyquist sampling (MASS) has been proposed for wideband spectrum sensing in cognitive radio networks, offering lower sampling rates compared to previous approaches  (65, Sun et al., 2012). This method, along with other sub-Nyquist techniques, enables the processing of signals that extend beyond the Nyquist frequency, addressing practical needs in various applications  (22, Yamamoto et al., 2022)."
+
+
+
+

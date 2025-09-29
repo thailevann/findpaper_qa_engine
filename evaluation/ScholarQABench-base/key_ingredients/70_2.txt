@@ -1,0 +1,39 @@
+Question
+
+I want to measure the distance between two Bluetooth devices (A Master and a slave) using the corresponding RSSI value. Is there any algorithm or popular approach that maps RSSI values directly to distance?
+
+
+
+
+
+Nice to have
+
+* The answer should discuss how RSSI of a device can be obtained.
+
+Supporting quotes
+
+"The RSSI of a Bluetooth device is obtained by starting the inquiry procedure from a second device. The RSSI will then be included in the first devices' response to the inquiry"
+
+
+
+
+
+* The answer should briefly explain indoor positioning based on Wifi and compare it with Bluetooth.
+
+Supporting quotes
+
+"Compares to WiFi based positioning, Bluetooth has several advantages: a) Cost: the cost of Bluetooth chip is lower than WiFi and b) Power consumption: Bluetooth consumes much lower power than WiFi, Bluetooth uses a fifth of the power of WiFi as it requires a lower transmission power and provides a mechanism for automatic power control. This makes Bluetooth a more attractive positioning technology as power is critical in mobile devices. Therefore, in some scenarios where positioning precision and response time is not critical but device operation time (or battery power) is more important, Bluetooth positioning is a more preferable technology than WiFi. For example, city and tourism guild programs for smartphones, daily people and logistic tracking in hospitals, company and large firms etc."
+
+
+
+
+
+* The answer should discuss that GPS is the dominant technology for outdoor positioning.
+
+Supporting quotes
+
+"Wireless position tracking has been exploited in many areas. A classic example is the Global Positioning System (GPS). Orbit satellites are used to send signals to GPS receivers on Earth (such as "Satellite Navigation" used in vehicles), and these signals are used by the receivers to compute navigation information. Position tracking enables the possibility of delivering personalised and location-based services, which have been increasingly popular in recent years. For instance, Google Maps allows users who have GPS on their mobile devices to search for their current locations as well as place-of-interest nearby. However, as the communication between the satellites and GPS receivers requires line-of-sight radio propagation, GPS generally only works well in outdoor environments"
+
+
+
+

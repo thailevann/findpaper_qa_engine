@@ -1,0 +1,67 @@
+Question
+
+What data link layer problems can cause to termination of a connection?
+
+
+
+
+
+Most Important
+
+* Near the beginning, the answer should briefly define the roles/functions of the data link layer in the OSI model.
+
+Supporting quotes
+
+"1. FramingThe data packets received from the network layer are encapsulated in frames by the data-link layer for bit-to-bit sharing over the channel.It is also responsible for restructuring the framed data in the network model, and each data frame is different from the others."
+
+"2. AddressingThe task of adding a physical address to the frame in the header format is known as addressing. It acts as an identification service for transmitting the frames to multiple network models over the channel."
+
+"3. Flow ControlDuring data transmission, the sender or receiver's data flow may differ, causing network traffic in the channel. The Data-link layer in such situations acts as a flow control for the sender side to prevent data overflow at the receiver side."
+
+"4. Access ControlIn this network model, when multiple devices share the same communication channel, this leads to data collision in the network channel. To prevent such data collision, the data-link layer performs checks on the devices with the same network channel to avoid data loss."
+
+"5. Error ControlDuring data transmission, due to noise or signal loss, errors might occur in the data being transmitted. To minimize such data error rate, the data-link layer performs error detection and correction techniques on the transmitted data."
+
+
+
+
+
+* The answer should list issues with the data link layer that commonly result in network connectivity or performance problems at wired or wireless networks, such as link failure, congestion, and interference.
+
+Supporting quotes
+
+"2. Data Link Layer (Layer 2): The data link layer is responsible for error detection and correction within individual frames of data. Issues at this layer may include collisions, frame errors, and MAC address mismatches. Troubleshooting data link layer problems typically involves checking for proper configuration of network interfaces, verifying MAC addresses, and diagnosing network congestion."
+
+"- Link Failures: Communication links between nodes can experience permanent or transient failures, rendering them unavailable for data transmission  (9, Ivanov et al., 2009). These failures can be spontaneous, with links going down or coming back up at any time  (20, Bunn et al., 2013)."- Data Corruption: Random channel errors or malicious jamming attacks can cause data corruption on communication links  (26, Cetinkaya et al., 2017). This can lead to issues such as flit corruption in network-on-chip systems  (46, Venkatesha et al., 2022).- Packet Dropouts: Along with data corruption, packet dropouts on communication links can significantly impact network reliability  (26, Cetinkaya et al., 2017).- Congestion: Network overload can cause transient congestion, resulting in increased packet latencies  (9, Ivanov et al., 2009).- Timing Issues: Asynchronous transmission times across links can vary, potentially causing timing jitter  (20, Bunn et al., 2013)  (46, Venkatesha et al., 2022).- Faulty Transceivers: Omission faults can be caused by faulty transceivers, leading to network failures  (32, Swain et al., 2019)."
+
+"Encapsulation errors - An encapsulation error occurs because the bits placed in a particular field by the sender are not what the receiver expects to see. This condition occurs when the encapsulation at one end of a WAN link is configured differently from the encapsulation used at the other end."
+
+"Address mapping errors - In topologies, such as point-to-multipoint, Frame Relay, or broadcast Ethernet, it is essential that an appropriate Layer 2 destination address be given to the frame. This ensures its arrival at the correct destination. To achieve this, the network device must match a destination Layer 3 address with the correct Layer 2 address using either static or dynamic maps. In a dynamic environment, the mapping of Layer 2 and Layer 3 information can fail because devices may have been specifically configured not to respond to ARP or Inverse-ARP requests, the Layer 2 or Layer 3 information that is cached may have physically changed, or invalid ARP replies are received because of a misconfiguration or a security attack."
+
+"Framing errors - Frames usually work in groups of 8-bit bytes. A framing error occurs when a frame does not end on an 8-bit byte boundary. When this happens, the receiver may have problems determining where one frame ends and another frame starts. Too many invalid frames may prevent valid keepalives from being exchanged. Framing errors can be caused by a noisy serial line, an improperly designed cable (too long or not properly shielded), or an incorrectly configured channel service unit (CSU) line clock."
+
+"STP failures or loops - Most STP problems are related to forwarding loops that occur when no ports in a redundant topology are blocked and traffic is forwarded in circles indefinitely, excessive flooding because of a high rate of STP topology changes. A topology change should be a rare event in a well-configured network. When a link between two switches goes up or down, there is eventually a topology change when the STP state of the port is changing to or from forwarding. However, when a port is flapping (oscillating between up and down states), this causes repetitive topology changes and flooding, or slow STP convergence or re-convergence. This can be caused by a mismatch between the real and documented topology, a configuration error, such as an inconsistent configuration of STP timers, an overloaded switch CPU during convergence, or a software defect."
+
+"SNR (Signal-to-noise ratio)It is the difference between the received signal power and the noise power expressed in decibels. The retransmissions at layer 2 increase when the background noise is close to the received signal power or if the signal is too low. Stats to live by for WLANs: A good signal quality should be between 20 and 25 dB. Anything below these ranges is considered low signal quality."
+
+"RF interferenceIt plays a significant role in the retransmissions in layer 2. Excessive retransmissions will happen when frames are corrupted because of RF interference, and therefore, throughput is reduced significantly. If these retransmissions occur frequently, it's essential to understand the source to remove the interference device."
+
+"Channel interferenceLet's go back to basics. When designing the 2.4GHz WLAN channel allocation plan, make sure to use the channels available for 2.4GHz properly. When there's an overlapping coverage cell, and overlapping frequency space, the chances of having corrupted data and layer 2 retries are remarkably high. Remember to set up a reuse pattern for 2.4GHz channels 1, 6, and 11 (US) or 1, 5, and 9 -sometimes 13 is also used in deployments for Europe. In this way, you prevent adjacent cell interference in your WLANs."
+
+
+
+
+
+* The answer should discuss various data link layer attacks that can lead to connection termination, such as ARP Spoofing and VLAN Hopping for wired networks, and hidden node attack for wireless networks.
+
+Supporting quotes
+
+"Typically, a layer 2 problem that can cause the loss connection is when your network has an MAC spoofing and MAC flooding attack, a broadcast storm or an ARP spoofing/poisoning attack."
+
+"1. **MAC Address Spoofing**: Attackers can forge MAC addresses to impersonate legitimate devices, potentially leading to unauthorized access and connection disruptions[1].2. **ARP Poisoning**: This attack can redirect traffic, causing connections to fail or allowing malicious interception of data[1].3. **VLAN Hopping**: Exploiting VLAN configurations can lead to unauthorized access to different network segments, potentially terminating legitimate connections[1].4. **STP (Spanning Tree Protocol) Manipulation**: Attackers can exploit STP to create network loops or redirect traffic, causing connection instability or termination[1].5. **CAM Table Overflow**: Flooding the switch's CAM (Content Addressable Memory) table can cause the switch to act like a hub, leading to performance issues and potential connection drops[1].6. **DHCP Starvation**: By exhausting the DHCP server's IP address pool, new devices may fail to obtain network configurations, effectively terminating their ability to establish connections[1].7. **Port Security Violations**: Improperly configured port security features can shut down switch ports, terminating connections for legitimate devices[1]."
+
+"Hidden node: In wireless networking, a 'hidden node' means that a specific node 'talks' to a WiFi access point but can't 'talk' directly with other nodes already having a 'conversation' with that access point. This should ring all the bells, because it leads to problems in the MAC sublayer as multiple nodes send data packets to the access point at the same time, thus creating interference at the AP level, resulting in data packet loss."
+
+
+
+

@@ -1,0 +1,23 @@
+Question
+
+What principles of interactive machine teaching can be applied to interactively curating social media feeds?
+
+
+
+
+
+Nice to have
+
+* The answer should provide platform which can used for interactive machine teaching.
+
+Supporting quotes
+
+"We designed PICL to as a platform to help our IMT research, thus we aimed at it providing teachers with an interface for building ML models by supporting their capabilities while engaged in an IMT loop. Teachers bootstrap a teaching session in PICL by creating a teaching project where they import their text data source and specify the type of ML model they want to build. At any point during a teaching session, teachers can export or publish the latest in-progress ML model for others to use as a runtime to be imported in their software solution."
+
+"Systems that aim at achieving the same goal of helping end-users to build text classification or extraction ML models compare only partially. Most cloud services such as IBM's Watson Studio (IBM, 2020), Amazon Sagemaker (Amazon, 2020), or Google's AI Platform (Google, 2020a) take a one-shot training approach, where an end-user feeds a system a large number of labeled examples before a model is trained. "
+
+"TeachTOK draws upon interactive machine teaching systems previously described in the literature [6, 18, 19] but considers that data and models are shared among a group of teachers."
+
+
+
+

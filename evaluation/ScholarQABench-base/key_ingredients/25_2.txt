@@ -1,0 +1,19 @@
+Question
+
+Compare the various algorithms for compressing trees in terms of computation complexity.
+
+
+
+
+
+Nice to have
+
+* The answer could point to some applications of tree compression.
+
+Supporting quotes
+
+"Typical application areas of the tree compression methods include the representation of graphics as pixel trees [9-12] and program files as syntax trees [13,14]. Both applications are of practical importance, and the tree methods support excellent compression results. These applications are examined in greater detail in chapter 6."
+
+
+
+

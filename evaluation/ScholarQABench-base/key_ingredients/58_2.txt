@@ -1,72 +1,9 @@
-﻿Question
-What interfaces have researchers developed for helping people optimize LLMs for a task, and what are the biggest remaining user problems?
-
-
-Most Important
-* The answer should provide the role of interfaces to optlmize LLMs.
-        Supporting quotes
-“The interface should be more than an assistant or a butler, but instead a secretary, actively working with the user to discover emergent interaction schemes on the fly.”
-https://arxiv.org/pdf/2405.13050 
-“ These interfaces aim to make LLMs more accessible and effective for various applications.”
-“Researchers have developed various interfaces to help users fine-tune and optimize LLMs more effectively. These interfaces aim to bridge the gap between the technical complexities of LLMs and the practical needs of users across different domains.”
-*  The answer should provide the interfaces developed by researchers for helping people optimize LLMS for a task.
-        Supporting quotes
-“A user mostly ignorant to the underlying tools/systems should be able to work with a LAUI to discover an emergent workflow. Contrary to the conventional way of designing an explorable GUI to teach the user a predefined set of ways to use the system, in the ideal LAUI, the LLM agent is initialized to be proficient with the system, proactively studies the user and his/her needs, and proposes new interaction schemes to the user.”
-https://arxiv.org/pdf/2405.13050 
-“ Flute X GPT, a concrete example using an LLM agent, a prompt manager, and a flutetutoring multi-modal software-hardware system to facilitate the complex, real-time user experience of learning to play the flute.”
-https://arxiv.org/pdf/2405.13050 
-“AutoDroid, a mobile task automation system capable of handling arbitrary tasks on any Android application without manual efforts. The key insight is to combine the commonsense knowledge of LLMs and domain-specific knowledge of apps through automated dynamic analysis. The main components include a functionality-aware UI representation method that bridges the UI with the LLM, exploration-based memory injection techniques that augment the app-specific domain knowledge of LLM, and a multi-granularity query optimization module that reduces the cost of model inference.”
-https://dl.acm.org/doi/abs/10.1145/3636534.3649379 
-“We integrate AutoDroid with off-the-shelf LLMs including online GPT-4/GPT-3.5 and on-device Vicuna, and evaluate its performance on a new benchmark for memory-augmented Android task automation with 158 common tasks.”
-https://dl.acm.org/doi/abs/10.1145/3636534.3649379 
-“OpenAGI, an open-source AGI research and development platform designed for solving multi-step, real-world tasks. Specifically, OpenAGI uses a dual strategy, integrating standard benchmark tasks for benchmarking and evaluation, and open-ended tasks including more expandable models, tools, plugins, or APIs for creative problem-solving. Tasks are presented as natural language queries to the LLM, which then selects and executes appropriate models.”
-https://proceedings.neurips.cc/paper_files/paper/2023/hash/1190733f217404edc8a7f4e15a57f301-Abstract-Datasets_and_Benchmarks.html 
-“GPTDroid, asking LLM to chat with the mobile apps by passing the GUI page information to LLM to elicit testing scripts, and executing them to keep passing the app feedback to LLM, iterating the whole process.”
-https://dl.acm.org/doi/abs/10.1145/3597503.3639180
-“Describe, Explain, Plan and Select (DEPS), an interactive planning approach based on Large Language Models (LLMs). Our approach helps with better error correction from the feedback during the long-haul planning, while also bringing the sense of proximity via goal Selector, a learnable module that ranks parallel sub-goals based on the estimated steps of completion and improves the original plan accordingly. Our experiments mark the milestone of the first zero-shot multi-task agent that can robustly accomplish 70+ Minecraft tasks and nearly double the overall performances.” 
-https://proceedings.neurips.cc/paper_files/paper/2023/hash/6b8dfb8c0c12e6fafc6c256cb08a5ca7-Abstract-Conference.html 
-“Researchers have developed LLM-based text-to-SQL interfaces to improve database querying. These systems aim to generate accurate SQL from natural language questions, making database interactions more intuitive for users[1].”
-“Tools like TauchiGPT_V2 have been created to assist in academic research. These offline agent-based AI tools leverage LLMs to optimize standard research operations, potentially revolutionizing the research process[2].”
-“LLM-based interfaces have been developed to optimize novelty in top-k recommendations. These systems use reinforcement learning and LLMs to provide feedback for novel items, addressing the challenge of recommending items without user feedback data[3].”
-“The IO Navigator (ION) framework uses LLMs to analyze I/O traces of applications and provide diagnoses of potential I/O issues in High-Performance Computing systems. This tool aims to make complex I/O optimization more accessible to scientists[4].”
-“Interfaces like MiniGPT-4 have been developed to enhance vision-language understanding. These systems align visual encoders with advanced LLMs to enable capabilities such as detailed image description generation and website creation from hand-drawn drafts[7].”
-“For more technical users, CLI tools have been created to offer greater control and automation in the optimization process.”
-“Researchers from Tsinghua University and Microsoft Research Asia developed OpenPrompt, an open-source framework for prompt-learning paradigms. It provides a user-friendly interface for prompt-based learning and optimization of LLMs [1].”
-“The team at BigScience created PromptSource, a toolkit for creating, sharing, and using natural language prompts. It offers a streamlined interface for prompt engineering and dataset creation [2].”
-“Although not exclusively for optimization, LangChain provides a framework for developing applications with LLMs, including tools for prompt optimization and chaining [3].”
-*  The answer should provide the biggest remaining user problems to optimize LLMs for a task.
-        Supporting quotes
-“Despite its utility, the memory footprint of the KV cache swells with the enlargement of the model dimensions and lengths of generation sequences, imposing significant demands on device memory capacity.”
-https://openreview.net/pdf?id=LCTmppB165 
-“, LLM inference outcomes do not differ even cache memory is reduced. Nevertheless, such lossless merging heavily relies on assigning merge ratios to reflect the attention proportion of tokens being evicted and those being merged. Such a ratio pertinent to future generation steps is unpredictable, thereby rendering the efficacy of merging difficult to ascertain.”
-https://openreview.net/pdf?id=LCTmppB165 
-“Despite the exceptional performance of Large Language Models (LLMs), the substantial volume of key-value (KV) pairs cached during inference presents a barrier to their efficient deployment.”
-https://openreview.net/pdf?id=LCTmppB165 
-“ It is argued that incremental improvement of such LLMs is not a viable approach to working toward human-level AGI, in practical terms given realizable amounts of compute resources. This does not imply there is nothing to learn about human-level AGI from studying and experimenting with LLMs, nor that LLMs cannot form significant parts of human-level AGI architectures that also incorporate other ideas.”
-https://arxiv.org/pdf/2309.10371 
-“The AGIEval corpus is differently focused (more heterogeneous rather than purely science-focused) but also presents a massive challenge for current LLMs. How far toward this level of complex multi-step reasoning we can get within the "Transformer as hub" architecture remains to be seen. The more advanced the problems get, the more unique each problem is and the more abstraction is needed to figure out what knowledge from prior problems and readings to generalize to deal with the current problem.”
-https://arxiv.org/pdf/2309.10371 
-“ The crux of this challenge lies in the development of an efficacious external filter system capable of extracting the most pertinent information to address the queries at hand.”
-https://arxiv.org/pdf/2307.12057 
-“There are instances when LLMs may fail to gen7 erate an appropriate response due to a mismatch between the local document and the user query. In such cases, LLMs might return a response like “The text provided is not related to the query”. By employing sentiment analysis, the system can discern this as a negative sentiment from the LLM and consequently escalate the query to a higher level of assistance automatically.”
-https://arxiv.org/pdf/2307.12057 
-“Another limitation arises due to the restrictive context window sizes of the LLMs, which are typically 4k or 8k tokens. This constraint can result in the system’s failure to adequately address complex queries that necessitate a broader understanding of the context or the synthesis of information from multiple documents.”
-https://arxiv.org/pdf/2307.12057 
-“Integrating LLMs with sensitive data, especially in healthcare and other regulated industries, remains a significant challenge due to privacy concerns and regulations[6].”
-“Despite advancements, there's still a lack of transparency in how LLMs make decisions, making it challenging for users to trust and interpret the results[5].”
-“Enabling LLMs to reliably follow multi-step instructions and accomplish complex goals articulated in natural language remains difficult[12].”
-“Optimizing LLMs to better align with user intents without the need for expensive model retraining is an area of active research[15].”
-
-
-Nice to have
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
+Question
+
+What interfaces have researchers developed for helping people optimize LLMs for a task, and what are the biggest remaining user problems?
+
+
+
+
+
+Nice to have

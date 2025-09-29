@@ -1,0 +1,87 @@
+Question
+
+For different modulation types like MPSK, QPSK, and MQAM, I'm measuring the error rate but want to understand and measure the Error Vector Magnitude (EVM) more accurately. I'm using a general equation for all modulation types. Is this the right approach, and what should I expect from the EVM vs. Eb/No curve?
+
+
+
+
+
+Most Important
+
+* Near the beginning, the answer should formally define Error Vector Magnitude (EVM).
+
+Supporting quotes
+
+"Error Vector Magnitude (EVM) is a widely used metric for measuring the performance of digital communications systems. It quantifies the difference between the ideal transmitted signal and the actual received signal. Mathematically, it is the root mean squared (RMS) error between these two signals in a complex vector space. EVM is expressed in percentage or decibels (dB).EVM reflects all kinds of distortions within a communication system, including noise, non-linearities, phase noise, and other impairments."
+
+"Typically, the EVM for a received signal \( r \) with respect to an ideal signal \( s \) is calculated as:\[ EVM = \sqrt{\frac{\sum_{i=1}^{N} |r_i - s_i|^2}{\sum_{i=1}^{N} |s_i|^2}} \]Here:- \( r_i \) is the received symbol.- \( s_i \) is the ideal transmitted symbol.- \( N \) is the total number of symbols."
+
+
+
+
+
+* The answer should mention that in order to be able to use EVM for all modulation types, normalization should be utilized.
+
+Supporting quotes
+
+"Since different modulation systems viz. BPSK, 4-QAM, 16-QAM etc. have different amplitude levels, to calculate and compare EVM measurements effectively some normalization is typically carried out [7]. The normalization is derived such that the mean square amplitude of all possible symbols in the constellation of any modulation scheme is one. Thus, EVM is defined as the root-mean-square (RMS) value of the difference between a collection of measured symbols and ideal symbols."
+
+
+
+
+
+* The answer should mention that EVM is a valid representation of bit error rate (BER), and discuss its advantages and disadvantages compared to BER.
+
+Supporting quotes
+
+"RMS value of error vector magnitude is also a direct function of the bit error rate. Since error vector magnitude can be directly measured from the down converted signals using vector signal analyzers, it can save the extra calculations that may be required to find out the bit error rates. In many adaptive systems, this can also simplify the cost function calculation greatly."
+
+"EVM is closely related to the bit error rate (BER) of a given system. As the receivedsymbols fall far from the target constellation point, the probability of them falling within the decision boundary of another constellation point increases. Thistranslates to a larger BER. One important distinction between BER and EVM is thatthe BER for a transmitted signal is calculated based on the transmitted bit pattern,while the EVM is calculated based on the distance of the symbol's closest constellation point and the symbol location. In some cases, symbols may cross the decisionboundary and are assigned an incorrect bit pattern. If the symbol falls closer toanother ideal symbol location, this may result in a better EVM for that symbol.Therefore, while EVM and BER are closely related, this relationship may not hold forvery high levels of signal distortion."
+
+
+
+
+
+* The answer should discuss that while using the general EVM calculation approach should be effective across different modulation schemes. However, noise models and distortion should be taken into account for measuring EVM accurately..
+
+Supporting quotes
+
+"1. **Noise Models**: Ensure the noise in your system is appropriately modeled. AWGN (Additive White Gaussian Noise) is commonly assumed, but real-world systems might have other noise types.2. **Distortion Components**: Identify all possible sources of distortion in the system (phase noise, frequency drift) to measure EVM accurately."
+
+
+
+
+
+* The answer should define Eb/No and discuss its relation to EVM and BER.
+
+Supporting quotes
+
+"\[ Eb/No \] stands for the ratio of Energy per Bit to Noise Power Spectral Density. It is a fundamental metric for analyzing the performance of communication systems. Higher Eb/No values typically correspond to better signal quality and lower error rates."
+
+"Eb/No is the measure of signal to noise ratio for a digital communication system. It ismeasured at the input to the receiver and is used as the basic measure of how strongthe signal is. Different forms of modulation -- BPSK, QPSK, QAM, etc. -- havedifferent curves of theoretical bit error rates versus Eb/No as shown in Figure 1.These curves show the communications engineer the best performance that can beachieved across a digital link with a given amount of RF power."
+
+
+
+
+
+* The answer should mention that, under specific assumptions, EVM is generally inversely proportional to Eb/No, and has a similar curve across different modulation types due to normalization.
+
+Supporting quotes
+
+"Extended relationships among the bit error rate, signal to noise ration and error vector magnitude are shown in this paper. Due to normalization, the EVM is the same for a given SNR, and they maintain an inverse relationships between them"
+
+"When relating EVM to SNR, one assumption that has been made is that the EVM is measured using known data sequences (e.g. preambles or pilots) or that the SNR is high enough that symbol errors are negligible [9, 10]. Another assumption was that one or two system imperfections are dominant; the remaining imperfections are modeled as Gaussian noise [3, 8]."
+
+
+
+
+
+* The answer should discuss that the exact shape of EVM vs. Eb/No curve may depend on factors such as system architecture, and the presence of interference or distortion.
+
+Supporting quotes
+
+"When analyzing the EVM vs. Eb/No curve, one should expect to see a decreasing trend in EVM as Eb/No increases. However, the exact shape and characteristics of this curve may vary depending on factors such as modulation type, system architecture, and the presence of interference or distortion (LLM MEMORY, 2024)."
+
+
+
+

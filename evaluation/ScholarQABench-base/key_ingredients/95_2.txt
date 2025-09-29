@@ -1,0 +1,27 @@
+Question
+
+How does multiplexing enhance data transmission efficiency in communication networks?
+
+
+
+
+
+Nice to have
+
+* The answer should provide challenges associated with various types on Multiplexing.
+
+Supporting quotes
+
+"The main drawbacks of OFDM are its high peak to average power ratio and its sensitivity to phase noise and frequency offset."
+
+"All the FDM channels get affected due to wideband fading."
+
+"In asynchronous TDM, the capacity of the transmission link must be higher than the total capacity of input lines."
+
+"An output slot in synchronous TDM is totally occupied by data, in statistical TDM; a slot needs to carry data as well as the address of the destination."
+
+"In CDM, as the number of users increases, the overall quality of services decreases."
+
+
+
+

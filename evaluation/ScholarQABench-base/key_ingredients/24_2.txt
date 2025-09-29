@@ -1,0 +1,9 @@
+Question
+
+What sampling techniques are used for yield estimation in automated electronic circuit design?
+
+
+
+
+
+Nice to have

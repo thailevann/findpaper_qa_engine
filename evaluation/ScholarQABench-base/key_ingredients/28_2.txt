@@ -1,37 +1,21 @@
-﻿Question
-What are the main challenges in adapting transformer-based models for tabular data representation?
-
-
-Most Important
-* The answer should begin with providing information on the adaptation of various models for tabular data representation. 
-        Supporting quotes
-“Subsetting features of Tabular data (SubTab), that turns the task of learning from tabular data into a multi-view representation learning problem by dividing the input features to multiple subsets.  We argue that reconstructing the data from the subset of its features rather than its corrupted version in an autoencoder setting can better capture its underlying latent representation.”
-https://proceedings.neurips.cc/paper_files/paper/2021/file/9c8661befae6dbcd08304dbf4dcaf0db-Paper.pdf
-“SubTab can: i) construct a better representation by using the aggregate of the representation of the subsets, a process that we refer as collaborative inference ii) discover the regions of informative features by measuring predictive power of each subset, which is useful especially in high-dimensional data iii) do training and inference in the presence of missing features by ignoring corresponding subsets and iv) use smaller models by reducing input dimension, making it less prone to overfitting.”
-https://proceedings.neurips.cc/paper_files/paper/2021/file/9c8661befae6dbcd08304dbf4dcaf0db-Paper.pdf
-“The TabTransformer is built upon self-attention based Transformers. The Transformer layers transform the embeddings of categorical features into robust contextual embeddings to achieve higher prediction accuracy.”
-https://arxiv.org/pdf/2012.06678 
-*  The answer should provide challenges involved in adapting transformer-based models for tabular data representation
-        Supporting quotes
-“While table-to-text generation is an important and challenging task, most methods rely on fine-tuning existing pre-trained language models.”
-https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00544/115239/Transformers-for-Tabular-Data-Representation-A 
-“While row/column positional embeddings can better map context and table content, such as in QA or TFC tasks, it cannot overcome the challenge of empty cells, nested row headers, or descriptive cells in complex spreadsheets such as financial tables.”
-https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00544/115239/Transformers-for-Tabular-Data-Representation-A
-““FT-Transformer requires more resources (both hardware and time) for training than simple models such as ResNet and may not be easily scaled to datasets when the number of features is “too large” (it is determined by the available hardware and time budget).”
-https://proceedings.neurips.cc/paper_files/paper/2021/file/9d86d83f925f2149e9edb0ac3b49229c-Paper.pdf 
-“FT to tabular datasets stems from their diversity: tabular datasets differ greatly in their domains, number of classes, feature composition, etc. These differences make the training of a generic features engineering tool very difficult.”
-        https://aclanthology.org/2022.acl-long.111.pdf 
-“The main challenge in learning from multiple tabular datasets, aside from their highly diverse content and characteristics, is their different number of classes. Such a setup makes using a single output layer with a fixed number of entries impossible.”
-https://aclanthology.org/2022.acl-long.111.pdf 
-“The challenge stems from the concurrent existence of numerical and categorical feature types, complex, irregular dependencies between the features, and other data-related issues such as scales, outliers, and missing values.”
-https://link.springer.com/article/10.1007/s41060-022-00350-z 
-“Tabular data often includes both categorical and numerical features. Efficiently pre-processing these features to create meaningful embeddings is crucial for transformer-based models. This can be challenging, especially when dealing with high-dimensional data.”
-“Transformer-based models for tabular data need to be integrated with traditional machine learning pipelines, which can be challenging. This includes ensuring seamless integration with existing data preprocessing and feature engineering steps.”
-“Another significant challenge is the need to model the row-column structure of tables, which is crucial for correctly interpreting relational data  (8, Yu et al., 2020). The hierarchical nature of tabular data, with its complex relationships between headers, rows, and cells, is not naturally captured by the sequential processing of traditional transformers  (34, Huang et al., 2023).”
-Nice to have
-* The answer should provide information on the overall challenges involved in adapting models for tabular data representation.
-        Supporting quotes
-“Furthermore, many existing deep learning models for tabular data are designed for supervised learning scenario but few are for semi-supervised leanring (SSL). Unfortunately, the state-of-art SSL models developed in computer vision (Voulodimos et al. 2018; Kendall and Gal 2017) and NLP (Vaswani et al. 2017; Devlin et al. 2019) cannot be easily extended to tabular domain.”
-https://arxiv.org/pdf/2012.06678 
-“Tabular data (or tables) are the most widely used data format in machine learning (ML). However, ML models often assume the table structure keeps fixed in training and testing. Before ML modeling, heavy data cleaning is required to merge disparate tables with different columns. This preprocessing often incurs significant data waste (e.g., removing unmatched columns and samples).”
-https://proceedings.neurips.cc/paper_files/paper/2022/file/1377f76686d56439a2bd7a91859972f5-Paper-Conference.pdf
+Question
+
+What are the main challenges in adapting transformer-based models for tabular data representation?
+
+
+
+
+
+Nice to have
+
+* The answer should provide information on the overall challenges involved in adapting models for tabular data representation.
+
+Supporting quotes
+
+"Furthermore, many existing deep learning models for tabular data are designed for supervised learning scenario but few are for semi-supervised leanring (SSL). Unfortunately, the state-of-art SSL models developed in computer vision (Voulodimos et al. 2018; Kendall and Gal 2017) and NLP (Vaswani et al. 2017; Devlin et al. 2019) cannot be easily extended to tabular domain."
+
+"Tabular data (or tables) are the most widely used data format in machine learning (ML). However, ML models often assume the table structure keeps fixed in training and testing. Before ML modeling, heavy data cleaning is required to merge disparate tables with different columns. This preprocessing often incurs significant data waste (e.g., removing unmatched columns and samples)."
+
+
+
+

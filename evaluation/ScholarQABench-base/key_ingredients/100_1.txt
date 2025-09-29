@@ -1,0 +1,89 @@
+Question
+
+What are the leading thoughts about how to teach computer science to college students in the age of generative AI?
+
+
+
+
+
+Most Important
+
+* Near the beginning, the answer should briefly discuss the impact of generative AI on computer science education
+
+Supporting quotes
+
+"Amid collective enthusiasm for generative artificial intelligence (AI) built atop large language models (LLMs), there is apprehension about AI's ability to disrupt education. Students can now complete assignments or write essays entirely with AI, undermining the fundamental goals of teaching and learning. As such, a common response to this development among educators has been to forbid the use of AI outright."
+
+"As educators concerned with issues of academic dishonesty ourselves [ 7], we recognized the complications that some AI tools posed by being too helpful to students, particularly novices in computer science. Like other courses, we quickly implemented policies that banned tools such as ChatGPT, GitHub Copilot, and other AI-based software that suggest or complete answers to questions or lines of code. Simultaneously, we felt that it would be a missed opportunity if we did not leverage the newfound power of AI to enhance students' learning."
+
+"With the advance of Generative AI tools such as ChatGPT and Copilot, they have become integral tools for many students, particularly those in introductory programming courses[31 ]. They can assist students by providing code suggestions, explaining programming concepts, identifying and resolving errors, and generating code documentation [10 , 18 ]. Their widespread adoption signifies a major shift in how programming is learned and practiced. However, this increasing reliance on Generative AI tools presents significant challenges. One primary concern is that students might become overly dependent on these tools, potentially hindering their ability to develop fundamental programming skills [32 ]. Additionally, AI-generated solutions might lead to academic dishonesty or reduced problem-solving capabilities among students [ 7]. This dichotomy has sparked a debate among educators: while some argue against the use of Generative AI in learning due to these risks, others advocate for its judicious use to enhance learning outcomes"
+
+
+
+
+
+* The answer should mention the importance of focusing on high-level skills such as problem-solving, critical thinking, and collaboration, as generative AI can automate routine coding tasks
+
+Supporting quotes
+
+"Our findings, alongside those of Prather et al. [32 ], suggest that some students may struggle with new metacognitive difficulties when using generative AI tools, including being conceptually behind in course material but unaware of it due to a false sense of confidence. Further exploration is needed to understand the underlying reasons for this undesired behavior and to encourage a more constructive use of Generative AI that promotes deep understanding and problem-solving skills in computing education."
+
+"Xue et al. [43] investigated the impact of ChatGPT on introductory programming students, finding that the AI tool can enhance students' self-efficacy by providing immediate feedback and support, thereby reducing the anxiety associated with complex problem-solving tasks. Furthermore, Denny et al. [ 9] emphasized the importance of designing AI teaching assistants that not only assist with immediate problem-solving but also help students develop long-term self-efficacy by encouraging independent learning and critical thinking."
+
+"Some students, for instance, asked for open-ended questions besides the multiple-choice ones already available. However, unlike multiple-choice quizzes, properly evaluating answers to open-ended questions requires the adoption of suitable evaluation strategies. These strategies are necessary to guide the model toward more valuable and constructive feedback. Open-ended questions demand nuanced understanding and assessment, which can help in identifying specific areas of improvement and offering personalized insights. Implementing these evaluation techniques will enhance the system's ability to support deeper learning and critical thinking."
+
+"In recent years, the development and study of e-learning technologies have gained significant attention due to their potential to transform teaching and learning processes. The scientific literature underscores the pivotal role these tools can play in enhancing various educational activities, including the creation of engaging content, facilitating collaboration and interactivity in large classroom settings, and providing effective tutoring support."
+
+"Instructors can effectively incorporate AI-driven tools and technology to help students develop critical thinking and problem-solving skills by integrating them into their teaching methods. One approach is to use AI-generated answers as a basis for classroom discussions. Presenting students with multiple AI-generated answers to a problem or question and asking them to evaluate the correctness and reasoning behind each solution encourages active engagement with the content and the development of their analytical skills."
+
+"### Emphasizing Foundational ConceptsOne of the key thoughts in teaching computer science is to emphasize foundational concepts that remain relevant regardless of technological advances. These include:- **Algorithms and Data Structures**: Fundamental principles that are essential for effective problem-solving.- **Computational Thinking**: The ability to break down complex problems into manageable parts.- **Mathematical Foundations**: Understanding logic, discrete mathematics, and probability which underpin many AI algorithms.By ensuring a strong grasp of these core areas, students can adapt more easily to new technologies, including generative AI."
+
+"Developing Critical Thinking and Problem-Solving AbilitiesWith AI capable of handling many routine coding tasks, education should shift towards developing higher-order thinking skills.a) Algorithmic Thinking: Emphasize the importance of understanding and designing algorithms, rather than just implementing them.b) System Design: Focus on teaching students how to design and architect complex systems, a skill that AI has not yet mastered.c) Creative Problem-Solving: Encourage students to think creatively and approach problems from multiple angles, skills that are distinctly human."
+
+
+
+
+
+* The answer should cover the need for hands-on experience with AI tools and technologies.
+
+Supporting quotes
+
+"First, the training should cover the technical aspects of AI, so that educators can competently operate AI tools. This includes understanding how to set up AI systems, use AI-driven tools, and interpret the data these tools generate. Second, pedagogical training should also be provided, focusing on how to incorporate AI into various pedagogical strategies and create a blend of traditional and AI-assisted methods. This could involve training instructors on how to use AI to personalize learning materials, provide real-time feedback, and overcome language barriers"
+
+"Working Effectively with AI ToolsThis element suggests a move from being a more passive user, to the 'user-as-developer' approach, and encourages educators to "leverage free, open access online resources. . .then work with students to develop unit specific examples and lead discussion on the effective use of tools relevant to the discipline, unit or assessment task context" [42]."
+
+"Being able to write effective prompts will enable students to use tools such as ChatGPT effectively and efficiently. When integrating tools such as ChatGPT into their lessons, it is recommended that teachers gain AI literacy skills, especially for students to gain prompt writing skills. Teachers can apply metacognitive strategies when it is considered important that students' thinking skills are developed in order to benefit effectively from tools such as AI. At this point, metacognitive prompts can be used. The metacognitive prompt aims to enable students to think and evaluate their own learning processes. Such teaching strategies help students understand, control and regulate their own learning processes."
+
+"### Integrating AI into the CurriculumGiven the significance of AI in the field, it is critical to integrate AI topics into the CS curriculum. Key areas to be covered include:- **Introduction to AI and Machine Learning**: Basic concepts, methodologies, and applications.- **Ethics in AI**: Understanding the ethical implications and responsibilities of developing and deploying AI technologies.- **Generative AI**: Discussing models like GPT-3, their architecture, capabilities, and limitations.Practical courses should offer hands-on experience with AI tools and platforms, such as TensorFlow and PyTorch, to build familiarity with AI development processes."
+
+
+
+
+
+* The answer should mention interdisciplinary approaches for teaching computer science in the context of generative AI
+
+Supporting quotes
+
+"As AI becomes increasingly pervasive across various fields, computer science education should adopt a more interdisciplinary approach.a) Cross-disciplinary Projects: Encourage collaboration with other departments to create projects that apply computer science and AI to solve real-world problems in various domains.b) AI in Context: Teach students how to apply AI solutions in different contexts, considering the unique challenges and requirements of each field."
+
+"### Project-Based LearningProject-based learning is a highly effective approach for teaching computer science in the context of generative AI. This involves:- **Real-World Projects**: Encouraging students to work on projects that solve real-world problems using AI. This provides practical experience and a deeper understanding of the material.- **Collaborative Work**: Promoting teamwork to mirror industry practices and enhance peer learning.- **Interdisciplinary Projects**: Encouraging projects that combine CS with other disciplines, such as biology, economics, or social sciences, to showcase the broad applicability of generative AI."
+
+
+
+
+
+* The answer should mention the importance of teaching students about the ethical implications of generative AI.
+
+Supporting quotes
+
+"Finally, training programs should address the ethical considerations of using AI in the classroom. Educators should be informed about potential issues related to data privacy, fairness, and inclusivity. They should be encouraged to understand the implications of AI for education and trained to make ethical decisions about its use. Investing in this training will not only ensure that educators can effectively use AI tools to enhance learning experiences but also equip them to prepare students for a future where AI becomes integral in most professional environments. Such an initiative necessitates the commitment and investment of universities, but the potential rewards in terms of improved teaching and learning outcomes would be substantial."
+
+"Ethical Use of AI ToolsWhile he acknowledges that several of the legal and ethical issues around AI are still to be resolved, he proposes that users should familiarize themselves with issues regarding algorithm transparency, data ownership, privacy, hidden labor, embedded bias, and undisclosed plagiarism."
+
+"This study has provided insights into the ethical concerns and policy strategies associated with the utilization of ChatGPT in educational settings. Through the application of the AHP, this study have identified and prioritized ten key ethical concerns, including copyright, legal, and compliance issues; privacy and confidentiality considerations; academic integrity; incorrect reference and citation practices; safety and security; educational equity; plagiarism; infodemics and misinformation; bias response; and risk hallucination through manipulation and misleading information."
+
+"### Addressing the Ethical and Social ImpactAI technologies, including generative AI, raise significant ethical and social questions. Educators should ensure that students are aware of these dimensions:- **Ethics Courses**: Mandatory courses focusing on the ethical implications of AI, data privacy, bias, and fairness.- **Public Policy**: Discussions on the role of AI in society and the importance of informed policy-making.- **Responsible AI**: Teaching students the principles of designing and deploying AI systems responsibly."
+
+
+
+

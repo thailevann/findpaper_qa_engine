@@ -1,0 +1,29 @@
+Question
+
+What are the key differences between participatory design and co-design?
+
+
+
+
+
+Nice to have
+
+* The answe should provide informaation on the use of subsequently using participatory and co-design.
+
+Supporting quotes
+
+"Using a co-design and a participatory design process (Sanders & Stappers, 2008, 2014) enhanced the learner experience in three ways: a) by creating a pre-tested learning environment that used co-design and co-construction of the MOOC architecture, b) by committing that future learners who participated in the design would be influencers in the MOOC, and c) by changing the facilitators and designer's mindset through their involvement in the co-design sessions working with users as partners."
+
+
+
+
+
+* The answer should include challenges involved in participatory and co-design.
+
+Supporting quotes
+
+"Major issues of concern in PD include taking into account the domain specialists' expertise, beneficial and sustainable innovation, taking seriously multiple viewpoints and the facts and resources they provide, taking into account the context of the product, the authentic experience of the experts regarding the problem being solved, hands-on methods to solve real world problems, and reflective practice of design [98]."
+
+
+
+

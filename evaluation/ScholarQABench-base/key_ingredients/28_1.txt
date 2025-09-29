@@ -1,72 +1,49 @@
-﻿Question
-What are the main challenges in adapting transformer-based models for tabular data representation?
-
-
-Most Important
-* Near the beginning, the answer should briefly define tabular data and highlight its importance in various applications.
-        Supporting quotes
-“Tabular data stands as one of the pervasive and essential data formats in machine learning (ML), with widespread applications across diverse domains such as finance, medicine, business, agriculture, education, and other sectors that heavily rely on relational databases (Sahakyan et al., 2021; Rundo et al., 2019; Hernandez et al., 2022; Umer et al., 2019; Luan & Tsai, 2021).”
-https://arxiv.org/html/2402.17944v2
-“Characteristics of tabular data
-Tabular data, commonly known as structured data, refers to data organized into rows and columns, where each column represents a specific feature. This subsection discusses the common characteristics and inherited challenges with tabular data:
-1. Heterogeneity: Tabular data can contain different feature types: categorical, numerical, binary, and textual. Therefore, features can range from being dense numerical features to sparse or high-cardinality categorical features (Borisov et al., 2022).
-2. Sparsity: Real-world applications, such as clinical trials, epidemiological research, fraud detection, etc., often deal with imbalanced class labels and missing values, which results in long-tailed distribution in the training samples (Sauber-Cole & Khoshgoftaar, 2022).”
-https://arxiv.org/html/2402.17944v2
-
-
-* The answer should mention the challenge of handling high-dimensional data in tables by transformer-based models.
-Supporting quotes
-“#### Handling High-Dimensional Data
-Tabular data often involves high-dimensional data, which can be difficult for transformer-based models to handle. These models are typically designed for sequential data, such as text or images, and may not be optimized for handling large numbers of features in tabular data.”
-“Tabular datasets can be extremely large, with millions of rows and hundreds or thousands of columns. The quadratic complexity of the self-attention mechanism in standard transformers can lead to significant computational and memory challenges when dealing with such large datasets.
-Researchers are exploring various techniques to address this issue:
-- Sparse attention mechanisms [7]
-- Efficient transformer variants like Performers or Linformers [8]
-- Hierarchical approaches that process subsets of the data separately [9]”
-“Furthermore, the high-dimensional nature of many tabular datasets presents additional computational challenges. Efficient pre-processing of categorical and numerical features becomes crucial to manage the computational load effectively  (44, Arora et al., 2023). These preprocessing steps, while necessary, add to the overall computational requirements of adapting transformer models for tabular data tasks.”
-
-
-* The answer should discuss the challenge of handling heterogeneous data types found in tables by transformer-based models as they are primarily designed for homogenous data like text.
-        Supporting quotes
-“Tables encompass various data types, and to process this tabular data with neural models, conventional methods typically convert each data format into a continuous space using individual strategies. For instance, texts are processed with tokenization and word embedding, while images are handled using image patch embedding”
-https://arxiv.org/pdf/2307.09249
-“Our model employs the TabUnit module serving as the foundational feature processor for varying data types before leveraging the Transformer’s encoder for further encoding. Through adopting the setting of prompts and integrating a decoder, our model becomes adaptable to a wide range of tasks.”
-https://arxiv.org/pdf/2307.09249
-“Missing or Complex Irregular Spatial Dependencies: There is often no spatial correlation between the variables in tabular datasets [72] or the dependencies between features are rather complex and irregular. When working with tabular data, the structure and relationships between its features have to be learned from scratch. Thus, the inductive biases used in popular models for homogeneous data, such as convolutional neural networks, are unsuitable for modeling this data type [50], [73], [74].”
-https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9998482
-“#### Handling Heterogeneous Features
-Tabular data often includes heterogeneous features, such as categorical, numerical, and text features. Handling these heterogeneous features effectively is a challenge for transformer-based models, which are typically designed for homogeneous data.”
-“### 1. Data Heterogeneity
-#### Diverse Data Types
-Tabular datasets often contain a mix of numerical, categorical, and sometimes textual data, each requiring different handling and processing strategies. Transformers are primarily designed for homogeneous input (e.g., tokens in a sentence), posing a challenge in managing such diverse data types.
-#### Imputation and Normalization
-Handling missing values and applying normalization techniques are more complex for transformers dealing with heterogeneous tabular data. Unlike text, where missing inputs might be rare or syntactically evident, tabular data can have missing values in any combination, complicating preprocessing.”
-
-
-* The answer should discuss the challenge of capturing the relationship between features in tabular data.
-        Supporting quotes
-“At first, rows (or columns) are encoded separately by computing attention between their fields. Subsequently, encoded rows (or columns) are attended to one another to model the entire tabular time-series. While efficient, this approach constrains the attention granularity and limits its ability to learn patterns at the field-level across separate rows, or columns.”
-        https://arxiv.org/html/2406.15327v1
-“Capturing Feature Interactions
-Title: Modeling Complex Relationships in Tabular Data
-One of the strengths of tabular data is the potential for complex interactions between features. Traditional methods like decision trees are particularly good at capturing these interactions. Transformer models need to be adapted to effectively learn and represent these feature interactions.
-Researchers have explored various approaches, including:
-- Modifying the attention mechanism to better capture feature interactions [5]
-- Incorporating additional layers or components specifically designed for modeling feature interactions [6]”
-
-
-* The answer should discuss the computational complexity of transformers and the need for efficient adaptation techniques.
-        Supporting quotes
-“Transformer-based approaches are computationally expensive and some approaches try to approximate the costly attention mechanism by using locality-sensitive hashing to replace it (Kitaev et al., 2020), approximating it by a low-rank matrix (Wang et al., 2020), or applying kernels to avoid its computational complexity (Katharopoulos et al., 2020; Choromanski et al., 2020). While there exist methods to make transformers more efficient for long context (Tay et al., 2020), all optimizations consider an unstructured textual input. We believe more traction is needed for efficient transformers on structured data, with ideas from the textual counterpart”
-https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00544/115239/Transformers-for-Tabular-Data-Representation-A
-“#### Scalability and Computational Efficiency
-Transformer-based models can be computationally expensive and may not be scalable for large tabular datasets. Adapting these models to handle large datasets while maintaining computational efficiency is a significant challenge.”
-“Performance limitations
-TLDR: Transformer models face significant performance challenges when applied to tabular data, including difficulties in handling table structures, limitations in task generalization, and issues with data representation. These challenges highlight the need for specialized adaptations and improvements to enhance transformer models' effectiveness for tabular tasks.”
-“Transformer-based models, while powerful for many natural language processing tasks, encounter substantial computational constraints when applied to tabular data representation. One of the primary challenges is the limitation on the maximum size of input text that these models can process  (20, Oliveira et al., 2022). This constraint becomes particularly problematic when dealing with large tables, as serializing such data often results in sequences that exceed the processing capacity of classical transformer-based models  (45, Chen et al., 2023).
-The computational complexity of transformer models poses another significant hurdle. The quadratic relationship between input sequence length and computational requirements means that processing large tables can lead to prohibitively long run-times, especially when dealing with substantial volumes of data  (20, Oliveira et al., 2022). This issue is exacerbated in scenarios where table data is exceptionally large, potentially rendering the model incapable of encoding the complete dataset  (9, Bagwe et al., 2020).”
-
-
-
-
- Nice to have
+Question
+
+What are the main challenges in adapting transformer-based models for tabular data representation?
+
+
+
+
+
+Most Important
+
+* The answer should begin with providing information on the adaptation of various models for tabular data representation.
+
+Supporting quotes
+
+"Subsetting features of Tabular data (SubTab), that turns the task of learning from tabular data into a multi-view representation learning problem by dividing the input features to multiple subsets.  We argue that reconstructing the data from the subset of its features rather than its corrupted version in an autoencoder setting can better capture its underlying latent representation."
+
+"SubTab can: i) construct a better representation by using the aggregate of the representation of the subsets, a process that we refer as collaborative inference ii) discover the regions of informative features by measuring predictive power of each subset, which is useful especially in high-dimensional data iii) do training and inference in the presence of missing features by ignoring corresponding subsets and iv) use smaller models by reducing input dimension, making it less prone to overfitting."
+
+"The TabTransformer is built upon self-attention based Transformers. The Transformer layers transform the embeddings of categorical features into robust contextual embeddings to achieve higher prediction accuracy."
+
+
+
+
+
+* The answer should provide challenges involved in adapting transformer-based models for tabular data representation
+
+Supporting quotes
+
+"While table-to-text generation is an important and challenging task, most methods rely on fine-tuning existing pre-trained language models."
+
+"While row/column positional embeddings can better map context and table content, such as in QA or TFC tasks, it cannot overcome the challenge of empty cells, nested row headers, or descriptive cells in complex spreadsheets such as financial tables."
+
+""FT-Transformer requires more resources (both hardware and time) for training than simple models such as ResNet and may not be easily scaled to datasets when the number of features is "too large" (it is determined by the available hardware and time budget)."
+
+"FT to tabular datasets stems from their diversity: tabular datasets differ greatly in their domains, number of classes, feature composition, etc. These differences make the training of a generic features engineering tool very difficult."
+
+"The main challenge in learning from multiple tabular datasets, aside from their highly diverse content and characteristics, is their different number of classes. Such a setup makes using a single output layer with a fixed number of entries impossible."
+
+"The challenge stems from the concurrent existence of numerical and categorical feature types, complex, irregular dependencies between the features, and other data-related issues such as scales, outliers, and missing values."
+
+"Tabular data often includes both categorical and numerical features. Efficiently pre-processing these features to create meaningful embeddings is crucial for transformer-based models. This can be challenging, especially when dealing with high-dimensional data."
+
+"Transformer-based models for tabular data need to be integrated with traditional machine learning pipelines, which can be challenging. This includes ensuring seamless integration with existing data preprocessing and feature engineering steps."
+
+"Another significant challenge is the need to model the row-column structure of tables, which is crucial for correctly interpreting relational data  (8, Yu et al., 2020). The hierarchical nature of tabular data, with its complex relationships between headers, rows, and cells, is not naturally captured by the sequential processing of traditional transformers  (34, Huang et al., 2023)."
+
+
+
+

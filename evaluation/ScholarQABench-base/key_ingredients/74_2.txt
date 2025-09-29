@@ -1,0 +1,19 @@
+Question
+
+What are the latest techniques for ensuring the reliability of a P2P storage system?
+
+
+
+
+
+Nice to have
+
+* The answer should provide the applications of P2P storage systems.
+
+Supporting quotes
+
+"Peer-to-peer (P2P) energy trading in the power distribution system is one of the most effective ways to increase the influence of renewable energy from decentralized generations (DG). As DERs become more popular, traditional energy consumers become customers who can both consume and generate energy [7]."
+
+
+
+

@@ -1,0 +1,41 @@
+Question
+
+Global Navigation Satellite Systems (GNSS) receivers can provide a reference clock signal known as Pulse-per-Second (PPS or 1-PPS). Is the PPS physically generated through a digitally-controlled oscillator (or line driver) whose offset is periodically re-initialized by the estimated clock bias (retrieved by means of PVT algorithms)?
+
+
+
+
+
+Nice to have
+
+* The answer should define what clock offset is.
+
+Supporting quotes
+
+"it helps to remind ourselves what the clock offset actually is. In brief, the offset represents the difference between what time the receiverthinksit is, and the true time, with the latter determined by the underlying GNSS atomic time scale."
+
+
+
+
+
+* The answer should explain how signal travel time is calculated by using the onboard clock of the GNSS system.
+
+Supporting quotes
+
+"Each one of these satellites is equipped with onboard atomic clocks. Atomic clocks are the most precise time measurement instruments known, losing a maximum of one second every 30,000 to 1,000,000 years. In order to make them even more accurate, they are regularly adjusted or synchronized from various control points on Earth. GNSS satellites transmit their exact position and onboard clock time to Earth. These signals are transmitted at the speed of light (300,000km/s) and therefore require approx. 67.3ms to reach a position on the Earth's surface directly below the satellite. The signals require a further 3.33s for each additional kilometer of travel. To establish position, all that is required is a receiver and an accurate clock. By comparing the arrival time of the satellite signal with the onboard clock time the moment the signal was transmitted, it is possible to determine the signal travel time (Figure 6)."
+
+
+
+
+
+* The answer should discuss the advantages of DCO compared to analog clocks.
+
+Supporting quotes
+
+"DCOs are similar to their analog counterpart, the voltage-controlled oscillator (VCXO), but instead of analog input signals, they use digital input signals via an I2C serial communications bus or serial peripheral interface (SPI) to drive the voltage pin.Relative to the analog-driven VCXOs, digitally driven DCO benefits include:Finer frequency resolution to minimize accumulated time error, critical for synchronizing timing with greater precision, as low as 5E-12."
+
+"Lower system cost because DCOs don't need a digital-to-analog converter (DAC) when operating across a serial interface. This reduces the number of components and the board space. Lower noise in the output signal reduces frequency deviations. A VCXO pin as well as the signal routing trace is vulnerable to noise coupling from the system. Because DCO frequency control is performed over a digital interface, they do not suffer from analog noise coupling. Perfectly linear frequency pull improves the dynamic performance in closed-loop operations. Extremely wide pull range of up to +-3200 pulse position modulation (ppm) can be achieved with a fractional feedback divider in the PLL, eliminating any pull non-linearity."
+
+
+
+

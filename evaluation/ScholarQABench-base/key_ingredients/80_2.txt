@@ -1,28 +1,21 @@
-﻿Question
-How effective are language models at automatically generating textual descriptions of scientific concepts?
-
-
-Most Important
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
-Nice to have
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
+Question
+
+How effective are language models at automatically generating textual descriptions of scientific concepts?
+
+
+
+
+
+Nice to have
+
+* The answer should discuss the applications of LLMs in scientific domain.
+
+Supporting quotes
+
+"Despite LLMs not yet fully replacing scientific researchers in generating creative discoveries, they have demonstrated substantial potential in enhancing researchers' efficiency in scientific literature analysis [9]. Specific applications such as automatic literature summarization and knowledge extraction have seen practical deployments, significantly boosting researchers' productivity and expanding the range of literature that can be effectively utilized [10]"
+
+"Applications in Scientific WritingTLDR: Language models are increasingly being applied to various aspects of scientific writing, from literature reviews to hypothesis generation. These tools show promise in automating and enhancing multiple stages of the scientific writing process, though their outputs still require human oversight.- Language models can assist in automating various aspects of scientific writing, including generating text for research papers, abstracts, and literature reviews  (131, Olshevska et al., 2024).- LLMs demonstrate capabilities in summarizing research literature, completing literature review tasks, and even creating full literature review articles. They also show potential in peer review processes, with their evaluations often aligning with those of human experts  (132, Research et al., 2024).- These models can be used to automatically evaluate the quality of generated texts, potentially streamlining the review process for scientific writing  (137, Tian et al., 2024).- LLMs have the potential to contribute significantly to scientific hypothesis generation by interpreting and exploiting current knowledge in a given scientific domain, effectively digesting relevant literature  (78, Abrahao et al., 2023)."
+
+
+
+

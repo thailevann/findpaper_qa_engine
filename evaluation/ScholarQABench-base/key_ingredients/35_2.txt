@@ -1,0 +1,31 @@
+Question
+
+how do post-quantum cryptography algorithms such as kyber/dilithium compare to corresponding non-quantum-safe methods in terms of performance and energy cost, and how could this be affected by future hardware optimizations?
+
+
+
+
+
+Nice to have
+
+* The answer hsould provide advantages of post-quantum cryptpgraphy with repsect to the non-quantum safe methods.
+
+Supporting quotes
+
+"The potential of quantum computing is continuously enhanced by exploring hardwarespecific quantum algorithms, advancing the theoretical framework for quantum heuristics [1,2], and by contributing to a broad array of other applications that drive the field's overall development."
+
+
+
+
+
+* The answer should discuss various algorithms used in cryptography related to quantum.
+
+Supporting quotes
+
+"Of the algorithms chosen, Crystals-Dilithium, Falcon, and Sphincs+ pertain to digital signatures. Crystals-Dilithium and Falcon are lattice-based schemes, with considerations for both depending on the context of application--Dilithium is easier to implement, while Falcon yields shorter signatures [9]. Sphincs+, although slower and larger, is significant because it is based on a different mathematical approach, i.e., hash functions."
+
+"Dilithium is a digital signature scheme that is highly secure against chosen-message attacks, based on the hardness of lattice problems over module lattices [14]. The design of Dilithium is grounded in Lyubashevsky's "Fiat-Shamir with Aborts" technique [15,16], which employs sample rejection to make lattice-based Fiat-Shamir schemes compact and secure."
+
+
+
+

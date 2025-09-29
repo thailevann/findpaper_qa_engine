@@ -1,0 +1,19 @@
+Question
+
+What data link layer problems can cause to termination of a connection?
+
+
+
+
+
+Nice to have
+
+* The answer should mention that the data link layer is often considered the weakest link in the OSI model.
+
+Supporting quotes
+
+"It's important to note that Layer 2 is often considered the weakest link in the OSI model, particularly in LANs. This vulnerability stems from the historical assumption that all devices and persons within a LAN could be trusted[1]. However, with the evolution of network threats, this assumption no longer holds true, making data link layer security crucial."
+
+
+
+

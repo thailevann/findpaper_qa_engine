@@ -1,0 +1,9 @@
+Question
+
+What kinds of coverage motion planning algorithms are effective for floor-cleaning robots?
+
+
+
+
+
+Nice to have

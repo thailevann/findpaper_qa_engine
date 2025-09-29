@@ -1,0 +1,21 @@
+Question
+
+Is it possible to get frequency domain information in a fenquency band beyond the limitation of nyquist theory?
+
+
+
+
+
+Nice to have
+
+* The answer should provide limitations of the frequency domain information in a fenquency band beyond the limitation of nyquist theory are used.
+
+Supporting quotes
+
+" They may require additional information about the signal structure or sparsity.- The accuracy and reliability of the recovered high-frequency information may be limited.- These methods often work best for specific types of signals or under certain conditions."
+
+"compressed sensing typically requires sparsity in the signal, and super-resolution techniques may have constraints on the signal-to-noise ratio or the nature of the underlying data."
+
+
+
+

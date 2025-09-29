@@ -1,0 +1,73 @@
+Question
+
+What are some biologically-inspired robot path planning algorithms?
+
+
+
+
+
+Most Important
+
+* The answer should begin with explaining what biologically-inspired algorithms are.
+
+Supporting quotes
+
+"In the last few years, bio-inspired optimization techniques have been widely adopted in fields such as computer science, mathematics, and biology in order to optimize solutions. Bio inspired optimization problems are usually nonlinear and restricted to multiple nonlinear constraints to tackle the problems of the traditional optimization algorithms, the recent trends tend to apply bio-inspired optimization algorithms which represent a promising approach for solving complex optimization problems."
+
+"Bio-inspired optimization algorithms are those methods that are generally inspired by physical principles, evolution theory and certain behaviors of living beings to efficiently solve optimization problems in very diverse application areas."
+
+"Biologically-inspired algorithms draw inspiration from natural phenomena and biological systems to solve computational and engineering problems. Path planning for robotic systems is a critical area where such algorithms have demonstrated significant potential."
+
+"Biologically-inspired algorithms offer a robust, flexible, and efficient approach to robot path planning. By mimicking natural processes and biological behaviors, these algorithms provide innovative solutions for navigating complex and dynamic environments."
+
+
+
+
+
+* The answer should provide explaination on the biologically-inspired robot path planning algorithms.
+
+Supporting quotes
+
+"Grey Wolf Optimizer (GWO) is a population-based algorithm[50],[51]that mimics the hunting mechanism of grey wolves. The approach is described by five operators: the social hierarchy, encircling prey, hunting, attacking prey, and search for prey."
+
+"The social hierarchy operator classifies wolves (agents) into dominated and non-dominated groups. In each iteration, the fitness function evaluates the agent positions and determines the leadership. Alpha (a), beta (b), and gamma (g) wolves are assigned as non-dominated leaders, which oblige the rest of wolves, called omega (o), to follow them.https://ieeexplore.ieee.org/abstract/document/9223657"Whale Optimization Algorithm (WO)is a population-based metaheuristic algorithm[55]that mimics the foraging behavior of humpback whales. The WO algorithm presents three mathematical models: encircling prey, spiral bubble-net attacking mechanism, and searching for prey. The encircling prey operator assumes that the best whale position is close to the global solution, based on which the others update their positions in the best whale neighborhood"
+
+"PSO algorithm is a stochastic optimization method that mimics the social behavior of bird or fish swarms[56],[57]. An individual of the swarm is denoted as a particle, which is a point in the coordinate system. Each particle has a current position x and a velocity V. During the search of a solution, new points can be found by adding V to x.https://ieeexplore.ieee.org/abstract/document/9223657"An integrated biologically inspired self-organizing map (SOM) algorithm is proposed for task assignment and path planning of an autonomous underwater vehicle (AUV) system in 3-D underwater environments with obstacle avoidance. The algorithm embeds the biologically inspired neural network (BINN) into the SOM neural networks. The task assignment and path planning aim to arrange a team of AUVs to visit all appointed target locations, while assuring obstacle avoidance without speed jump."
+
+"With the rapid development of artificial intelligence-related technologies, many intelligent algorithms are used for the complete coverage path planning domain [15], such as the genetic algorithm [16], the ant colony algorithm [17], and the biologically inspired neural network algorithm."
+
+"Yang et al. [18] applied the biologically inspired neural network algorithm to the complete coverage path planning domain for the first time. In their algorithm, the map is shown as a grid map, and each grid is considered as a neuron. The adjacent neurons are connected, and the robot's mobile path is chosen by calculating the neuronal activity value."
+
+"Zhu et al. [19] improved the biologically inspired neural network algorithm by presenting the Glasius bionic neural network algorithm (GBNN), which reduced the calculating time of algorithm path planning."
+
+"biologically inspired neural network algorithm based on Q-learning, which proceeds with path planning based on the biologically inspired neural network algorithm, and when it comes to the position change of a reachable path point, processes path optimization by adopting Q-learning to avoid falling into a locally optimal solution, thus reducing the path repetition ratio, while still ensuring complete coverage, achieving the desired path planning results."
+
+"Yang et al. [8] proceeded with path point optimization selection on the above biologically inspired neural network model, and applied it to the complete coverage path planning domain. In order to generate an ordered and low repetition ratio path, the deciding path points"
+
+"Firstly, the grid map is built by discretizing the three-dimensional underwater environment into many equal grids. Secondly, the activity values of all AUVs in the BINN maps of each target are calculated. Then, the AUV with the highest activity value in the BINN map of the target is selected as the winning AUV for the target. Finally, the winning AUV performs path planning according to the BINN strategy."
+
+"The generator searches the configuration space surrounding existing nodes in the roadmap and uses a combination of random and deterministic search methods that emulate the behaviour of octopus limbs. The strategy consists of randomly mutating the states of the links near the end-effector, and mutating the states of the links near the base of the robot toward the states of the goal configuration."
+
+"Ant Colony Optimization is inspired by the foraging behavior of ants. Ants deposit a chemical substance called pheromone on the ground as they move, which influences the paths taken by other ants. Over time, shorter paths tend to have higher concentrations of pheromones."
+
+"Particle Swarm Optimization mimics the social behavior of birds flocking or fish schooling. Each individual, known as a particle, adjusts its trajectory based on its own experience and the success of its neighbors."
+
+"Genetic algorithms are inspired by the process of natural selection. They work by evolving a population of candidate solutions over generations using mechanisms analogous to biological evolution, such as selection, crossover, and mutation."
+
+"Neural networks and reinforcement learning methods are inspired by the brain's structure and learning mechanisms. Neural networks model complex patterns through layers and neurons, while reinforcement learning focuses on learning optimal actions through trial and error."
+
+" Artificial Immune System (AIS)AIS algorithms are inspired by the principles and processes of the vertebrate immune system, particularly its ability to recognize and respond to foreign entities."
+
+
+
+
+
+* The answer should name the state-of-the-art biologicaly-inspired algorithms.
+
+Supporting quotes
+
+"Particle swarm optimization (PSO), Genetic Bee Colony (GBC) Algorithm, Fish Swarm Algorithm (FSA), Cat Swarm Optimization (CSO), Whale Optimization Algorithm (WOA), Artificial Algae Algorithm (AAA), Elephant Search Algorithm (ESA), Cuckoo Search Optimization Algorithm (CSOA), Moth flame optimization (MFO), and Grey Wolf Optimization (GWO) algorithm."
+
+
+
+

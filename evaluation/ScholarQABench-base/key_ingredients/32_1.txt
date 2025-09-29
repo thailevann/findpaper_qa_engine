@@ -1,0 +1,53 @@
+Question
+
+what kinds of challenges arise when trying to transfer robotics systems trained/designed in simulation to the real world?
+
+
+
+
+
+Most Important
+
+* The answer should provide a background on robotic systems.
+
+Supporting quotes
+
+"Robotic systems are increasingly a part of everyday life. Characteristics of robotic systems such as interaction with the physical world, and integration of hardware and software components, differentiate robotic systems from conventional software systems."
+
+
+
+
+
+* The answer should provide challenges which arise when trying to transfer robotics systems trained/designed in simulation to the real world.
+
+Supporting quotes
+
+"Unpredictable corner cases: Robots are typically expected to operate in many different environments and conditions. In most cases, the robotic state space is infinite, since it interacts with the real world; predicting the exact behavior of the physical environment is not viable [34], [35]. Attempting to account for all possible conditions and scenarios when designing tests is extremely difficult, if not impossible."
+
+"The challenge of attempting to anticipate and cover for all possible edge cases within a large (and possibly unbounded) state space when designing tests."
+
+"The cost of running and automating the tests in terms of human hours, resources and setup, and running time."
+
+"Environmental complexity: The intended operating environment for a robot can be very complex: robots are embodied within the unpredictable and practically boundless state of space of reality, and their behavior may be dependent upon certain physical features (e.g., terrain) and phenomena (e.g., lighting, weather). Finding a suitable environment for testing the robot under expected operating conditions (e.g., on Mars or in the deep ocean) can be challenging"
+
+"Because of the noisy and non-deterministic nature of robotic systems, it is difficult to discretely specify the exact behavior that is intended."
+
+"Even though in some situations robotic grasping is reliable and functions correctly, it still remains a fundamental challenge in industrial robotics. Several methods on the grasping of unknown and geometrically complex objects are proposed; however, a precise placing of such objects has not been widely addressed. In some scenarios, the grasping process can include several additional operations, which is the case of tangled objects, where proposed methods only partially address this issue by mostly avoiding grasping such kinds of objects."
+
+"In the context of the reviewed smart industrial robot control methods, the challenges are highly connected to differences between simulations and real-life, which therefore usually decreases the precision of the system when deployed in real-life scenarios. Physic simulations, object virtual representations, sensor data recreation, artificial lightning and other countless bits of real environment all contribute to the issue of transferring learned models from simulation to reality."
+
+"Due to specific elements of smart manufacturing and precision requirements, a different situation can be seen in this field. The product variety is changing more quickly and algorithms have to be trained on new data sets. Therefore, the re-usability of existing data sets is fairly low. Manual labeling methods cannot meet the requirements of agile production as it is time-consuming, expensive and usually requires expert knowledge of the specific field, and thus, human error can arise in the labeling process."
+
+"The primary issue is the "reality gap," which refers to the differences between the simulated environment and the real world. Factors like gravity, friction, and material properties can be approximated but not perfectly replicated in simulators."
+
+"Robotic actuators in the real world may exhibit discrepancies such as backlash, wear and tear, and non-linearities that are not accounted for in simulations. These differences can affect the performance and reliability of the robot."
+
+"Real-world environments contain unmodeled dynamics such as air resistance, temperature variations, and unexpected interactions."
+
+"Sensors in the real world can experience calibration drift over time, degrading performance. In simulation, sensor data is usually noise-free and perfectly calibrated, which is rarely the case in real-world scenarios."
+
+"In simulation, sensors often have perfect range and resolution. In the real world, sensors may suffer from limited range, resolution, and field-of-view, along with occlusions and line-of-sight issues."
+
+
+
+

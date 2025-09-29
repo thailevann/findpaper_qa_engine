@@ -1,53 +1,19 @@
-﻿Question
-is there any evidence that large language models can be effectively applied to robot planning tasks?
-
-
-Most Important
-* The answer should provide a background information in using large language models in robot planning tasks.
-Supporting quotes
-“The use of large language models (LLMs) in robot planning tasks has attracted significant interest in recent years. Given the capabilities of LLMs in understanding and generating human-like text, researchers have explored their applications in various domains, including robotic planning.”
-“There is indeed growing evidence that large language models (LLMs) can be effectively applied to robot planning tasks. This emerging field of research combines the natural language processing capabilities of LLMs with robotics to enhance planning, reasoning, and decision-making in robotic systems. Let's explore this topic in detail.”
-
-
-*  The answer should provide evidence from research justifying that large language models can be effectively applied to robot planning tasks.
-        Supporting quotes
-“ Through visual language processing systems, robots are capable of understanding image content and integrating it with relevant linguistic information, such as image descriptions and command execution. This multimodal information processing is similarly applied in audio-visual integration. Another major progress with LLMs is in human-robot interaction, facilitated by interactive learning processes that better align with human needs and preferences.”
-https://arxiv.org/pdf/2401.04334 
-“In the realm of complex task reasoning and decision-making, robots empowered by LLMs have shown remarkable proficiency. These LLM-based robotic planning tasks have significantly transcended the realms of mere text generation and language comprehension. Recent research highlights the immense capabilities of Language Models in managing intricate tasks, engaging in logical reasoning, making informed decisions, and partaking in interactive learning.”
-https://arxiv.org/pdf/2401.04334 
-“Task planning can require defining myriad domain knowledge about the world in which a robot needs to act. To ameliorate that effort, large language models (LLMs) can be used to score potential next actions during task planning, and even generate action sequences directly, given an instruction in natural language with no additional domain information.”
-https://ieeexplore.ieee.org/abstract/document/10161317 
-“Our key insight is to prompt the LLM with program-like specifications of the available actions and objects in an environment, as well as with example programs that can be executed.”
-https://ieeexplore.ieee.org/abstract/document/10161317
-“SayPlan is a natural language-driven planning framework for robotics that integrates hierarchical 3D scene graphs and LLMs to plan across large-scale environments spanning multiple floors and rooms.”
-https://openreview.net/pdf?id=wMpOMO0Ss7a 
-“ we present a scalable approach to ground LLM-based task planners across environments spanning multiple rooms and floors. We achieve this by exploiting the growing body of 3D scene graph (3DSG) research.”
-https://openreview.net/pdf?id=wMpOMO0Ss7a 
-“Smart Multi-Agent Robot Task Planning using Large Language Models (LLMs), harnesses the power of LLMs to convert high-level task instructions provided as input into a multi-robot task plan. It accomplishes this by executing a series of stages, including task decomposition, coalition formation, and task allocation, all guided by programmatic LLM prompts within the few-shot prompting paradigm.”
-https://arxiv.org/pdf/2309.10062 
-“One of the key pieces of research in this area is Google's "SayCan" [1]. SayCan integrates large language models with robot planning by using natural language inputs to guide a robot to execute tasks. The LLM, in this case, processes natural language commands and predicts a sequence of actions that the robot needs to perform. A reinforcement learning (RL) model then verifies the feasibility and safety of these actions.”
-“Another important research project, CLIPort by OpenAI [2], combines vision and language by leveraging CLIP (Contrastive Language-Image Pretraining) and models like GPT-3 for robotic task planning. CLIPort demonstrated effectiveness in understanding instructions grounded in visual context, making significant strides in tasks requiring multimodal comprehension.”
-“Recent large language models (LLM) can embed rich semantic knowledge for agents in plan generation of complex tasks, while they lack the information about the realistic world and usually yield infeasible action sequences... Experimental results show that the generated plan from our TaPA framework can achieve higher success rate than LLaVA and GPT-3.5 by a sizable margin, which indicates the practicality of embodied task planning in general and complex environments.”
-*  The answer should provide limitations of large language models when applied to robot planning tasks 
-        Supporting quotes
-“. Notably, in the realm of robot task planning, LLMs harness their advanced reasoning and language comprehension capabilities to formulate precise and efficient action plans based on natural language instructions. However, for embodied tasks, where robots interact with complex environments, text-only LLMs often face challenges due to a lack of compatibility with robotic visual perception.”
-https://arxiv.org/pdf/2401.04334 
-“The generated plans are homogenous, lacking in detailed embodiment and specific, robust designs to manage complex environments and tasks.”
-https://arxiv.org/pdf/2401.04334 
-“ Current multimodal LLMs, such as GPT-4V and Google Gemini, necessitate carefully crafted, lengthy prompts to produce reliable outputs, which require domain expertise and extensive tricks.” 
-https://arxiv.org/pdf/2401.04334
-“The robot is constrained by predefined actions, limiting its executional freedom and robustness.” 
-https://arxiv.org/pdf/2401.04334
-“The closed-source nature of the GPT-4V API and associated time delays may impede embedded system development and real-time commercial applications.”
-https://arxiv.org/pdf/2401.04334
-“SayPlan is notably constrained by the limitations inherent in current large language models (LLMs), including biases and inaccuracies, affecting the validity of its generated plans. More specifically, SayPlan is limited by the graph-based reasoning capabilities of the underlying LLM which fails at simple distance-based reasoning, node count-based reasoning and node negation.”
-https://openreview.net/pdf?id=wMpOMO0Ss7a 
-“One of the main challenges in using LLMs for robot planning is ensuring the safety and reliability of the generated plans. While LLMs can generate plausible instructions, they may not always be practical or safe in real-world scenarios. Ensuring robustness and validation through methods like reinforcement learning remains critical [3].”
-“Understanding why an LLM-generated a specific plan can be difficult, complicating debugging and refinement processes. Researchers are actively investigating ways to improve the interpretability of these models within robotic systems [4].”
-“While effective, LLMs and combined architectures involving them (like vision-language models) are computationally intensive. This constraint can limit their application in real-time or resource-constrained environments.”
-
-
-Nice to have
-* The answer should provide the large language models used in effective robot task planning.
-        Supporting quotes
-“Large language models, such as GPT-3, BERT, and their successors, have demonstrated remarkable capabilities in understanding and generating human-like text. Researchers have begun to explore how these models can be leveraged to improve robot planning tasks, which traditionally rely on specialized algorithms and domain-specific knowledge representations.”
+Question
+
+is there any evidence that large language models can be effectively applied to robot planning tasks?
+
+
+
+
+
+Nice to have
+
+* The answer should provide the large language models used in effective robot task planning.
+
+Supporting quotes
+
+"Large language models, such as GPT-3, BERT, and their successors, have demonstrated remarkable capabilities in understanding and generating human-like text. Researchers have begun to explore how these models can be leveraged to improve robot planning tasks, which traditionally rely on specialized algorithms and domain-specific knowledge representations."
+
+
+
+

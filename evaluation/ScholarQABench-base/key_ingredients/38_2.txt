@@ -1,0 +1,33 @@
+Question
+
+what datasets are commonly used to evaluate SLAM methods
+
+
+
+
+
+Nice to have
+
+* The answer should provide information of how the SLAM models are evaluated.
+
+Supporting quotes
+
+"every developer can validate claimed performance of a VSLAM algorithm in particular environments, without needs for financial resources or professional knowledges to setup and use expensive sensors."
+
+"By substituting information estimated by VSLAM system into ground truth data from the dataset (e.g. using ground truth optical flow to replace 2D feature matching results), we can eliminate the effect of interaction among different modules, which helps us debug this algorithm."
+
+"A new VSLAM evaluation method with detailed rating criteria for mapping block of VSLAM. The criteria are listed below:(a) Reconstruction Error (RE) is the average error of world positions of 3D features on keyframes across entire global map;(b) Reconstruction Error Standard Deviation (RE_STD) is the average standard deviation of Reconstruction Error (RE) across entire global map;(c) Cruciality of Features (CF) measures percentage of features lie on static area of the surroundings;(d) Significance of Features (SF) measures how well features sampled by VSLAM describe general shape of the objects and structures in the surroundings.(e) Outlier Removal Capability (ORC) measures VSLAM's capability to remove outliers sampled from moving objects."
+
+
+
+
+
+* The answer should provide selection criteria of the datasets.
+
+Supporting quotes
+
+"The choice of dataset depends on the specific SLAM application and research objectives. Researchers often use a combination of datasets to ensure robust evaluation across different scenarios and sensor configurations [7 | 83459364 | Labbe et al. | 2018 | Citations: 593]. As the field of SLAM continues to evolve, new datasets are being developed to address emerging challenges and applications in robotics and computer vision  (72, Maalouf et al., 2023)."
+
+
+
+

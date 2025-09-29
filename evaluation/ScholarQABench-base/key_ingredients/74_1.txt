@@ -1,0 +1,91 @@
+Question
+
+What are the latest techniques for ensuring the reliability of a P2P storage system?
+
+
+
+
+
+Most Important
+
+* The answer should begin with introducing the P2P system.
+
+Supporting quotes
+
+"Peer-to-peer (P2P) storage is a promising technology to provide users with cheap and online persistence."
+
+"Peer-to-peer (P2P) storage systems have received a lot of attention in recent years. This interest arises from the idea of aggregating idle disk resources from desktop computers to build decentralized and collaborative storage systems. Such systems encourage users to share local disk resources to obtain online storage capacity."
+
+
+
+
+
+* The answer should provide recent techniques to ensure reliability of P2P storage system.
+
+Supporting quotes
+
+"Redundancy schemes based on data coding techniques are a common solution for P2P storage systems. Unlike fixedrate codes like Reed-Solomon or Tornado Codes where the maximum number of redundant blocks is initially determined, rate-less erasure codes can generate an unlimited number of redundant blocks."
+
+"a storage system using a rate-less erasure code that splits data objects into m redundant blocks. After it, n redundant blocks are generated and each one stored to a different node. Thanks to the redundancy scheme, the storage system ensures that original objects can be always recovered by gathering m out of the n redundant blocks."
+
+"when nodes abandon the system, redundancy is reduced and this availability could be threatened. Repair algorithms are the responsible to cope with these departures and ensure that the number of redundant blocks is always kept close to n. Traditionally, these repair algorithms used reactive schemes that triggered the reparation lost blocks as soon as node disconnections were detected."
+
+"other reactive schemes differentiated between permanent and transient failures, being able to reintegrate data from temporally unavailable nodes and reducing the total number of repairs."
+
+"Unlike reactive algorithms, proactive algorithms schedule the creation of new redundant blocks at a constant rate independently of the actual node departures. By estimating the churn characteristics and setting the repair rate consequently, proactive repair can maintain the number of online nodes close to n avoiding bandwidth spikes."
+
+"Under the keep-avail strategy, the proactive repair rate RA is set to ensure that the mean number of online nodes is equal to the targeted nodes, E(Lon) = n. Using Expression (1), they obtained that RA= (an)/u."
+
+"Under the keep-stored strategy, the proactive repair rate RSis set to ensure that the mean number of nodes in the system is equal to the targeted nodes, E(Lglobal) = n. Since E(Lglobal) = E(Lon+Loff), using the Cramer's theorem we can obtain the required rate RSable to maintain this targeted number of nodes in the system, RS = (an)/(a(u [?] 1) + 1)."
+
+"Blockchain technology offers new opportunities for P2P because of its salient features, including decentralization, reliability, stability, and controllability."
+
+"Optimization can be conducted taking into account economic aspects, stability and reliability criteria, and the availability of energy, as well as to maximize interests or benefits [20]."
+
+"the effect of network tariffs on peak load reduction was investigated using a mixed-integer linear programming (MILP) based optimization model developed in a neighborhood with 30 different consumers with flexible loads. The developed multi-energy management system in [15] reduced costs by allowing prosumers to choose from a variety of energy sources and storage methods."
+
+"Themis, an accountable P2P cloud storage scheme with smart contracts on Ethereum."
+
+"First, cloud data integrity verification is decentralized and implemented by miners on blockchain without any trusted third party. Second, by carefully setting up the reward and punishment mechanism within a smart storage contract, all rational nodes will participate in the storage service following an accountable rule. Third, based on reliable information published on the blockchain, users are free to choose appropriate storage servicers who want to share idle storage, making storage service decentralized and flexible. Fourth, compared with the existing related systems, by adopting a payment at maturity method, the malicious behavior of breaking the contract after the servicer obtains some revenue is prevented, and the availability of user data within the specified period is enhanced."
+
+"A pub-sub model is used where storage servicers first publish storage contracts on the blockchain to declare their service, and then users choose an appropriate servicer according to the contract information. Under normal circumstances, data transmission is carried out off-chain. When a dispute arises, i.e., the request sent by a user has no reply or the response is incorrect, the participants request the storage contract to make a ruling."
+
+"As the incentive layer of IPFS, Filecoin guarantees the security and stability of the storage process in IPFS. Filecoin consists of three types of entities: storage miners who are responsible for mining and storage; search miners who provide search capabilities; users that store and query data."
+
+"Sia is a decentralized cloud storage system similar to Bitcoin, aiming to compete with existing storage solutions in P2P and enterprise areas. There are three types of entities in a Sia system: miners, storage servicers and users. Miners receive rewards based on the PoW mechanism. Storage servicers earn revenues by renting their hard disks. Users obtain the data storage service through the system."
+
+"The Sia system automatically generates a verification request for the data storage status at a fixed frequency, requiring storage servicers to provide proof of the correct storage of user data."
+
+"the node-based scalable model for Blockchain storage systems (SMBSS) is proposed, which enables a node to have the basic functions with a low-cost storage system while encouraging nodes with adequate storage resources to store more data in order to improve data availability and ultimately break through the storage performance bottleneck and fundamentally solve the scalability issue of Blockchain storage systems."
+
+"Replication and redundancy are fundamental techniques used in P2P storage systems to ensure data reliability and availability. These methods involve distributing multiple copies of data across different nodes to mitigate the impact of node failures or user attrition."
+
+"To solve this problem and to increase the reliability of the stored data, multiple storage nodes can be networked together to redundantly store the data, thus forming a distributed data storage system."
+
+"A notable implementation of DHTs in P2P storage is the Cooperative File System (CFS), which utilizes a distributed hash lookup algorithm called DHash  (6, Stoica et al., 2001). DHash enhances system reliability through several mechanisms:1. Fine-grained block distribution and caching for improved load balancing2. Replication for increased robustness3. Server selection techniques to reduce latency"
+
+"To further enhance data security and efficiency in blockchain-based P2P storage systems, some solutions incorporate additional techniques. For instance, Huffman compression can be used for file size optimization, while RSA encryption can be applied to ensure data security  (194, Dhingra et al., 2022). These methods contribute to more efficient storage utilization and improved data protection in the distributed environment."
+
+"One significant advancement in ensuring data integrity is the concept of multiple-replica provable data possession (MR-PDP), which provides strong evidence that multiple copies of data are actually stored in the system  (32, Khan et al., 2008). This approach helps verify the presence and integrity of replicated data across untrusted storage nodes."
+
+"Recent advancements include the development of BFT-DSN, which combines storage-weighted Byzantine Fault Tolerant (BFT) consensus with erasure coding, homomorphic fingerprints, and weighted threshold signatures for decentralized verification  (206, Ranjan et al., 2024). This approach aims to improve Byzantine resilience in decentralized storage networks while maintaining competitive performance in terms of storage cost and latency."
+
+"Although still in early stages, quantum key distribution techniques are being explored to provide unconditionally secure key exchange for P2P storage systems [10]."
+
+
+
+
+
+* The answer should provide challenges associated with P2P storage systems.
+
+Supporting quotes
+
+"However, due the instability of these infrastructures, P2P storage systems must introduce redundancy in order to guarantee a reliable storage service. Besides, they need data repair algorithms to maintain this redundancy in front of permanent node departures. To ensure that such repairs can always be run, existing P2P storage systems aim to maintain 100% data availability. Unfortunately, this solution seems to overkill in preventing data loses, introducing network and data overheads."
+
+"these reactive schemes suffer from network spikes caused by data repair processes."
+
+"The full redundancy of Blockchain data is intended to guarantee the decentralization characteristic, but brings high storage pressures on nodes and causes the scalability issue of Blockchain storage systems, which is detrimental to decentralization."
+
+
+
+

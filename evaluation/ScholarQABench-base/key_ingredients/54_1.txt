@@ -1,0 +1,95 @@
+Question
+
+What strategies are used to improve robustness and safety of quadrotor UAVs in extreme weather conditions?
+
+
+
+
+
+Most Important
+
+* The answer should begin with providing the importance of robustness and safety of quadrotor UAVs.
+
+Supporting quotes
+
+"For the quadrotor helicopter, as an example of UAV systems, which is relatively a simple, affordable and easy to fly system, the accurate attitude control of it in harsh environmental conditions due to wind disturbances is an open challenge."
+
+"Particularly, robustness issues can be critical for the rotorcrafts due to the complicated aerodynamic effects (which make it difficult to obtain an accurate dynamic model), such as the errors from sensors (like measurement noises) and external disturbances (like winds)."
+
+"In particular, robustness issues may be critical for quadcopter control since it can be subjected to undesired nonlinear dynamics and external disturbances. In order to weaken the effect of wind gusts, some authors have proposed complex control techniques to achieve stability."
+
+"The satisfactory performance, safety and reliability are fundamental requirements in the QUAV system to complete the flight mission successfully. However, some specific applications will take the QUAV into hostile environments, such as strong wind."
+
+"Early and reliable detection and diagnosis of various faults in the QUAV system are crucial to avoiding the tragedy of wreck. The accurate fault information will be conducive to taking remedial actions quickly to guarantee the safety operation of QUAV. Therefore, in order to improve the safety, reliability and survivability of QUAV[7], it is highly desirable to design a QUAV system with the capability to detect and diagnosis faults."
+
+"Quadrotor UAVs (Unmanned Aerial Vehicles), commonly known as drones, face significant challenges when operating in extreme weather conditions like high winds, rain, snow, and temperature extremes. Ensuring robustness and safety under such conditions is crucial for their performance and reliability in practical applications."
+
+
+
+
+
+* The answer should provide the solutions to improve robustness and safety of quadrotor UAVs in extreme weather conditions
+
+Supporting quotes
+
+"Firstly, a dynamical system of the quadrotor taking into account aerodynamical effects induced by lateral wind and actuator faults is considered using the Newton-Euler approach. Then, based on active disturbance rejection control (ADRC), the fault tolerant controller is proposed to recover faulty system and reject perturbations."
+
+"The developed controller takes wind gusts, actuator faults and measurement noises as total perturbations which are estimated by improved extended state observer (ESO) and compensated by nonlinear feedback control law. So, the developed robust fault tolerant controller can successfully accomplish the tracking of the desired output values."
+
+" a novel robust fault tolerant control strategy based on ADRC is successfully applied to stabilize an unmanned quadrotor aircraft subjecting to actuator faults and wind gusts. An improved ESO is designed to estimate the plant dynamics and disturbances, while a nonlinear feedback control law is developed to actively suppress disturbances and accommodate actuator faults. With the accurate estimation of the plant dynamics and disturbances by ESO, the developed controller can successfully drive the outputs of quadrotor aircraft to the desired values."
+
+"The controller is developed combining two parts; one dedicated to stabilize the closed-loop system and the second one for dealing and estimating external disturbances as well unknown nonlinearities inherent to the real system's operations. For bounding the energy used by the system during a mission and, without losing its robustness properties, the quadratic problem formulation is used considering the actuators system constraints. The resulting optimal bounded control scheme improves considerably the stability and robustness of the closed-loop system and at the same time bounds the motor control inputs."
+
+"Feedback linearization approach with anti windup scheme is designed as autonomous landing controller. Anti windup basically controls the integrator component accumulation in the autopilot design and restricts the output within saturation limits."
+
+"Flare controller is designed with integrator and antiwindup scheme is used to handle the controller output within saturation limits. Landing is primarily a longitudinal mode operation but due to disturbances and coupling lateral and directional modes also gets activated."
+
+"pitch angle, roll angle and yaw angle nonlinear dynamic equations are linearized to obtain the control commands in terms of elevator deflection, aileron deflection and rudder deflections. Similarly total velocity of aerial vehicle being an important parameter is controlled using thrust command. A first order linearized model of velocity is used to obtain thrust control command."
+
+"An optimal bounded robust control algorithm was developed in this paper. This controller was conceived to be robust with respect to uncertain dynamics and external and unknown perturbations. Its structure contains two parts, one for stabilizing the aerial vehicle close to the ideal conditions (small angles) and the second one for estimating and compensating unknown dynamics. For improving robustness and avoid saturating the actuators of the system, the obtained controller of this scheme was bounded solving a quadratic problem in the control inputs and taking into account the motors constraints."
+
+"First, the dynamic model of a QUAV taking into account actuator faults and external disturbances is constructed. Then, treating the actuator faults and external disturbances as augmented system states, an adaptive augmented state Kalman filter (AASKF), is developed without the need of make the assumption that the exact stochastic information of actuator faults and external disturbances are available. Next, in order to reduce the computational load of AASKF, an adaptive three-stage Kalman filter (AThSKF) is proposed by decoupling the AASKF into three sub-filters. The AThSKF-based FDD scheme can not only detect and isolate actuator faults but also estimate the magnitudes even if the QUAV suffers from the external disturbances."
+
+"The dynamic model of the quadrotor is first obtained using Newton-Euler equations. Then, considering the underactuated and the strongly coupled characteristics of the quadrotor system, a nonlinear adaptive sliding mode control (ASMC) scheme is proposed. Meanwhile, additional adaptive laws are designed to estimate all the parameters of the quadrotor system, which in principle are difficult to be measured directly and accurately. Furthermore, to guarantee the asymptotic stability of the closed-loop system, the upper bound of the fully unknown external disturbance is estimated and adopted as the switching gain of the ASMC."
+
+"The robustness of the ASMC schemes developed in [30, 31] to external disturbance and uncertainty of physical parameters has been verified by simulation experiments. In [32], a robust ASMC approach is developed for attitude and altitude tracking of a four-rotor system under the simultaneous effect of parametric uncertainties and consistent external disturbance. This ASMC can only deal with external disturbance with known upper bound."
+
+"One of the foundational strategies is using materials that can withstand extreme temperatures and resist corrosion due to moisture."
+
+"**Model Predictive Control (MPC):** This approach predicts future states and adjusts controls accordingly.- **Adaptive Control:** These systems adjust their parameters in real-time based on sensor feedback to maintain stability."
+
+"Effective for obstacle detection in poor visibility.- **Inertial Measurement Units (IMUs):** Help maintain orientation and position even when GPS signals are weak."
+
+"Combining data from multiple sensors can help correct errors and provide a more comprehensive understanding of the UAV's environment."
+
+"Adaptive Terminal Sliding Mode Control**: This strategy, based on characteristic modeling, improves attitude control accuracy and robustness by handling nonlinear dynamics and unmodeled disturbances in UAVs[1]."
+
+"Adaptive Robust Dynamic Surface Integral Sliding Mode Control (ADSISMC)**: This approach combines dynamic surface and integral sliding mode control to improve trajectory tracking under parametric uncertainties and external disturbances[5]."
+
+" Using Inertial Measurement Units (IMUs) designed to operate accurately in extreme temperatures and high vibration environments [9]."
+
+"Integrating optical flow sensors for improved position estimation in low-visibility conditions [10]."
+
+"Kalman Filtering: Applying advanced Kalman filtering techniques to fuse data from various sensors, providing more robust state estimation [11].- GPS-INS Integration: Tightly coupling GPS and Inertial Navigation System (INS) data to maintain accurate positioning even when GPS signals are compromised [12]."
+
+" Fuzzy logic-based approaches, such as the robust fuzzy backstepping sliding mode controller (RFBSMC), have shown high performance in terms of stability, trajectory tracking, and robustness against external disturbances and parameter uncertainties  (7, Khebbache et al., 2013). Similarly, fuzzy PID control methods based on ant colony algorithms have demonstrated effectiveness in reducing the influence of perturbations and stabilizing motion patterns under wind disturbance conditions  (80, Tang, 2024)."
+
+"The integration of deep neural networks (DNNs) with robust linear quadratic regulators (RLQR) has improved flight performance during trajectory tracking, particularly when subjected to wind gusts  (83, Benevides et al., 2024). Additionally, the combination of neural networks with interval type-2 fuzzy logic control and sliding mode control (NNIT2FSMC) has shown promise in alleviating chattering effects and maintaining robustness against external disturbances  (15, Bouguerra et al., 2017)."
+
+"The integration of artificial intelligence techniques with disturbance observer-based feedback linearization has proven effective in improving disturbance approximation and compensation, resulting in more robust flight control under various conditions  (19, Lazim et al., 2018). Active disturbance rejection control (ADRC) strategies, particularly when combined with fuzzy logic, have shown stronger stability and robustness compared to classical ADRC and PID control methods  (74, Liu et al., 2023)."
+
+"The use of remote wind measurements from LiDAR systems has enabled the development of wind-preview-based Model Predictive Controllers (MPC) for improved disturbance rejection  (67, Whidborne et al., 2023)."
+
+
+
+
+
+* The answer should provide limitations associated with designing the robust and safe solutions for quadrotor UAVs considering extreme weather conditions.
+
+Supporting quotes
+
+"Furthermore, as a consumable hardware device, a QUAV is often equipped with low-cost and poor-quality components. These situations may lead to system failures and decrease the safety of QUAV."
+
+
+
+

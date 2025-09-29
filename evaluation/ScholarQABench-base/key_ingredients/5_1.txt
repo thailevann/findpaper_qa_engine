@@ -1,0 +1,87 @@
+Question
+
+In robotics, what are the leading methods for learning terrain traversibility costs automatically from robot experience?
+
+
+
+
+
+Most Important
+
+* The answer should begin with providing a background on terrain traversibility in robotics.
+
+Supporting quotes
+
+"Estimating the traversability of terrain in an unstructured outdoor environment is a core functionality for autonomous robot navigation. While general-purpose sensing can be used to identify the existence of terrain features such as vegetation and sloping ground, the traversability of these regions is a complex function of the terrain characteristics and vehicle capabilities, which makes it extremely difficult to characterize a priori."
+
+"In robotics, learning terrain traversability costs automatically from robot experience is a crucial aspect of efficient and effective navigation."
+
+
+
+
+
+* The answer should provide leading methods for learning terrain traversibility costs automatically from robot experience.
+
+Supporting quotes
+
+" Our method is based on autonomous training data collection which exploits the robot's experience in navigating its environment to train classifiers without human intervention."
+
+"There are two key elements of the traversability learning algorithm: a mechanism to autonomously collect and label training data as the robot interacts with its environment, and an online method to learn the concept space for traversable and non-traversable terrain.https://ieeexplore.ieee.org/abstract/document/1641763"image data obtained in the past is associated with traversability labels obtained in the present. In order to exploit newly-acquired training data in making traversability predictions about unknown terrain, we propose an on-line learning method. The learned traversability concepts are incrementally updated with new data only, with the advantage that the updated classifier is immediately available for navigation."
+
+"The online classifier must also be computationally efficient. Usually, multiple feature vectors accumulate over time in one grid cell, and we use simple majority voting to predict the traversability of each cell."
+
+"Geometric features are obtained from stereo, which provides three dimensional coordinates (x, y, z) for a subset of image pixels. In order to reduce the dimensionality of our feature space and gain robustness to noise in the stereo measurements, we quantize the height estimates for each pixel using a histogram."
+
+"A standard path planning algorithm is used to compute the best cost path to the goal that avoids colliding with any obstacles. The planner has two operational modes: conventional and learning-based. In the conventional planning mode, the cost map is based solely on the elevation map of terrain in the robot's environment which is computed through stereo ranging. Regions that exceed a slope threshold are marked as nontraversable."
+
+"The LAGR (Learning Applied to Ground Vehicles) platform collects stereo pairs and then the human expert labels each explored cell as low, intermediate, high, or lethal with respect to the difficulty encountered while traversing this particular cell. After gathering a total of 4000 labeled cells, it is shown that height and slope were the most important features in terms of determining terrain's traversability. Subsequently, by integrating the classification from geometry features with color information, a cost map was generated for path planning purposes."
+
+"the robot learns from human demonstration to calculate terrain costs, which indicate the probability of an obstacle's presence. Through the combination of using Bayesian estimates and geometric information collected by stereo vision, the final terrain costs follow a certain distribution and thus it can be determined whether the path is traversable by articulating that those cells with higher values of features ought to be less traversable."
+
+"By performing graph optimization, local dense 3D maps are constructed and integrated to a global one that yields information for the robot's real time pose and can ultimately provide traversability costs for rough terrain navigation for each map cell."
+
+"A fully differentiable and trained for 6 hours end-to-end Fully Convolutional network, including multiple stages of filtering, various CNN layer dimensions (64,128,256,512) and downsampling, is used as the understructure before an upsampled penultimate layer classifies the input raw image (orbital or ground). The output of the classification acts as the input to the cost function of the optimal route planner for landing site traversability analysis and also for building a robust slip prediction model."
+
+"Palazzoet al.[44]design a supervised model that can analyze multiple traversability routes through the medium of the encoder-decoder architecture. Notably, while the problem is examined as a regression one, their aim is to estimate and predict the traversability costs of various routes even on scenarios that no labels are provided. Using collected RGB images as inputs, the utilized architecture consists of a fully convolutional network module for feature extraction, followed by two layers; a convolutional and a fully-connected respectively. The bottom line of their method lies on training a model to predict correct traversability scores on the source dataset, while carrying out unsupervised domain adaptation on the target data."
+
+"Terrain traversability takes into account the map content and the capabilities of the robot to produce a cost/difficulty map, representing how difficult it may be for the robot to traverse particular areas of the terrain. This cost map is then passed on to the planner to determine the best compromise between its objectives and the associated costs."
+
+"Traversability analysis: this task usually interprets the terrain at a more refined level than obstacle detection, contrasting its characteristics against the dynamics and kinematics capabilities of the robot, and generating a "difficulty" or cost map of the environment. Such a cost map is usually a 2D representation that indicates a cost value for each location (x, y) (optionally with an orientation)."
+
+"terrain traversability analysis based on regression aims at estimating thetraversal costof a terrain patch, somehow encoding the difficulty that the vehicle would encounter while crossing the considered terrain patch. Most of the time the goal is to identify a map of costs (or cost map) of the surrounding environment, on top of which path planning or motion control can be performed."
+
+"a vector of terrain geometry features is determined by a local quadratic regression of terrain patches around footholds suggested by an expert. This vector is used to derive a utility function encoding the terrain cost function. The height map of a testbed rough terrain is a priori known and the position of the vehicle inside the testing scenario is acquired through a motion capture system."
+
+"an unsupervised method is adopted by Faigl and Pragr [34] for traversability cost maps regression. In particular self-organizing maps are proposed, to predict three traversal costs, i.e., instantaneous power consumption, maximum achievable forward velocity, and attitude stability, based on the morphology and the appearance of the terrain, acquired through an RGB-D camera. Furthermore, during the learning phase the predicting model is also fed with the traversal costs actually experienced by the robot during the traversal. Once learned the model is deployed for predicting the cost from the exteroceptive data only."
+
+"in the context of deep learning-based traversal cost regression most of the works belong to the learning from demonstration paradigm, especially to the recent wave of Deep Inverse Reinforcement Learning (DIRL) and maximum entropy DIRL (ME-DIRL). In this case, the traversability cost map is indirectly obtained as the negative reward function learned from the expert demonstrations."
+
+"In literature some works providing a hybrid approach between terrain classification and traversal cost regression can be found. Typically, in these works a terrain classification is performed from which a traversal cost is derived as a side result, or vice versa, a map of traversal costs is built and after that a binary classification is obtained by thresholding."
+
+"Using proprioceptive signals, such as energy consumption and robot stability, combined with exteroceptive information collected by an RGB-D camera, the authors manage to predict the traversal cost of seen but not yet visited terrain."
+
+"One approach involves online incremental learning of terrain traversal cost using Bayesian Committee Machine (BCM) and Gaussian Processes (GPs). This method, as described in, enables robots to learn the traversal cost model incrementally as they explore unknown environments. The traversal cost is characterized by incrementally constructed GPs, which are updated based on the robot's proprioceptive experience and terrain descriptors."
+
+"Incremental learning of traversability cost using exteroceptive and proprioceptive data collected by aerial and ground robots is another effective method."
+
+"Self-supervised traversability prediction methods, such as WayFASTER, have also been developed. These methods, as described in, use the robot's own experience to predict traversability without requiring human-provided labels."
+
+"CNNs have become a popular method for learning terrain traversibility costs from visual data. These networks can process raw image data and learn to associate visual features with traversibility costs."
+
+"Robots can learn terrain properties by analyzing data from their IMUs, which measure acceleration and angular velocity."
+
+"Self-supervised learning methods enable robots to automatically learn terrain traversability from their own experiences without human labeling. These approaches leverage various sensor data and robot interactions to build robust traversability models."
+
+"One notable example is the STERLING system, which learns terrain representations from unconstrained, unlabeled robot experiences. STERLING uses self-supervised learning techniques to develop terrain representations and traversability costs, making it particularly relevant for autonomous navigation in unknown environments."
+
+"Apprenticeship learning, also known as learning from demonstration or imitation learning, has been widely investigated to transfer human expertise in navigation control to autonomous robots. This method allows robots to learn traversability costs directly from human demonstrations, creating a mapping from the representation space to the terrain costs encountered during traversal."
+
+"Proprioceptive feedback has been incorporated into traversal cost learning models. By combining the robot's experienced traversal cost with terrain appearance and geometry captured by the robot's sensors, more comprehensive traversability models can be created."
+
+"In RL, robots interact with the environment and receive rewards based on their actions. For terrain traversibility, the reward might represent the ease or efficiency of traversing a particular terrain."
+
+"The robot learns a policy to maximize cumulative rewards. Techniques like Q-learning or actor-critic methods can be employed to learn the optimal policy for minimizing traversal costs."
+
+
+
+

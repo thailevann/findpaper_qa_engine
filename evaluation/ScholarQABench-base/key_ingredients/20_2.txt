@@ -1,0 +1,19 @@
+Question
+
+Apart from preventing overfitting, are there any side effects (desirable or otherwise) of applying dropout in deep neural networks?
+
+
+
+
+
+Nice to have
+
+* The answer could compare dropout technique with standard regularization methods for overfitting prevention.
+
+Supporting quotes
+
+"Dropout can be seen as another way of regularizing neural networks. In this section we compare dropout with some of these regularization methods. The MNIST dataset is used to compare these regularizers. The same network architecture (784-1024-1024-2048-10) was used for all the methods. Table. 2.5 shows the results. The KL-sparsity method used a target sparsity of 0.1 at each layer of the network. It is easy to see that dropout leads to less generalization error."https://www.cs.toronto.edu/~rsalakhu/papers/srivastava14a.pd"
+
+
+
+

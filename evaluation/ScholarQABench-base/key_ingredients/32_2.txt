@@ -1,0 +1,37 @@
+Question
+
+what kinds of challenges arise when trying to transfer robotics systems trained/designed in simulation to the real world?
+
+
+
+
+
+Nice to have
+
+* The answer should start with providing the applications of trained of robotic systems.
+
+Supporting quotes
+
+"Although robotics was started as a form of entertainment, it gradually became used in different branches of science. Medicine, particularly in the operating room, has been influenced significantly by this field. Robotic technologies have offered valuable enhancements to medical or surgical processes through improved precision, stability and dexterity."
+
+"The systems include the AcuBot for active needle insertion under CT or fluoroscopy, the B-Rob systems for needle placement using CT or ultrasound, the INNOMOTION for MRI and CT interventions, and the MRBot for MRI procedures."
+
+"Robotics evolved as a central issue in teaching for scientific and engineering courses and inherently encompasses a spectrum of sciences and technologies and qualification levels. However, most current teaching approaches, related to robotics, concentrate on individual aspects or small student groups and do not involve dangerous situations. With a mixed-reality robotics teaching, a true interdisciplinary setup can be reached, this approach has been used in a robotics course at higher education, to prepare students for future activities in industry and also in research."
+
+"In order to simplify the effort towards data collection by reducing the human involvement to a minimum and to reduce power requirement of the sensors for data transmission, thereby increasing their life, use of marine robotic systems has been experimented with successfully."
+
+
+
+
+
+* The answer should provide challenges involved in robotic system in real world using reenformcement learning.
+
+Supporting quotes
+
+"The second challenge to reliable and stable learning is local optima and delayed rewards. In contrast to supervised learning problems, which put a convex loss function on top of a nonlinear neural network function approximator, the RL objective itself can present a challenging optimization landscape independently of the policy or value function parameterization, which means that the usual benefits of over-parameterized networks do not fully resolve issues relating to local optima. This is indeed part of the reason why different runs of the same algorithm can produce drastically different solutions, and it presents a major challenge for real-world deployment, where even a single run can be exceptionally time-consuming."
+
+"Deep RL algorithms are notoriously difficult to use in practice (Irpan, 2018). The performance of commonly used RL methods depends on careful settings of the hyperparameters, and often varies substantially between runs (i.e., for different "random seeds" in simulation). Off-policy algorithms, which are particularly desirable in robotics owing to their improved sample efficiency, can suffer even more from these issues than on-policy policy gradient methods. We can broadly classify the challenges of reliable and stable learning into two groups: (1) reducing sensitivity to hyperparameters; and (2) reducing issues owing to local optima and delayed rewards."
+
+
+
+

@@ -1,0 +1,45 @@
+Question
+
+How has literature discussed AI as a design material?
+
+
+
+
+
+Most Important
+
+* The answer should begin with exploring the related advancements in AI.
+
+Supporting quotes
+
+"Advances in AI, combined synergistically with other technologies such as cognitive computing, Internet of Things, 3D (or even 4D) printing, advanced robotics, virtual and mixed reality, and human-machine interfaces are transforming what, where, and how products are designed, manufactured, assembled, distributed, serviced, and upgraded.https://asmedigitalcollection.asme.org/memagazineselect/article-abstract/139/10/38/380304/AI-and-the-Future-of-the-Machine"Artificial Intelligence (AI) is increasingly being conceptualized not just as a tool or set of technologies but as a "design material" in both academic and practical fields. Researchers and designers are exploring how AI can be integrated into the design process, influencing creative endeavors ranging from architecture to interactive media. The idea is that AI can be manipulated, shaped, and incorporated into projects in ways akin to traditional materials like wood or metal, but with properties and affordances that are unique to its computational nature."
+
+
+
+
+
+* The asnwer should provide information on AI as a design material.
+
+Supporting quotes
+
+"ML models trained from large material datasets that relate structure, properties and function at multiple hierarchical levels have offered new avenues for fast exploration of the design spaces. The performance of a ML-based materials design approach relies on the collection or generation of a large dataset that is properly preprocessed using the domain knowledge of materials science underlying chemical and physical concepts, and a suitable selection of the applied ML model."
+
+"Wang and Sun leveraged RNNs and the concept of directed graph to address the issues on the linkages between multi-scale models of porous media using a recursive data-driven approach, where the databases generated from smaller-scale simulations are used to train RNN models at larger scales. They also implemented reinforcement learning to generate traction-separation laws for materials with heterogeneous microstructures."
+
+"Capuano and Rimoli developed a new type of finite elements called "smart elements" in which ML models provide force predictions based on the elements' states, circumventing the computation of internal displacement field and the need for numerical iterations.175Chanet al.reported an unsupervised approach that combines techniques such as topology classification, image processing, and clustering algorithms to promptly identify and characterize microstructures, including grains in polycrystalline solids, voids in porous materials, and micellar distribution in complex solutions."
+
+"In a recent work by Samaniegoet al., deep neural networks based on the variational form of the boundary value problems were implemented as solvers for partial differential equations (PDEs) in various solid mechanics problems, using a fundamental idea that the energy of the system to be minimized can be naturally treated as a loss function for the neural networks."
+
+"Atom2Vec, an unsupervised ML program, reconstructed the periodic table of elements only in a few hours. Atom2Vec first learns to distinguish different atoms by analyzing the list of compounds in the online database. Then, we borrow the simple concept of natural language processing: the characteristics of a word can be derived from other words around it; chemical elements are clustered according to their chemical environment."
+
+"Many of these algorithms help with the classification (e.g., logistic regression and support vector machines) and statistical regression analysis (e.g., decision trees and random forests, which are used in both classification and regression) of nanomaterials based on their categorical or continuous numerical characteristics such as pulmonary toxicity, cell-specific targeting, and nanomaterial grouping in the case of nanotoxicology.:https://onlinelibrary.wiley.com/doi/full/10.1002/aisy.202000084"Generative AI technologies enable more rapid and parallel prototyping, potentially elevating design outcomes beyond what was previously limited by human capacity  (170, Zhang et al., 2024)."
+
+"Large language models like GPT, with domain-specific fine-tuning, can engage in designerly thinking to generate original and useful design concepts  (151, Luo, 2023)."
+
+"AI has been used in architecture to optimize building designs and adapt to environmental conditions. For instance, research by Braumann and Brell-Cokcan (2012) outlines how AI algorithms can assist in the design process by simulating structural performance and optimizing architectural forms. This pushes the boundaries of what is traditionally achievable with static materials."
+
+"In the arts, AI's role as a design material has been explored in creating new forms of music, visual arts, and literature. The work by McCormack et al. (2019) investigates how AI can be seen not just as an assistant but as a co-creator, contributing to the artwork in ways that are unpredictable and collaborative."
+
+
+
+

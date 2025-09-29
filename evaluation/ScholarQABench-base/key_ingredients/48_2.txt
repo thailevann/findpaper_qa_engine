@@ -1,0 +1,19 @@
+Question
+
+What considerations are important for material selection in fabricating industrial robotic grippers?  What are the advantages and disadvantages of soft vs rigid gripper materials?
+
+
+
+
+
+Nice to have
+
+* The answer should provide the importance of grip simulation before implementing it in the real-world.
+
+Supporting quotes
+
+"Due to the characterization of the material model carried out in advance, the predictive deformation in a gripping simulation will be precise enough to derive the locally applied contact force on the gripped object and to examine the maximum capable payload of the gripper. Accordingly, gripping positions can be simulated in advance, which provides information whether the gripper can be used or has to be adapted. Additionally, the maximum payload of the designed gripper can be determined by calculating the necessary pull-off force through the grip simulation."
+
+
+
+

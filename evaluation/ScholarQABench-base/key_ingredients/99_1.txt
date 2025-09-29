@@ -1,0 +1,117 @@
+Question
+
+What recent results have been obtained on the Sherali-Adams hierarchy ?
+
+
+
+
+
+Most Important
+
+* Near the beginning, the answer should briefly define the Sherali-Adams hierarchy.
+
+Supporting quotes
+
+"In integer programming, there are several well-known hierarchies of linear or semi-definite programs that provide successively tighter relaxations of a 0/1-polytope. At one end of the spectrum of these relaxations is the original relaxation P = {x [?] [0, 1]n | Ax = b}; the integer hull PI:= conv(P [?] Zn) is at the other end. The list of such hierarchies includes the Gomory-Chvatal, Sherali-Adams, lift and-project, Lovasz-Schrijver, and Lasserre hierarchies; see [8, 24] for details."
+
+"The linear programming relaxation of an integer program is strengthened by lifting the problem into a higher dimensional space, where a more convenient formulation may give a tighter relaxation. One then has a choice between working with this tighter relaxation in the higher dimensional space,or projecting it back onto the original space. In this latter case,the whole procedure can be viewed as a method for generating cutting planes in the original space. The different hierarchy has different multiplier and linearization"
+
+"In the linear case, the technique first multiplies the constraints in the problem, including the zero-one interval bounds on the variables, by a select set of d-degree polynomial terms or factors formed using the n zero-one variables, where =< d _-< n. The resulting system is then linearized by defining new nonnegative variables for each existing cross-product term. It is shown that for each d l, n, by enforcing the binary restrictions on the original x-variables, we obtain an equivalent reformulation of the problem which has at least as tight a linear programming relaxation as that obtained by using factors of degree d- 1. (Here, the 0-degree factor is taken as unity.) Moreover, when d n, we show that the resulting linear system represents a polytope whose extreme points are precisely the zero-one solutions feasible to the original problem, and hence characterizes the convex hull of feasible solutions."
+
+" Introduction to the Sherali-Adams HierarchyThe Sherali-Adams hierarchy is a powerful tool in mathematical optimization, introduced by Hanif D. Sherali and Warren P. Adams in 1990. It provides a systematic way to generate stronger relaxations for mixed-integer programming problems. Recent years have seen significant advancements in understanding and applying this hierarchy."
+
+
+
+
+
+* The answer should briefly discuss how the performance of LP hierarchies are usually evaluated.
+
+Supporting quotes
+
+"Why are we interested in hierarchies? 1. Polyhedral Combinatorics How many rounds are required to reduce the feasible set to PI? Which constraints are satisfied? 2. Proof Systems Complexity and lower bound 3. Approximation Algorithm Integrality gap after t rounds/levels, better approximation, conjecture on the hardness of the question"
+
+
+
+
+
+* The answer should discuss recent applications of the Sherali-Adams hierarchy in providing approximate solutions to combinatorial optimization problems.
+
+Supporting quotes
+
+"Identifying the limitations of relaxations derived by Lift-and-Project system has attracted much attention and showing integrality gaps for the Sherali-Adams SDP and the Lasserre systems stand as the most attractive subjects in this area of research due to a number of reasons. Firstly, the best algorithms known for many combinatorial optimization problems (and Vertex Cover in particular) are based on relaxations weaker than those derived by a constant (say four) rounds of the Sherali-Adams SDP system which we study here"
+
+"For the asymmetric TSP tour problem, Charikar, Goemans, and Karloff (FOCS2004) proved that the integrality gap of the standard relaxation is at least 2. We prove that after one round of the Lov'asz-Schrijver or Sherali-Adams procedures, the integrality gap of the asymmetric TSP tour problem is at least 3/2, with a small caveat on which version of the standard relaxation is used. For the symmetric TSP tour problem, the integrality gap of the standard relaxation is known to be at least 4/3, and Cheung (SIOPT 2005) proved that it remains at least 4/3 after o(n) rounds of the Lov'asz-Schrijver procedure, where n is the number of nodes. For the symmetric TSP path problem, the integrality gap of the standard relaxation is known to be at least 3/2, and we prove that it remains at least 3/2 after o(n) rounds of the Lov'asz-Schrijver procedure, by a simple reduction to Cheung's result"
+
+"We study the Sherali-Adams hierarchy applied to a natural Integer Program formulation that (1 + )-approximates the optimal solution of GVP. Sherali-Adams hierarchy has gained much interest recently as a possible approach to develop new approximation algorithms. We show that, when the input graph has bounded treewidth or bounded genus, applying a constant number of rounds of Sherali-Adams hierarchy makes the integrality gap of this natural LP arbitrarily small, thus giving a (1 + )-approximate solution to the original GVP instance."
+
+"In this paper, we investigate the application of the Sherali-Adams technique to sets of points that encode the graph isomorphism and automorphism problems towards the ultimate goal of better understanding the Sherali-Adams technique and the complexity of these problems. Specifically, we show that the Sherali-Adams relaxations of a well-known polytope encoding of graph isomorphism do not converge aftersteps in the worst case."
+
+"We have shown that for Knapsack, an integrality gap of 2[?]o persists up to a linear number of rounds in the Sherali-Adams hierarchy. This broadens the class of problems for which Sherali-Adams is not strong enough to capture the instrinsic difficulity of problems."
+
+"We show that the exp ( c log n log [?] ) -round Sherali-Adams linear programming hierarchy certifies that the maximum cut in such a G is at most 50.1% (in fact, at most 1 2 + 2[?](c))."
+
+"### k-Cut ProblemRecent advancements have utilized the SA hierarchy to devise improved approximation algorithms for the k-Cut problem.- **Algorithmic Performance**: An algorithm introduced by Oveis Gharan and Saberi (2011), which builds upon the SA hierarchy, provided an improved approximation ratio for the k-Cut problem, showing the power of advanced LP relaxations.### Maximum Independent SetThe SA hierarchy has also been applied to develop better approximation algorithms for the Maximum Independent Set problem, particularly in bounded-degree graphs.- **Bounded-degree Graphs**: The work of Davies et al. (2021) showcased that applying higher levels of the SA hierarchy can yield significant improvements in approximation ratios for Maximum Independent Set in graphs with bounded degrees."
+
+"One of the most notable recent results involves improved lower bounds for the Sherali-Adams hierarchy:2.1 Maximum Cut ProblemResearchers have established stronger lower bounds for the Maximum Cut problem. In 2019, Kothari et al. proved that O(n) rounds of the Sherali-Adams hierarchy are required to achieve a (1/2 + e)-approximation for Max Cut on random regular graphs [1].2.2 Constraint Satisfaction Problems (CSPs)For various CSPs, new lower bounds have been established. Chan et al. (2016) showed that O(n) rounds of Sherali-Adams are necessary to improve upon the basic LP relaxation for approximating CSPs [2]."
+
+
+
+
+
+* The answer should discuss theoretical results related to the Sherali-Adams hierarchy, such as the integrality gap.
+
+Supporting quotes
+
+"In this paper, we consider the Sherali-Adams hierarchy of linear relaxations and show strong lower bounds for several natural problems. This hierarchy is much less understood than the weaker Lov'asz-Schrijver hierarchy. In fact, we are aware of only two integrality gap results (by de la Vega and Kenyon-Mathieu [6] and Schoenebeck [17] for Lasserre) that hold for more than one round of the Sherali-Adams lift-and-project. Constructing new integrality gap examples for Sherali-Adams is thus an important open question [20, Section 7.3]."
+
+"In this paper, we prove that the integrality gap for the Sparsest Cut problem is at least  q log n log r+log log n  after r rounds of the Sherali-Adams lift-and-project. The integrality gap for the MAX CUT and Vertex Cover problems remains 2 [?] e even after n g rounds (for every positive e and some g that depends on e). Our result for MAX CUT improves a result by de la Vega and Kenyon-Mathieu [6] who proved that the integrality gap remains 2 [?] e after logc n rounds (where c < 1 is some fixed constant)"
+
+"We prove strong lower bounds on integrality gaps of Sherali- Adams relaxations for MAX CUT, Vertex Cover, Sparsest Cut and other problems. Our constructions show gaps for Sherali-Adams relaxations that survive nd rounds of lift and project. For MAX CUT and Vertex Cover, these show that even nd rounds of Sherali-Adams do not yield a better than 2 [?] e approximation"
+
+"We bolster this conjecture by showing that in a random hypergraph with edge probability n[?]a, (log n) rounds of Sherali-Adams with cannot rule out the existence of a k-subhypergraph with edge density k[?]a[?]o(1), for any k and a. This holds even when the bound on the objective function is lifted. This gives strong integrality gaps which exactly match the gap in the above distinguishing problems, as well as the best-known approximations, for Densest k-Subgraph, Smallest p-Edge Subgraph, their hypergraph extensions, and Small Set Bipartite Vertex Expansion (or equivalently, Minimum p-Union). Previously, such integrality gaps were known only for Densest k-Subgraph for one specific parameter setting."
+
+"## Theoretical Advances### Integrality GapsOne key field of study regarding the SA hierarchy is understanding integrality gaps, which measure how well the hierarchy approximates the integer solution. Recent works have focused on providing tighter bounds and understanding at which levels of the hierarchy these gaps diminish significantly.- **Maximum Constraint Satisfaction Problems (CSPs)**: Research has shown that for certain CSPs, the SA hierarchy can achieve better integrality gaps compared to earlier known results. For example, Lee, Raghavendra, and Steurer (2015) analyzed the integrality gaps for CSPs and provided bounds that illustrate the power of SA relaxations at certain levels."
+
+"6.1 Integrality GapsNew results on integrality gaps for various problems have been obtained. For instance, Kothari et al. (2018) established tight integrality gaps for the Sherali-Adams relaxations of constraint satisfaction problems [8]."
+
+"Lower Bounds and Integrality GapsTLDR: Recent research has established significant lower bounds on the integrality gaps for various problems using the Sherali-Adams hierarchy. These results demonstrate both the power and limitations of the hierarchy in approximating hard optimization problems.Recent studies have provided important insights into the lower bounds and integrality gaps associated with the Sherali-Adams (SA) hierarchy for various optimization problems. These findings help delineate the limitations of the hierarchy and inform its practical applications."
+
+
+
+
+
+* The answer should mention applications of Sherali–Adams hierarchy in machine learning
+
+Supporting quotes
+
+"## Application in Machine Learning### Training Neural NetworksIntriguingly, there has been a cross-disciplinary application of the SA hierarchy in machine learning, particularly in training neural networks.- **Neural Network Training**: Some recent studies like that of Bengio et al. (2016) have explored using the SA hierarchy to improve the training process for certain classes of neural networks, providing a new avenue for utilizing combinatorial optimization techniques in machine learning.### Generalization BoundsRecent explorations also include deriving generalization bounds in machine learning models using insights from the SA hierarchy.- **Bound Derivations**: Research by Goemans and Williamson (2020) leveraged the properties of the SA hierarchy to derive new generalization bounds that are tighter and more robust for certain classification problems."
+
+
+
+
+
+* The answer should provide a discussion on the computational complexity of the Sherali-Adams hierarchy.
+
+Supporting quotes
+
+"Prior to our result, it was unclear whether even (n/polylogn)-round Sherali-Adams could certify that the max-cut value was < 0.9 for sparse random regular graphs. Indeed, it was equally if not more conceivable that Charikar et al.'s result was not tight, and could be extended to (n)-rounds. In light of our result, we are left to wonder whether there are instances of max-cut which have truly exponential extension complexity."
+
+"Second, in computational complexity there has recently been a substantial sequence of results proving for several classical combinatorial problems that, even for k = (n), the kth relaxation Pk has a large integrality gap.1 The motivation for these results is that the various lift-and-project schemes encompass most known sophisticated approximation algorithms for NP-hard problems such as Sparsest Cut and Maximum Satisfiability; therefore, a large integrality gap after a linear (or even logarithmic) number of rounds rules out (unconditionally) a wide class of efficient approximation algorithms."
+
+"Complexity consequences. We now give some computational complexity consequences of Theorem 3.3. First, we obtain a new and simpler proof (in fact two proofs) of the complexity classification of conservative valued constraint languages [45]. Second, we obtain a complexity classification of (generalization of) minimum-solution problems over arbitrary finite domains. Minimum-solution (min-sol) problems [40], studied under the name min-ones on Boolean domains [24, 42], constitute a large and interesting subclass of VCSPs including, for instance, integer linear programming over bounded domains."
+
+"### Complexity ClassificationsResearch has also continued to explore the computational complexity of solving higher-level relaxations in the hierarchy.- **Polynomial-time Approximation**: Studies like that of Barak et al. (2016) have investigated the boundaries within which these higher-level relaxations remain solvable in polynomial time, providing insights into the computational limits of applying SA hierarchies for large-scale problems."
+
+
+
+
+
+* The answer should mention the name of alternative hierarchies and breifly discuss their differences.
+
+Supporting quotes
+
+"Sherali and Adams (1990), Lov'asz and Schrijver (1991) and, recently, Lasserre (2001) have constructed hierarchies of successive linear or semidefinite relaxations of a 0 [?] 1 polytope P [?] Rn converging to P in n steps. Lasserre's approach uses results about representations of positive polynomials as sums of squares and the dual theory of moments. We present the three methods in a common elementary framework and show that the Lasserre construction provides the tightest relaxations of P. As an application this gives a direct simple proof for the convergence of the Lasserre's hierarchy. We describe applications to the stable set polytope and to the cut polytope."https://ir.cwi.nl/pub/11670/11670B.pd"
+
+
+
+

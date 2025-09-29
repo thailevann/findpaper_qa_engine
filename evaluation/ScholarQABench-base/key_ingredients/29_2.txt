@@ -1,0 +1,19 @@
+Question
+
+what are leading techniques for safe navigation in partially observable environments with moving obstacles?
+
+
+
+
+
+Nice to have
+
+* The answer should have information about static and dynamic environments.
+
+Supporting quotes
+
+"Depending on the nature of environment, path planning can be divided intostaticanddynamicenvironment. If obstacles change their position with respect to time, it is referred asstatic path planningand if obstacles change their position and orientation with respect to time, then it is referred asdynamic path planning."
+
+
+
+

@@ -1,66 +1,9 @@
-﻿Question
-What publicly available datasets are typically used for evaluating type inference systems in python?
-
-
-Most Important
-* The answer should begin with providing background on type inference in pyhton. 
-        Supporting quotes
-“Type inference refers to the process of automatically determining the data type of an expression within a programming language. In Python, which is dynamically typed, this determination takes place at runtime. To address potential ambiguities, developers can utilize type annotations, which explicitly specifies the expected data types of variables or function returns.”
-https://arxiv.org/html/2312.16882v2 
-“Python type inference is challenging in practice. Due to its dynamic properties and extensive dependencies on third-party libraries without type annotations, the performance of traditional static analysis techniques is limited. Although semantics in source code can help manifest intended usage for variables (thus help infer types), they are usually ignored by existing tools.”
-https://arxiv.org/abs/2106.14316 
-“Type inference systems in Python are designed to deduce variable types to facilitate tasks such as debugging, optimization, and providing auto-completion in Integrated Development Environments (IDEs). Evaluating the accuracy and performance of these systems requires robust and varied datasets.”
-*  The answer should provide publicly available datasets that are typically used for evaluating type inference systems in python.
-        Supporting quotes
-“We generate our annotated dataset with enriched data based on inference results from PySonar2 and perform data cleaning to enhance quality, which itself is a significant contribution, because high quality labeled data is critical for deep learning. Our dataset is collected from 4,577 popular Python projects on GitHub with 54,928,617 Lines Of Code (LoC) from 320,402 source files. It contains 77,089,946 annotations, which is large enough for most Python types research.”
-https://arxiv.org/pdf/2106.14316 
-*  The answer should provide challenges in evaluating type inference systems in python. 
-        Supporting quotes
-“ManyTypes4Py, a large Python dataset for machine learning (ML)-based type inference. The dataset contains a total of 5,382 Python projects with more than 869K type annotations. Duplicate source code files were removed to eliminate the negative effect of the duplication bias. To facilitate training and evaluation of ML models, the dataset was split into training, validation and test sets by files.”
-https://ieeexplore.ieee.org/abstract/document/9463150 
-“Python type inference is challenging in practice. Due to its dynamic properties and extensive dependencies on third-party libraries without type annotations, the performance of traditional static analysis techniques is limited. Although semantics in source code can help manifest intended usage for variables (thus help infer types), they are usually ignored by existing tools.”
-https://arxiv.org/pdf/2106.14316 
-“One challenge is that it is difficult to collect a high-quality human-labeled training dataset for this purpose.”
-https://arxiv.org/pdf/2106.14316 
-“typePY is our source code dataset collected from 4,577 top-star GitHub repositories. probPY stands for the dataset published in Xu et al. [13], and typeshed is a human-labeled dataset containing only the annotations for function parameters and return values [14].”
-https://arxiv.org/pdf/2106.14316
-“Unlike previous work, we trained and evaluated our model on a type-checked dataset and used mean reciprocal rank (MRR) to reflect the performance perceived by users.”
-https://dl.acm.org/doi/pdf/10.1145/3510003.3510124 
-“A type-checked dataset with 5.1K Python projects and 1.2M type annotations. Invalid type annotations are removed from both training and evaluation.”
-https://dl.acm.org/doi/pdf/10.1145/3510003.3510124 
-“ In total, there are more than 882K functions with around 1.5M arguments. Also, the dataset has more than 2.1M variable declarations. Of which, 48% have type annotations.”
-https://dl.acm.org/doi/pdf/10.1145/3510003.3510124 
-“Our dataset is based on 1.3 million Python programs on GitHub, which we gathered from Google’s public datasets of Python programs from BigQuery with a query to Google BigQuery that focused on Python repositories that more than watch one event in the last year. The query was issued in August 2019, but reflected a snapshot of GitHub from March 20, 2019, by Google.”
-https://arxiv.org/pdf/2201.12242 
-“TypeEvalPy contains 154 code snippets with 845 type annotations across 18 categories that target various Python features. The framework manages the execution of containerized tools, transforms inferred types into a standardized format, and produces meaningful metrics for assessment.”
-https://dl.acm.org/doi/abs/10.1145/3639478.3640033 
-“Current literature primarily assesses the performance of such type inference tools based on large-scale real-world benchmark datasets, notably Type4Py, HiTyper, and Typilus (Allamanis et al., 2020). On the contrary, open-sourced solutions only rely on specifically-designed test cases.”
-https://arxiv.org/html/2312.16882v2 
-“Typilus Dataset: Accompanies the Typilus model and contains 600 Python projects”
-“Python-150K: Published in 2016, this dataset includes 8,422 Python projects.”
-“Many researchers in the field of machine learning-based type inference for Python often create and present their own datasets tailored to their specific methods.”
-“CodeSearchNet-Python (CSN-Python): Originating from the CodeSearchNet corpus, this dataset consists of approximately 450,000 real-world Python methods. It has been used for various code-related tasks, including method name prediction.”
-“PY150: This benchmarked dataset contains 150,000 Python program files in Abstract Syntax Tree (AST) formats. It is typically split into 100,000 files for training and 50,000 for testing.”
-“The Python Package Index (PyPI) is a vast repository of Python projects. Researchers often scrape and curate a collection of PyPI projects to create datasets for analysis. These datasets offer diverse coding styles and usages of Python's dynamic features, which makes them useful for evaluating type inference systems.”
-*  The answer should provide the tools used for type inference in python.
-        Supporting quotes
-“In response to this challenge, both industry and academia have developed type inference tools and static type checkers. Examples from industry include Pyright (pyr, [n. d.]) and Pytype (Pyt, 2023), while academic contributions feature Type4Py (Mir et al., 2022) and HiTyper (Peng et al., 2022).”
-https://arxiv.org/html/2312.16882v2 
-“TypeEvalPy, a type inference evaluation framework for Python bundled with a micro-benchmark that covers all the Python language constructs of Python 3.10.”
-https://arxiv.org/html/2312.16882v2 
-“PYInfer, an end-to-end learning-based type inference tool that automatically generates type annotations for Python variables.”
-https://arxiv.org/abs/2106.14316 
-
-
-Nice to have
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
+Question
+
+What publicly available datasets are typically used for evaluating type inference systems in python?
+
+
+
+
+
+Nice to have

@@ -1,0 +1,59 @@
+Question
+
+What theories from psychology are testable on a platform like mturk but haven't yet been studied in the HCI literature?
+
+
+
+
+
+Most Important
+
+* The answer should begin with introducing MTurk.
+
+Supporting quotes
+
+"Amazon.com's Mechanical Turk (MTurk) is an online, web-based platform that started in 2005 as a service to allow researchers to "crowdsource" labor-intensive tasks for workers registered on the site to complete for compensation."
+
+"MTurk has rapidly become a source of subjects for experimental research and survey data for academic work, as its representativeness, speed, and low cost appeal to researchers."
+
+
+
+
+
+* The answer should provide theories from psychology which are testable on a platform like mturk but haven't yet been studied in the HCI literature
+
+Supporting quotes
+
+"Across six studies conducted online using MTurk samples, we observed no effect of control manipulations on conspiracy theory beliefs, while replicating previously reported correlational evidence of their association. The results suggest that conspiracy beliefs are not suitable for compensating for threats to control."
+
+"It is important to extend research beyond these samples to examine workplace phenomena that are specific to special populations. We contribute to this argument by noting the particular usefulness that MTurk can provide for sampling from hard-to-reach populations, which we characterize as groups that are in the numerical minority in terms of nationwide representation."
+
+"Amazon Mechanical Turk is an increasingly popular data source in the organizational psychology research community."
+
+"Amazon's Mechanical Turk (MTurk) is one of the more widely used eLancing (or crowdsourcing) options in the behavioral sciences and, as we show below, it is increasingly used within the organizational psychology research community."
+
+"The potential role of brief online studies in changing the types of research and theories likely to evolve is examined in the context of earlier changes in theory and methods in social and personality psychology, changes that favored low-difficulty, high-volume studies. An evolutionary metaphor suggests that the current publication environment of social and personality psychology is a highly competitive one, and that academic survival and reproduction processes (getting a job, tenure/promotion, grants, awards, good graduate students) can result in the extinction of important research domains. Tracking the prevalence of brief online studies, exemplified by studies using Amazon Mechanical Turk, in three top journals (Journal of Personality and Social Psychology, Personality and Social Psychology Bulletin, Journal of Experimental Social Psychology) reveals a dramatic increase in their frequency and proportion."
+
+"Trauma researchers have recently begun using Amazon's Mechanical Turk (MTurk) as a data collection platform that is both time- and cost-efficient."
+
+"Motive Disposition Theory (MDT) is a psychological theory that has been largely overlooked in HCI research. It offers potential insights into individual differences in motives and the interplay between implicit and explicit motivations."
+
+"MDT is a prominent motivation theory that focuses on human needs and offers several unique perspectives that could enrich HCI research."
+
+"Psychological Reactance TheoryThis theory suggests that when people feel their freedom is threatened, they react to restore that freedom. In an MTurk context, researchers could examine how different task constraints or reward structures affect workers' sense of autonomy and their subsequent task performance or engagement."
+
+"Construal Level TheoryThis theory proposes that psychological distance influences individuals' thoughts and behavior. On MTurk, researchers could investigate how the perceived distance between workers and requesters (in terms of social, temporal, or spatial distance) affects task performance, engagement, or decision-making processes."
+
+"Self-Determination TheoryWhile aspects of this theory have been studied in HCI, there's potential for more in-depth exploration on MTurk. Researchers could examine how different task designs or feedback mechanisms on the platform influence workers' intrinsic motivation, competence, and relatedness needs."
+
+"Cognitive Load TheoryThis theory could be applied to study how different task presentations or instructions on MTurk affect workers' cognitive load and subsequent performance. Researchers could explore optimal ways to design tasks that balance cognitive demands with efficiency and accuracy."
+
+"Social Information Processing TheoryIn the context of MTurk, this theory could be used to examine how workers form impressions of requesters or other workers based on limited online interactions, and how these impressions influence their work behavior or platform engagement."
+
+"Regulatory Focus TheoryThis theory distinguishes between promotion focus (oriented towards gains) and prevention focus (oriented towards avoiding losses). On MTurk, researchers could investigate how framing tasks or rewards in terms of gains or losses affects worker motivation and performance."
+
+"Terror Management TheoryWhile less directly applicable, this theory could be used to explore how subtle reminders of mortality affect workers' task choices, performance, or engagement on the platform."
+
+
+
+

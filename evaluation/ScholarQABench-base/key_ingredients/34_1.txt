@@ -1,0 +1,71 @@
+Question
+
+what are some datasets used for evaluating variable type inference for decompiled binaries?
+
+
+
+
+
+Most Important
+
+* The answer should begin with providing a background on challenges in binary type inference.
+
+Supporting quotes
+
+"Binary type inference is a challenging problem due partly to the fact that during the compilation much type-related information has been lost. Most existing research work resorts to program analysis techniques, which can be either too heavyweight to be viable in practice or too conservative to be able to infer types with high accuracy."
+
+"Reverse-engineering program binaries often relies on the recovery of high-level data abstractions. In particular, recovering variables and their type is challenging as most such information is lost during compilation. Although past proposals seem to have addressed this problem, their approaches are either not scalable and suffer from coverage issues (e.g., dynamic analysis), or yield insufficient precision by staying too conservative (e.g., static analysis). Furthermore, most recent works lift assembly to Intermediate Representation (IR), which standardizes low-level operations, and may lose some useful semantics for type inference."
+
+"Evaluating variable type inference for decompiled binaries typically relies on synthetic datasets or real-world programs. These datasets often include a variety of binary types and architectures to test the robustness of inference algorithms."
+
+
+
+
+
+* The answer should provide the datasets used for evaluating variable type inference for decompiled binaries.
+
+Supporting quotes
+
+"we train a classifier with basic types as its levels via various machine-learning methods, based on binaries with debugging information compiled from a dataset of C programs. After the classifier is trained, we then can use it to learn the most possible types for the recovered variables."
+
+". Our dataset are collected from binaries which are complied by GCC and MSVC with none optimization on x86_64 platforms."
+
+"another reason why BITY-Core performs better than BITY-Own on diffutils and findutils is that both the training dataset and the test dataset used by BITYCore are collected via GCC, while the training dataset used by BITY-Own is via MSVC and GCC but the test dataset is via GCC."
+
+"For convenience, we collect the data of findutils and diffutils from the dataset of EKALVYA, which are obtained from GCC compiler without optimization and have eliminated the duplicated functions."
+
+"BinType is 45% more precise than TIE (NDSS'11) on a dataset 3.5 times larger, and orders of magnitude faster than its underlying algorithm. We also show that our tool makes a significant impact on the accuracy of a recent tool on binary to source matching."
+
+"We develop an application called CodeBinPlus by extending an existing proposal CodeBin, which is used to find the binary to source function similarities. The main challenge in identification of reused functions in a binary program is to find out common features within a binary and source code. As extended features in CodeBinPlus, we use the extracted function prototypes and string literals of BinType, and modify the score matrix corresponding to features."
+
+"Particularly, we improve the performance of existing decompilers in predicting the types returned by functions in high-level programs. For that purpose, we instrument C source code to label binary patterns with high-level type information. That labeled information is then used to build predictive models. Moreover, the dataset created is used to document the binary patterns found by the classifiers and facilitate its inclusion in the implementation of any decompiler."
+
+"After pattern generalization, the datasets are created before training the models (Table 1). Each cell in the dataset indicates the occurrence of each pattern (column) in every single function (row) in the program. RET patterns are associated with the function bodies, but POST CALL patterns are related to the invoked function. For example, if a function f is invoked in the body of a function g, the POST CALL pattern will be associated with the row representing the function f, not g."
+
+"SPEC CPU BenchmarksThe Standard Performance Evaluation Corporation (SPEC) CPU benchmarks are widely used for evaluating various aspects of program analysis, including variable type inference [1].- SPEC CPU2006: This suite contains both integer and floating-point benchmarks written in C and C++.- SPEC CPU2017: An updated version of the benchmark suite with more modern applications."Debian Package RepositoryResearchers often use open-source software packages from the Debian repository to create custom datasets [2]. This approach allows for a diverse set of real-world programs to be analyzed."
+
+"BEEN DatasetThe Binary Executable Enrichment and Normalization (BEEN) dataset, introduced by Katz et al. [3], is specifically designed for machine learning tasks on binary code, including type inference. It contains:- 6,000 binary functions- Compiled from C and C++ source code- Various optimization levels and compiler versions"
+
+"Debin DatasetThe Debin dataset, created by He et al. [4], focuses on debug information recovery for stripped binaries. While not exclusively for type inference, it includes type information and can be adapted for this purpose. It contains:- 3,000 Debian packages- Compiled for x86-64 architecture- Both stripped and unstripped versions of binaries"
+
+"TypeArmor Dataset"Introduced by Veen et al. [5], this dataset was created to evaluate the TypeArmor system but can be used for general type inference evaluation. It includes:- Synthetic C++ programs- Various object-oriented patterns and inheritance structures"
+
+"Retypd DatasetNoonan et al. [6] created a dataset to evaluate their Retypd system, which performs type inference on stripped binaries. The dataset consists of:- Open-source programs- Custom-written test cases- Binaries compiled with different compilers and optimization levels"
+
+"Industrial Control Systems (ICS) BinariesFor evaluating type inference in specific domains, researchers have created datasets focusing on ICS binaries [7]. These datasets typically include:- Firmware from various ICS devices- SCADA (Supervisory Control and Data Acquisition) system binaries"
+
+"Malware DatasetsWhile not primarily for type inference, malware datasets can be used to evaluate type inference techniques in the context of malware analysis [8]. Examples include:- Microsoft Malware Classification Challenge dataset- VirusShare database"
+
+
+
+
+
+* The answer should provide information on the open-source projects which can be used to generate the datasets.
+
+Supporting quotes
+
+"The following urls can be used to generate the datasets by your own . Although they sum 2329 functions and 89,038 lines of code, they do not represent sufficient data to infer the types returned by functions. Unfortunately, there are not many open-source C (not C++) programs compilable with Microsoft cl compiler. The urls are (i) https://github.com/kimtg/arcadia (ii) https://github.com/elektrischermoench/bgrep (iii) https://web.archive.org/web/20150110171135/http://patrickomatic.com/c-ray-tracer (iv) https://github.com/akheron/jansson (v) https://github.com/jedisct1/libsodium (vi) https://lua.org/download.html g https://github.com/robertdavidgraham/masscan (vii)https://github.com/cesanta/slre"
+
+
+
+

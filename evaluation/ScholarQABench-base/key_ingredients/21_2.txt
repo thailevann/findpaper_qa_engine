@@ -1,28 +1,19 @@
-﻿Question
-What are the advantages and limitations of applying bias mitigation algorithms during pre-processing, training and inference stages of a model?
-
-
-Most Important
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
-Nice to have
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
+Question
+
+What are the advantages and limitations of applying bias mitigation algorithms during pre-processing, training and inference stages of a model?
+
+
+
+
+
+Nice to have
+
+* The answer might mention some example of bias mitigation algorithms during pre-processing, training and inference stages of a model
+
+Supporting quotes
+
+"We also identified 24 mitigation methods for addressing the aforementioned biases within the CRISP-DM process phases, as summarized in Table 2. Notably, a particular bias can be mitigated by several methods, and a particular method can mitigate multiple biases. In addition, a mitigation method that is applied in one phase can address biases that occur in the respective phase or in the later stages of the ML project."
+
+
+
+

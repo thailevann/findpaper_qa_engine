@@ -1,0 +1,43 @@
+Question
+
+How do external events influence software projects? Explain with a few recent examples.
+
+
+
+
+
+Most Important
+
+* Near the beginning, the answer should define events/risks and highlight the importance of risk management for project success.
+
+Supporting quotes
+
+"A risk factor is defined as a condition that can pose a serious threat to the successful completion of a software development project (March & Shapira 1987). The inefficiency in risk identification process in the development of complex systems is considered one of the main causes of project failures (Reeves et al. 2013)."
+
+
+
+
+
+* The answer should provide some examples of external events that can affect software projects.
+
+Supporting quotes
+
+"IT projects are complex and dynamic, and they often face various external factors that can affect their success. These factors can be political, economic, social, technological, legal, or environmental, and they can have positive or negative impacts on the project objectives, scope, budget, schedule, quality, or risks."
+
+
+
+
+
+* The answer should provide some recent examples of events that have changed software projects, such as COVID-19 (remote working, recession, healthcare focus), AI revolution (AI assistants and ethical considerations), and Russia-Ukraine War (cybersecurity focus and supply chain shortage).
+
+Supporting quotes
+
+"1. Global Pandemics: The COVID-19 ExampleThe COVID-19 pandemic has been one of the most impactful external events in recent history, affecting software projects across the globe.1.1 Remote Work AccelerationThe pandemic forced many companies to rapidly adopt remote work practices, leading to an increased demand for collaboration and communication software. For example:- Zoom experienced exponential growth, with daily meeting participants increasing from 10 million in December 2019 to 300 million by April 2020 [1].- Microsoft Teams saw a surge in development to add new features like Together Mode and Breakout Rooms to enhance remote collaboration [2].1.2 Healthcare Software PrioritizationThe pandemic also led to the rapid development and deployment of healthcare-related software:- Contact tracing apps were developed and launched in many countries, such as Germany's Corona-Warn-App [3].- Telemedicine platforms saw accelerated development and adoption, with companies like Teladoc Health experiencing significant growth [4]."
+
+"3. Technological Advancements: The AI RevolutionRecent advancements in artificial intelligence, particularly in large language models, have significantly influenced software projects:3.1 Integration of AI CapabilitiesMany software projects are now incorporating AI capabilities:- GitHub Copilot, an AI pair programmer, has influenced how developers write code and approach software development [7].- Companies across various industries are integrating ChatGPT and similar models into their products, such as Snapchat's My AI feature [8].3.2 AI Ethics and GovernanceThe rapid advancement of AI has also led to new projects focused on AI ethics and governance:- The development of AI auditing tools and frameworks has become a priority for many organizations [9].- Projects aimed at detecting AI-generated content have gained prominence, such as GPTZero [10]."
+
+"2. Geopolitical Events: The Russia-Ukraine ConflictThe ongoing conflict between Russia and Ukraine has had various impacts on software projects:2.1 Cybersecurity FocusThe conflict has heightened concerns about cybersecurity, leading to increased investment and development in this area:- Many organizations have accelerated their adoption of zero-trust security models [5].- There has been increased development of threat intelligence platforms to monitor and respond to potential cyber attacks.2.2 Supply Chain DisruptionsThe conflict has disrupted global supply chains, affecting hardware availability and indirectly impacting software projects:- Chip shortages have led to delays in projects requiring specialized hardware, such as IoT initiatives [6].- Some companies have had to redesign their software to work with alternative hardware components."
+
+
+
+

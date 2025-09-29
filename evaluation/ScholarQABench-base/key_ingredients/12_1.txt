@@ -1,45 +1,63 @@
-﻿Question
-What are good practices for detecting AI-generated texts in situations where false positives are extremely expensive?
-Most Important
-* Near the beginning, the answer should briefly discuss how AI detectors work.
-        Supporting quotes
-“The most common approach is to train a classification model on samples of text that are known to be AI-written or human-written. One example of this approach is OpenAI’s AI classifier, which is a LLM fine tuned to perform classification. Another example is the popular tool GPTZero, which is a logistic regression model that uses the text’s perplexity and burstiness as input features. (Perplexity is a measure of how “surprising” or improbable a certain sequence of words is, while burstiness is a measure of variation in the length and structure of sentences.)”
-        https://www.linkedin.com/pulse/false-promise-ai-writing-detectors-carol-anderson
-
-
-*  The answer should briefly discuss that the existing AI detector tools are not reliable and robust and can lead to high false positives and false negatives based on empirical results.
-Supporting quotes
-“Detection tools for AI-generated text do fail, they are neither accurate nor reliable (all scored below 80% of accuracy and only 5 over 70%). In general, they have been found to diagnose human-written documents as AI-generated (false positives) and often diagnose AI-generated texts as human-written (false negatives). Our findings are consistent with previously published studies (Gao et al. 2022; Anderson et al. 2023; Elkhatat et al. 2023; Demers 2023; Gewirtz 2023; Krishna et al. 2023; Pegoraro et al. 2023; van Oijen 2023; Wang et al. 2023) and substantially differ from what some detection tools for AI-generated text claim (Compilatio 2023; Crossplag.com 2023; GoWinston.ai 2023; Zero GPT 2023).”
-https://edintegrity.biomedcentral.com/articles/10.1007/s40979-023-00146-z
-“They are neither robust, since their performance worsens even more with the use of obfuscation techniques such as manual editing or machine paraphrasing, nor are they able to cope with texts translated from other languages.”
-https://edintegrity.biomedcentral.com/articles/10.1007/s40979-023-00146-z
-“Originality.AI has a 99% accuracy rate for detecting GPT-4 generated content, but it still produces false positives approximately 2% of the time.”
-
-
-*  The answer should briefly highlight consequences of false positives by AI detectors.
-        Supporting quotes
-“Relying on inconsistent detectors can cause trouble, especially when there’s a high chance of false positives. Professors using AI detectors in higher education has already led to false cheating accusations when tools like Turnitin incorrectly flagged students’ work as AI-generated.In the marketing world, accusing writers and agencies of using AI tools when they’ve written the content themselves can damage valuable working relationships.”
-https://www.theblogsmith.com/blog/how-reliable-are-ai-detectors/
-
-
-* The answer should provide alternatives/remedies for detecting AI generated texts, such as having communication in the academic domain, using multiple tools, context aware analysis, including a human in the loop with explainable AI methods, and version history.        
-Supporting quotes
-“Know before you go—make sure you consider the possibility of a false positive upfront and have a plan for what your process and approach will be for determining the outcome. Even better, communicate that to students so that you have a shared set of expectations.Assume positive intent—in this space of so much that is new and unknown, give students the strong benefit of the doubt. If the evidence is unclear, assume students will act with integrity.Be open and honest—it is important to acknowledge that there may be false positives upfront, so both the instructor and the student should be prepared to have an open and honest dialogue. If you don’t acknowledge that a false positive may occur, it will lead to a far more defensive and confrontational interaction that could ultimately damage relationships with students.”
-https://www.turnitin.com/blog/understanding-false-positives-within-our-ai-writing-detection-capabilities
-“3. Context-Aware Analysis. Consider the context in which the text appears, as this can provide valuable clues about its origin.3.1 Metadata Analysis: Examine metadata associated with the text, such as - Creation time and data - Author information - Edit history- Source platform. Inconsistencies in metadata can be red flags for AI-generated content. 3.2 Contextual Relevance: Assess how well the text fits within its broader context, including:- Relevance to the topic or discussion - Consistency with the author's known style or expertise- Appropriateness for the intended audience. AI-generated text might struggle to maintain perfect contextual relevance, especially in nuanced situations.”
-“1. Multi-Model Approach. One of the most effective strategies is to use a multi-model approach for detection. This involves using multiple AI models or algorithms to analyze the text, each focusing on different aspects or using different techniques.”
-“5. Probabilistic Scoring and Threshold Adjustment. Instead of binary classification, use probabilistic scoring to indicate the likelihood of a text being AI-generated.5.1 Confidence Levels. Assign confidence levels to detections, allowing for more nuanced decision-making based on the specific context and risk tolerance.5.2 Adjustable Thresholds. Implement adjustable thresholds for flagging content as potentially AI-generated. In situations where false positives are extremely costly, these thresholds can be set higher to reduce false positive rates at the expense of potentially missing some AI-generated content.”
-
-
-“**Version History**: Utilize tools like Google Docs' Version History feature to track the writing process. This can help identify human-like writing behavior and reduce the likelihood of false positives.”
-“6. Explainable AI Techniques. Utilize explainable AI techniques to provide insights into why a particular text was flagged as potentially AI-generated.6.1 Feature Importance
-Highlight specific features or portions of the text that contributed most significantly to the detection decision.6.2 Comparison Benchmarks: Provide comparisons to known human-written and AI-generated texts to illustrate why a particular text was flagged. These explanations can aid human reviewers in making more informed decisions and reduce the likelihood of false positives being accepted without scrutiny.”
-
-
-Nice to have
-* The answer could mention some of the most famous AI detection tools.
-Supporting quotes
-“These can also be used to check for quality or plagiarism issues and to spot-check if you’re likely getting human writing (not AI drafts) from employees, freelancers, and agency partners. Some of the most popular AI detectors include Originality AI, Content at Scale, and Copyleaks.”
-https://www.theblogsmith.com/blog/how-reliable-are-ai-detectors/
-“The research covers 12 publicly available tools and two commercial systems (Turnitin and PlagiarismCheck)”
-https://edintegrity.biomedcentral.com/articles/10.1007/s40979-023-00146-z
+Question
+
+What are good practices for detecting AI-generated texts in situations where false positives are extremely expensive?
+
+
+
+
+
+Most Important
+
+* Near the beginning, the answer should briefly discuss how AI detectors work.
+
+Supporting quotes
+
+"The most common approach is to train a classification model on samples of text that are known to be AI-written or human-written. One example of this approach is OpenAI's AI classifier, which is a LLM fine tuned to perform classification. Another example is the popular tool GPTZero, which is a logistic regression model that uses the text's perplexity and burstiness as input features. (Perplexity is a measure of how "surprising" or improbable a certain sequence of words is, while burstiness is a measure of variation in the length and structure of sentences.)"
+
+
+
+
+
+* The answer should briefly discuss that the existing AI detector tools are not reliable and robust and can lead to high false positives and false negatives based on empirical results.
+
+Supporting quotes
+
+"Detection tools for AI-generated text do fail, they are neither accurate nor reliable (all scored below 80% of accuracy and only 5 over 70%). In general, they have been found to diagnose human-written documents as AI-generated (false positives) and often diagnose AI-generated texts as human-written (false negatives). Our findings are consistent with previously published studies (Gao et al.2022; Anderson et al.2023; Elkhatat et al.2023; Demers2023; Gewirtz2023; Krishna et al.2023; Pegoraro et al.2023; van Oijen2023; Wang et al.2023) and substantially differ from what some detection tools for AI-generated text claim (Compilatio2023; Crossplag.com2023; GoWinston.ai2023; Zero GPT2023)."
+
+"They are neither robust, since their performance worsens even more with the use of obfuscation techniques such as manual editing or machine paraphrasing, nor are they able to cope with texts translated from other languages."
+
+"Originality.AI has a 99% accuracy rate for detecting GPT-4 generated content, but it still produces false positives approximately 2% of the time."
+
+
+
+
+
+* The answer should briefly highlight consequences of false positives by AI detectors.
+
+Supporting quotes
+
+"Relying on inconsistent detectors can cause trouble, especially when there's a high chance of false positives. Professors using AI detectors in higher education has already led to false cheating accusations when tools likeTurnitinincorrectly flagged students' work as AI-generated.In the marketing world, accusing writers and agencies of using AI tools when they've written the content themselves can damage valuable working relationships."
+
+
+
+
+
+* The answer should provide alternatives/remedies for detecting AI generated texts, such as having communication in the academic domain, using multiple tools, context aware analysis, including a human in the loop with explainable AI methods, and version history.
+
+Supporting quotes
+
+"Know before you go--make sure you consider the possibility of a false positive upfront and have a plan for what your process and approach will be for determining the outcome. Even better, communicate that to students so that you have a shared set of expectations.Assume positive intent--in this space of so much that is new and unknown, give students the strong benefit of the doubt. If the evidence is unclear, assume students will act with integrity.Be open and honest--it is important to acknowledge that there may be false positives upfront, so both the instructor and the student should be prepared to have an open and honest dialogue. If you don't acknowledge that a false positive may occur, it will lead to a far more defensive and confrontational interaction that could ultimately damage relationships with students."
+
+"3. Context-Aware Analysis. Consider the context in which the text appears, as this can provide valuable clues about its origin.3.1 Metadata Analysis: Examine metadata associated with the text, such as - Creation time and data - Author information - Edit history- Source platform. Inconsistencies in metadata can be red flags for AI-generated content. 3.2 Contextual Relevance: Assess how well the text fits within its broader context, including:- Relevance to the topic or discussion - Consistency with the author's known style or expertise- Appropriateness for the intended audience. AI-generated text might struggle to maintain perfect contextual relevance, especially in nuanced situations."
+
+"1. Multi-Model Approach. One of the most effective strategies is to use a multi-model approach for detection. This involves using multiple AI models or algorithms to analyze the text, each focusing on different aspects or using different techniques."
+
+"5. Probabilistic Scoring and Threshold Adjustment. Instead of binary classification, use probabilistic scoring to indicate the likelihood of a text being AI-generated.5.1 Confidence Levels. Assign confidence levels to detections, allowing for more nuanced decision-making based on the specific context and risk tolerance.5.2 Adjustable Thresholds. Implement adjustable thresholds for flagging content as potentially AI-generated. In situations where false positives are extremely costly, these thresholds can be set higher to reduce false positive rates at the expense of potentially missing some AI-generated content."
+
+"**Version History**: Utilize tools like Google Docs' Version History feature to track the writing process. This can help identify human-like writing behavior and reduce the likelihood of false positives."
+
+"6. Explainable AI Techniques. Utilize explainable AI techniques to provide insights into why a particular text was flagged as potentially AI-generated.6.1 Feature ImportanceHighlight specific features or portions of the text that contributed most significantly to the detection decision.6.2 Comparison Benchmarks: Provide comparisons to known human-written and AI-generated texts to illustrate why a particular text was flagged. These explanations can aid human reviewers in making more informed decisions and reduce the likelihood of false positives being accepted without scrutiny."
+
+
+
+

@@ -1,0 +1,67 @@
+Question
+
+What insights can be obtained about developer behavior from their GitHub commits and pull requests?
+
+
+
+
+
+Most Important
+
+* Near the beginning, the answer should highlight that GitHub and websites like StackOverflow include a valuable amount of information that can be mined to extract developer’s behavior.
+
+Supporting quotes
+
+"Nowadays, software developers are increasingly involved in GitHub and StackOverflow, creating a lot of valuable data in the two communities. Researchers mine the information in these software communities to understand developer behaviors"
+
+
+
+
+
+* The answer should define commits and pull requests in Github briefly.
+
+Supporting quotes
+
+"Pull requests let you tell others about changes you've pushed to a branch in a repository on GitHub. Once a pull request is opened, you can discuss and review the potential changes with collaborators and add follow-up commits before your changes are merged into the base branch."
+
+"You can commit changes on a pull request branch that was created from a fork of your repository with permission from the pull request creator."
+
+
+
+
+
+* The answer should discuss different insights that can be extracted from Github analytics regarding developer behavior, such as work patterns, collaboration habits, code quality, expertise, performance, sentiment, technical and social skills, activity, etc.
+
+Supporting quotes
+
+"Performance monitoring: By tracking how and when code is being contributed, tech leads can monitor a team's performance and ensure that the projects are on track."
+
+"The projects were also mined for developer sentiment. Finally, a regression model shows how sentiment varies with behavioral differences -- a change in behavior is correlated with a change in sentiment."
+
+"Saxena et. al. annotate GitHub code with tags of Stack Overflow and created detailed technology skill profile for developers based on code repository contributions [18]."
+
+"1. **Commit Frequency and Patterns**:- Analyzing commit frequency can help identify patterns of developer activity, such as peak hours or days of the week when most commits are made.- This information can be used to optimize collaboration and review processes."
+
+"2. **Code Quality and Complexity**:- Commit comments and code reviews can provide insights into code quality and complexity, helping developers identify areas that need improvement.- This analysis can also help in setting coding standards and best practices."
+
+"3. **Developer Experience and Efficiency**:- Commit history can be used to measure developer efficiency and experience, such as the time taken to resolve issues or complete tasks.- This information can help in identifying training needs or areas where developers need support."
+
+"1. **Pull Request Success and Failure**:- Analyzing pull requests can help identify factors that contribute to their success or failure, such as the quality of code reviews or the experience of the developer.- This information can be used to improve the pull request process and reduce the number of unsuccessful pull requests."
+
+"2. **Code Review Quality and Effectiveness**:- Pull request comments and reviews can provide insights into the quality and effectiveness of code reviews, helping identify areas where reviews need improvement.- This analysis can also help in setting standards for code reviews and ensuring that they are thorough and constructive."
+
+"3. **Team Collaboration and Communication**:- Pull request discussions can provide insights into team collaboration and communication, helping identify areas where communication needs improvement.- This information can be used to optimize team workflows and ensure that all team members are aligned."
+
+
+
+
+
+* The answer should discuss the application of acquiring these insights from GitHub data in project management and resource allocation.
+
+Supporting quotes
+
+"By analyzing these artifacts, researchers and managers can gain valuable insights to improve software development processes, enhance collaboration, and drive project success."
+
+
+
+

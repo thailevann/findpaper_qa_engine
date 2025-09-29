@@ -1,28 +1,9 @@
-﻿Question
-How can question generation be used to mitigate hallucination in LLMs?
-
-
-Most Important
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
-Nice to have
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
+Question
+
+How can question generation be used to mitigate hallucination in LLMs?
+
+
+
+
+
+Nice to have

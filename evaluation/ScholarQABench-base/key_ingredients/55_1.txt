@@ -1,0 +1,87 @@
+Question
+
+What are the leading techniques for person-following robot navigation (which must track the person and potentially re-identify if occluded)?
+
+
+
+
+
+Most Important
+
+* The answer should begin with providing challenges associated with person-following robots.
+
+Supporting quotes
+
+"Human following is a crucial feature of humanrobot interaction, yet it poses numerous challenges to mobile agents in real-world scenarios. Some major hurdles are that the target person may be in a crowd, obstructed by others, or facing away from the agent."
+
+"Robot person following (RPF) is a crucial capability in human-robot interaction (HRI) applications, allowing a robot to persistently follow a designated person. In practical RPF scenarios, the person often be occluded by other objects or people. Consequently, it is necessary to re-identify the person when he/she re-appears within the robot's field of view."
+
+"Previous person re-identification (ReID) approaches to person following rely on offline-trained features and short-term experiences. Such an approach i) has a limited capacity to generalize across scenarios; and ii) often fails to re-identify the person when his re-appearance is out of the learned domain represented by the short-term experiences."
+
+"Monocular person following (MPF) is a capability that supports many useful applications of a mobile robot. However, existing MPF solutions are not completely satisfactory. Firstly, they often fail to track the target at a close distance either because they are based on visual servo or they need the observation of the full body by the robot. Secondly, their target Re-IDentification (Re-ID) abilities are weak in cases of target appearance change and highly similar appearance of distracting people."
+
+"Following a specific user is a desired or even required capability for service robots in many human-robot collaborative applications. However, most existing person-following robots follow people without knowledge of who it is following."
+
+
+
+
+
+* The answer should provide the techniques used for person-following robot navigation which track the person and re-identify if occluded.
+
+Supporting quotes
+
+"In this framework, we combine Convolutional Channel Features (CCF) and online boosting to construct a classifier of a target person to be followed. It allows us to take advantage of deep neural network-based feature representation and adapt the person classifier to the specific target person depending on circumstances."
+
+""a novel person re-identification module composed of three parts: a 360-degree visual registration, a neural-based person re-identification using human faces and torsos, and a motion tracker that records and predicts the target person's future position."
+
+"Body detection model. For every frame, our system first runs a body and pose detector that provides the body bounding boxes and the poses of all humans in the image."
+
+"Motion Tracker. We use a standard open-source Kalman filter motion tracker [3][27] 2 which tracks the position of the detected body bounding boxes. Each tracked bounding box is assigned a consistent ID across frames allowing tracking sort of the target even with noisy detections or when the target is occasionally not detected for a few frames."
+
+"Face and Torso Identification Models. To distinguish the targeted individual from others, we utilize three additional neural-based machine learning models: a face detector that provides face bounding boxes in the current frame; a face embedding model that provides a face embedding on a cropped face bounding box; and a torso embedding model that provides a torso embedding on a cropped torso bounding box."
+
+"Thanks to the fish-eye camera and visual servoing, it is rare to lose the person when it walks to the side of the mobile agent. Nevertheless, this still might happen, and occlusions might also lead to the system losing its target. In this case, the system enters into search mode. When the system is using the RGBD camera, the last known position of the target is kept as the local goal for a short period of time (e.g. 2 seconds)."
+
+"After that, or when using the fisheye camera, our mobile agent will stop moving forward and rotate in the direction where the target was last seen. This allows our mobile agent to have a better chance at re-finding the target."
+
+"e a ReID framework for RPF that leverages long-term experiences. The experiences are maintained by a loss-guided keyframe selection strategy, to enable online continual learning of the appearance model."
+
+"Existing RPF systems can be achieved through two steps: identify and follow. In the identify step, the system performs tracking and possibly ReID to locate the target person, while the follow step involves planning and executing the control of the robot to maintain the desired relative position with the target person."
+
+"Specifically, the ReID module learns an appearance model of the target person when he can be correctly identified from tracked people. Later, if and when a long-time occlusion occurs, this appearance model is utilized to re-identify the target person among all the tracked people."
+
+"First, we extract ReID features for the tracked people with a feature extractor. Given an image I and a person's bounding box B, we extract his image patch, denoted as M. Subsequently, we learn a feature extractor f by a standard CNN, which extracts local features from M. To represent partially visible human bodies, we further transform these local features into features associated with the body parts"
+
+"We learn a target classifier g using short-term experiences, denoted by mstand defined as the most recent observed pairs of image patches and labels {M, y}. These pairs are replayed from a short-term memory S, representing the latest knowledge about the target person."
+
+"To leverage long-term experiences, we establish a longterm memory denoted as L, responsible for storing valuable samples, i.e., pairs of image patches and labels. When presented with a new sample, the memory manager employs a keyframe selection strategy to decide whether to add this sample to the memory buffer. Once the buffer reaches its capacity, memory consolidation takes effect to create space by purging certain samples."
+
+" The algorithm optimizes the appearance model upon successful identification of the target person, identification recognized when the target id exists within the tracked individuals and the target confidence s surpasses the threshold dsw. When the target person is lost, the algorithm re-identifies him from all observed individuals. An individual is considered as the target person if his estimated confidence has surpassed a threshold dsw for consecutive zreidframes."
+
+"To remove the assumption of full-body observation, we propose a width-based tracking module, which relies on the target width, which can be observed even at a close distance. For handling issues related to appearance variation, we use a global CNN (convolutional neural network) descriptor to represent the target and a ridge regression model to learn a target appearance model online. We adopt a sampling strategy for online classifier learning, in which both long-term and short-term samples are involved."
+
+"In every frame, the classifier would predict the score of the target. If the score is lower than a threshold dswitch, then the system will turn to Re-ID state for judging an id-switch is happening. If the target id is lost, it will also lead to Re-ID state. The candidate will be judged as the target if its predicted score is larger than a threshold didin Nidconsecutive frames."
+
+"d method uses a Sequential Nearest Neighbour with Thresholding Selection algorithm we devised to fuse together an anonymous person tracker and a face recogniser."
+
+"Our proposed algorithm uses a Sequential Nearest Neighbour with Thresholding Selection algorithm to fuse together data from an anonymous person tracker and a face recogniser to enable identification and tracking of each surrounding person. This allows robots to track and follow specific users, as required in may service robot applications."
+
+"A prototype using an RGB-D camera as the sole input sensor combines instance image segmentation and matrix calculations for dynamic path planning. This approach fuses visual and depth information for scene understanding and path estimation with reduced computational resources[1]."
+
+"This method uses a single RGB-D camera to track multiple people by combining skeletal tracking with shadow data. When direct skeletal tracking is not possible due to occlusion, shadow information is used to maintain tracking[2][7]."
+
+"A robust visual tracking approach for person-following tasks uses multiple templates:- A Scene Analysis Module (SAM) identifies the real target and similar distractors.- Positive templates are collected based on tracking confidence.- Negative templates are gathered from recognized distractors."
+
+"This advanced technique fuses pose information into both video human detection and human association procedures:- Pose-guided person location prediction exploits temporal information to compensate for missing detections.- A hierarchical pose-guided graph convolutional network (PoseGCN) is used for appearance discrimination, exploiting human structural relations to improve person representation[5]."
+
+"One common approach is the use of feature-based tracking algorithms. For instance, some systems employ point-based features like Speeded Up Robust Features (SURF) to detect humans under challenging conditions such as variations in illumination, pose changes, and partial occlusions  (2, Gupta et al., 2017). Other methods utilize Histogram of Oriented Gradients (HOG) in combination with Support Vector Machines (SVM) for human detection  (4, Win et al., 2017)."
+
+"One common approach involves the use of feature-based tracking algorithms combined with machine learning models. For instance, some systems employ convolutional neural networks (CNNs) trained for human pose detection, which allow for robust tracking even during long-term occlusions  (3, Welsh, 2017). These models can be further enhanced by incorporating identity embeddings, enabling the system to maintain tracking across consecutive frames despite temporary visual obstructions."
+
+"The Extended Kalman Filter (EKF) remains a popular tool for person tracking, especially when dealing with mobile platforms and temporary occlusions. EKF-based algorithms can consider the movement of both the robot and the target, allowing for accurate tracking even when the person is briefly occluded by others  (35, Miura et al., 2009)  (38, Miura et al., 2010)."
+
+"A novel system for human following using a differential robot, including an accurate 3-D human position tracking module and a novel planning strategy that ensures safety and dynamic feasibility, is proposed. The authors utilise a combination of gimbal camera and LiDAR for long-term accurate human detection."
+
+
+
+

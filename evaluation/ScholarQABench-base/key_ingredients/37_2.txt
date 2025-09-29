@@ -1,61 +1,9 @@
-﻿Question
-what are the best recent techniques for text watermarking, what kinds of transformations are they robust to, and what transformations or attacks are they not robust against
-
-
-Most Important
-* The answer should begin with providing the recent techniques for text watermarking.
-        Supporting quotes
-“According to software based watermarking system, spatial and transform-domain approaches are used to embed watermarks.”
-https://link.springer.com/article/10.1007/s11042-020-08801-0 
-“In the spatial domain based watermarking techniques, the pixel, code value or bit stream of the cover image are altered directly in order to embed the watermark media. Least Significant Bit (LSB), spread spectrum, correlation based techniques and patchwork methods are some of the techniques under this domain. In LSB, the watermark is hidden by replacing the least significant bit of the binary representation of the cover pixels.”
-https://link.springer.com/article/10.1007/s11042-020-08801-0 
-“Patchwork is another spatial domain technique chooses the positions of pixels by generating pseudo-random generated numbers. Spread spectrum helps in distributing the data in the frequency bins in such a way that the energy of each bin is very less and hence not predictable”
-https://link.springer.com/article/10.1007/s11042-020-08801-0 
-“According to the type of embedding and extraction procedure, watermarking technique can be considered as blind, semi-blind or non-blind.”
-https://link.springer.com/article/10.1007/s11042-020-08801-0 
-“DCT transforms the image into three types: low, middle and high frequency coefficients. It offers excellent energy compaction property, which makes DCT more suitable for watermarking. Generally, middle frequency coefficients of DCT are the best choice for the embedding of watermark”
-https://link.springer.com/article/10.1007/s11042-020-08801-0 
-“The DWT is used to decompose the image into four non-overlapping sub-bands: approximation sub-band (LL), horizontal sub-band (LH), vertical sub-band (HL) and diagonal sub-band (HH). The decomposition can be implemented as multistage transform. It is important to notice that ‘LL’ sub-band is more sensitive to human eye, in the sense that any operation in this sub-band may be noticeable to eye.”
-https://link.springer.com/article/10.1007/s11042-020-08801-0 
-“There are many other transform based techniques used in watermarking. LWT, IWT, Curvelet Transform and many more are used in recent watermarking techniques.”
-https://link.springer.com/article/10.1007/s11042-020-08801-0 
-“ANiTW which utilizes an instance-based learning algorithm to hide an invisible watermark into Latin text-based information such that the hidden watermark can be extracted, even if a malicious user manipulates a portion of the watermarked information.”
-https://www.sciencedirect.com/science/article/abs/pii/S0167404819302391 
-“In [80] a blind watermarking technique to achieve robustness is proposed which uses CNN technique. In this 4000 24-bit color images from the BOSSBase dataset are used for training the model and for learning model have taken 1 day. This learning process includes watermark embedding, simulation of various attacks on it and then updating the weights of the network.”
-https://link.springer.com/article/10.1007/s11042-020-09262-1 
-“ Natural Language Watermarking:
-This technique involves modifying the text's syntactic and semantic structure while preserving its meaning.”
-“GAN-based watermarking: Using Generative Adversarial Networks to embed and extract watermarks [4].
-- Transformer-based watermarking: Utilizing transformer models like BERT for watermark embedding and extraction”
-“Blockchain-based Watermarking:
-Integrating blockchain technology with text watermarking for enhanced security and traceability [6].”
-“Zero-watermarking techniques have emerged as a non-intrusive method for text protection. These approaches embed watermarks logically without altering the plain text, as demonstrated by the INLPETWA method, which integrates zero text watermarking with hidden Markov models (50, Al-Wesabi et al., 2020).”
-
-
-
-
-*  The answer should provide the information about robustness and reliablity of text watermarking. 
-Supporting quotes 
-“Text data and signal graph are treated as the watermark. To prevent the unauthorized access of patient’s information, the text watermark is encrypted using Advanced Encryption Standard (AES) and the signal graphs are compressed using DPCM scheme. The encrypted watermark is then encoded using Reed Solomon codes making the method more robust and reliable.”
-https://link.springer.com/article/10.1007/s11042-020-08801-0 
-“ One of the main characteristics of watermarking is security that is to resist the integrity and confidentiality of the watermark against various attacks performed by some unauthorized persons. An attacker should not be able to detect the watermark, which is called unauthorized detection, he should not be able to change it, called unauthorized modification or should not be able to embed some other data in the watermarked image, called unauthorized embedding.”
-https://link.springer.com/article/10.1007/s11042-020-09262-1 
-*  The answer should provide transformations are they robust to and to which they are not. 
-        Supporting quotes
-“Spatial domain techniques have less computational cost while transform domain have high computational cost but the robustness provided by spatial domain is very less in comparison to the transform domain techniques.
-https://link.springer.com/article/10.1007/s11042-020-09262-1 
-“Spatial domain techniques provide very good imperceptibility and can be applied in data hiding or copyright applications but these do not resist against attacks because of that researchers move towards the transform domain techniques.”
-https://link.springer.com/article/10.1007/s11042-020-09262-1 
-“Transform based techniques can be applied to provide imperceptibility, robustness and temper recognition applications.”
-https://link.springer.com/article/10.1007/s11042-020-09262-1 
-“DCT based techniques are very imperceptible and robust but these do not work well against cropping and scaling attacks and these are difficult to implement. Most of the researchers have used middle frequency components of DCT to embed the watermark as embedding in low frequency components introduce distortions but provides good robustness while embedding in high components decreases the quality of the image and increases robustness. So embedding in these two frequency components does not provide a balance between robustness and imperceptibility.”
-https://link.springer.com/article/10.1007/s11042-020-09262-1 
-“DFT has a problem of shift invariance because of that some researchers has used QDFT based scheme to provide more robustness against geometric attacks.”
-https://link.springer.com/article/10.1007/s11042-020-09262-1 
-“3. [(66, Pan et al., 2023) | n_citations: 20 | A Semantic Invariant Robust Watermark for Large Language Models ]: 
-However, current watermarking algorithms cannot possess both attack robustness (robustness to modifications of the watermarked text) and security robustness... we propose a semantic invariant watermarking method for LLMs that provides both attack robustness and security robustness. The watermark logits in our work are determined by the semantics of all preceding tokens.”
-“a robust approach INLPETWA (an Intelligent Natural Language Processing and English Text Watermarking Approach) is proposed to tampering detection of English text by integrating zero text watermarking and hidden Markov model... embedding and detecting the watermark key logically conducted without altering the plain text.”
-“Some watermarking techniques have shown specific strengths against certain types of attacks. For example, the Exponential and GumbelSoft watermarks have demonstrated particular robustness against the T5-span attack  (85, Yang et al., 2024). Additionally, techniques based on synonymy substitution and majority voting have shown improved robustness against distortions caused by printing, phototypesetting, scanning, faxing, and re-typing  (4, Liu et al., 2009)  (13, Chuan, 2010).”
-
-
+Question
+
+what are the best recent techniques for text watermarking, what kinds of transformations are they robust to, and what transformations or attacks are they not robust against
+
+
+
+
+
 Nice to have

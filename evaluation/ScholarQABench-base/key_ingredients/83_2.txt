@@ -1,0 +1,19 @@
+Question
+
+How is artificial intelligence being utilized to enhance the diagnosis and treatment of sleep apnea?
+
+
+
+
+
+Nice to have
+
+* The answer should provide the overall treatment of sleep apnea.
+
+Supporting quotes
+
+"The first-line and most common treatment for obstructive sleep apnea is nasal continuous positive airway pressure, which serves as a pneumatic splint to stabilize the upper airway and is effective when used with appropriate adherence. Continuous positive airway pressure compliance rates remain significantly low despite machine improvements and compliance intervention. Other treatment options include oral appliances, myofunctional therapy, and surgery."
+
+
+
+

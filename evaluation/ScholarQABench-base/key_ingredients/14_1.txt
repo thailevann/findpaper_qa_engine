@@ -1,31 +1,33 @@
-﻿Question
-Describe what is known about overfitting in in-context learning.
-
-
-Most Important
-* Near the beginning, the answer should briefly define overfitting in the context of traditional machine learning and contrast it with overfitting in in-context learning
-        Supporting quotes
-“When machine learning algorithms are constructed, they leverage a sample dataset to train the model. However, when the model trains for too long on sample data or when the model is too complex, it can start to learn the “noise,” or irrelevant information, within the dataset. When the model memorizes the noise and fits too closely to the training set, the model becomes “overfitted,” and it is unable to generalize well to new data. If a model cannot generalize well to new data, then it will not be able to perform the classification or prediction tasks that it was intended for.”
-What is Overfitting? | IBM
-“### Overfitting in In-Context Learning
-In the realm of in-context learning, overfitting takes on a different form. Since in-context learning does not involve updating the model parameters, the risk of overfitting pertains to the model's ability to appropriately use the context provided. Overfitting in in-context learning can arise in several ways:
-1. **Contextually-Specific Patterns**: The model may learn to exploit specific patterns or keywords in the context examples that are not generalizable to broader instances. For example, it might latch onto the format or specific wording of examples provided in the input, giving an illusion of competence.
-2. **Mimicking Input Examples**: When given multiple exemplars in the input, the model might over-rely on their structure or content, thereby failing to generalize to new contexts that deviate slightly in format or phrasing. This mimicking behavior can limit the model's ability to adapt to varying input scenarios.”
-
-
-* The answer should mention methods such as increasing the diversity, number of in-context examples, and order randomization, as some ways to mitigate overfitting in in-context learning
-Supporting quotes
-“To mitigate the risk of overfitting on the samples used during the refinements of the system and user prompts, we ensured that they were not included in the generation of inference test data. More specifically, we performed an initial investigation of zero-shot and random few-shot performance using an initial dataset comprising 30 random samples, collected exclusively from the CRC100K dataset; each containing either tumor or normal colon epithelium. This initial dataset served a dual purpose: developing effective prompts and providing an early insight into model responses. For the following evaluation phase, we collected a new subset of 30 samples. This way, we prevented sample leakage from our prompt creation dataset into our final evaluation testset. This was critical to prevent overfitting that could arise from sample-specific biases we might have included into the prompt.”
-arxiv.org/pdf/2403.07407
-“### Mitigating Overfitting in In-Context Learning
-Mitigating overfitting in in-context learning involves carefully designing the input context:
-1. **Diverse Example Selection**: Providing varied examples that comprehensively represent the task can help the model generalize better. Avoiding repetition and ensuring variability in the context can reduce the chances of overfitting.
-2. **Contextual Regularization**: Techniques analogous to regularization in traditional ML might be adapted for context inputs. For instance, introducing controlled noise or variability in examples, or using dropout-like methods on context tokens, might enhance generalization.
-3. **Order Randomization**: Randomizing the order of examples in the context in multiple runs can potentially reduce the model's sensitivity to specific sequential patterns, thereby promoting robustness.”
-
-
-Nice to have
-* The answer should mention that in-context learning reduces the risk of overfitting by avoiding model parameter updates and restricting learning from limited fine-tuning datasets
-Supporting quotes
-“In-context learning was primarily proposed as an alternative to fine-tuning a pre-trained language model on a task-specific dataset as it offers several advantages over it. Unlike fine-tuning, in-context learning does not involve updating the model parameters, which means that the model itself does not learn anything new. In-context learning, however, employs prompts to prime the model for subsequent inference within a specific conversation or context. This approach has two main benefits: it requires less task-specific data and reduces the risk of overfitting by avoiding narrow learning from a limited fine-tuning dataset. In fact, in-context learning enables large language models to demonstrate competitive few-shot performance on a variety of natural language processing (NLP) tasks, including translation and question-answering.”
-Language Models: The Rise of In-Context Learning in AI's Problem-Solving Journey (techopedia.com)
+Question
+
+Describe what is known about overfitting in in-context learning.
+
+
+
+
+
+Most Important
+
+* Near the beginning, the answer should briefly define overfitting in the context of traditional machine learning and contrast it with overfitting in in-context learning
+
+Supporting quotes
+
+"When machine learning algorithms are constructed, they leverage a sample dataset to train the model. However, when the model trains for too long on sample data or when the model is too complex, it can start to learn the "noise," or irrelevant information, within the dataset. When the model memorizes the noise and fits too closely to the training set, the model becomes "overfitted," and it is unable to generalize well to new data. If a model cannot generalize well to new data, then it will not be able to perform the classification or prediction tasks that it was intended for."
+
+"### Overfitting in In-Context LearningIn the realm of in-context learning, overfitting takes on a different form. Since in-context learning does not involve updating the model parameters, the risk of overfitting pertains to the model's ability to appropriately use the context provided. Overfitting in in-context learning can arise in several ways:1. **Contextually-Specific Patterns**: The model may learn to exploit specific patterns or keywords in the context examples that are not generalizable to broader instances. For example, it might latch onto the format or specific wording of examples provided in the input, giving an illusion of competence.2. **Mimicking Input Examples**: When given multiple exemplars in the input, the model might over-rely on their structure or content, thereby failing to generalize to new contexts that deviate slightly in format or phrasing. This mimicking behavior can limit the model's ability to adapt to varying input scenarios."
+
+
+
+
+
+* The answer should mention methods such as increasing the diversity, number of in-context examples, and order randomization, as some ways to mitigate overfitting in in-context learning
+
+Supporting quotes
+
+"To mitigate the risk of overfitting on the samples used during the refinements of the system and user prompts, we ensured that they were not included in the generation of inference test data. More specifically, we performed an initial investigation of zero-shot and random few-shot performance using an initial dataset comprising 30 random samples, collected exclusively from the CRC100K dataset; each containing either tumor or normal colon epithelium. This initial dataset served a dual purpose: developing effective prompts and providing an early insight into model responses. For the following evaluation phase, we collected a new subset of 30 samples. This way, we prevented sample leakage from our prompt creation dataset into our final evaluation testset. This was critical to prevent overfitting that could arise from sample-specific biases we might have included into the prompt."
+
+"### Mitigating Overfitting in In-Context LearningMitigating overfitting in in-context learning involves carefully designing the input context:1. **Diverse Example Selection**: Providing varied examples that comprehensively represent the task can help the model generalize better. Avoiding repetition and ensuring variability in the context can reduce the chances of overfitting.2. **Contextual Regularization**: Techniques analogous to regularization in traditional ML might be adapted for context inputs. For instance, introducing controlled noise or variability in examples, or using dropout-like methods on context tokens, might enhance generalization.3. **Order Randomization**: Randomizing the order of examples in the context in multiple runs can potentially reduce the model's sensitivity to specific sequential patterns, thereby promoting robustness."
+
+
+
+

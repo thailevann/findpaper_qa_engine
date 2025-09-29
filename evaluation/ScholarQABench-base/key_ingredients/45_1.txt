@@ -1,0 +1,79 @@
+Question
+
+What principles of interactive machine teaching can be applied to interactively curating social media feeds?
+
+
+
+
+
+Most Important
+
+* The answer should begin with the background on personalized social media feed.
+
+Supporting quotes
+
+"Social media feeds shape our everyday online interactions with others. Their interface designs and affordances define boundaries onhowwe can engage with people and content, while their algorithms dictate bothwhatandwhowe engage with in the first place."
+
+"Social media feeds are deeply personal spaces that reflect individual values and preferences. However, top-down, platform-wide content algorithms can reduce users' sense of agency and fail to account for nuanced experiences and values. Drawing on the paradigm of interactive machine teaching (IMT), an interaction framework for non-expert algorithmic adaptation, we map out a design space for teachable social media feed experiences to empower agential, personalized feed curation."
+
+"Modern systems can augment people's capabilities by using machine-learned models to surface intelligent behaviors. Unfortunately, building these models remains challenging and beyond the reach of non-machine learning experts."
+
+
+
+
+
+* The answer should provide the introduction of interactive machine teaching
+
+Supporting quotes
+
+"interactive machine teaching (IMT), an IML process in which the human-in-the-loop takes the role of a teacher, and their goal is to create a machine-learned model."
+
+"Researchers studying IML have considered a wide variety of different roles for the humans engaged in the interactive loop with the machine learner. These include the roles of ML experts, data scientists, crowdsource workers, and domain experts. Logically, the form and function of IML systems are, in large part, determined by the nature of these roles."
+
+"IMT is an iterative process. In particular, it is one in which a person (or people) with a role of a teacher(s) interacts with a machine learner in order to transfer the knowledge of how to accomplish a task to a machine-learned model."
+
+"While machine learning focuses on creating new algorithms and improving the accuracy of "learners", the machine teaching discipline focuses on the efficacy of the "teachers"."
+
+"Interactive machine teaching principles can indeed be applied to the curation of social media feeds, offering a more personalized and engaging user experience. This approach combines elements of machine learning, human-computer interaction, and information retrieval."
+
+
+
+
+
+* The answer should provide the principles  of interactive machine teaching can be applied to interactively curating social media feeds
+
+Supporting quotes
+
+"MT consists of three main stages that form a "teaching loop" [90]:(1) Planning: the human teacher (the subject matter expert) identifies a task for the algorithmic learner (the machine learning model) to complete, along with a curriculum (set of examples and representations to help teach the learner, typically in the form of a small dataset).(2) Explaining: the teacher shows the learner examples and explicitly identifies concepts the agent should learn.(3) Reviewing: the teacher allows the learner to predict some unseen examples, corrects any erroneous predictions, and updates the teaching strategy/curriculum accordingly."
+
+"IMT shares similar goals with the paradigm of reinforcement learning and, more specifically, reinforcement learning with human feedback (RLHF) [81]. Both IMT and RLHF strive to interactively and iteratively embed specialized human knowledge into a machine-learned system."
+
+"The key difference between IMT and RLHF, however, is that in IMT, the human teacher has agency--defining the curriculum, explaining concepts, and evaluating performance--whereas in RL(HF), the human is merely an oracle that the agent queries to guide its decisions [18]."
+
+"To formalize the knowledge decomposition process [79], we defined asignalas an information unit consisting of two primary components: a feature and a characteristic (see Fig.1). A feature is a class of information that can be extracted from a post. Example features include the post's author, the textual content, image(s), the number of likes, and the post's topic. A characteristic is a subjective statement that describes a feature. It is subjective in the sense that its significance may vary between participants. For example, the feature "the post's author." is described by the characteristic "is someone I know from in-person interactions." A third, optional component, an action, is something the participant can perform to the post in response to a feature-characteristic combination."
+
+"The goal in IMT is that of building a machine-learned model to complete future tasks. This goal is shared with the field of ML. As a field, ML focuses on the development of algorithms for learning from data (e.g., labels, user interactions, and demonstrations) and optimizing their parameters."
+
+"The role of the people interacting in IMT is that of a teacher. That is, they are experts onparticular subject matter and have the explicit goal of creating an ML model about it through a teacher-student-type of interaction."
+
+"In the context of IMT, we say that a person acts as a teacher if they: Plan (and update) the teaching curriculum. A teacher can decide how to solve a problem or how to teach. A teacher may choose what examples to teach with, choose when and how to evaluate the task against the task's goal, choose when and how to fix/update the model, decompose or merge concepts, features or tasks, etc. Explain knowledge pertinent to the subject domain. One of the key aspects of IMT is that it advocates for teachers expressing rich semantic knowledge to a machine learner to make the teaching process efficient. Review the learner's progress while integrating the given knowledge. As with traditional IML, teaching takes the form of a dialog, as the teacher's next action is influenced by the learner's current state."
+
+"The planning activity is one in which the teacher considers and identifies the materials that are useful for teaching. These can include examples, features, tests, etc. The nature of these materials depends on the goal of the teaching activity."
+
+"The explaining activity is the activity by which the teacher explicitly provides the knowledge required to the learning algorithm by perform the task of interest."
+
+"During the reviewing activity, the teacher evaluates the performance of the learned model and determines whether and how to continue to teach the system. This activity can include debugging erroneous predictions, assessing the quality of predictions, identifying problematic examples, identifying incorrect or incomplete labels that the teacher has provided to the learner, and building trust in the performance of the system in various use scenarios."
+
+"According to Ramos et al.[18], the machine teacher is engaged in three activities: Planning, to identify diverse, challenging examples to teach, reflect on their strategy, and adjust their approach as they assess the evolution of concepts.; Explaining, to provide the necessary knowledge to the learning algorithm such as labelling data for classification; and Reviewing, to evaluate the confusions, debug errors, and correct labels to gain a comprehensive understanding of the model performance."
+
+"1. **User-Teachable Agents**: By incorporating user-teachable agents, social media platforms can empower users to explicitly teach the algorithm about their preferences. This can be achieved through in-feed affordances that enable users to articulate content preferences, evaluate the agent's effectiveness, and iteratively formulate a curriculum of teaching goals and examples."
+
+"2. **Personalized Curation**: IMT principles can be used to create personalized social media feeds that align with users' interests and preferences. This can be achieved by allowing users to provide explicit examples of content they like or dislike, which the algorithm can then use to curate the feed."
+
+"3. **Iterative Feedback**: Social media platforms can incorporate iterative feedback mechanisms that enable users to correct the algorithm's mistakes and adapt to new information. This can be achieved through features such as "like," "dislike," or "not interested" buttons that provide explicit feedback to the algorithm."
+
+"The primary principles of IMT include:1. **Iterative Feedback**: Continuous, real-time input from humans to refine the model.2. **Personalization**: Tailoring the learning content and pace based on the user's needs and preferences.3. **Active Learning**: Allowing the model to query the teacher actively for ambiguous or uncertain data points.4. **Transparency and Interpretability**: Ensuring the model's decisions and learning process are understandable to humans."
+
+
+
+

@@ -1,0 +1,19 @@
+Question
+
+For different modulation types like MPSK, QPSK, and MQAM, I'm measuring the error rate but want to understand and measure the Error Vector Magnitude (EVM) more accurately. I'm using a general equation for all modulation types. Is this the right approach, and what should I expect from the EVM vs. Eb/No curve?
+
+
+
+
+
+Nice to have
+
+* The answer should discuss the advantages of relating different signal performance metrics.
+
+Supporting quotes
+
+"Relating EVM to other performance metrics such as SNR and BER is an important research topic as well [9, 10]. These relations are quite useful since it allows the reuse of already available EVM measurements to infer more information regarding the communication system. Moreover, using EVM measurements could reduce the system complexity by getting rid of the need to have separate modules to estimate or measure other metrics."
+
+
+
+

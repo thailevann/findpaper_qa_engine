@@ -1,75 +1,79 @@
-﻿Question
-What are the advantages and limitations of applying bias mitigation algorithms during pre-processing, training and inference stages of a model?
-
-
-Most Important
-* Near the beginning, the answer should briefly define bias in machine learning and bias mitigation algorithms.
-Supporting quotes
-“However, like humans, ML algorithms are vulnerable to biases that make their predictions and decisions “unfair” (Angwin et al., 2016). In the context of ML decision-making, fairness is the absence of any prejudice or favoritism toward an individual or group based on their inherent or acquired characteristics (Mehrabi et al., 2019). Thus, a biased and unfair ML algorithm makes decisions that are skewed toward a particular group of people. Although ML algorithms operate in the digital domain, ML biases have many real-world consequences and may cause substantive harm to both consumers and companies.”
-Overcoming the pitfalls and perils of algorithms: A classification of machine learning biases and mitigation methods - ScienceDirect
-
-
-* The answer should mention that applying bias mitigation during pre-processing, such as re-balancing, sampling, and latent variables can be effective in mitigating bias
-Supporting quotes
-“Relabeling and Perturbation. This section presents bias mitigation methods that apply
- changes to the values of the training data. Changes have been applied to the ground truth labels (relabeling) or the remaining features (perturbation).”
-“Sampling. Sampling methods change the training data by changing the distribution of samples (e.g., adding, removing samples) or adapting their impact on training. Similarly, the impact of training data instances can be adjusted by reweighing their importance”
-“Latent Variables. Latent variables describe the augmentation of training data with additional features that are preferably unbiased.”
-“Representation. Representation learning aims at learning a transformation of the training data such that bias is reduced while maintaining as much information as possible”
-dl.acm.org/doi/pdf/10.1145/3631326#page=8.25
-“One key advantage of pre-processing techniques is their ability to address bias at its source, potentially preventing it from being encoded into the model during training  (35, Rajan et al., 2021). This early intervention can make it easier to achieve fairness algorithmically compared to addressing bias later in the pipeline.”
-“However, pre-processing methods also have limitations. For instance, RW is limited to considering only a single sensitive attribute when mitigating bias and assumes that each sensitive attribute is equally important  (130, An et al., 2023). Additionally, different pre-processing algorithms may employ varying concepts of fairness, which can lead to conflicting strategies and trade-offs between fairness and accuracy  (107, Collante et al., 2022).”
-“In summary, pre-processing bias mitigation techniques offer the advantage of addressing bias early in the machine learning pipeline, potentially preventing it from being encoded into the model. However, their effectiveness may be limited by the complexity of bias in real-world datasets and the potential for conflicting fairness concepts. As such, they are often used as part of a multi-pronged approach to bias mitigation in machine learning systems.”
-“**Advantages:**
-1. **Data Fairness**: Pre-processing techniques transform the input data to ensure it is unbiased before being fed into the model. This can involve re-weighting samples, sampling strategies, or representation learning methodologies to mitigate biases related to sensitive attributes (Kamiran & Calders, 2012).
-2. **Model-agnostic**: Since modifications happen before the input data is used for any model, these techniques can be applied irrespective of the choice of the subsequent models.
-3. **Legal Compliance**: Pre-processed data adheres more closely to ethical and legal standards since biases present in the raw data (historical and societal) are addressed.
-**Limitations:**
-1. **Data Loss**: Transformations in data to remove bias might lead to loss of important information, affecting the overall accuracy and performance of the model (Calders et al., 2009).
-2. **Complexity**: Identifying the exact nature and source of biases in large datasets is complex and time-consuming.
-3. **Not Dynamic**: As the mitigation is done statically before training, it doesn't adapt to changes in the data distribution over time.”
-
-
-* The answer should mention that while applying bias mitigation during training, for instance, by regularization and constraints in the loss function or using adversarial learning to minimize the model's ability to predict sensitive attributes, can be effective, but it may come at the cost of model accuracy or performance
-Supporting quotes
-“Regularization and Constraints. Regularization and constraints are both approaches that apply changes to the learning algorithm’s loss function. Regularization adds a term to the loss function. While the original loss function is based on accuracy metrics, the purpose of a regularization term is to penalize discrimination (i.e., discrimination leads to a higher loss of the ML algorithm).”
-“Adversarial Learning. Adversarial learning simultaneously trains classification models
-and their adversaries [92]. While the classification model is trained to predict ground truth values the adversary is trained to exploit fairness issues.
-“Compositional. Compositional approaches combat bias by training multiple classification models. Predictions can then be made by a specific classification model for each population group”
-“Adjusted Learning. Adjusted learning methods mitigate bias via changing the learning
-procedure of algorithms or the creation of novel algorithms”
-dl.acm.org/doi/pdf/10.1145/3631326#page=8.25
-“In summary, in-processing bias mitigation techniques offer the advantage of directly addressing bias during the learning process, potentially leading to more robust and fair models. However, their effectiveness must be balanced against computational costs and potential impacts on model performance. As such, they are often used as part of a comprehensive approach to bias mitigation in machine learning systems, potentially in combination with pre-processing or post-processing methods.”
-“**Advantages:**
-1. **Dynamic Adjustment**: In-training bias mitigation approaches, such as regularization techniques or adversarial training, allow for adaptive adjustment as the model learns. This can produce a robust model that balances bias mitigation with performance (Zhang et al., 2018).
-2. **Optimization Problem**: Bias mitigation goals can be integrated into the optimization objective of the learning algorithm, enabling a more balanced and fair model outcome.
-3. **Model-specific**: Techniques can be tailored to the architecture and peculiarities of a specific model, potentially improving effectiveness (Madras et al., 2018).
-**Limitations:**
-1. **Resource Intensive**: Training complex models with additional bias mitigation constraints can require significantly more computational resources and time.
-2. **Complexity of Implementation**: Combining fairness objectives with traditional accuracy-driven objectives can be difficult and may require sophisticated algorithmic strategies.
-3. **Performance Trade-offs**: Balancing between fairness and accuracy often leads to trade-offs where improving fairness metrics could harm the standard performance metrics of the model (Woodworth et al., 2017).”
-
-
-* The answer should mention that applying bias mitigation during inference, such as input/output corrections, can be helpful but may raise ethical concerns
-Supporting quotes
-“I​​nput Correction. Input correction approaches apply a modification step to the testing
-data. This is comparable to pre-processing approaches (Section 4.1) [108], which conduct modifications to training data (e.g., relabeling, perturbation, and representation learning)”
-“Classifier Correction. Post-processing approaches can also directly be applied to classification models, which Savani et al. [323] called intra-processing. A successfully trained classification model is adapted to obtain a fairer one. Such modifications have been applied to Naive Bayes”
-“Output Correction. The latest stage of applying bias mitigation methods is the correction
-of the output. In particular, the predicted labels are modified.”
-dl.acm.org/doi/pdf/10.1145/3631326#page=8.25
-“In summary, post-processing bias mitigation techniques offer advantages in terms of flexibility and applicability to existing models, including black-box systems. They can be particularly effective for correcting bias in models that initially show higher levels of unfairness. However, their effectiveness may be limited when addressing biases deeply embedded in the model's learned representations. As such, they are often used as part of a comprehensive approach to bias mitigation in machine learning systems, potentially in combination with pre-processing or in-processing methods.”
-“**Advantages:**
-1. **Real-time Adjustment**: Techniques such as post-hoc re-weighting or modifying decisions dynamically at inference time can cater to varying bias requirements as they arise in practice, leading to more flexible and adaptable applications.
-2. **Non-disruptive**: These methods do not require changing the pre-trained model or retraining, making them easier to implement in existing systems (Hardt et al., 2016).
-3. **Specificity**: Bias mitigation at inference can target specific instances or populations, providing granular control over fairness in decision-making processes.
-**Limitations:**
-1. **Limited Scope**: Because they act only at the decision-making stage, these methods can rarely correct deep-rooted biases learned by models during training.
-2. **Consistency**: Ensuring fairness on a case-by-case basis can lead to inconsistencies, possibly contradicting the overall logic or patterns the model learned.
-3. **Overhead**: Adjusting outputs in real-time can add latency to the prediction process, potentially impacting the usability of the model in time-sensitive applications.”
- 
-Nice to have
-* The answer might mention some example of bias mitigation algorithms during pre-processing, training and inference stages of a model
-Supporting quotes
-“We also identified 24 mitigation methods for addressing the aforementioned biases within the CRISP-DM process phases, as summarized in Table 2. Notably, a particular bias can be mitigated by several methods, and a particular method can mitigate multiple biases. In addition, a mitigation method that is applied in one phase can address biases that occur in the respective phase or in the later stages of the ML project.”
-Overcoming the pitfalls and perils of algorithms: A classification of machine learning biases and mitigation methods - ScienceDirect
+Question
+
+What are the advantages and limitations of applying bias mitigation algorithms during pre-processing, training and inference stages of a model?
+
+
+
+
+
+Most Important
+
+* Near the beginning, the answer should briefly define bias in machine learning and bias mitigation algorithms.
+
+Supporting quotes
+
+"However, like humans, ML algorithms are vulnerable to biases that make their predictions and decisions "unfair" (Angwin et al., 2016). In the context of ML decision-making, fairness is the absence of any prejudice or favoritism toward an individual or group based on their inherent or acquired characteristics (Mehrabi et al., 2019). Thus, a biased and unfair ML algorithm makes decisions that are skewed toward a particular group of people. Although ML algorithms operate in the digital domain, ML biases have many real-world consequences and may cause substantive harm to both consumers and companies."
+
+
+
+
+
+* The answer should mention that applying bias mitigation during pre-processing, such as re-balancing, sampling, and latent variables can be effective in mitigating bias
+
+Supporting quotes
+
+"Relabeling and Perturbation. This section presents bias mitigation methods that applychanges to the values of the training data. Changes have been applied to the ground truth labels (relabeling) or the remaining features (perturbation)."
+
+"Sampling. Sampling methods change the training data by changing the distribution of samples (e.g., adding, removing samples) or adapting their impact on training. Similarly, the impact of training data instances can be adjusted by reweighing their importance"
+
+"Latent Variables. Latent variables describe the augmentation of training data with additional features that are preferably unbiased."
+
+"Representation. Representation learning aims at learning a transformation of the training data such that bias is reduced while maintaining as much information as possible"
+
+"One key advantage of pre-processing techniques is their ability to address bias at its source, potentially preventing it from being encoded into the model during training  (35, Rajan et al., 2021). This early intervention can make it easier to achieve fairness algorithmically compared to addressing bias later in the pipeline."
+
+"However, pre-processing methods also have limitations. For instance, RW is limited to considering only a single sensitive attribute when mitigating bias and assumes that each sensitive attribute is equally important  (130, An et al., 2023). Additionally, different pre-processing algorithms may employ varying concepts of fairness, which can lead to conflicting strategies and trade-offs between fairness and accuracy  (107, Collante et al., 2022)."
+
+"In summary, pre-processing bias mitigation techniques offer the advantage of addressing bias early in the machine learning pipeline, potentially preventing it from being encoded into the model. However, their effectiveness may be limited by the complexity of bias in real-world datasets and the potential for conflicting fairness concepts. As such, they are often used as part of a multi-pronged approach to bias mitigation in machine learning systems."
+
+"**Advantages:**1. **Data Fairness**: Pre-processing techniques transform the input data to ensure it is unbiased before being fed into the model. This can involve re-weighting samples, sampling strategies, or representation learning methodologies to mitigate biases related to sensitive attributes (Kamiran & Calders, 2012).2. **Model-agnostic**: Since modifications happen before the input data is used for any model, these techniques can be applied irrespective of the choice of the subsequent models.3. **Legal Compliance**: Pre-processed data adheres more closely to ethical and legal standards since biases present in the raw data (historical and societal) are addressed.**Limitations:**1. **Data Loss**: Transformations in data to remove bias might lead to loss of important information, affecting the overall accuracy and performance of the model (Calders et al., 2009).2. **Complexity**: Identifying the exact nature and source of biases in large datasets is complex and time-consuming.3. **Not Dynamic**: As the mitigation is done statically before training, it doesn't adapt to changes in the data distribution over time."
+
+
+
+
+
+* The answer should mention that while applying bias mitigation during training, for instance, by regularization and constraints in the loss function or using adversarial learning to minimize the model's ability to predict sensitive attributes, can be effective, but it may come at the cost of model accuracy or performance
+
+Supporting quotes
+
+"Regularization and Constraints. Regularization and constraints are both approaches that apply changes to the learning algorithm's loss function. Regularization adds a term to the loss function. While the original loss function is based on accuracy metrics, the purpose of a regularization term is to penalize discrimination (i.e., discrimination leads to a higher loss of the ML algorithm)."
+
+"Adversarial Learning. Adversarial learning simultaneously trains classification modelsand their adversaries [92]. While the classification model is trained to predict ground truth values the adversary is trained to exploit fairness issues."Compositional. Compositional approaches combat bias by training multiple classification models. Predictions can then be made by a specific classification model for each population group"
+
+"Adjusted Learning. Adjusted learning methods mitigate bias via changing the learningprocedure of algorithms or the creation of novel algorithms"
+
+"In summary, in-processing bias mitigation techniques offer the advantage of directly addressing bias during the learning process, potentially leading to more robust and fair models. However, their effectiveness must be balanced against computational costs and potential impacts on model performance. As such, they are often used as part of a comprehensive approach to bias mitigation in machine learning systems, potentially in combination with pre-processing or post-processing methods."
+
+"**Advantages:**1. **Dynamic Adjustment**: In-training bias mitigation approaches, such as regularization techniques or adversarial training, allow for adaptive adjustment as the model learns. This can produce a robust model that balances bias mitigation with performance (Zhang et al., 2018).2. **Optimization Problem**: Bias mitigation goals can be integrated into the optimization objective of the learning algorithm, enabling a more balanced and fair model outcome.3. **Model-specific**: Techniques can be tailored to the architecture and peculiarities of a specific model, potentially improving effectiveness (Madras et al., 2018).**Limitations:**1. **Resource Intensive**: Training complex models with additional bias mitigation constraints can require significantly more computational resources and time.2. **Complexity of Implementation**: Combining fairness objectives with traditional accuracy-driven objectives can be difficult and may require sophisticated algorithmic strategies.3. **Performance Trade-offs**: Balancing between fairness and accuracy often leads to trade-offs where improving fairness metrics could harm the standard performance metrics of the model (Woodworth et al., 2017)."
+
+
+
+
+
+* The answer should mention that applying bias mitigation during inference, such as input/output corrections, can be helpful but may raise ethical concerns
+
+Supporting quotes
+
+"Input Correction. Input correction approaches apply a modification step to the testingdata. This is comparable to pre-processing approaches (Section 4.1) [108], which conduct modifications to training data (e.g., relabeling, perturbation, and representation learning)"
+
+"Classifier Correction. Post-processing approaches can also directly be applied to classification models, which Savani et al. [323] called intra-processing. A successfully trained classification model is adapted to obtain a fairer one. Such modifications have been applied to Naive Bayes"
+
+"Output Correction. The latest stage of applying bias mitigation methods is the correctionof the output. In particular, the predicted labels are modified."
+
+"In summary, post-processing bias mitigation techniques offer advantages in terms of flexibility and applicability to existing models, including black-box systems. They can be particularly effective for correcting bias in models that initially show higher levels of unfairness. However, their effectiveness may be limited when addressing biases deeply embedded in the model's learned representations. As such, they are often used as part of a comprehensive approach to bias mitigation in machine learning systems, potentially in combination with pre-processing or in-processing methods."
+
+"**Advantages:**1. **Real-time Adjustment**: Techniques such as post-hoc re-weighting or modifying decisions dynamically at inference time can cater to varying bias requirements as they arise in practice, leading to more flexible and adaptable applications.2. **Non-disruptive**: These methods do not require changing the pre-trained model or retraining, making them easier to implement in existing systems (Hardt et al., 2016).3. **Specificity**: Bias mitigation at inference can target specific instances or populations, providing granular control over fairness in decision-making processes.**Limitations:**1. **Limited Scope**: Because they act only at the decision-making stage, these methods can rarely correct deep-rooted biases learned by models during training.2. **Consistency**: Ensuring fairness on a case-by-case basis can lead to inconsistencies, possibly contradicting the overall logic or patterns the model learned.3. **Overhead**: Adjusting outputs in real-time can add latency to the prediction process, potentially impacting the usability of the model in time-sensitive applications."
+
+
+
+

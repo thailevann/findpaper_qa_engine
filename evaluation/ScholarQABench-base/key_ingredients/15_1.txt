@@ -1,57 +1,73 @@
-﻿Question
-How good are LLMs at solving traditional tabular ML datasets using ICL?
-
-
-Most Important
-* Near the beginning, the answer should briefly define In-Context Learning (ICL) in the context of LLMs and describe how tabular data is used in traditional machine learning tasks.
-        Supporting quotes
-“Large language models (LLMs) have an impressive ability to perform in-context learning (ICL) [1]. Conditioned on natural language prompts containing question-answer pairs (called demonstrations or exemplars), LLMs can execute natural language inference tasks in new domains without having to update the model’s parameters while achieving similar downstream performance as full model fine-tuning [2], [3]. The inference tasks can range from simple fact-retrieval [1] to complex reasoning and problem-solving [4] and are adaptable across a wide range of domains. The ease of usage and cost benefit has motivated several organizations to integrate LLMs into their operations and services to supplement their private data with knowledge from the large corpus of texts that LLMs are trained on.”
-arxiv.org/pdf/2403.05681
-“Tabular data stands as one of the pervasive and essential data formats in machine learning (ML), with widespread applications across diverse domains such as finance, medicine, business, agriculture, education, and other sectors that heavily rely on relational databases (Sahakyan et al., 2021; Rundo et al., 2019; Hernandez et al., 2022; Umer et al., 2019; Luan & Tsai, 2021). Tabular data, commonly known as structured data, refers to data organized into rows and columns, where each column represents a specific feature. In this section, we first introduce the characteristics of tabular data, then provide a brief review of traditional, deep-learning and LLM methods tailored for this area. At last, we articulate the contribution of the paper and provide a layout of the following sections.”
-Large Language Models on Tabular Data - A Survey (arxiv.org)
-
-
-* The answer should mention the challenges LLMs face when applying ICL to tabular ML datasets
-Supporting quotes
-“Heterogeneity: Tabular data can contain different feature types: categorical, numerical, binary, and textual. Therefore, features can range from being dense numerical features to sparse or high-cardinality categorical features (Borisov et al., 2022).”
-“Context-based interconnection: In tabular data, features can be correlated. For example, age, education, and alcohol consumption from a demographic table are interconnected: it is hard to get a doctoral degree at a young age, and there is a minimum legal drinking age. Including correlated regressors in regressions lead to biased coefficients, hence, a modeler must be aware of such intricacies (Liu et al., 2023d).”
-“Order invariant: In tabular data, examples can be sorted. However, as opposed to text-based and image-based data that is intrinsically tied to the position of the word/token or pixel in the text or image, tabular examples are relatively order-invariant. Therefore, position-based methodologies (e.g., spatial correlation, impeding inductive bias, convolutional neural networks (CNN)) are less applicable for tabular data modeling (Borisov et al., 2022).”
-Large Language Models on Tabular Data - A Survey (arxiv.org)
-“Firstly, some models have short context lengths (E.g. Flan-UL2 (Tay et al., 2023b) supports 2048 tokens, Llama 2 (Touvron et al., 2023b) supports 4096 context tokens) and even models that support large context lengths might still be insufficient if the table is over say 200K rows (Claude 2.1 supports up to 200K tokens).”
-Large Language Models on Tabular Data - A Survey (arxiv.org)
-“Secondly, even if the table could fit the context length, most LLMs are inefficient in dealing with long sentences due to the quadratic complexity of self-attention (Sui et al., 2023b; Tay et al., 2023a; Vaswani et al., 2017). When dealing with long contexts, performance of LLMs significantly degrades when models must access relevant information in the middle of long contexts, even for explicitly long-context models (Liu et al., 2023b). For tabular data, Cheng et al. (2023); Sui et al. (2023c) highlights that noisy information becomes an issue in large tables for LMs. Chen (2023) found that for table sizes beyond 1000 tokens, GPT-3’s performance degrades to random guesses.”
-Large Language Models on Tabular Data - A Survey (arxiv.org)
-“Thirdly, longer prompts incur higher costs, especially for applications built upon LLM APIs.”
-Large Language Models on Tabular Data - A Survey (arxiv.org)
-
-
-* The answer should discuss how LLMs can be adapted to handle tabular data using ICL
-Supporting quotes
-“We discuss common techniques, like serialization, table manipulations, prompt engineering, and building end-to-end systems in this section.”
-Large Language Models on Tabular Data - A Survey (arxiv.org)
-“Recent advances in foundation models and natural language processing (NLP) domains have encouraged researchers to transform or serialize tabular data into natural language formats thus enabling ICL to be performed with tabular data. Authors in [6] empirically verified nine different methods of serializing tabular data into human-readable strings for use in tabular data classification with LLMs such as manual template-based conversions, table-to-text methods using finetuned LLMs, and LLM inference-based methods.”
-arxiv.org/pdf/2403.05681
-
-
-* The answer should compare the performance of LLMs on tabular ML datasets using ICL in comparison to traditional ML models
-Supporting quotes
-“We formulate two private ICL frameworks with provable privacy guarantees in both the local (LDP-TabICL) and global (GDP-TabICL) DP scenarios via injecting noise into individual records or group statistics, respectively. We evaluate our DP-based frameworks on eight real-world tabular datasets and across multiple ICL and DP settings. Our evaluations show that DP-based ICL can protect the privacy of the underlying tabular data while achieving comparable performance to nonLLM baselines, especially under high privacy regimes.”
-arxiv.org/pdf/2403.05681
-“Using TabPFN as the base model – currently the best tabular in-context learner – and applying our retrieval and fine-tuning scheme on top results in what we call a locally-calibrated PFN, or LoCalPFN. We conduct extensive evaluation on 95 datasets curated by TabZilla from OpenML, upon which we establish a new state-of-the-art with LoCalPFN – even with respect to tuned tree-based models. Notably, we show a significant boost in performance compared to the base in-context model, demonstrating the efficacy of our approach and advancing the frontier of deep learning in tabular data.”
-        arxiv.org/pdf/2406.05207
-“### Strengths
-1. **Flexibility**:
-    LLMs can be very flexible when dealing with diverse kinds of input formats. This flexibility allows them to perform reasonably well on a range of tasks without the need for retraining.
-2. **Semantic Understanding**:
-    Due to their training on vast amounts of data, LLMs capture intricate semantic relationships that traditional ML models might miss unless specifically engineered to do so.
-### Weaknesses
-1. **Scalability**:
-    LLMs can be computationally expensive, especially when dealing with large datasets. Specialized models are usually more efficient both in terms of computation and memory, which is crucial for real-world applications.
-2. **Accuracy**:
-    For tabular datasets, models like XGBoost or CatBoost are typically more accurate because they are designed to handle the specific nuisances of tabular data (e.g., handling missing values, capturing non-linear relationships).”
-“Recent research has shown that LLMs can perform surprisingly well on tabular ML tasks using ICL: a) Classification Tasks: LLMs have demonstrated competitive performance on various classification problems, sometimes matching or surpassing traditional ML models [3]. b) Regression Tasks: While generally performing well, LLMs may struggle with precise numerical predictions compared to specialized regression models [4]. c) Time Series Forecasting: LLMs have shown promise in time series tasks, especially when temporal patterns can be effectively communicated through text [5].”
-“In conclusion, LLMs have demonstrated significant potential in handling tabular data tasks, particularly in few-shot and zero-shot scenarios. Their ability to perform competitively with traditional machine learning methods, especially when limited training data is available, makes them a promising tool for researchers and practitioners working with tabular datasets.”
-“In conclusion, while LLMs have shown promise in competing with traditional ML methods for tabular data tasks, especially in few-shot and zero-shot scenarios, their performance can vary depending on the specific task, dataset, and amount of available training data. As the field continues to evolve, further research is needed to fully understand the strengths and limitations of LLMs compared to traditional methods across a wide range of tabular data applications.”
-
-
-Nice to have
+Question
+
+How good are LLMs at solving traditional tabular ML datasets using ICL?
+
+
+
+
+
+Most Important
+
+* Near the beginning, the answer should briefly define In-Context Learning (ICL) in the context of LLMs and describe how tabular data is used in traditional machine learning tasks.
+
+Supporting quotes
+
+"Large language models (LLMs) have an impressive ability to perform in-context learning (ICL) [1]. Conditioned on natural language prompts containing question-answer pairs (called demonstrations or exemplars), LLMs can execute natural language inference tasks in new domains without having to update the model's parameters while achieving similar downstream performance as full model fine-tuning [2], [3]. The inference tasks can range from simple fact-retrieval [1] to complex reasoning and problem-solving [4] and are adaptable across a wide range of domains. The ease of usage and cost benefit has motivated several organizations to integrate LLMs into their operations and services to supplement their private data with knowledge from the large corpus of texts that LLMs are trained on."
+
+"Tabular data stands as one of the pervasive and essential data formats in machine learning (ML), with widespread applications across diverse domains such as finance, medicine, business, agriculture, education, and other sectors that heavily rely on relational databases (Sahakyan et al., 2021; Rundo et al., 2019; Hernandez et al., 2022; Umer et al., 2019; Luan & Tsai, 2021). Tabular data, commonly known as structured data, refers to data organized into rows and columns, where each column represents a specific feature. In this section, we first introduce the characteristics of tabular data, then provide a brief review of traditional, deep-learning and LLM methods tailored for this area. At last, we articulate the contribution of the paper and provide a layout of the following sections."
+
+
+
+
+
+* The answer should mention the challenges LLMs face when applying ICL to tabular ML datasets
+
+Supporting quotes
+
+"Heterogeneity: Tabular data can contain different feature types: categorical, numerical, binary, and textual. Therefore, features can range from being dense numerical features to sparse or high-cardinality categorical features (Borisov et al., 2022)."
+
+"Context-based interconnection: In tabular data, features can be correlated. For example, age, education, and alcohol consumption from a demographic table are interconnected: it is hard to get a doctoral degree at a young age, and there is a minimum legal drinking age. Including correlated regressors in regressions lead to biased coefficients, hence, a modeler must be aware of such intricacies (Liu et al., 2023d)."
+
+"Order invariant: In tabular data, examples can be sorted. However, as opposed to text-based and image-based data that is intrinsically tied to the position of the word/token or pixel in the text or image, tabular examples are relatively order-invariant. Therefore, position-based methodologies (e.g., spatial correlation, impeding inductive bias, convolutional neural networks (CNN)) are less applicable for tabular data modeling (Borisov et al., 2022)."
+
+"Firstly, some models have short context lengths (E.g. Flan-UL2 (Tay et al., 2023b) supports 2048 tokens, Llama 2 (Touvron et al., 2023b) supports 4096 context tokens) and even models that support large context lengths might still be insufficient if the table is over say 200K rows (Claude 2.1 supports up to 200K tokens)."
+
+"Secondly, even if the table could fit the context length, most LLMs are inefficient in dealing with long sentences due to the quadratic complexity of self-attention (Sui et al., 2023b; Tay et al., 2023a; Vaswani et al., 2017). When dealing with long contexts, performance of LLMs significantly degrades when models must access relevant information in the middle of long contexts, even for explicitly long-context models (Liu et al., 2023b). For tabular data, Cheng et al. (2023); Sui et al. (2023c) highlights that noisy information becomes an issue in large tables for LMs. Chen (2023) found that for table sizes beyond 1000 tokens, GPT-3's performance degrades to random guesses."
+
+"Thirdly, longer prompts incur higher costs, especially for applications built upon LLM APIs."
+
+
+
+
+
+* The answer should discuss how LLMs can be adapted to handle tabular data using ICL
+
+Supporting quotes
+
+"We discuss common techniques, like serialization, table manipulations, prompt engineering, and building end-to-end systems in this section."
+
+"Recent advances in foundation models and natural language processing (NLP) domains have encouraged researchers to transform or serialize tabular data into natural language formats thus enabling ICL to be performed with tabular data. Authors in [6] empirically verified nine different methods of serializing tabular data into human-readable strings for use in tabular data classification with LLMs such as manual template-based conversions, table-to-text methods using finetuned LLMs, and LLM inference-based methods."
+
+
+
+
+
+* The answer should compare the performance of LLMs on tabular ML datasets using ICL in comparison to traditional ML models
+
+Supporting quotes
+
+"We formulate two private ICL frameworks with provable privacy guarantees in both the local (LDP-TabICL) and global (GDP-TabICL) DP scenarios via injecting noise into individual records or group statistics, respectively. We evaluate our DP-based frameworks on eight real-world tabular datasets and across multiple ICL and DP settings. Our evaluations show that DP-based ICL can protect the privacy of the underlying tabular data while achieving comparable performance to nonLLM baselines, especially under high privacy regimes."
+
+"Using TabPFN as the base model - currently the best tabular in-context learner - and applying our retrieval and fine-tuning scheme on top results in what we call a locally-calibrated PFN, or LoCalPFN. We conduct extensive evaluation on 95 datasets curated by TabZilla from OpenML, upon which we establish a new state-of-the-art with LoCalPFN - even with respect to tuned tree-based models. Notably, we show a significant boost in performance compared to the base in-context model, demonstrating the efficacy of our approach and advancing the frontier of deep learning in tabular data."
+
+"### Strengths1. **Flexibility**:LLMs can be very flexible when dealing with diverse kinds of input formats. This flexibility allows them to perform reasonably well on a range of tasks without the need for retraining.2. **Semantic Understanding**:Due to their training on vast amounts of data, LLMs capture intricate semantic relationships that traditional ML models might miss unless specifically engineered to do so.### Weaknesses1. **Scalability**:LLMs can be computationally expensive, especially when dealing with large datasets. Specialized models are usually more efficient both in terms of computation and memory, which is crucial for real-world applications.2. **Accuracy**:For tabular datasets, models like XGBoost or CatBoost are typically more accurate because they are designed to handle the specific nuisances of tabular data (e.g., handling missing values, capturing non-linear relationships)."
+
+"Recent research has shown that LLMs can perform surprisingly well on tabular ML tasks using ICL: a) Classification Tasks: LLMs have demonstrated competitive performance on various classification problems, sometimes matching or surpassing traditional ML models [3]. b) Regression Tasks: While generally performing well, LLMs may struggle with precise numerical predictions compared to specialized regression models [4]. c) Time Series Forecasting: LLMs have shown promise in time series tasks, especially when temporal patterns can be effectively communicated through text [5]."
+
+"In conclusion, LLMs have demonstrated significant potential in handling tabular data tasks, particularly in few-shot and zero-shot scenarios. Their ability to perform competitively with traditional machine learning methods, especially when limited training data is available, makes them a promising tool for researchers and practitioners working with tabular datasets."
+
+"In conclusion, while LLMs have shown promise in competing with traditional ML methods for tabular data tasks, especially in few-shot and zero-shot scenarios, their performance can vary depending on the specific task, dataset, and amount of available training data. As the field continues to evolve, further research is needed to fully understand the strengths and limitations of LLMs compared to traditional methods across a wide range of tabular data applications."
+
+
+
+

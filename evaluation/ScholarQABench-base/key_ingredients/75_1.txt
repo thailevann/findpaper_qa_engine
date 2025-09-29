@@ -1,97 +1,79 @@
-﻿Question
-How has the citation graph been used to improve neural language models for scientific papers?
-
-
-Most Important
-* Near the beginning, the answer should briefly define what a citation graph is and its significance in scientific research.
-Supporting quotes
-“The citation graph is a computational artifact that is widely used to represent the domain of published literature. It represents connections between published works, such as citations and authorship. Among other things, the graph supports the computation of bibliometric measures such as h-indexes and impact factors.”
-Data citation and the citation graph | Quantitative Science Studies | MIT Press
-“Citation graphs can be helpful in generating high-quality summaries of scientific papers, where references of a scientific paper and their correlations can provide additional knowledge for contextualising its background and main contributions. Despite the promising contributions of citation graphs, it is still challenging to incorporate them into summarization tasks. This is due to the difficulty of accurately identifying and leveraging relevant content in references for a source paper, as well as capturing their correlations of different intensities.”
-arxiv.org/pdf/2301.11223
-“Citation graphs have been leveraged in several innovative ways to enhance neural language models for scientific papers, improving tasks such as paper recommendation, citation prediction, and document summarization.”
-“Neural models have incorporated citation graphs to enhance document representations and capture relationships between papers. This approach combines textual semantics with structural information from citation networks, leading to improved performance in various tasks related to scientific literature analysis.”
-“Understanding the context in which a paper is cited provides valuable insights into the influence, relevance, and contribution of the work. Traditionally, language models trained purely on textual content might miss out on these contextual nuances that citations provide.”
-
-
-* The answer should mention how citation graphs are used in neural language models for scientific papers.
-Supporting quotes
-“Although the citation graph plays a promising role in improving the automatic summarization of scientific papers, little attention has been focused on incorporating them in existing pre-trained language models (PLMs) based summarization methods [16, 19 ]. The only exception is CGSum [3 ] which leverages references of source papers by constructing a citation graph to improve its summary generation.”
-arxiv.org/pdf/2301.11223
-“A better alternative is to incorporate the full contents of references instead of their abstracts. The challenge lies in bringing the full text of the references can introduce redundant information, the content of the references may be irrelevant to the source paper except for some key sentences as shown in Table 2. Moreover, different parts of references, such as introduction, related work, methods and experiments, have varying levels of semantic similarities with the source paper”
-arxiv.org/pdf/2301.11223
-“Previous work for text summarization in scientific domain mainly focused on the content of the input document, but seldom considering its citation network. However, scientific papers are full of uncommon domain-specific terms, making it almost impossible for the model to understand its true meaning without the help of the relevant research community. In this paper, we redefine the task of scientific papers summarization by utilizing their citation graph and propose a citation graph-based summarization model (CGSUM) which can incorporate the information of both the source paper and its references”
-arxiv.org/pdf/2104.03057
-“Researchers have developed hybrid models that combine pre-trained language models with graph neural networks (GNNs) to improve scientific paper recommendations[1]. These models:
-- Build user-paper bipartite graphs based on citation relationships
-- Initialize paper embeddings using pre-trained language models on paper titles and abstracts
-- Refine embeddings using message-passing layers on the citation graph”
-“Advanced models for citation prediction utilize heterogeneous publication networks that include nodes for papers, authors, venues, and terms[4]. Key innovations include:
-- Constructing heterogeneous graphs to model multiple factors influencing a paper's impact
-- Developing cluster-aware modules to consider latent research domains
-- Incorporating text-enhancing modules for automatic quality term mining”
-“representations by leveraging citation graph embeddings[3]. This method:
-- Uses controlled nearest neighbor sampling over citation graph embeddings
-- Enables learning of continuous similarity between papers
-- Allows for sampling of hard-to-learn positive and negative examples”
-“Citation graphs have also been used to enhance scientific paper summarization[6]. The CGSum model:
-- Incorporates information from both the source paper and its references
-- Utilizes the citation network to better understand domain-specific terms
-- Achieves competitive performance compared to pre-trained models”
-“### Traditional Neural Language Models
-Typical neural language models, such as BERT (Bidirectional Encoder Representations from Transformers) [1] and GPT (Generative Pre-trained Transformer) [2], have shown success in natural language processing tasks. However, these models operate primarily on the textual content of papers and do not explicitly integrate citation contexts.”
-“## 3. Methods of Integrating Citation Graphs
-### 3.1 Graph-Based Embeddings
-Graph embeddings transform nodes (papers) into vectors that capture their relationships in the graph structure. These embeddings can be integrated with text-based embeddings from neural language models:
-- **Graph Convolutional Networks (GCNs)** [3] and **Graph Attention Networks (GATs)** [4]: These are used to learn embeddings from the citation graph, which can then be combined with text features from papers to improve the model’s understanding.
-### 3.2 Citation-Aware Models
-Models such as **CiteBERT** and **SciBERT** [5] have been developed to incorporate citation context:
-- **CiteBERT**: An extension of BERT that leverages citation contexts by embedding citation sentences and their surrounding text.
-- **SciBERT**: Pre-trained on a large corpus of scientific text, utilizes citation networks to provide richer contextual understanding.
-### 3.3 Multimodal Learning
-Combining multiple data sources:
-- **Text and Graph Fusion**: Combining text representations from transformers with graph embeddings for more robust paper representations.
-- **Hypergraphs**: Utilizing hypergraphs, where edges can connect more than two nodes, to represent multi-way relationships among papers and citations [6].”
-
-
-* The answer should explain how citation graphs can improve neural language models for scientific papers.
-Supporting quotes
-“Academic citation graphs represent citation relationships between publications across the full range of academic fields. Top cited papers typically reveal future trends in their corresponding domains which is of importance to both researchers and practitioners. Prior citation prediction methods often require initial citation trends to be established and do not take advantage of the recent advancements in graph neural networks (GNNs). We present GNN-based architecture that predicts the top set of papers at the time of publication. For experiments, we curate a set of academic citation graphs for a variety of conferences and show that the proposed model outperforms other classic machine learning models in terms of the F1-score.”
-arxiv.org/pdf/2104.02562
-“More recent research works put forward the idea that citation graphs can be instrumental in creating top-notch summaries of scientific papers (Chen et al., 2022; Luo et al., 2023). LLMs, with their proficiency in deriving complex text representations from dense vectors and generating high-quality text, are gaining prominence in complex tasks like citation-based summarization. Hence, there’s an enhanced capability to encode citation context and integrate citation network graphs, thereby further boosting citation-based summarization efforts (Luo et al., 2023).”
-arxiv.org/pdf/2309.09727
-“Utilizing a batch-wise contrastive learning objective, ConGraT (Brannon et al., 2023) is a self-supervised framework for simultaneously learning individual representations for texts and nodes within a parent graph, such as citation graphs in Pubmed with each paper related to a specific node. Wang et al. (2022a) propose E5, a new family of text embeddings trained using weak supervision signals in a contrastive manner on a large text pair dataset, CCPairs”
-arxiv.org/pdf/2309.09727
-“SPECTER (Cohan et al., 2020) achieves document-level representation using citation-aware Transformers. It captures interdocument relatedness in the citation graphs, utilizes citations as an inter-document incidental supervision signal, and transforms this signal into a triplet-loss pre-training objective.”
-arxiv.org/pdf/2309.09727
-“grained citation graph structure information. With the rapid development of Graph Neural Networks (GNNs), recent researchers propose to integrate GNNs into LLMs by fusing the node representation of citation graphs, facilitating better understandings of scientific literature as well as natural language.”
-arxiv.org/pdf/2309.09727
-“Some researchers propose to infuse citation graph inputs using a cascaded model architecture where LLMs independently encode the textual input as embeddings and then GNNs are applied to amalgamate these embeddings. Guan and Jiang (2022) presents Citation Graph Collaborative Filtering (CGCF), which is a combination of document representation and Graph Neural Network, to improve automated recommendation systems for scientific articles.”
-arxiv.org/pdf/2309.09727
-“GraphFormers (Yang et al., 2021) integrates Graph Neural Networks (GNN) components into the transformer blocks of language models for more efficient textual graph representation learning. i.e. they demonstrated the model was effective on the DBLP citation prediction task. Unlike existing works, GraphFormers blends text encoding and graph aggregation into an iterative workflow, thereby comprehending each node’s semantics from a global perspective.”
-arxiv.org/pdf/2309.09727
-“GRAD concurrently optimizes a GNN teacher model and a graph-free student model via a shared LM, which allows the student model to use the graph information encoded by the teacher model. Roethel et al. (2023) enhance deep learning language models by incorporating graph represented information from citation graphs with an early fusion strategy”
-arxiv.org/pdf/2309.09727
-“## 4. Applications and Benefits
-### Enhanced Document Understanding
-Incorporating citation graphs allows models to capture finer details in the scientific discourse:
-- **Contextual Relevance**: More accurately identifying the relevance of a paper in various contexts.
-- **Summarization**: Producing summaries that reflect not just the content, but also the influence and reception of a paper.
-### Improved Recommendations and Search
-Citation-aware language models enhance academic search engines and recommendation systems by improving the relevance and precision of search results and recommendations.
-### Citation Prediction
-Predicting which papers are likely to cite each other can be improved by understanding citation contexts, a task benefitting various applications such as trend anticipation and identifying emerging fields.”
-
-
-Nice to have
-* The answer should mention some challenges of integrating citation graphs with neural models for scientific papers.
-Supporting quotes
-        “## 5. Challenges and Future Directions
-### Scalability
-Integrating large-scale citation graphs with neural models demands considerable computational resources.
-### Quality of Citation Data
-The utility of citation-aware models is contingent on the quality and comprehensiveness of the underlying citation data.
-### Interpretability
-Identifying the specific ways in which citation contexts enhance model outputs remains a challenge, necessitating advanced interpretability techniques.
-### Future Research Areas
-Ongoing research is focusing on dynamic citation networks, real-time updates to models with new citation data, and even richer contextual embeddings incorporating multimedia content and authorship networks.”
+Question
+
+How has the citation graph been used to improve neural language models for scientific papers?
+
+
+
+
+
+Most Important
+
+* Near the beginning, the answer should briefly define what a citation graph is and its significance in scientific research.
+
+Supporting quotes
+
+"The citation graph is a computational artifact that is widely used to represent the domain of published literature. It represents connections between published works, such as citations and authorship. Among other things, the graph supports the computation of bibliometric measures such as h-indexes and impact factors."
+
+"Citation graphs can be helpful in generating high-quality summaries of scientific papers, where references of a scientific paper and their correlations can provide additional knowledge for contextualising its background and main contributions. Despite the promising contributions of citation graphs, it is still challenging to incorporate them into summarization tasks. This is due to the difficulty of accurately identifying and leveraging relevant content in references for a source paper, as well as capturing their correlations of different intensities."
+
+"Citation graphs have been leveraged in several innovative ways to enhance neural language models for scientific papers, improving tasks such as paper recommendation, citation prediction, and document summarization."
+
+"Neural models have incorporated citation graphs to enhance document representations and capture relationships between papers. This approach combines textual semantics with structural information from citation networks, leading to improved performance in various tasks related to scientific literature analysis."
+
+"Understanding the context in which a paper is cited provides valuable insights into the influence, relevance, and contribution of the work. Traditionally, language models trained purely on textual content might miss out on these contextual nuances that citations provide."
+
+
+
+
+
+* The answer should mention how citation graphs are used in neural language models for scientific papers.
+
+Supporting quotes
+
+"Although the citation graph plays a promising role in improving the automatic summarization of scientific papers, little attention has been focused on incorporating them in existing pre-trained language models (PLMs) based summarization methods [16, 19 ]. The only exception is CGSum [3 ] which leverages references of source papers by constructing a citation graph to improve its summary generation."
+
+"A better alternative is to incorporate the full contents of references instead of their abstracts. The challenge lies in bringing the full text of the references can introduce redundant information, the content of the references may be irrelevant to the source paper except for some key sentences as shown in Table 2. Moreover, different parts of references, such as introduction, related work, methods and experiments, have varying levels of semantic similarities with the source paper"
+
+"Previous work for text summarization in scientific domain mainly focused on the content of the input document, but seldom considering its citation network. However, scientific papers are full of uncommon domain-specific terms, making it almost impossible for the model to understand its true meaning without the help of the relevant research community. In this paper, we redefine the task of scientific papers summarization by utilizing their citation graph and propose a citation graph-based summarization model (CGSUM) which can incorporate the information of both the source paper and its references"
+
+"Researchers have developed hybrid models that combine pre-trained language models with graph neural networks (GNNs) to improve scientific paper recommendations[1]. These models:- Build user-paper bipartite graphs based on citation relationships- Initialize paper embeddings using pre-trained language models on paper titles and abstracts- Refine embeddings using message-passing layers on the citation graph"
+
+"Advanced models for citation prediction utilize heterogeneous publication networks that include nodes for papers, authors, venues, and terms[4]. Key innovations include:- Constructing heterogeneous graphs to model multiple factors influencing a paper's impact- Developing cluster-aware modules to consider latent research domains- Incorporating text-enhancing modules for automatic quality term mining"
+
+"representations by leveraging citation graph embeddings[3]. This method:- Uses controlled nearest neighbor sampling over citation graph embeddings- Enables learning of continuous similarity between papers- Allows for sampling of hard-to-learn positive and negative examples"
+
+"Citation graphs have also been used to enhance scientific paper summarization[6]. The CGSum model:- Incorporates information from both the source paper and its references- Utilizes the citation network to better understand domain-specific terms- Achieves competitive performance compared to pre-trained models"
+
+"### Traditional Neural Language ModelsTypical neural language models, such as BERT (Bidirectional Encoder Representations from Transformers) [1] and GPT (Generative Pre-trained Transformer) [2], have shown success in natural language processing tasks. However, these models operate primarily on the textual content of papers and do not explicitly integrate citation contexts."
+
+"## 3. Methods of Integrating Citation Graphs### 3.1 Graph-Based EmbeddingsGraph embeddings transform nodes (papers) into vectors that capture their relationships in the graph structure. These embeddings can be integrated with text-based embeddings from neural language models:- **Graph Convolutional Networks (GCNs)** [3] and **Graph Attention Networks (GATs)** [4]: These are used to learn embeddings from the citation graph, which can then be combined with text features from papers to improve the model's understanding.### 3.2 Citation-Aware ModelsModels such as **CiteBERT** and **SciBERT** [5] have been developed to incorporate citation context:- **CiteBERT**: An extension of BERT that leverages citation contexts by embedding citation sentences and their surrounding text.- **SciBERT**: Pre-trained on a large corpus of scientific text, utilizes citation networks to provide richer contextual understanding.### 3.3 Multimodal LearningCombining multiple data sources:- **Text and Graph Fusion**: Combining text representations from transformers with graph embeddings for more robust paper representations.- **Hypergraphs**: Utilizing hypergraphs, where edges can connect more than two nodes, to represent multi-way relationships among papers and citations [6]."
+
+
+
+
+
+* The answer should explain how citation graphs can improve neural language models for scientific papers.
+
+Supporting quotes
+
+"Academic citation graphs represent citation relationships between publications across the full range of academic fields. Top cited papers typically reveal future trends in their corresponding domains which is of importance to both researchers and practitioners. Prior citation prediction methods often require initial citation trends to be established and do not take advantage of the recent advancements in graph neural networks (GNNs). We present GNN-based architecture that predicts the top set of papers at the time of publication. For experiments, we curate a set of academic citation graphs for a variety of conferences and show that the proposed model outperforms other classic machine learning models in terms of the F1-score."
+
+"More recent research works put forward the idea that citation graphs can be instrumental in creating top-notch summaries of scientific papers (Chen et al., 2022; Luo et al., 2023). LLMs, with their proficiency in deriving complex text representations from dense vectors and generating high-quality text, are gaining prominence in complex tasks like citation-based summarization. Hence, there's an enhanced capability to encode citation context and integrate citation network graphs, thereby further boosting citation-based summarization efforts (Luo et al., 2023)."
+
+"Utilizing a batch-wise contrastive learning objective, ConGraT (Brannon et al., 2023) is a self-supervised framework for simultaneously learning individual representations for texts and nodes within a parent graph, such as citation graphs in Pubmed with each paper related to a specific node. Wang et al. (2022a) propose E5, a new family of text embeddings trained using weak supervision signals in a contrastive manner on a large text pair dataset, CCPairs"
+
+"SPECTER (Cohan et al., 2020) achieves document-level representation using citation-aware Transformers. It captures interdocument relatedness in the citation graphs, utilizes citations as an inter-document incidental supervision signal, and transforms this signal into a triplet-loss pre-training objective."
+
+"grained citation graph structure information. With the rapid development of Graph Neural Networks (GNNs), recent researchers propose to integrate GNNs into LLMs by fusing the node representation of citation graphs, facilitating better understandings of scientific literature as well as natural language."
+
+"Some researchers propose to infuse citation graph inputs using a cascaded model architecture where LLMs independently encode the textual input as embeddings and then GNNs are applied to amalgamate these embeddings. Guan and Jiang (2022) presents Citation Graph Collaborative Filtering (CGCF), which is a combination of document representation and Graph Neural Network, to improve automated recommendation systems for scientific articles."
+
+"GraphFormers (Yang et al., 2021) integrates Graph Neural Networks (GNN) components into the transformer blocks of language models for more efficient textual graph representation learning. i.e. they demonstrated the model was effective on the DBLP citation prediction task. Unlike existing works, GraphFormers blends text encoding and graph aggregation into an iterative workflow, thereby comprehending each node's semantics from a global perspective."
+
+"GRAD concurrently optimizes a GNN teacher model and a graph-free student model via a shared LM, which allows the student model to use the graph information encoded by the teacher model. Roethel et al. (2023) enhance deep learning language models by incorporating graph represented information from citation graphs with an early fusion strategy"
+
+"## 4. Applications and Benefits### Enhanced Document UnderstandingIncorporating citation graphs allows models to capture finer details in the scientific discourse:- **Contextual Relevance**: More accurately identifying the relevance of a paper in various contexts.- **Summarization**: Producing summaries that reflect not just the content, but also the influence and reception of a paper.### Improved Recommendations and SearchCitation-aware language models enhance academic search engines and recommendation systems by improving the relevance and precision of search results and recommendations.### Citation PredictionPredicting which papers are likely to cite each other can be improved by understanding citation contexts, a task benefitting various applications such as trend anticipation and identifying emerging fields."
+
+
+
+

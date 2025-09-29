@@ -7,7 +7,18 @@ from dataclasses import dataclass
 from config import CROSS_ENCODER_MODEL
 import asyncio
 
+# ---- Thêm đoạn này ----
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
+# Thêm handler để in ra console (chỉ cần một lần trong project, có thể bỏ nếu đã config global)
+if not logger.handlers:
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging.INFO)
+    formatter = logging.Formatter('[%(asctime)s] [%(levelname)s] %(name)s: %(message)s')
+    console_handler.setFormatter(formatter)
+    logger.addHandler(console_handler)
+# -----------------------
 @dataclass
 class RerankerConfig:
     top_final: int = 20

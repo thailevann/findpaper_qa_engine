@@ -1,0 +1,71 @@
+Question
+
+What kinds of tools and data sources are availabe to serve the information needs of developers when responding to critical vulnerabilities?
+
+
+
+
+
+Most Important
+
+* Near the beginning, the answer should briefly define what critical vulnerabilities are and why they are important to consider in software development.
+
+Supporting quotes
+
+"Software vulnerabilities are weaknesses in source code that can be potentially exploited to cause loss or harm. While researchers have been devising a number of methods to deal with vulnerabilities, there is still a noticeable lack of knowledge on their software engineering life cycle, for example how vulnerabilities are introduced and removed by developers."
+
+"A software vulnerability is a security flaw, glitch, or weakness found in software code that could be exploited by an attacker [ 23 ] to cause harm to the stakeholders of a software system [ 28 ]. To avoid vulnerabilities in software systems, organizations are shifting security "left," that is, to earlier stages of software development, such as during code review [1]. Code review is a widely agreed-on practice [ 12] recognized as a valuable tool for reducing software defects and improving the quality of software projects [2, 3, 8 ]."
+
+
+
+
+
+* The answer should mention automated vulnerability scanning tools which help developers identify vulnerabilities in their codebase, dependencies, and infrastructure.
+
+Supporting quotes
+
+"Note that embedding security into an application development lifecycle (DLC) encompasses a set of different techniques [11] and assessments at different stages, e.g. Static Application Security Testing (SAST) [12] at an early stage of DLC, and Dynamic Application Security Testing (DAST) [13] at testing and operation stages. SAST scans source code like a white box testing from the inside out, while DAST implements black box testing of the runtime behavior while executing it from the outside in. Comprehensive application security solutions are highly desirable to maximise the coverage of ever-evolving cyberattacks."
+
+"2.3 Software Composition Analysis (SCA) Tools SCA tools help identify and manage vulnerabilities in third-party libraries and open-source components. Examples include Snyk, WhiteSource, and Black Duck [5]."
+
+
+
+
+
+* The answer should mention vulnerability databases and repositories which are essential sources of information for developers to stay updated on known vulnerabilities and emerging threats.
+
+Supporting quotes
+
+"The Common Vulnerabilities and Exposures (CVEs) is a repository of publicly known cybersecurity vulnerabilities. This repository can be used in many ways including vulnerability assessment, intrusion detection, security information management, etc. Mining this repository also help us understand the trend of vulnerabilities and exposures."
+
+"Community. The best possible community support seems to come from CVE while the second best is OWASP Ten. In rest of the efforts, the community is smaller and sometimes confined in the form of a single organisation."
+
+"We must appraise the existence of certain organisations, i.e., NIST and OWASP, that promote in the best possible way security software. NIST focuses more on developing standards aiming to bridge interoperability issues, while OWASP focuses on promoting innovative tools, creating tool benchmarks plus classifying both tools and vulnerabilities."
+
+"We present an in-depth case study by comparing the analysis reports of 9 industry-leading SCA tools on a large web application, OpenMRS, composed of Maven (Java) and npm (JavaScript) projects."
+
+"1.1 National Vulnerability Database (NVD)The National Vulnerability Database, maintained by the National Institute of Standards and Technology (NIST), is a comprehensive repository of vulnerability information [1]. It provides standardized vulnerability data, including Common Vulnerabilities and Exposures (CVE) identifiers, severity scores, and affected software versions.1.2 Common Vulnerabilities and Exposures (CVE)CVE is a list of publicly disclosed cybersecurity vulnerabilities and exposures, maintained by MITRE Corporation [2]. It serves as a standard identifier for known vulnerabilities, making it easier for developers to reference and track specific issues."
+
+
+
+
+
+* The answer should mention threat intelligence platforms which can provide contextual information about current threats and attacker tactics.
+
+Supporting quotes
+
+"Threat intelligence platforms provide contextual information about current threats and attacker tactics, techniques, and procedures (TTPs).3.1 Open-source Intelligence (OSINT) ToolsOSINT tools gather publicly available information to provide insights into potential threats. Examples include Maltego, Shodan, and TheHarvester [6].3.2 Commercial Threat Intelligence PlatformsPlatforms like Recorded Future, FireEye Threat Intelligence, and IBM X-Force Exchange offer curated threat intelligence data and analysis [7]."
+
+
+
+
+
+* The answer should mention patch management tools that can help developers track and manage the process of addressing vulnerabilities across their software ecosystem.
+
+Supporting quotes
+
+"## Patch Management ToolsAutomated patch management tools ensure that vulnerabilities are mitigated swiftly:- **WSUS (Windows Server Update Services):** Updates released by Microsoft.- **PDQ Deploy:** Deploys patches to Windows environments.- **Chef and Puppet:** Automates the deployment of patches across various environments."
+
+
+
+

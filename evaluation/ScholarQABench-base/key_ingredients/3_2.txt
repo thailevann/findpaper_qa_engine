@@ -1,0 +1,25 @@
+Question
+
+What is unique k-sat and what theoretical results are known about it?
+
+
+
+
+
+Nice to have
+
+* The answer should provide the applications of k-sat.
+
+Supporting quotes
+
+"Unique k-SAT plays a role in the security analysis of cryptographic protocols where unique solutions often translate to single keys or configurations[^7]."
+
+" Unique k-SAT complexities contribute to the study of proof systems and derandomization techniques[^2]."
+
+"The problem is also relevant in AI, especially in constraint satisfaction problems where ensuring uniqueness of solutions can be crucial."
+
+"The study of Unique k-SAT has also revealed interesting connections to statistical physics. Concepts such as replica symmetry breaking and the proliferation of metastable states have been applied to analyze random k-SAT problems."
+
+
+
+

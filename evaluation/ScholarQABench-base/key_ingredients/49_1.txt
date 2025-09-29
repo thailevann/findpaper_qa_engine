@@ -1,0 +1,69 @@
+Question
+
+What are good benchmarks and evaluation strategies for comparing obstacle avoidance strategies in mobile robots?
+
+
+
+
+
+Most Important
+
+* The answer should begin with providing the importance of benchmarking and evaluation of obstacle avoidance strategies in mobile robots. .
+
+Supporting quotes
+
+"In domains such as processors and graphics cards, benchmarks are not only very common, but every new product is evaluated and estimated towards a whole set of benchmarks. Several organizations exist that explicitly deal with defining and applying benchmarks, such as SPEC, BAPCo, EEMBC, and many more. A major issue is the problem that companies may want to influence benchmarks in order to gain an advantage for their own products."
+
+"Obstacle avoidance is a crucial capability for mobile robots, enabling them to navigate safely through environments while avoiding collisions. Evaluating and comparing different obstacle avoidance strategies is essential for advancing the field and selecting appropriate algorithms for specific applications."
+
+"Obstacle avoidance is a crucial aspect of autonomous navigation in mobile robots. To ensure the effectiveness of obstacle avoidance strategies, it is essential to evaluate and compare them using standardized benchmarks and evaluation strategies."
+
+"A comprehensive evaluation of obstacle avoidance strategies in mobile robots involves a mix of quantitative metrics, qualitative assessments, and thorough testing in both simulated and real-world environments. By following these structured benchmarks and evaluation strategies, researchers can ensure a rigorous and holistic assessment of the effectiveness and robustness of new algorithms."
+
+
+
+
+
+* The answer should provide benchmarks to compare obstacle avoaidance strategies in mobile robots.
+
+Supporting quotes
+
+"Bench-MR, the first open-source motion-planning benchmarking framework designed for sampling-based motion planning for nonholonomic, wheeled mobile robots. Unlike related software suites, Bench-MR is an easy-to-use and comprehensive benchmarking framework that provides a large variety of sampling-based motion-planning algorithms, extend functions, collision checkers, post-smoothing algorithms and optimization criteria."
+
+"Bench-MR is a highly configurable and expandable software suite with representative state-of-the-art motion-planning and evaluation components. It helps one to gain novel insights, such asi)how some combinations of motion-planning and post-smoothing algorithms achieve better performance than asymptotically (near) optimal motion-planning algorithms orii)how changes of the obstacle density in navigation scenarios can affect the planning efficiency and the resulting path quality."
+
+"The heuristic cost is determined by the distance of the current grid cell's center to the target grid cell's center, and the path cost is calculated by the distance between the centers of adjacent grid cells. The algorithm repeats the exploration by picking the cell with the lowest price (sum of path cost and heuristic cost) in the priority queue until the picking cell reaches the target (path is found) or the queue is empty (path is not found). If the path is found, the algorithm will construct the absolute path by following the path cost from the target grid cell."
+
+"Arena-Bench is a benchmarking suite designed for evaluating obstacle avoidance approaches in highly dynamic environments. It provides tools to design and generate evaluation worlds, scenarios, and tasks for autonomous navigation. This suite allows for the testing, evaluation, and comparison of different motion-planning techniques in complex environment scenarios."
+
+
+
+
+
+* The answer should provide evaluation metrics for comparing obstacle avoidance strategies in robots..
+
+Supporting quotes
+
+"* Cost metrics: * computation time, execution time * reaction time, cycle length of update step * time to collision, distance to collision * number of parameters to tune * variance in results"
+
+"* Utility metrics: * path length, distance traveled * clearance, i.e. minimum distance to obstacles * smoothness of trajectory * precision at target * distance/error from given trajectory, orientation error * scaling to 3D, in contrast to 2D * scaling concerning degrees of freedom"
+
+"* Reliability metrics: * mission success * number of collisions * robustness in narrow spaces, number of narrow passages traversed, or narrowness of passages * dependency on parameters (small changes in parameters should not have big influences on result) * avoiding traps or cyclic behavior * occurrence of oscillations * control loop stability"
+
+"The success statisticsmeasure the percentage of found, collision-free and exact paths. Whether a path is collision-free is checked with a given collision checker."
+
+"The path lengthmeasures the length in meters (m) of a path in the workspace."
+
+"The computation timesmeasure the time in seconds (s) required for collision checking, for extend function evaluation (namely forward integration when using forward propagation or solving the two-point boundary value problems when using steer functions), and for finding an initial path."
+
+"The mean clearing distancemeasures how close a path is to obstacles (reported in meters, m)."
+
+"In many vision-based applications, such as scene understanding, robotic perception, and picture reduction [10,11,12,13,14], semantic segmentation using deep learning (DL) is a fundamental problem. Minae et al. [10] examined DL-based segmentation models that showed remarkable performance in visual image segmentation tests to address lack of regular datasets for evaluating object segmentation."
+
+"the results of our evaluation show that the approach successfully detects and avoids static and dynamic obstacles in real time with high accuracy, efficiency, and smooth steering with low angle changes."
+
+"For evaluating mobile robot local planning approaches, the MRPB 1.0 benchmark has been proposed  (122, Fang et al., 2020). It features carefully designed simulation scenarios that challenge the applicability of local planners in large-scale, partially unknown, and dynamic complex environments. MRPB 1.0 also includes three types of evaluation metrics that consider safety, efficiency, and smoothness of motions."
+
+
+
+

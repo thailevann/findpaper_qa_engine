@@ -1,28 +1,19 @@
-﻿Question
-What are leading approaches for evaluating complex scientific question answering systems in NLP?
-
-
-Most Important
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
-Nice to have
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
+Question
+
+What are leading approaches for evaluating complex scientific question answering systems in NLP?
+
+
+
+
+
+Nice to have
+
+* The answer should discuss some general guidelines for assessing the response to complex problems.
+
+Supporting quotes
+
+"By viewing complex questions as requests for collections of facts that address a particular information need, it becomes possible to characterize the properties of a "good" answer. From this basic idea, one can develop the desiderata for an evaluation metric: * Answers that contain more relevant facts are preferred over answers that contain fewer relevant facts. * Shorter answers are preferred over longer answers containing the same number of facts. Verbosity should be punished. * Some facts are more important than others, and this should be reflected accordingly."
+
+
+
+

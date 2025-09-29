@@ -1,0 +1,9 @@
+Question
+
+what are some datasets used for evaluating variable type inference for decompiled binaries?
+
+
+
+
+
+Nice to have

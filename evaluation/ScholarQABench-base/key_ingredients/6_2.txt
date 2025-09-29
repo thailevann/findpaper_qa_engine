@@ -1,0 +1,21 @@
+Question
+
+what are the most important open challenges in using neural networks in combination with PDE solvers for fluid simulation?
+
+
+
+
+
+Nice to have
+
+* The answer could provide solutions to some of the discussed challenges such as training and using DL methods for a specific domain and not as an end-to-end solution, and innovative training methods.
+
+Supporting quotes
+
+"Addressing these generalization and adaptability challenges requires innovative approaches in model architecture, training strategies, and data generation. Researchers are exploring techniques such as physics-informed regularization, multi-fidelity training, and adaptive sampling to improve the robustness and transferability of neural network models in fluid simulations [LLM MEMORY | 2024]. However, significant work remains to be done to achieve the level of generalization and adaptability required for widespread adoption in complex fluid dynamics applications."
+
+"As a consequence of these challenges, end-to-end flow solvers using DL are not yet reliable for most general-purpose simulations and long-term predictions. However, DL is proving a valuable component to help address some of the numerical challenges of conventional fluid dynamics simulators"
+
+
+
+

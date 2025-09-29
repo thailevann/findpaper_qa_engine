@@ -1,0 +1,103 @@
+Question
+
+What are metrics to mesures the quality of human robot communication?
+
+
+
+
+
+Most Important
+
+* The answer should begin with providing the importance of the quality of human robot communication.
+
+Supporting quotes
+
+"Proficiency self-assessment (PSA) is the ability of a robot to predict, estimate, or measure how well it can perform a task in a given context and environment. Human-robot teaming benefits not only from identifying a set of practicable metrics for PSA but also from developing metrics that evaluate how the robot communicates its proficiency to a human, how the human understands the communication, and how the robot perceives the human."
+
+"interaction quality metrics in human-robot communication encompass a wide range of objective and subjective measures. These metrics aim to capture the nuanced aspects of human-robot interactions, from nonverbal behaviors and engagement to satisfaction and collaborative performance, providing a comprehensive assessment of the communication quality between humans and robots."
+
+
+
+
+
+* The answer should provide the metrics to mesures the quality of human robot communication.
+
+Supporting quotes
+
+"the common metrics group evaluates the overall performance of HRI systems. This group of metrics has three sub-groups: i) system performance or team performance, which describes how well the robots and humans perform in a team composition; ii) robot performance, which describes the degree of awareness that robots have about humans and the environment, as well as their autonomy; and iii) operator performance, which lists a set of factors that can impact how well humans perform when using HRI systems."
+
+"Time behavior measures indicates the response and processing times that a human, robot, or a combination of humans and robots requires to perform its functions, a sub-task, or a complete task. Examples of these metrics are human idle time, algorithm processing time, collaboration time, and task completion time."
+
+"Process measures are an aggregation of facts generated from the start to the end of a task or sub-task as well as cost-related, workspace design, safety, or product quality-related elements. Examples of these metrics are the number of errors and the number of assembles reached."
+
+"Physiological measures are values obtained from body measures that help to understand the current state of the human (e.g., acceleration of human joints and heart rate)."
+
+"Human-Robot physical measures are values obtained from sensors that indicate the current state of the interaction (e.g., the distance between the human and the robot)."
+
+" This proficiency-based human-robot interaction (HRI) use case can occur before, during, or after the performance of a task. This article presents a set of metrics for this use case, driven by a four-stage cyclical interaction flow: (1) robot self-assessment of proficiency (RSA), (2) robot communication of proficiency to the human (RCP), (3) human understanding of proficiency (HUP), and (4) robot perception of the human's intentions, values, and assessments (RPH)."
+
+"Robots that can self-assess their abilities to perform tasks can potentially improve human-robot interaction (HRI)."
+
+"Endsley's three levels of situation awareness (SA)--perception, comprehension, and projection [40]--are widely used throughout HRI research and are particularly relevant to metrics definition for robot self-assessment of proficiency."
+
+"The robot will use one or more modalities to communicate its proficiency to the human. The inherent limitations of the communication modality will affect what kind of proficiency measures can be communicated and what aspects of the communication the human is expected to understand (i.e., inputs to the HUP stage)."
+
+"A visualization display consisting of graphics, charts, or images displayed on a monitor (e.g., visualizations of input-output relationships of a neural network [172] or heat maps to convey image saliency [22, 65]) can be rich in information and can be transmitted instantaneously."
+
+" These could include text as part of a visualization (e.g., highlighting text that indicates what component of the robot system is being used to perform a task [165]), a historical log, or sentences via natural language generation (e.g., narrating robot experiences during task execution [126], summarizing explanations based on situation criteria [172])."
+
+"Subjective measures are those that are traditionally self-reported by human participants, and center around the participants' opinions toward or about the robots they are evaluating. While these measures may be influenced by external factors, they most directly capture the individuals' thoughts and preferences. In contrast, objective measures tend to be independent of the user's feeling, and focus on quantifiable values such as interface utility, timing, and task performance."
+
+"The top five most frequently used subjective measures included evaluations capturing the human participants' directed emotion toward robot (13.30%), usability (12.25%), trust (12.13%), interface attribution (11.27%), and personal preference (10.65%). The objective measures were principally focused on task performance (28.51%) and the utilization of interfaces."
+
+"As the team works, from an ecological viewpoint, individual team members each need to "get" information from the shared work environment, and manipulate that same work environment such that the outputs of each task's "set" new states in the environment."
+
+"Similar to the sharing of information, a team of human and robot workers also share physical aspects of the work environment. Interaction between the team members can be characterized by physical coherency, defined as the degree to which agents work on separate physical elements of the work environment (e.g., artifacts). The consequence of low coherency meaning more need to share physical elements amongst the agents. Thus, high physical coherency implies each agent has its own demarcated part of the physical workspace to work on (e.g., their own sets of tools), thus reducing the required physical interaction with other agents."
+
+"The capabilities of each team member affect the team's required interaction and associated teamwork. This metric addresses the teamwork required when the capabilities of multiple team members are required to complete work. The metric describes the extent to which the functions and tasks allocated to each agent is within their ability to perform independently."
+
+"Evaluation of a team requires understanding which team members have authority over parts of the work (i.e., those who have authority or are assigned authority, to execute actions that aid the team in meeting its goals) and which team members are responsible for the outcome of work (i.e., those who are accountable for the results, from a legal and procedural perspective)."
+
+""Team cognitive coherence" reflects the degree to which higher abstractions of the work are shared between agents, such as the goals, the intent, and evaluation."
+
+"Several HCI evaluation techniques have been adopted and adapted to assess the efficiency and intuitiveness of HRI designs, such as Goal Directed Task Analysis (Adams, 2005), and Situation Awareness Global Assessment Technique (Endsley, 1988)."
+
+"GOMS has also been adapted to HRI (Drury et al., 2007) as a method to evaluate and predict efficiency of interfaces in HRI."
+
+" In (Young et al., 2011) the authors propose three perspectives on social interaction in HRI: 1. Visceral factors of interaction, such as sadness, joy, frustration, and fear. 2. Social mechanisms including body language, and cultural norms. 3. Long-term social structures such as social relationships. These perspectives are suggested as basis for evaluation of human interaction experiences in HRI."
+
+"Proxemics: This metric evaluates the physical distance and positioning between humans and robots during interaction[2]. It can provide insights into the comfort level and social dynamics of the communication."
+
+"Behavior analysis: Automated classifiers can be used to discriminate between different types of human behavior when interacting with robots, such as attempts at social interaction versus disengagement[2]."
+
+"User experience evaluation: Systematic literature reviews have been conducted to assess various aspects of user experience in human-robot interaction[5]. This can include measures of usability, satisfaction, and overall interaction quality."
+
+"Video sequencing tasks: The Human-Robot Interaction Video Sequencing Task (HRIVST) evaluates the legibility of a robot's behavior by asking participants to order short videos to form a logical sequence of the robot's actions[9]. This provides insights into how well humans can understand and predict robot behavior."
+
+"Transparency measures: In teleoperation scenarios, various weight metrics can serve as indicators of teleoperation transparency and demonstration quality[7]. These can help assess the effectiveness of remote robot learning from human demonstrations."
+
+"Empathy scales: Adapted questionnaires have been developed to evaluate the perceived empathy of artificial agents, including robots[13]. These can measure the emotional and social aspects of human-robot communication."
+
+"Task performance metrics: For specific applications, task-related performance measures can be used. For example, in baseball umpiring, fans' evaluations of robot umpires can be assessed based on decision-making authority and embedded expertise[14]."
+
+"Safety metrics: For physical human-robot interaction, metrics like Mean Reflected Mass (MRM) can be used to assess and optimize robot postures for safe communication and collaboration[15]."
+
+"Confidence-weighted learning models: In remote learning scenarios, network-aware confidence weighting strategies can be employed to enhance the quality of demonstrations and subsequent robot learning[7]."
+
+"Gesture-based communication evaluation: Metrics can be developed to assess how well humans and robots communicate through nonverbal cues, particularly gestures used to convey plans or spatial information[8]."
+
+"Linguistic behaviors such as question types, topic of conversation, and sentence form, as well as non-verbal elements such as facial expressions, gestures, and eye-gaze of the conversational partner, are important factors to effectively initiate and maintain conversation through turn-taking between humans."
+
+"Fluency is an important metric in Human-Robot Interaction (HRI) that describes the coordination with which humans and robots collaborate on a task."
+
+"Task Completion Rate: This metric measures the percentage of tasks successfully completed when a human and robot communicate to achieve a goal. A higher completion rate indicates better communication quality [1]."
+
+"Time Efficiency: The time taken to complete a task or exchange information can be an indicator of communication quality. Shorter times generally suggest more efficient communication [2]."
+
+"Error Rate: This metric quantifies the number of misunderstandings or miscommunications during human-robot interaction. A lower error rate implies better communication quality [3]."
+
+"Trust and Confidence: Measures of how much users trust the robot and feel confident in its ability to understand and respond appropriately [7]."
+
+
+
+

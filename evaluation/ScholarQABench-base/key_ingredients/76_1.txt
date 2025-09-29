@@ -1,0 +1,99 @@
+Question
+
+What performance metrics are typically used for evaluating differential privacy systems?
+
+
+
+
+
+Most Important
+
+* The answer should begin with introducing differential privacy systems.
+
+Supporting quotes
+
+"Differential privacy (DP) defines privacy protection by promising quantified indistinguishability between individuals who consent to share their privacy-sensitive information and those who do not. DP aims to deliver this promise by including well-crafted elements of random noise in the published data, and thus there is an inherent tradeoff between the degree of privacy protection and the ability to utilize the protected data."
+
+"Differential privacy allows us to quantify cumulative privacy loss as data are analyzed and re-analyzed, shared, and linked"
+
+"Differential privacy (DP) is a mathematical framework for privacy-preserving data analysis. Evaluating DP systems involves assessing both their privacy guarantees and utility. The following sections outline the key performance metrics used in this evaluation process."
+
+
+
+
+
+* The answer should provide the performance metrics which are typically used for evaluating differential privacy systems.
+
+Supporting quotes
+
+"A compendium of results, colloquially known as the Fundamental Law of Information Recovery,  tells  us  that  overly  accurate  answers  to  too  many  questions  can  destroy  any reasonable  notion  of  privacy."
+
+"To understand the process of choosing in practice, we conducted an empirical study of institutions known to be utilizing some form of differential privacy in 2016."
+
+"Paths of privacy loss. What are the paths of privacy loss?  What are the uses ofthe data during which information regarding one person can affect the experience of, or otherwise be exposed to,  another person?"
+
+"Epsilon per datum. The pathways describe the avenues for privacy leakage, that is, the uses of the data that leak information; the granularity describes the unit of information that is protected."
+
+"Burn  rate. Many  analyses,  such  as  trend/popularity  monitoring,  are  carried  out continually.  Data involved in these analyses may maintain their importance or may be down- weighted as they age."
+
+"Privacy loss allowed before retirement. Are data "retired" after they have reached a certain degree of exposure (e.g., worst-case or expected cumulative privacy loss?)  What is the threshold for retirement?"
+
+"For the Netflix dataset, we train the recommender system on the qualifying set and evaluate it on the test set released for the Netflix Challenge. In the experiments reported in the rest of this section, we focus on the predictive accuracy of the recommendations. Hence, we use the Root Mean Square Error (RMSE) metric to measure the accuracy of the predicted ratings."
+
+"we compare the results of the privacy-preserving MF approach to two other privacy preserving recommendation approaches: private version of the GE baseline and private k-nearest neighbors (kNN) recommendation algorithm."
+
+"we proposed four differentially-private approaches to MF and evaluated three of them: in input perturbation, the data was protected by introducing noise prior to the data analysis, while in two other investigated approaches, differentially private variants of ALS and gradient descent were employed to guarantee privacy."
+
+"we use FLEX to evaluate the impact of differential privacy on 9862 real-world statistical queries in our dataset."
+
+"To compute elastic sensitivity we built an analysis framework for SQL queries based on the Presto parser [9], with additional logic to resolve aliases and a framework to perform abstract interpretation-based dataflow analyses on the query tree."
+
+"To investigate FLEX's support for the wide range of SQL features in real-world queries, we ran FLEX's elastic sensitivity analysis on the queries in our experiment dataset. We recorded the number of errors and classified each error according to its type."
+
+"Specifically, we measure the noise introduced to query results based on whether or not the query uses join and what percentage of the data is accessed by the query."
+
+"For each value of  in the set {0.1, 1, 10} (keeping d fixed at n[?]eln n), we computed the median error of each query, as in the previous experiment."
+
+"Since wPINQ programs are implemented in C#, we are unable to run wPINQ directly on our SQL query dataset. Instead we compare the utility between the two mechanisms for a selected set of representative queries."
+
+"The Count, Sum and Average functions capture many of the calculations utilized in ITS, and can be evaluated accurately with differential privacy, enabling, e.g., Scenario 1. However, Max and Min are also valuable functions (e.g., evaluate the speed of the slowest and fastest vehicles in a road section), but have high global sensitivity. Consequently, applying the Laplace mechanism as in Theorem 2.1 to evaluate these functions would provide useless results"
+
+"Since di|erential privacy maintains composability, it is possible to monitor the overall privacy loss (a worst-case evaluation) and bound it."
+
+"In a nutshell, this mechanism achieves heterogeneous differential privacy by manipulating the sensitivity of the function using a linear transformation on the input domain. Finally, we evaluate on real datasets the impact of the proposed mechanism with respect to a semantic clustering task."
+
+"We have also described a generic mechanism achieving HDP called the Stretching Mechanism, which protects at the same 19 time the items of the profile of user and the privacy vector representing his privacy expectations across items of the profile. We applied this mechanism for the computation of the cosine similarity and evaluate its impact on a distributed semantic clustering task by using the recall as a measure of utility."
+
+"The most fundamental metric in differential privacy is epsilon (e), also known as the privacy budget or privacy loss parameter.- Lower e values indicate stronger privacy guarantees.- Typically, e values between 0.1 and 10 are considered practical for real-world applications [1]."
+
+"In (e, d)-differential privacy:- d represents the probability of violating the e-differential privacy guarantee.- Typically, d should be very small (e.g., d < 1/n, where n is the number of records in the dataset) [2]."
+
+"Privacy loss can be measured using various techniques:- Max divergence- KL divergence- Renyi differential privacy [3]"
+
+"Accuracy measures how close the differentially private results are to the true results:- Mean Absolute Error (MAE)- Mean Squared Error (MSE)- Root Mean Squared Error (RMSE)"
+
+"For specific types of queries:- L1 error: sum of absolute differences between true and noisy answers- L2 error: Euclidean distance between true and noisy answers [4]"
+
+"For classification tasks, the F1 score balances precision and recall:F1 = 2 * (precision * recall) / (precision + recall)"
+
+"**Privacy accounting methods**: Techniques to track cumulative privacy loss over multiple queries or iterations[13]."
+
+"Privacy Leakage: Some evaluations measure privacy leakage, often in the context of specific attacks like membership inference. This can be quantified as the difference between true positive and false positive rates of such attacks  (61, Lu et al., 2022)."
+
+"The utility of a differentially private system refers to the degree to which the modified data remains useful for analysis. Utility metrics are essential to ensure that privacy-preserving transformations do not excessively degrade the data's value."
+
+"**AUC-ROC for Classification Models**: Evaluates the performance of machine learning models trained on differentially private data, particularly useful in binary classification tasks."
+
+
+
+
+
+* The answer should provide the importance of using these performance metrics for evaluating differential privacy systems.
+
+Supporting quotes
+
+"Evaluating differential privacy systems necessitates a comprehensive understanding of multiple performance metrics that collectively inform us about the privacy guarantees, utility, efficiency, scalability, and robustness of the system. By analyzing these metrics, practitioners can better design and implement differential privacy systems that balance security, practicality, and user needs."
+
+
+
+

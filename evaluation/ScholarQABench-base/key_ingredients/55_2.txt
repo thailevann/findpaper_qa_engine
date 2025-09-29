@@ -1,0 +1,9 @@
+Question
+
+What are the leading techniques for person-following robot navigation (which must track the person and potentially re-identify if occluded)?
+
+
+
+
+
+Nice to have

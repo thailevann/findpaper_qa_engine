@@ -1,0 +1,95 @@
+Question
+
+How does multiplexing enhance data transmission efficiency in communication networks?
+
+
+
+
+
+Most Important
+
+* The answer should introduce multiplexing.
+
+Supporting quotes
+
+"A multiplexer is a device that allows digital information from several sources to be routed onto a single line for transmission to a single destination."
+
+"Multiplexing is a fundamental technique employed in communication networks to enhance data transmission efficiency. It allows the transmission of multiple signals over a single communication channel, reducing the need for dedicated lines for each signal. This technique improves the overall utilization of network resources, reduces costs, and increases the capacity and flexibility of communication systems."
+
+
+
+
+
+* The answer should provide reasons about the enhancement of data transmission efficiency in communication network using multiplexing.
+
+Supporting quotes
+
+"MIMO systems employ different kind of techniques such as Space-Time Coding (STC) and Space Division Multiplexing (SDM) to correctly retrieve the data at receiver end."
+
+"the aim of SDM is to enhance the data rate."
+
+"V-BLASTtechnique uses an antenna array with K transmit antennas. In total K information bits are multiplexed in an orthogonal fashion. The special property of the multiplexing technique is that, for each symbol duration, only one out of K antennas is transmitting using BPSK modulation."
+
+"Furthermore, the symbol duration is equivalent to the bit-duration due to the parallelism introduced by the K antennas. The receiver is able to detect the transmitting antenna and by using this information the demultiplexing is carried out. It is demonstrated that the proposed method achieves about the same spectral efficiency as 8PSK, but with a relaxed bit-energy-to-noise ratio of about 2.5 dB. Furthermore, the linear channel capacity gain (error-free transmitted bits) over the single antenna BPSK transmission scheme is found to be in the range of 2.5-3."
+
+"In optical time-division multiplexing (OTDM), a high bit-rate data stream is constructed directly by time-multiplexing several lower bit-rate optical streams. Similarly, at the receiver end of the system, the very high bit-rate optical signal is demultiplexed to several lower bit-rate optical signals before detection and conversion to the electrical domain."
+
+"This system uses the discrete Fourier transform to orthogonally frequency multiplex many narrow subchannels, each signaling at a very low rate, into one high-rate channel. When this technique is used with pilot-based correction, the effects of flat Rayleigh fading can be reduced significantly."
+
+"In addition, with each subchannel signaling at a low rate, this technique can provide added protection against delay spread."
+
+"At present, Orthogonal Frequency Division Multiplexing (OFDM) [6] is a widely adopted solution mainly because of its robustness against multipath channels [7] and easy implementation based on Fast Fourier Transform (FFT) algorithms [8]."
+
+"Bi-orthogonal Frequency Division Multiplexing (BFDM) [16] employs well localized pulse shapes at the transmitter and receiver side that are bi-orthogonal to each other. The good frequency-localization of the transmit pulse makes the system robust against frequency dispersion (Doppler effect) while the good time-localization of the pulse provides robustness against time dispersion (multipath)."
+
+"GFDM is based on the modulation of independent blocks, where each block consist of a number of subcarriers and subsymbols. The subcarriers are filtered with a prototype filter that is circularly shifted in time and frequency domain. This process reduces the OOB emissions, making fragmented spectrum and dynamic spectrum allocation feasible without severe interference in incumbent services or other users. The subcarrier filtering can result in nonorthogonal subcarriers and both inter-symbol interference (ISI) and inter-carrier interference (ICI) might arise."
+
+"Orthogonal frequency division multiplexing (OFDM) is a modulation technique which is now used in most new and emerging broadband wired and wireless communication systems because it is an effective solution to intersymbol interference caused by a dispersive channel."
+
+"Orthogonal frequency-division multiplexing (OFDM) effectively mitigates intersymbol interference (ISI) caused by the delay spread of wireless channels."
+
+"OFDM has high data rate capability with reasonable computational complexity."
+
+"TDM is highly efficient in scenarios where the data sources transmit data at regular intervals. If sources are idle, the allocated time slots can be seen as wasted bandwidth, but TDM can be adapted to minimize this."
+
+"FDM is advantageous for continuous data streams like television broadcasting and radio. It minimizes interference and maximizes the use of available bandwidth. Guard bands are often required to prevent overlap, which can slightly reduce the efficiency."
+
+"WDM enhances the data transmission capacity enormously as it allows the transmission of multiple signals through the same fiber without significant interference."
+
+"CDM is highly efficient for wireless communication systems as it allows multiple users to share the same frequency spectrum with minimal interference."
+
+"Multiplexing allows for more efficient utilization of available bandwidth and physical media. By combining multiple signals into one, it reduces the need for multiple channels, effectively conserving resources."
+
+"By enabling the transmission of multiple signals simultaneously, multiplexing increases the overall data transmission capacity of the network, which is essential for handling large volumes of data and multiple users."
+
+"Multiplexing allows for easy integration of new signals and users into the communication network without requiring significant changes to the existing infrastructure."
+
+"Multiplexing VoIP packets for payload size reduction significantly cuts overhead... The combination of the huge packet header with payload usually causes huge overhead, could be technically reduced by multiplexing the related payloads in one header... A Performance investigation on bandwidth efficiency for multiplexing 10 users in each stream showed that a cumulative level of up to 68% -72% of bandwidth is saved, depicting an improvement in network performance with respect to network traffic, overload and packet congestion."
+
+
+
+
+
+* The answer should provide the types of multiplexing techniques used in communication networks.
+
+Supporting quotes
+
+"Analog multiplexing and digital multiplexing are the major classification."
+
+"Frequency division multiplexing [1,2,3,4] is a networking technique which combines many signals into a single one and then transmitted the combined signal through a common communication channel."
+
+"Fiber-optic communications require a different kind of multiplexer called a wavelength division multiplexer (WAD) [2,4]. It is an analog multiplexing technique. It is designed for high data rate capability fiber cable."
+
+"FDM [1,2,3,4] is based on sharing of the available bandwidth of a communication channel among the signals to be transmitted. It is an analog multiplexing technique that uses a single transmission medium which is divided into several frequency channels."
+
+"In time division multiplexing (TDM) [1,2,3,4], all signals operate with the same frequency at different times, i.e., it is a technique of transmitting several signals over a single communication channel by dividing the time frame into equal slots."
+
+"Code division multiplexing (CDM) [3] is a form of multiplexing in which the transmitter encodes the signal by using a unique chip code which is generated by a pseudorandom sequence generator. It uses spread-spectrum communication, and a narrowband signal is spread over a large band of frequency; it allows multiple signals from multiple users to share a common communication channel."
+
+"Orthogonal frequency division multiplexing (OFDM) [4,5] is a multiplexing technique used in broadband communication system. It is a multicarrier modulation scheme. Now it is used in 4G broadband communication system and next-generation systems. OFDM is popular in broadband wireless systems due to its resistance to multipath fading."
+
+"Digital multiplexer [6,7,8] or data selector is a logic circuit that has several input lines and a single output line. It also consists of data selector switch which is used to select the inputs and permit the data into the device to output."
+
+
+
+

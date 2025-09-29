@@ -1,28 +1,45 @@
-﻿Question
-Have large langauge models been applied to the schema matching problem in databases and are they effective?
-
-
-Most Important
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
-Nice to have
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
+Question
+
+Have large langauge models been applied to the schema matching problem in databases and are they effective?
+
+
+
+
+
+Nice to have
+
+* The answer should briefly define the core problem in schema matching.
+
+Supporting quotes
+
+"Schema matching is the task of finding semantic correspondences between elements (or attributes) of two given database schemas [1-5]. Such a task is essential for enabling data integration and systems interoperability in domains such as e-commerce, geospace, biology, health, etc."
+
+"Schema matching [1] constitutes a core task in data integration [2]. It refers to the problem of identifying semantic correspondences between elements of two relational schemas that represent the same real-world concept. For example, a schema matching system may conclude that an attribute admittime from one table in a medical information system semantically corresponds to an attribute visit_start_date in another table. Once correspondences are identified, they can be used to translate data from the source schema into data conforming to the target schema [2], a process known as schema mapping. In this paper, we focus on schema matching."
+
+
+
+
+
+* The answer should discuss the challenges behind manual schema matching.
+
+Supporting quotes
+
+"The schema matching task is challenging for many reasons. First, schema elements, e.g., attributes representing the same concept, may have different names in different schemas. On the other hand, elements with similar names may refer to distinct concepts. Also, equivalent elements in two schemas may have a different structure. Finally, there may be the case in which many elements from one schema represent a concept represented by a single element in the other schema."
+
+"To generate match candidates, a wide variety of signals that hint at element correspondence have been considered in the research literature. These include syntactic similarity of attribute names; consulting thesauri; looking at data values and their distributions in concrete database instances; and exploiting database constraints [1, 3, 4, 5]. Unfortunately, many such signals remain unavailable in real-world schemas [6]: attribute names are often cryptic and involve domain-specific abbreviations not occurring in thesauri. Use of actual data values and concrete database instances may be restricted for legal reasons; e.g., this is the case in the health domain where real database instances are problematic to obtain due to privacy constraints."
+
+"Traditionally, the schema matching task is performed manually by specialists with extensive knowledge about the schemas and their domain. However, even for a specialist, this task may be time-consuming, costly, and error-prone."
+
+
+
+
+
+* The answer should mention schema matching network as a more complex version of binary schema mapping.
+
+Supporting quotes
+
+"As the problem evolved, schema matching tasks have appeared in settings where more than two data sources (e.g., database, query forms) need to be matched [9,16-20], as if they compose a network of schemas. The task that involves more than two schemas is known as the schema matching network task."
+
+
+
+

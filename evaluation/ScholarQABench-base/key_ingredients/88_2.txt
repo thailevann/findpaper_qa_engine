@@ -1,0 +1,9 @@
+Question
+
+What is the difference between FMRI datasets and MRI datasets in terms of data analysis?
+
+
+
+
+
+Nice to have

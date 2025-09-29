@@ -1,0 +1,19 @@
+Question
+
+How has literature discussed AI as a design material?
+
+
+
+
+
+Nice to have
+
+* The answer should provide the available datasets which can be used for training purposes using AI for material design.
+
+Supporting quotes
+
+"The advent of high-throughput computational materials design leads to the construction of many materials databases,82such as AFLOW,83Materials Project (MP),84MATDAT,85MatWeb,86MatMatch,87MakeItForm,88and MatNavi.89These databases consist of enormous materials properties obtained from experimental measurements and first-principles calculations, including mechanical properties like elastic constants, tensile/flexural/shear/fatigue strengths, fracture toughness, hardness, and so on."
+
+
+
+

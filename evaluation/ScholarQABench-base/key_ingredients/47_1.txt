@@ -1,0 +1,49 @@
+Question
+
+Can you recommend a suitable theoretical lens for qualitative research concerning robotics process automation (RPA) implementations?
+
+
+
+
+
+Most Important
+
+* The answer should highlight the importance of theoretical lens for qualitative research concerning robotics process automation (RPA) implementations
+
+Supporting quotes
+
+" Qualitative data will thus enable a rich understanding of incidents in relation to RPA and subsequently allow for a theoretical understanding of the process."
+
+"Robotic Process Automation (RPA) has gained significant attention in recent years due to its potential to transform business processes by automating repetitive tasks. As RPA implementations continue to grow, it is essential to understand the qualitative impacts of RPA on organizations."
+
+
+
+
+
+* The answer should provide information on the theoretical frameworks used for qualitative research concerning robotics process automation (RPA) implementations
+
+Supporting quotes
+
+"By linking the sensemaking lens with the Normalization Process Theory (NPT), It is found that the sensemaking and sensegiving practices while implementing RPA through the four dimensions (coherence, cognitive participation, collective action, reflexive monitoring) are occurring concurrently."
+
+"It has been recognized that the most frequently used perspectives on technology adoption are the Innovation Diffusion Theory (IDT), the Technology Acceptance Model (TAM), the Theory of Planned behavior (TBP), the Unified Theory of Acceptance and Use of Technology (UTAUT), and the Technology-Organization-Environment (TOE) framework"
+
+"Both TAM and TPB have emerged from the sociological behavior literature and share many similarities (Ajzen, 1991; Davis, 1989). The two models aim to explain why users accept or reject information technology, making behavioral intention its dependent variable. behavioral intention is in turn thought to be closely linked with actual behavior."
+
+"As of now, our CSF framework mainly presents a theory of analysis and description (Gregor, 2006). It describes the phenomenon and identifies constructs (RPA success and corresponding CSF). Descriptive theories are required when limited knowledge about the phenomenon exists."
+
+"As part of the preparation phase, candidate processes have to be identified that can be used for a Proof of Concept (PoC) [15, 65, 80, 86, 100]. Processes consisting of highvolume and repetitive tasks are most suitable forhttps://studenttheses.uu.nl/handle/20.500.12932/34910"Grounded theory is a qualitative research methodology that involves the collection and analysis of data to develop a theory or conceptual framework. This approach is particularly useful for studying RPA implementations as it allows researchers to explore the experiences and perceptions of individuals involved in RPA projects. Strauss and Corbin's (1994) grounded theory approach can be applied to identify patterns and themes in RPA implementations."
+
+"Thematic analysis is a qualitative research method that involves identifying and coding themes in data. This approach can be used to analyze the qualitative impacts of RPA on organizations."
+
+"The first approach uses a modified function-oriented value analysis to examine RPA's potential in specific industry contexts."
+
+"The second theoretical lens proposed for RPA research is the Task-Technology Fit model. Beerepoot et al. build on this model to develop a framework that matches AI capabilities with specific RPA tasks  (7, Beerepoot et al., 2021)."
+
+"Socio-Technical Systems (STS) theory is a well-established framework that considers both the social and technical aspects of organizational systems."
+
+"Rogers' Diffusion of Innovation theory provides a framework for understanding how new technologies spread within organizations and societies."
+
+
+
+

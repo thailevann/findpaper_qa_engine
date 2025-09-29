@@ -1,0 +1,75 @@
+Question
+
+What is the known evidence for pervasiveness of gaming of citation metrics like citation count and h-index?
+
+
+
+
+
+Most Important
+
+* Near the beginning, the answer should briefly define citation metrics and their significance in academic evaluation
+
+Supporting quotes
+
+"This article provides a broad overview of widely available measures of academic productivity and impact using publication data and highlights uses of these metrics for various purposes. Metrics based on publication data include measures such as number of publications, number of citations, the journal impact factor score, and the h-index, as well as emerging metrics based on document-level metrics. Publication metrics can be used for a variety of purposes for tenure and promotion, grant applications and renewal reports, benchmarking, recruiting efforts, and administrative purposes for departmental or university performance reports. The authors also highlight practical applications of measuring and reporting academic productivity and impact to emphasize and promote individual investigators, grant applications, or department output."
+
+
+
+
+
+* The answer should mention evidences of manipulation in citation counts and h-indexusing self-citation
+
+Supporting quotes
+
+"The phenomenon of self-citation can present in many different forms, including direct, co-author, collaborative, and coercive induced self-citation. It can also pertain to the citation of single scientists, groups of scientists, journals, and institutions. This article presents some case studies of extreme self-citation practices. It also discusses the implications of different types of self-citation."
+
+"However, misuse and gaming of metrics are rampant [2, 3]. The urge to "publish or perish" (or even "get cited or perish") creates an environment where gaming of metrics is amply incentivized. A whole generation of old and new tricks try to make CVs and their impact look good and impactful--better and more impactful than they really are. Many of these gaming tricks can reach extravagant levels, as in the case of paper mills, massive self-citations, or citation cartels [4,5,6]."
+
+"It has recently been suggested there may be increasing misrepresentation of research performance by individuals who self-cite inordinately to achieve scores and win rewards. In this paper we consider self-referencing and self-citing, describe the typical shape of self-citation patterns for carefully curated publication sets authored by 3517 Highly Cited Researchers and quantify the variance in the distribution of self-citation rates within and between all 21 Essential Science Indicators' fields."
+
+
+
+
+
+* The answer should mention some evidences of citation cartels
+
+Supporting quotes
+
+"Citation cartels are groups of researchers who excessively cite each other's work to artificially inflate their citation counts and enhance their reputation. The practice of the citation cartel involves journals agreeing to cite each other's publications to boost their own impact factors. The citation cartel has been criticised for distorting the impact factors of participating journals and undermining the integrity of the scientific process. Citation cartels can take many forms, including reciprocal citing, where researchers agree to cite each other's work in exchange for citations. Citation cartels often involve a small group of researchers who are closely connected and who may be deliberately hiding their activities."
+
+"This paper is an attempt to study a well known (probably little studied) phenomenon in academia: citation cartels. This is the tacit or explicit agreement among authors to cite each other more often than they would do in a more "sincere" approach to science. It can be intended as collusion and it can distort scientific progress in affecting a scholar's attention. The phenomenon has been around for decades and it does not seem to spare any discipline. By starting from outlining the characteristics of a "cartel," this study then builds an agent-based model in an attempt to define the extent to which colluding behavior affects progress in a given discipline by operating on citation counts."
+
+
+
+
+
+* The answer should mention some evidences of encouraging citation inflation by pressuring authors to cite articles published in their journal
+
+Supporting quotes
+
+"Among studies that have analyzed INAP, some have focused their attention on specific disciplinary contexts, measuring, for instance, the growth in the average number of authors in a specific discipline or among certain journals (Kapoor et al., 2015; Papatheodorou et al., 2008; Tilak et al., 2015). Whilst these studies have quantified INAP, they have not adequately analyzed the ethical implications of this phenomenon beyond the claim that it represents authorship inflation and could have resulted from increased pressure for publication as well as honorary and guest authorship practices."
+
+
+
+
+
+* The answer should mention some evidences of manipulation by citation stacking
+
+Supporting quotes
+
+"## Manipulation by Citation StackingCitation stacking happens when authors cite other works in a less direct but still manipulative manner to inflate metrics artificially:1. **Bartneck and Kokkelmans (2011)** showed that strategically "stacking" citations to certain works can inflate metrics even when the cited works do not significantly contribute to the citing papers, effectively gaming the system [7].2. **Pan et al. (2018)** performed analyses showing how particular "stacked" citation sources are disproportionately targeted, likely aiming to boost specific authors or journals [8]."
+
+
+
+
+
+* The answer should mention some evidences of honorary authorship
+
+Supporting quotes
+
+"Honorary authorship: Adding authors who contributed little or nothing to a paper can inflate individual citation metrics  (5, Chakraborty et al., 2020)."
+
+
+
+

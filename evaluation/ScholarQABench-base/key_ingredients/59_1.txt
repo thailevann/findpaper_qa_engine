@@ -1,0 +1,89 @@
+Question
+
+How are user demonstrations represented in domain-specific-language programs and used for automation tasks?
+
+
+
+
+
+Most Important
+
+* Near the beginning, the answer should briefly define domain-specific-language programs and discuss their advantages compared to general programming languages.
+
+Supporting quotes
+
+"Domain-specific languages (DSLs) are a proven approach to bring programming closer to application domains. DSLs focus on specific application domains, strive for presenting software in the notations of the domain experts, and allow straightforward mapping of application concepts to software solutions. They have the capability to significantly improve the productivity and quality of software engineering in the focused domain. The ultimate goal of a DSL approach is to empower domain experts and end users by providing languages and tools that enable them to realize and adapt software systems by themselves"
+
+
+
+
+
+* The answer should explain some of the most common ways user demonstrations can be represented using DSL in an abstract and simple manner.
+
+Supporting quotes
+
+"A domain-specific language provides an abstraction mechanism to deal with complexity in a given domain. This is done by providing concepts and rules within a language that represents things in the application domain, rather than concepts of a given programming language. In that, it allows expressing problems of the given domain in a more natural and intuitive way, raises the level of abstraction in the given domain, and brings programming closer to the domain experts."
+
+"DSLs are programming languages that are tailored to a specific problem domain, such as finance, healthcare, or manufacturing. They use terms and concepts that are familiar to the domain experts, rather than generic programming constructs. For example, a DSL for invoice processing might have commands like create_invoice , send_invoice , or record_payment , rather than if , while , or print . DSLs can be either textual or graphical, depending on the preference and skill level of the users."
+
+"TLDR: User demonstrations for automation tasks come in various forms, including natural language instructions, visual interactions, and physical actions. These demonstrations can range from simple input-output examples to complex sequences of actions, allowing both expert and non-expert users to teach machines new skills across diverse domains.1. Natural Language Instructions: Users can provide demonstrations through natural language descriptions, which are then translated into executable code or programs [35, 86]. This approach allows naive users to teach robots a wide variety of novel tasks without requiring programming expertise [35].2. Input-Output Examples: Demonstrations can be presented as pairs of input and expected output, often in a specific syntax that language models can parse and learn from [102, 110]. This method is particularly useful for teaching language models to perform specific tasks or use new tools [101].3. GUI Interactions: Users can demonstrate tasks by interacting with graphical user interfaces (GUIs) of applications. These demonstrations capture mouse-keyboard signals and screenshots, which are then used to synthesize automation scripts [24, 26, 49]. Systems like VASTA use computer vision techniques to label these interactions accurately [46].4. Mobile App Interactions: Some systems, like PUMICE, allow users to define concepts and teach new procedures through demonstrations with mobile apps, enabling end-users to create custom automations [42].5. Web Browser Actions: Demonstrations can involve chains of actions performed on web browsers, with each state representing the entire webpage document object model (DOM) [112]. These demonstrations can be used to generate prompts for language models to learn web-based tasks."
+
+
+
+
+
+* The answer should discuss why DSL is a good choice for task automation.
+
+Supporting quotes
+
+"DSLs can provide a variety of advantages for process automation, such as making the automation logic more readable and understandable through domain-specific terminology and syntax. Furthermore, they can decrease development time and effort by abstracting away low-level details and focusing on high-level goals and requirements. Additionally, DSLs enable domain experts, such as business analysts, accountants, or engineers, to join in on the automation design and validation without requiring any programming knowledge or training. Moreover, they can make it easier to maintain and evolve automation solutions since they can be easily modified and extended to fit changing needs and preferences."
+
+
+
+
+
+* The answer should discuss how user representation can be transformed into executable actions for automation.
+
+Supporting quotes
+
+"4. Using User Demonstrations for Automation TasksOnce captured and represented, user demonstrations can be utilized for various automation tasks:4.1 Code GenerationDemonstrations are often used to generate executable code in the target DSL. This process involves translating the demonstration representation into syntactically correct DSL code.Example (in a hypothetical DSL for web automation):```pythonbrowser.navigate("https://example.com")form = browser.find_element(id="login-form")form.input(name="username").type("user123")form.input(name="password").type("password123")form.submit()```4.2 Macro CreationUser demonstrations can be used to create macros or scripts that automate repetitive tasks. These macros can be executed on demand or scheduled to run automatically.4.3 Program SynthesisMore advanced systems use demonstrations as input for program synthesis algorithms, which attempt to infer general programs from specific examples [1].4.4 Interactive RefinementSome systems allow users to interactively refine the generated code or automation scripts, combining the benefits of demonstration and manual programming."
+
+"One approach to this conversion is the use of large language models (LLMs). Practitioners can now provide prompts with instructions and demonstrations, which LLMs can use to generate desired outputs or executable code  (108, Zhao et al., 2023). This method bridges the gap between natural language descriptions and programmatic representations of tasks."
+
+
+
+
+
+* The answer should mention the name of some DSLs used for automation with their application domain.
+
+Supporting quotes
+
+"Using DSLs for process automation involves writing, executing, and monitoring the code that defines the automation logic and behavior."
+
+"There are numerous examples of DSLs for process automation, both in the academic and industrial contexts, such as Business Process Model and Notation (BPMN), Decision Model and Notation (DMN), Robot Framework, and Ansible. BPMN is a graphical DSL for modeling and executing business processes, like order fulfillment or customer service. DMN is a graphical DSL for modeling and executing business decisions such as pricing or eligibility. Robot Framework is a textual DSL for automating web, desktop, and mobile applications using keywords and data tables. Ansible is a textual DSL for automating the configuration and deployment of servers, applications, and networks using tasks and roles."
+
+"2.7.2 CAST: Automated Software Tests for Embedded Systems Wahler [9] introduces CAST (Computer-Aided Specification and Testing) an approach to tests automation in embedded systems. CAST consists of three parts, a DSL named as TESLA (TEst Specification LAnguage) which allows specifying test cases using familiar syntax, a test execution engine which allows executing tests either automatically or with human interaction and an interface which is a form of connection between engine and embedded systems."
+
+"2.7.3 Habitation: A DSL for Home Automation Home automation uses MDE (Model-Driven Engineering) approach in reactive systems. It offers management of energy, security and communications through interaction with the environment."
+
+"2.7.4 A Domain-Specific Language for Ubiquitous Healthcare Aspect Language for Pervasive Healthcare (ALPH) is a domain-specific language in ubiquitous healthcare domain."
+
+"2.7.5 Domain Specific language for Cellular Interactions CellSys is a DSL embedded in Haskell (GPL) specific to bioinformatics domain, is used to model life cycle of microorganisms like bacteria. The objective of this DSL is to allow biologist to create a model which can describe complex interactions between tissues and organisms with abstraction and accuracy, visualize organism's development by executing these models, help language user to improve understanding of organism's behaviour and structure by suggesting refinements and compare cellular system's models between 29 different organisms or stages of development of an organism."
+
+
+
+
+
+* The answer should discuss the limitations of DSL for user representation and automating tasks such as generalizability, and the difficulty of building and debugging DSLs.
+
+Supporting quotes
+
+"Regardless of the lower final cost of the overall development, a higher starting price of the application development is often pointed out as a disadvantage. Developing application that involves building appropriate DSL is a hard process that requires programmers to be language experts as well. In such International Journal of Computer Applications (0975 - 8887) Volume 115 - No. 2, April 2015 43 cases the creation of DSL requires complete knowledge of domain constraints. Debugging and unit testing is hard to perform when DSL is used in implementation. DSLs can lead to language cacophony. Proper selection of DSLs and adequate usage is crucial."
+
+"Furthermore, every language workbench has some restrictions with respect to the notation (e.g. textual, visual, tabular) resulting in some compromises (gap) between the representation of domain concepts in the DSL and the expectation of the domain expert. If this gap is too large, the acceptance of the DSM tool by end-users is not given any more and the approach as a whole will fail"
+
+"Several challenges arise when using user demonstrations in DSL programs:5.1 GeneralizationDemonstrations often capture specific instances of a task, but automation requires generalization to handle various scenarios.5.2 Error HandlingAutomated scripts need to handle errors and edge cases that may not have been present in the original demonstration.5.3 MaintainabilityAs systems evolve, demonstrations may become outdated and require updates or re-recording.5.4 Privacy and SecurityCapturing user demonstrations may involve sensitive data, requiring careful handling and protection."
+
+
+
+

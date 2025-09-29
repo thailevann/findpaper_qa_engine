@@ -1,0 +1,89 @@
+Question
+
+What are the most important open challenges in Federated Learning?
+
+
+
+
+
+Most Important
+
+* The answer should begin with introducing Federated Learning.
+
+Supporting quotes
+
+"Federated learning involves training statistical models over remote devices or siloed data centers, such as mobile phones or hospitals, while keeping data localized."
+
+"The term Federated Learning was coined as recently as 2016 to describe a machine learning setting where multiple entities collaborate in solving a machine learning problem, under the coordination of a central server or service provider. Each client's raw data is stored locally and not exchanged or transferred; instead, focused updates intended for immediate aggregation are used to achieve the learning objective."
+
+"It utilizes the on-device processing power and untapped private data by performing the model training in a decentralized manner and keeping the data where it is generated."
+
+"There are three kinds of federated learning, i.e., horizontal, vertical, and transfer federated learning. Types of federated learning are based on client-server and peer-peer architecture. Federated learning has potential to serve in various applications such as healthcare, transportation, mobile network, etc."
+
+"Federated Learning (FL) is a decentralized approach to machine learning where multiple clients (e.g., mobile devices, edge nodes) collaboratively train a model under the coordination of a central server, but without sharing their raw data. This approach aims to enhance data privacy and reduce communication costs."
+
+"Federated Learning (FL) is a promising approach to machine learning that allows training models on distributed datasets without centralized data collection."
+
+
+
+
+
+* The answer should provide most important open challenges in Federated Learning.
+
+Supporting quotes
+
+"While the applications are many, there are several challenges associated with federated learning. The challenges can be broadly classified into two: training-related challenges and security challenges."
+
+"Training related challenges encompass the communication overhead during multiple training iterations, heterogeneity of the devices participating in the learning and heterogeneity of data used for training."
+
+"security challenges include the privacy and security threats due to the presence of adversaries ranging from malicious clients in the local device to a malicious user who has only a black-box access to the model."
+
+"In FL, although the private data does not leave the device, it might be still possible for an adversary or a curious observer to learn the presence of a data point used for training in the local models."
+
+"Communication overheads is one of the major bottlenecks in federated learning."
+
+"The heterogeneity of the systems in the network as well as the non-identically distributed data from the devices affect the performance of the FL model."
+
+"Like any machine learning model, Federated Learning models are also prone to attacks. The attacks can be introduced by a compromised central server or compromised local devices in the learning framework or by any participant in the FL workflow."
+
+"Communication is a critical bottleneck in federated networks [5] which, when coupled with privacy concerns over sending raw data, necessitates that data generated on each device remain local. Indeed, federated networks potentially comprise a massive number of devices, e.g., millions of smartphones, and communication in the network can be slower than local computation by many orders of magnitude due to limited resources such as bandwidth, energy, and power."
+
+"Moreover, the number of data points across devices may vary significantly, and there may be an underlying statistical structure present that captures the relationship among devices and their associated distributions [42]. This data-generation paradigm violates frequently used independent and identically distributed (i.i.d.) assumptions in distributed optimization and may add complexity in terms of problem modeling, theoretical analysis, and the empirical evaluation of solutions."
+
+"In federated environments, the low participation of devices, nonidentically distributed local data, and local updating schemes pose novel challenges to these model-compression approaches."
+
+"research on current FL mainly faces three bottlenecks: privacy and security threats, heterogeneity challenges, and huge communication overhead of FL."
+
+"However, even under the protection of the FL security mechanism, there are still various types of attacks that can be against the FL system, thereby destroying the reliability of the FL system and threatening the data privacy of the participants."
+
+"Several core challenges, such as privacy, security, communication cost, system and statistical heterogeneity, architecture, and aggregation algorithm designs, vary by domain and specific use cases."
+
+". In fact, by exposing more data effectively, ML can provide better data pattern differentiation. However, managing the large-scale data to maintain the efficiency and scalability of the ML algorithms has obviously been a challenge."
+
+" In addition, in wireless networks the data is produced by and distributed over billions of devices.1 This necessitates the need for exploring learning solutions that can efficiently handle distributed datasets."
+
+"These challenges are mainly related to the security, privacy, and performance of the current federated algorithm, as well as its important considerations in wireless settings."
+
+"Similar to almost every decentralized algorithm, one of the essential considerations of federated learning is the convergence of the algorithm under limited communication and computation resources."
+
+"Furthermore, considerations such as optimum number of local learners to participate in the global update, grouping of the local learners, and frequency of local updates and global aggregation, which induce trade-off between model performance and resource preservation, are application-dependent and worth investigation."
+
+"How do we enable federated learning for a massive number of heterogeneous devices under strict wireless resource constraints?"
+
+"Although sparsification-enabled federated learning can reduce communication resource consumption, it might not be sufficient alone for a large number of devices and limited communication resources"
+
+"A malicious user can send the wrong local learning model parameters to the aggregation server to slow the federated learning convergence rate. In some cases, the global federated learning model might not converge due to the presence of a malicious user. On the other hand, it is necessary to verify the end-devices' updates before considering them for global aggregation.https://ieeexplore.ieee.org/abstract/document/9460016"Scaling federated learning systems to millions or billions of devices presents challenges in both the orchestration of such systems and the sheer volume of data and model updates involved."
+
+"Ensuring that the federated model performs fairly across all clients and doesn't introduce or amplify biases is a critical challenge, especially given the diverse nature of client data[7]."
+
+"Balancing the need for a global model with the desire for personalized models that cater to individual client needs is an area of active research[3]."
+
+"As FL models become more complex, ensuring their interpretability and explainability becomes increasingly important, especially in sensitive domains like healthcare[12][15]."
+
+"Federated Learning presents numerous open challenges that span communication, privacy, system design, and algorithmic aspects."
+
+"The non-IID nature of data in federated settings poses a substantial challenge to the learning accuracy of FL algorithms  (48, He et al., 2021). It can result in significant skewness across devices or locations, making it difficult to achieve a globally optimal model."
+
+
+
+

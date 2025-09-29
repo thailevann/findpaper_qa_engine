@@ -1,0 +1,79 @@
+Question
+
+In recommendation systems, how are new methods that optimize diversity typically evaluated?
+
+
+
+
+
+Most Important
+
+* The answer should begin with introducing recommendation systems.
+
+Supporting quotes
+
+"Recommender systems (RSs) are effective solutions to help users find what they need in the current information overload. Based on item descriptions and/or available ratings supplied by users, RSs aim at selecting among unseen items those that may be of interest for a specific user. RSs have been proven successful in various fields including e-commerce, movie, music, travel, etc."
+
+"The recommendation system is used to process a large amount of data to recommend new item to users, which are achieved using the many developed algorithms."
+
+"Recommendation systems support users and developers of various computer and software systems to overcome information overload, perform information discovery tasks, and approximate computation, among others."
+
+
+
+
+
+* The answer should provide information on evaluation of new methods that optimizes diversity in recommendation systems.
+
+Supporting quotes
+
+" (1) none of the tested recommender systems, even the most recent ones, provides items with levels of diversity that suit user profiles (R2< 0.2); (2) the classic postprocessing diversification approach may lead to over-diversification compared to users' diversity needs and (3) the diversity adjustment that accounts for user profiles has more benefits (greater R2and smaller accuracy loss)."
+
+"The performance evaluation of these recommendation approaches are typically driven by their ability to predict accurately user- item interactions, i.e. by the accuracy criterion."
+
+"Hence, it seems reasonable to compare and analyze the behaviors of these RSs from both the absolute and the relative diversity perspectives. For a specific user, the absolute diversity refers to the amount of diversity in her/his recommendation list while the relative diversity represents the extent to which the absolute diversity of the recommendations would fit the user's diversity needs."
+
+"Compared with the random search and the grid search methods which are generally time-consuming, BO is an iterative procedure that takes into account the past choices made in order to consider the next set of hyper-parameters to evaluate, thus reducing largely the computation time."
+
+"Precision represents the number of relevant items among the  recommended items for a given user ."
+
+"Recall refers to the proportion of items liked by the user  that are included in her/his recommended list."
+
+"F1-measure is the harmonic mean of precision and recall i.e. 2[?]Precision[?]Recall/ Precision+Recall."
+
+"Mean Average Precision (MAP) represents the mean of the Average Precision (AP) measures over all users. Unlike precision and recall, which do not consider positions of the relevant items, the AP measure is a ranked precision metric that places emphasis on highly ranked relevant items."
+
+" represents the average of the intra-list diversity (ILD) values over all users. We also call this measure the absolute diversity as opposed to the next measure which evaluates the diversity of the recommendation lists in relation to the diversity of the items present in user profiles."
+
+"R2(ILD, ILD), denoted as the relative diversity, is the coefficient of determination of the ILD values (i.e. diversities of items recommended to users by a RS) vs. ILDvalues (i.e. diversities of corresponding users' profile items), throughout the entire user set). This metric measures how well the diversity of recommendations provided by a RS meets its users' expectations in terms of diversity."
+
+"The similarity function (, ) is crucial for measuring the ILD of an item list (i.e. for both absolute and relative diversities). The similarity measurement between two items could be based on the user-item rating matrix. This has the advantage of always being directly feasible."
+
+"To measure the performance of R(*, th), we consider a timeline point of view. Thus, the training dataset D will include all the items assessed by the user up to a given moment t, those that the user liked and those that did not."
+
+"On the other hand, to measure the performance of R with respect to the diversity of the items recommended for all users, we may use the aggregate diversity  AggDiv(R(*, th)) = |  [?]  R(u, th) : u [?] T | ."
+
+"If the items to be tested represent an unbalanced distribution, RMSE and MAE can be used in averaged form, depending on the evaluation (e.g., per-user or peritem). If the RMSE of each item can be calculated separately, then the average of all calculated RMSEs represents the average RMSE of the recommendation system."
+
+"To measure diversity in a recommendation list, an alternative approach is to compute the distance of each item from the rest of the list and average the result to obtain a diversity score. For such an average, however, a random recommender may also produce diverse recommendations. Therefore, this needs to be accompanied by some measure of precision. Plotting precision-diversity curves helps in selecting the algorithm with the dominating curve."
+
+"Having correctness metrics combined with diversity has an added advantage, as correctness metrics do not take into account the entire recommendation list. Instead, they consider the correctness of individual items."
+
+" Q-statistics can be used to find diversity between two recommender algorithms. Q-statistics are based on a modified confusion matrix, confronting two classifiers as correctly classified versus incorrectly classified. As a result, the confusion matrix displays the overlap of those itemsets. Q-statistic measures are then defined to combine the elements in the modified confusion matrix, ultimately arriving at a measure for the diversity of the two recommender algorithms."
+
+"Lathia et al. [40] introduced a measure of diversity for recommendations in two lists of varying lengths. In their approach, given two sets L1and L2, the items of L2that are not in L1are first determined as their set theoretic difference. Then, the diversity between the two lists (at depth N) is defined as the size of their set theoretic difference over N. This way, diversity returns 0 if the two lists are the same, and 1 if the two lists are completely different at depth N."
+
+"Involves A/B testing or sample testing to evaluate the performance of the recommendation algorithm in real-world scenarios. This method provides more accurate results but is resource-intensive."
+
+"Combines offline and online evaluation methods to leverage the strengths of both approaches."
+
+"Coverage measures the proportion of items from the entire catalog that appear in recommendations across all users.Formula: Coverage = |Recommended Items| / |Total Items in Catalog|"
+
+"The Gini coefficient measures the inequality in item popularity distribution within recommendations."
+
+"When evaluating new diversity-optimizing methods, researchers typically compare their performance against:1. Baseline methods (e.g., popularity-based recommendations)2. State-of-the-art diversity-aware algorithms3. The same algorithm without diversity optimization"
+
+"Entropy: Evaluates the uncertainty or randomness in the recommendation distribution."
+
+
+
+

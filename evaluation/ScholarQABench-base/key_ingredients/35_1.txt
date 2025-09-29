@@ -1,0 +1,71 @@
+Question
+
+how do post-quantum cryptography algorithms such as kyber/dilithium compare to corresponding non-quantum-safe methods in terms of performance and energy cost, and how could this be affected by future hardware optimizations?
+
+
+
+
+
+Most Important
+
+* The answer should begin with the advancements in post-quantum cryptography compared to the non-quantum.
+
+Supporting quotes
+
+"Post Quantum cryptography is the field of cryptography where encryption algorithms are developed which are secure from an adversary with quantum computers. All 10 Short form of author list the present-day asymmetric algorithms(RSA, ECC, DH, DSA) are crackable using quantum computers. They are based on the Prime Factoring problem or the Discrete Logarithm Problem which are easy to solve on quantum computers using Shor's Algorithm."
+
+"Post-quantum cryptography algorithms, such as Kyber and Dilithium, are designed to be resistant to quantum attacks, unlike traditional public-key cryptography methods like RSA and ECC. These algorithms are built upon hard problems that are believed to be resistant to quantum cryptanalysis."
+
+
+
+
+
+* The answer should provide information on the performance of post-quantum cryptography compared to the non-quantum.
+
+Supporting quotes
+
+"the packet protection is the primary contributor to the CPU time consumption on both endpoints. As expected, the results with an AES cipher show a lower percentage of samples for packet and header protection than those with a ChaCha20 cipher."
+
+"Comparing the results for MsQuic with NOENC to the results with the NOOP cipher, we can see a further reduction of the collected samples for packet protection. This computational difference is the cost of the NOOP cipher, which still calls OpenSSL then executing memcpy()."
+
+"For the RSA-4096, the TTFB for the client and server rises to an extreme 14 ms, making it the slowest of the tested pre-quantum schemes. It was slower than all the postquantum schemes we looked at, except for SPHINCS+ . The SPHINCS+ variants reach by far the highest TTFB of all evaluated signature schemes, caused by the huge signature sizes."
+
+" Kyber, Dilithium, and FALCON are promising candidates for post-quantum secure QUIC, as they have a low impact on the handshake duration. Algorithms like SPHINCS+ with larger key sizes or more complex calculations significantly impact the handshake duration and cause additional issues in our measurements."
+
+" Our findings indicate that Dilithium offers advantages in low-power scenarios, Falcon excels in signature verification speed, and Sphincs+ provides robust security at the cost of computational efficiency."
+
+"The authors of [20] listed the following advantages of Dilithium: * Significantly higher speed and significantly smaller size compared to hash-based schemes (e.g., the Sphincs+ scheme). * Simple implementation, as Gaussian sampling is not required."
+
+"Kyber and Dilithium have higher computational complexity compared to traditional methods. This is due to the use of lattice-based cryptography, which involves matrix-vector operations and error correction mechanisms. These operations are also computationally intensive, especially for decapsulation, which involves error correction and polynomial arithmetic."
+
+"Key generation in RSA and ECC is relatively fast and efficient, relying on the difficulty of integer factorization and discrete logarithm problems."Post-quantum cryptography (PQC) algorithms generally require more computational resources and memory than traditional methods. However, some PQC algorithms, particularly lattice-based ones, show promising performance that can be comparable or even superior to conventional cryptography in certain aspects."
+
+
+
+
+
+* The answer should provide information on the energy cost of post-quantum cryptography compared to the non-quantum.
+
+Supporting quotes
+
+"Post-quantum algorithms like Kyber and Dilithium generally consume more energy due to the increased computational complexity. However, some studies have shown that optimized hardware implementations can make them equally or more energy-efficient compared to traditional methods."
+
+" Traditional methods like RSA and ECC are generally more energy-efficient due to their simpler arithmetic operations. However, they are vulnerable to quantum attacks, making them less secure in the long run."
+
+"Post-quantum cryptography algorithms generally consume more energy than traditional methods, but the extent varies widely depending on the specific algorithm and implementation. Hardware optimizations and co-design approaches can significantly reduce energy consumption for some PQC algorithms."
+
+"Post-quantum cryptography (PQC) algorithms typically consume more energy than their classical counterparts, which is a critical consideration for resource-constrained devices and energy-efficient systems. The energy consumption of PQC algorithms varies significantly depending on the specific algorithm, implementation, and hardware platform."
+
+
+
+
+
+* The answer should provide information on how could post-quantum cryptography algorithms such as kyber/dilithium compare to corresponding non-quantum-safe methods be affected by future hardware optimizations
+
+Supporting quotes
+
+"1. **Hardware Acceleration**: Implementing post-quantum algorithms on specialized hardware, such as FPGAs, can significantly improve performance and reduce energy consumption. High-Level Synthesis (HLS) can be used to optimize these implementations.2. **Masked Implementations**: Techniques like masking can be used to protect against side-channel attacks, which are crucial for secure implementations of post-quantum algorithms.3. **Optimized Architectures**: Designing flexible and scalable hardware architectures can help in achieving better performance and energy efficiency trade-offs for post-quantum algorithms."
+
+
+
+

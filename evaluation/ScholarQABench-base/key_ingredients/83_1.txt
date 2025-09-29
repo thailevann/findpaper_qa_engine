@@ -1,0 +1,111 @@
+Question
+
+How is artificial intelligence being utilized to enhance the diagnosis and treatment of sleep apnea?
+
+
+
+
+
+Most Important
+
+* The answer should begin with introducing sleep apnea.
+
+Supporting quotes
+
+"Apnea is a sleep disorder that stops or reduces airflow for a short time during sleep. Sleep apnea may last for a few seconds and happen for many while sleeping. This reduction in breathing is associated with loud snoring, which may awaken the person with a feeling of suffocation."
+
+"Obstructive sleep apnea (OSA) is a clinical condition characterized by a cessation of airfow due to upper airway obstruction with simultaneous respiratory efort present."
+
+"Artificial Intelligence (AI) is increasingly being utilized to enhance the diagnosis and treatment of sleep apnea, a common sleep disorder characterized by repeated interruptions in breathing during sleep."
+
+
+
+
+
+* The answer should provide the information on utilizing artificial intelligence to enhance the diagnosis of sleep apnea.
+
+Supporting quotes
+
+"So far, a variety of methods have been introduced by researchers to diagnose sleep apnea, among which the polysomnography (PSG) method is known to be the best. Analysis of PSG signals is very complicated. Many studies have been conducted on the automatic diagnosis of sleep apnea from biological signals using artificial intelligence (AI), including machine learning (ML) and deep learning (DL) methods."
+
+"The preprocessing is an important step for the biological signals used in the CADS based on AI and are divided into two category of low-level and high-level techniques. The lower-level methods in preprocessing the biological signals include steps like noise removal, baseline correction, segmentation, and normalization (Shoeibi et al., 2022). These methods by improving the performance of CADS based on AI play an important part in the diagnosis of sleep apnea."
+
+"In addition, researchers use a number of advanced preprocessing methods to increase the performance, which are called high-level preprocessing. In the CADS based on ML, the high-level preprocessing techniques often include the methods in the domains of frequency or time-frequency."
+
+"The high-level preprocessing techniques in the time-frequency domain are include empirical mode decomposition (EMD) (Rilling et al., 2003), discrete wavelet transform (DWT) (Shensa, 1992), continues wavelet transform (CWT) (Aguiar-Conraria & Soares, 2014), wavelet coefficients thresholding (WCT) (Abramovich & Benjamini, 1996), and bivariate fast and adaptive EMD (FAEMD) (Thirumalaisamy & Ansell, 2018), which are used in sleep apnea detection."
+
+"The feature extraction is the most important section in the CADS based on AI for sleep apnea detection, and these methods are divided into four categories in ML: time-domain, frequency-domain, time-frequency domain, and nonlinear."
+
+"SAMOA, belongs to this category of help tools, being an automatic SAS diagnostic system that incorporates both conventional programming and artificial intelligence techniques."
+
+"In its initial phase, a set of pneumological and electrophysiological signals are analyzed separately in order to identify and extract their principal features. Data segmentation processes are then applied to each signal in order to obtain a sequence of intervals of variable duration. In this way a temporal reference framework based on points is replaced by one based on intervals, with each interval symbolically labeled in accordance with previously established clinical criteria for the domain."
+
+"In the initial phase the most relevant characteristics of the signal are extracted and a segmentation based on significant time intervals of variable length is carried out. The intermediate phase consists of assigning suitable labels to these intervals and combining this symbolic information with contextual information in order to build more complex structures that will identify clinically significant events. Finally, at a level close to knowledge, a rule-based system brings together all the events information available and produces a set of conclusions."
+
+"A phenotyping approach can provide further insight into OSA severity and physiology and is an important step in personalizing medicine. Machine learning (ML) can be applied to identify phenotypes or previous unidentifed patterns and complement the development of alternative metrics to quantify and describe OSA, rather than solely by AHI."
+
+"A study also employed supervised ML (decision tree learner) to develop a predictive algorithm for OSA endotypes from PSG and clinical data [13]. Such knowledge of the endotypes, upper-airway collapsibility, arousal threshold, loop gain and pharyngeal muscle responsiveness is essential to inform treatment avenues."
+
+"CNNs are widely used for sleep apnea detection, analyzing various physiological signals. For instance, 1D-CNNs have been applied to single-lead ECG signals  (30, Gandhi et al., 2023), while LeNet-5 architecture has been used for automatic feature extraction from RR intervals  (72, Lu et al., 2019). MobileNet V1, a lightweight CNN, has also been employed for efficient OSA detection  (218, Hemrajani et al., 2023)."
+
+" RNNs, particularly Long Short-Term Memory (LSTM) networks, are used to capture temporal dependencies in sleep data. A deep RNN framework has been developed for automated feature extraction and apnea event detection from respiratory signals  (91, Penzel et al., 2020)."
+
+"Combinations of different neural network architectures have shown promising results. For example, a dense recurrent convolutional neural network (DRCNN) has been constructed using multiple dense convolutional units followed by a bidirectional LSTM layer  (3, Pourbabaee et al., 2019)."
+
+"Some approaches utilize multiple physiological signals simultaneously. Bernardini et al. proposed a deep learning framework based on CNNs that uses both ECG and oxygen saturation data  (8, Bernardini et al., 2021)."
+
+"Novel approaches like SlAction use infrared videos to detect OSA in daily sleep environments, employing machine learning techniques to analyze human motions during sleep."
+
+
+
+
+
+* The answer should provide the information on utilizing artificial intelligence to enhance the treatment of sleep apnea
+
+Supporting quotes
+
+""Artificial intelligence has the capacity to improve the treatment of OSA through predicting outcomes of treatment options, evaluating the treatment the patient is currently utilizing and increasing understanding of the mechanisms that contribute to OSA disease process and physiology. Implementing AI in guiding treatment decisions allows patients to connect with treatment methods that would be most effective on an individual basis."
+
+"A study utilized ML to compare the compliance with CPAP therapy of patients with OSA at different points of treatment by building classifiers. The trial showed that month 3 was the time-point with the most accurate classifier of 84% in cross-validation and testing. Four variables (headaches, psychological symptoms, arterial hypertension and EuroQol visual analog scale) were reported relevant for prediction of CPAP compliance at each time point. Epworth and average nighttime hours were found the be important in prediction at months 1 and 3."
+
+"Another study analyzing prediction of obstruction sites in OSA patients based on snoring sound parameters found the accuracies ranged from 60.4 to 92.2%. The study additionally concluded that snoring sound analysis does not seem to be a viable diagnostic modality for treatment selection."
+
+"Adenotonsillectomy (AT) is the main treatment approach for pediatric OSA. A study demonstrated how ML can be used to predict surgical candidates for pediatric OSA in order to help avoid unnecessary surgery in children with OSAS. An unsupervised ML technique, the K-means clustering method, was used to stratify patients into two groups depending on physiological and neurophysiological symptoms."
+
+"Tis predictive model suggested individuals at high risk for OSA showed extensive activation of immune cells and pathways and higher expression of these genes which decreased after CPAP treatment. Te information provided by ML in this setting can improve the identifcation of people with high risk of OSA as well as insight into CPAP treatment individual beneft."
+
+"Another study also used ML to identify biomarkers of the presence and severity of OSA, PAI-I, tPA and sE-Selectin, and demonstrated that they reduce with CPAP treatment and therefore may provide a measure of treatment response and guide preventative cardiovascular management for those patients identifed as higher risk."
+
+"ML and analysis of blood-based biomarkers can provide insight into the treatment of OSA and play a role in personalized management. A study highlighted 4 metabolites-signatures that provide an accuracy of 0.98 for OSA detection, and demonstrated a signifcant modulation of plasma metabolites previously altered by OSA following 6 months of CPAP therapy."
+
+"Using ML to increase the understanding of OSA physiology and etiology, particularly the location of upper airway collapse, can subsequently improve treatment selection and outcome. Te ML approach with a model using linear discriminants to analyze audio signal was demonstrated to have fair accuracy in discriminating tongue and non-tongue collapse with overall accuracy of 81% and 64% accuracy for all sites of collapse classes."
+
+"Continuous Positive Airway Pressure (CPAP) is a common treatment for sleep apnea. AI algorithms are being used to analyze data from CPAP machines to optimize pressure settings and improve treatment efficacy [6]."
+
+"AI-powered smart devices and wearables are being designed to monitor sleep patterns, detect apnea events, and provide real-time interventions, such as positional therapy prompts or stimulation to prevent airway collapse [8]."
+
+
+
+
+
+* The answer should provide the list of datasets which can be used to train a model which would provide sleep apnea diagnosis and treatment.
+
+Supporting quotes
+
+" College Dublin sleep apnea database (UCD): The UCD dataset contains 25 PSG signals from adult cases with apnea disorder (Goldberger et al., 2000). The cases were selected in a six-month period from the cases visiting the sleep disorders hospital of St Vincent University for the diagnosis of apnea, OSA, or primary snoring. The number of cases was 25, out of which 21 were male, and four were female. In this dataset, there are various data: ECG, EMG, EOG, EEG, Thermistor, ribcage movements, abdomen movements, finger SpO2, snoring (tracheal microphone), and body position."
+
+"Apnea-ECG database: This dataset includes different signals from 70 cases which is equally divided for training and test (Kemp et al., 2000; Penzel et al., 2000). The signals recording was done in 7-10 h. Each signals recording includes an ECG signal, a set of interpretations of apnea by a human expert (according to the simultaneous recording of respiration and signal), and a set of QRS interpretations. In addition, eight records are accompanied by four extra signals, which include respiration signals from the chest, abdomen, nose airflow, and SpO2."
+
+"Sleep-EDF database expanded: In this dataset, PSG recording has been performed from 198 cases, which includes EOG (horizontal), EEG (Fpz-Cz and Pz-Oz), EMG, and event marker. In addition, some of the recordings also have rectal body temperature and oro-nasal respiration."
+
+" Sleep heart health study PSG database: The Sleep Heart Health Study (SHHS) has been performed by National Heart, Lung, and Blood Institute to investigate the cardiovascular consequences caused by respiration disorders in sleeping (Quan et al., 1997). The performed PSG recording has various signals: EOG, EMG, thoracic and abdominal excursions, nasal-oral airflow, finger-tip pulse oximetry, ECG, heart rate, body position, and ambient light."
+
+"MIT-BIH polysomnographic database: The MIT-BIH dataset is a set of several physiological signals during sleep which is recorded in Boston's Beth Israel Hospital Sleep Laboratory (Ichimaru & Moody, 1999). This dataset includes more than 80 h of 4-channel, 6-channel, and 7-channel PSG recordings, each of which has EEG, ECG, and respiration signals."
+
+" PhysioNet/CinC 2018 challenge: The biological signals of this challenge are collected by Computational Clinical Neurophysiology Laboratory (CCNL), Massachusetts General Hospital (MGH), and the Clinical Data Animation Laboratory (CDAC). This dataset includes 1985 cases that were under surveillance in the MGH sleep laboratory. The sleep steps have been interpreted by the experts in MGH according to AASM instructions. Various physiological signals like ECG, EMG, EOG, EEG, and SpO2 have been recorded from the cases and are placed in this dataset."
+
+"MrOS sleep study: MrOS is a study regarding osteoporotic fractures among males. The sleep study study aims to understand the relationship between sleep disorders and falling, fracture, mortality, and cardiovascular diseases."
+
+
+
+

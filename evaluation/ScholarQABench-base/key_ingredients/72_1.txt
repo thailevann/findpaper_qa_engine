@@ -1,0 +1,57 @@
+Question
+
+The Nyquist-Shannon theorem provides an upper bound for the sampling period when designing a Kalman filter. Leaving apart the computational cost, are there any other reasons, e.g., noise-related issues, to set a lower bound for the sampling period? And, if so, is there an optimal value between these bounds?
+
+
+
+
+
+Most Important
+
+* The answer should begin with providing the reason behind setting the lower bound of sampling period while designing Kalman filter.
+
+Supporting quotes
+
+"A key result in this field is the theorem of Duffin and Schaeffer [15], which states that if the density of the sequence of sample points is strictly larger than the Nyquist density, then stable reconstruction is possible."
+
+"For use of real-time predicted data for control purposes, these data can now be filtered using the Kalman filter for smooth transition from predicted to actual data."
+
+"A prominent advantage of the bound (15) is that it involves quantities that are either known (s2) or computed (Pk). Whereas s is a predetermined tuning parameter, the estimation error covariance Pk, which is computed at every step, decreases rapidly as k - [?] (in the sense that Pk[?] Pk+1> 0)."
+
+"Embedding the Krylov solver method within the CSKF/Kalman filter measurement update stage dramatically reduces the computational overhead, in particular, when the state dimension is prohibitively large."
+
+"It's important to note that while adhering to this theorem prevents information loss due to undersampling, it does not guarantee optimal filter performance. Other factors, such as computational resources and system dynamics, may influence the choice of sampling period within this upper bound. The Nyquist-Shannon theorem provides a crucial starting point for determining an appropriate sampling rate, but practical considerations often lead to sampling at rates higher than this minimum requirement to improve estimation accuracy and robustness."
+
+"While the Nyquist-Shannon theorem sets an upper bound, there are also reasons to consider a lower bound for the sampling period in Kalman filter design. Extremely short sampling periods can lead to computational inefficiencies and potential degradation of filter performance."
+
+"While the Nyquist-Shannon theorem establishes an upper bound for the sampling period, there are important considerations for setting a lower bound as well. One key factor is the relationship between the sampling period and the dynamics of the system being estimated."
+
+"Moreover, the choice of sampling period can significantly impact the filter's ability to handle noise and maintain stability. Karameh et al. demonstrate that in the context of continuous-discrete cubature Kalman filters (CD-CKF), very short sampling intervals relative to the system dynamics can actually lead to a marginal deterioration in performance when estimating hidden dynamics."
+
+"One of the primary reasons to set a lower bound on the sampling period is related to noise:a) Measurement Noise: Higher sampling rates can lead to increased measurement noise. As the time between samples decreases, the signal-to-noise ratio (SNR) may decrease, making it more difficult to distinguish between the true signal and noise [2].b) Quantization Noise: In digital systems, faster sampling can lead to increased quantization noise, especially if the analog-to-digital converter (ADC) resolution is limited [3]."
+
+"While the Nyquist-Shannon theorem provides an upper bound for the sampling period in Kalman filter design, there are indeed several reasons to consider a lower bound as well. Noise-related issues, model mismatch, numerical stability, and sensor limitations all play a role in determining an appropriate minimum sampling period. The optimal sampling rate lies between these bounds and depends on various factors including system dynamics, noise characteristics, and application-specific requirements."
+
+
+
+
+
+* The answer should provide the optimum value between the upper and lower bounds for the sampling period while designing Kalman filter.
+
+Supporting quotes
+
+"The proposed entropy bounds (50) and (52) consist of two (right-hand-side) ingredients. The first one can readily be identified as the information entropy associated with the estimation error covariance of an ML or LS estimator working in ideal settings. It yet accounts for a correction term lmin(C) regulating the signal to noise ratio due to the observation model (17). By saying "ideal settings" we essentially refer to a hypothetical situation in which the support of the sparse parameter vector ai is perfectly known."
+
+"The obtained bounds establish the relation between the complexity of the AR process and the attainable estimation accuracy through the use of a novel measure of complexity."
+
+"In all the following computations the time interval is=0.001 s and the mode truncation order is six. The choice of this sampling interval meets the Nyquist-Shannon sampling theorem where 0.001 is less than half of the period 0.0024."
+
+"These findings suggest that an optimal sampling period likely exists between the upper and lower bounds, balancing the need for accurate state estimation with computational efficiency and the filter's ability to effectively handle system dynamics and noise. The specific optimal value would depend on the particular system characteristics, noise properties, and computational constraints of the application at hand"
+
+"On the other hand, and because the CD-CKF integrates the impact of noise within the continuous dynamics during the time-update (prediction) step, the filter performance deteriorates marginally in estimating the hidden dynamics for sampling intervals that are quite large (dt = 4-8 ms) in relation to the speed of such dynamics (membrane time constant~20 ms)."
+
+"Determining this optimal rate often involves a combination of theoretical analysis, simulation studies, and practical considerations."
+
+
+
+

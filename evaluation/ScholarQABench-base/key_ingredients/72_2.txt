@@ -1,0 +1,21 @@
+Question
+
+The Nyquist-Shannon theorem provides an upper bound for the sampling period when designing a Kalman filter. Leaving apart the computational cost, are there any other reasons, e.g., noise-related issues, to set a lower bound for the sampling period? And, if so, is there an optimal value between these bounds?
+
+
+
+
+
+Nice to have
+
+* The answer should provide the upper bound in Kalman filter designing compared to the Shennon-Nyquist theorem.
+
+Supporting quotes
+
+"The compressed sensing (CS) theory, as another technique for estimating sparse signals [28, 29], is beneficial to deal with possible degeneration of covariance matrices of regression vectors (i.e., insufficient excitation), especially when the regression vectors are high-dimensional but sparse. It guarantees the recovery of high-dimensional signals from fewer observations than the Nyquist/Shannon sampling principle considers necessary."
+
+"Based on the augmented stochastic system, a multirate Kalman Filter (Smyth and Wu (2007)) can be designed, which predicts at the fast rate (Tf) and corrects at a slow rate (Ts), i.e., correction only occur at the instants when ys(k) is available."
+
+
+
+

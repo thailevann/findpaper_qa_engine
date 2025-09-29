@@ -1,0 +1,29 @@
+Question
+
+What are leading methods for generating hard examples of the boolean satisfiability problem, and what are their strengths and weaknesses?
+
+
+
+
+
+Nice to have
+
+* The answer should provide a small text on boolean satisfiability problem solver.
+
+Supporting quotes
+
+"Most practically successful SAT solvers are based on an approach called systematic search."
+
+"The search space is a tree with each vertex representing a variable and the out edges representing the two decision choices for this variable. For a formula with n variables, there are 2nleaves in the tree. Each path from the root to a leaf corresponds to a possible assignment to the n variables. The formula may evaluate to 1 or 0 at a leaf (colored green and red respectively)."
+
+"Systematic search, as the name implies, systematically searches the tree and tries to find a green leaf or prove that none exists."
+
+"Given a CNF formula, the DPLL algorithm first heuristically chooses an unassigned variable and assigns it a value: either 1 or 0. This is called branching or the decision step. The solver then tries to deduce the consequences of the variable assignment using deduction rules."
+
+"Specifically, Popescu et al.[15] focused on a broader scope of constraint-solving problems. Another survey[16] is the closest to ours, where the author reviewed machine learning methods in solving SAT and quantified SAT (QSAT), especially for automated theorem proving."
+
+"Based on its taxonomy, this survey discusses three primary patterns for this combination for SAT solving: 1) Standalone SAT solvers with pure machine learning methods; 2) Replacing some key components of existing conflict-driven clause learning (CDCL) solvers with learning-directed heuristics; 3) Modifying the local search solvers with learning-aided modules."
+
+
+
+

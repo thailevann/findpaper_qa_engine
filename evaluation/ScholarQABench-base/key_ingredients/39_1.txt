@@ -1,0 +1,55 @@
+Question
+
+What are some practically-relevant properties of k-node subgraphs that can be counted in faster than cubic time in the size of the input graph?
+
+
+
+
+
+Most Important
+
+* The answer should begin with expaining the k-node subgraphs.
+
+Supporting quotes
+
+" K-node subgraphs include cliques, cycles, and paths of various sizes. Efficient counting algorithms exist for specific types and sizes of subgraphs, with performance varying based on graph properties and subgraph complexity."
+
+"It's worth noting that as k increases, the computational complexity of counting k-node subgraphs grows rapidly, making the problem intractable for larger values of k in practice  (26, Jain et al., 2016). This has led to the development of approximation algorithms and specialized techniques for specific types of subgraphs or graph properties  (13, Charikar et al., 2010)."
+
+
+
+
+
+* Answer should provide properties of k-node subgraphs that can be counted in faster than cubic time in the size of the input graph.
+
+Supporting quotes
+
+"Given a minimization graph problem P, findkvertices such that the optimum value of P is the highest amongst allk-node subsets. One simple example forREMOTE-P is computing the graph diameter where Pis the shortest path problem and k=2."
+
+"we describe greedy algorithms forREMOTE-P that perform well while computing only a small amount of shortest paths."
+
+"The best known approximation guarantees for this problem were[?](min[?]{,/[?][?]})for both directed and undirected graphs, and[?](ln[?])for undirected graphs with[?]6[?]2, wherenis the number of nodes in the input graph.https://epubs.siam.org/doi/abs/10.1137/S0097539703435753"For the problem defined, we demonstrate a factor 3 approximation algorithm with complexity O(kn) for a graph onnnodes. For the unweighted version of the the problem in a graph onmedges we describe a factor 2 approximation algorithm of greedy type, with complexity O(n+m). For trees and forests we present a polynomial time algorithm applicable to our problem and also to a problem seeking to maximize (minimize) the weight of a subtree onknodes."
+
+"We present approximation algorithms for the k-edge-incident subgraph problem: For general unweighted graphs we introduce a greedy method for finding a maximum cardinality set of nodes W such that the number of edges with at least one endpoint in W is at most k. The cardinality of a set obtained by such greedy algorithm is proved to be at least 1/2 - o( 1) times the size of an optimal solution. For weighted graphs, we provide a 1/3-approximation algorithm of complexity O(kn). Both approximations are based on an idea of relaxing the problem to a Knapsack-like problem."
+
+"We present a 6-approximation algorithm for the minimum-cost-node connected spanning subgraph problem, assuming that the number of nodes is at least3[?]([?]1)+. We apply a combinatorial preprocessing, based on the Frank--Tardos algorithm for-outconnectivity, to transform any input into an instance such that the iterative rounding method gives a 2-approximation guarantee."
+
+"For undirected graphs andk=2, a (deterministic) parallel NC version of the heuristic finds a 2-node connected (or 2-edge connected) spanning subgraph whose size is within a factor of (1.5+) of minimum, where>0is a constant."
+
+"Algorithms exist for finding and counting induced subgraphs of specific sizes. For instance, in intersection graphs of axis-aligned boxes, any k-vertex induced subgraph can be found in O(n0.429k+O(1)) time for constant k  (78, Chan, 2022)."
+
+"The current fastest algorithm [NP85] of counting Ka subgraphs runs in time O(n o a/3 ) on n-vertex graphs, where o denotes the matrix multiplication exponent... counting K 2,2 (i.e., 4-cycle) subgraphs in a graph on n vertices with m edges attracts particular interest: The current fastest counting algorithm runs in time O(n o ) or O(m 1.48 ) [AYZ97]"
+
+"Assuming that the pattern graph P is connected and admits a vertex balancer of size b, we present an algorithm that counts the occurrences of P in G in O ((2 Delta-2)^{(k+b)/2} 2^{-b} n/(Delta) k^2 log n) time... A corollary of our main result is that we can count the number of k-vertex paths in an n-vertex graph in O((2 Delta-2)^{floor[k/2]} n k^2 log n) time"
+
+"Clique counts reveal important properties about the structure of massive graphs, especially social networks... For larger cliques (even, say 6-cliques) the problem quickly becomes intractable because of combinatorial explosion... We present a new randomized algorithm that provably approximates the number of k-cliques, for any constant k."
+
+"A classic result of Chiba and Nishizeki gives an O(n+ma k-2 ) algorithm for exact counting of k-cliques in graphs of arboricity at most a [CN85]."
+
+"Assuming that the pattern graph P is connected and admits a vertex balancer of size b, we present an algorithm that counts the occurrences of P in G in O ((2 Delta-2)^{(k+b)/2} 2^{-b} n/(Delta) k^2 log n) time... A corollary of our main result is that we can count the number of k-vertex paths in an n-vertex graph in O((2 Delta-2)^{floor[k/2]} n k^2 log n) time"
+
+"For directed acyclic graphs (DAGs), a novel tree-like decomposition called DAG-treewidth t(H) has been introduced. If a subgraph H has DAG-treewidth t(H) and the host graph G has degeneracy d, induced copies of H in G can be counted in time f(d,k) * O(n^t(H))  (37, Bressan, 2018)."
+
+
+
+

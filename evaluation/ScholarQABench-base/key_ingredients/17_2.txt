@@ -1,0 +1,21 @@
+Question
+
+What are the best practices to protect a software against vulnerabilities from third party libraries?
+
+
+
+
+
+Nice to have
+
+* The answer could provide some examples of famous third-party libraries that can be used in different programming languages.
+
+Supporting quotes
+
+"In the JavaScript language, the most popular third-party library ecosystem is npm (Node Package Manager). npm, as one of the essential tools in the JavaScript community, allows developers to install, publish, and manage JavaScript packages."
+
+"The third-party library ecosystem in C/C++ is quite diverse, with no clearly dominant ecosystem but many options such as Conan, CMake, etc."
+
+
+
+

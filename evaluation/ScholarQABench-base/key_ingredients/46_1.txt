@@ -1,0 +1,65 @@
+Question
+
+Why do quadruped robots typically use 3 degrees of freedom for each leg?  What would be the disadvantages of 2 dof?
+
+
+
+
+
+Most Important
+
+* The answer should begin with explaining the relation of degree of freedom w.r.t. The complexity of the system.
+
+Supporting quotes
+
+"The large number of actuated degrees of freedom makes them heavier, more complex and expensive than wheeled systems."
+
+"n general, the dynamic model of a robotic system is obtained through the Lagrange Energy methods. However, in a multi-degree of freedom systems, the computational complexity of the Lagrange Equations may require very long formations."
+
+
+
+
+
+* The answer should provide the reasons for typical usage of 3 degrees of freedom for each leg in quadruped robots.
+
+Supporting quotes
+
+"Our quadruped robot, StarlETH's, has four articulated legs with three actuated degrees-of-freedom (DoF) each: hip abduction/adduction (HAA), hip flexion/extension (HFE), and knee flexion/extension (KFE)."
+
+"The leg has got six degrees of freedom (Hip-3 DOF, Knee-1 DOF, Ankle-2 DOF), but implementing all the six DOF is difficult due to increase in cost of the project and controlling of the actuators which become complex, so in this project reduced degrees of freedom are aimed so 3 DOF per leg has been finalized."
+
+"When all four legs are in contact with ground, the net distributed forces begin to match both the desired forces and the desired torques, as there are enough degrees of freedom in the system."
+
+"The main benefits of the framework that we used are that it is highly modular, that it allows the various parameters to be tunned in an an intuitive way, and that it results in locomotion controllers that are robust to pushes and unexpected variations in the terrain."
+
+"The merits of the quadruped configuration are, (1) walking control of a quadruped is easier than that of a biped robot, and (2) when in a posture of sitting, two "hands" are free to move, and allow the display of emotions, or to communicate with a human through hand motions. Thus, because each leg or hand has to be used for various purposes besides walking, we assign three degrees-offreedom (DoF) for each leg/hand."
+
+"Three degrees of freedom (DOF) in quadruped robot legs offer enhanced maneuverability and versatility. This configuration allows for more complex movements, better terrain adaptation, and improved overall performance compared to simpler designs."
+
+"Quadruped robots typically use 3 DOF for each leg due to the significant advantages this configuration provides in terms of mobility and functionality."
+
+"The 3 DOF configuration allows quadruped robots to achieve superior performance by enabling more complex and precise movements. With this setup, robots can produce straight-line foot trajectories relative to their body, which is crucial for efficient locomotion  (3, Khudher et al., 2016). Additionally, the 3 DOF design typically incorporates hip abduction/adduction, hip flexion/extension, and knee flexion/extension, providing a wide range of motion that closely mimics the leg structure of many animals"
+
+"One of the key benefits of 3 DOF legs is the ability to generate 3D forces at the robot's toes in most configurations, offering a good balance between capability, weight, and power density (10, Rozen-Levy et al., 2023). This increased maneuverability allows quadruped robots to adapt to various terrains and perform complex tasks that would be challenging or impossible with fewer DOF."
+
+"3 DOF enables more complex and efficient gait patterns, mimicking natural quadrupedal locomotion more closely"
+
+
+
+
+
+* The answer should provide the disadvantages of quadruped robots having 2 degrees of freedom for each leg.
+
+Supporting quotes
+
+"Two degrees of freedom (DOF) in quadruped robot legs significantly limit mobility and control capabilities. This configuration restricts the robot's ability to navigate complex terrains and perform advanced maneuvers, making it less versatile compared to 3 DOF designs."
+
+"The primary limitation of 2 DOF legs is their restricted range of motion. With only two degrees of freedom, typically one for lifting and one for swinging, these robots lack the additional maneuvering capabilities provided by a third DOF  (6, Manoonpong et al., 2020)."
+
+"One of the most significant drawbacks of 2 DOF legs is the inability to control body angles and lateral motion. As noted by Youm et al., "Since our quadruped robot has only 2-d.o.f. for each leg, the body angle and lateral motion are not controllable"  (1, Youm et al., 2008). This limitation severely restricts the robot's ability to maintain balance and navigate uneven terrain, making it less adaptable to diverse environments."
+
+"Furthermore, 2 DOF legs result in reduced walking speed, higher driving torque requirements, and a larger footprint compared to their 3 DOF counterparts"
+
+
+
+

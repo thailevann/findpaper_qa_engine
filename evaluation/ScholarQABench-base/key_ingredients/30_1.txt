@@ -1,0 +1,67 @@
+Question
+
+how can RRT-based path planning be adapted to efficiently handle narrow pathways
+
+
+
+
+
+Most Important
+
+* The answer should begin by introducing RRT-based path planning.
+
+Supporting quotes
+
+"Random Tree Star (RRT*) is a renowned sampling based planning approach. It has gained immense popularity due to its support for high dimensional complex problems. A significant body of research has addressed the problem of optimal path planning for mobile robots using RRT* based approaches.https://www.uhb.edu.sa/Lists/Books%20and%20Articals/Attachments/1131/BookFile-%20Paper_14-Optimal_Path_Planning_using_RRT_based_Approaches.pdf"Rapidly exploring Random Tree Star (RRT*) has gained popularity due to its support for complex and high-dimensional problems. Its numerous applications in path planning have made it an active area of research."
+
+
+
+
+
+* The answer should provide information on adapting RRT-based path planning to efficiently handle narrow pathways.
+
+Supporting quotes
+
+"RRT*-AB performs informed exploration in search space of known environment. It generates highly converged tree populated with useful nodes, as a result reducing memory requirements. First, connectivity region and goal-biased bounded sampling make fast convergence towards optimal solution. These two features enhance the valuable samples in the vicinity of goal region very quickly, as a result leading to attain optimal or near-optimal path efficiently in less time. Further, path is optimized at fast rate using concentrated sampling, node rejection technique and path pruning. Concentrated sampling selects nodes only in limited vicinity of found path, and node rejection technique rejects inadequate nodes to insert in tree."
+
+"a learning-based Multi-RRTs approach called LM-RRT is presented to improve the efficiency of single query path planning with narrow passages. In the preprocessing step, global landmarks in narrow passages are identified by the improved Bridge Test algorithm. After generating multiple trees from the sampled roadmaps, the on-line et-greedy strategy is proposed to learn the probability for tree selection. The proposed LM-RRT algorithm can both utilize the local exploration ability of a single tree and improve the efficiency of global path planning in environments with narrow passages."
+
+"For a given task, the proposed CNN model can predict the probability distribution of the optimal path on the map, which is used to guide the sampling process. The time cost and memory usage of the planned path are selected as the metric to demonstrate the effectiveness and efficiency of the NRRT*."
+
+"we are extending our memory efficient RRT*FN algorithm to dynamic scenarios. Specifically, we retain the useful parts of the tree (the data structure storing the motion plan information) after a dynamic obstacle invalidates the solution path. We then employ two greedy heuristics to repair the solution instead of running the whole motion planning process from scratch. We call this new algorithm, RRT*FN-Dynamic (RRT*FND)."
+
+" The proposed improved the RRT algorithm introduces regression mechanism to fill local minima quickly and to prevent over-searching configuration space. Besides, it adopts an adaptive expansion mechanism to continuously improve reachable spatial information by refine the boundary nodes in joint space, avoiding repeatedly searching for extended nodes. Furthermore, it avoids the unnecessary iteration of the robotic manipulator forward kinematics solution and time-consuming collision detection in Cartesian space."
+
+"The CERRT algorithm builds upon the RRT approach and incorporates two key components: a pre-allocated extension node method and a vertex death mechanism. These enhancements aim to improve vertex utilization and overcome the problem of becoming trapped in concave regions, a limitation of traditional algorithms. Additionally, the CERRT algorithm integrates environment awareness at collision points, enabling rapid identification and navigation through narrow passages using local simple sampling techniques."
+
+"Several techniques focus on guiding RRT expansion more efficiently. Yung et al. introduced spatial skeleton extraction to calculate the skeleton of free space, combined with a greedy algorithm to increase RRT expansion and reduce unnecessary bends, resulting in faster search processes and shorter path lengths  (102, Yung et al., 2022). Zhao et al. proposed GMMM-RRTs, which use Gaussian Mixture Models learned from experiential paths to bias sampling, efficiently exploiting local space while maintaining global planning efficiency  (53, Zhao et al., 2018)."
+
+"Hybrid and multi-stage approaches have emerged as effective solutions for adapting RRT-based path planning to efficiently handle narrow pathways. These methods typically combine the strengths of different algorithms or employ multiple stages to address the challenges posed by constrained environments."
+
+
+
+
+
+* The answer should provide the challenges involved in using RRT-based path planning.
+
+Supporting quotes
+
+"Although it ensures probabilistic completeness and asymptotic optimality, its slow convergence rate and large dense sampling space are proven problems."
+
+"Rapidly random-exploring tree (RRT) and its variants are very popular due to their ability to quickly and efficiently explore the state space. However, they suffer sensitivity to the initial solution and slow convergence to the optimal solution, which means that they consume a lot of memory and time to find the optimal path."
+
+"However, when confronted with narrow passages, RRT algorithms face significant challenges. The primary issue is that they can easily become limited to local solutions, struggling to find paths through tight spaces  (8, Huang et al., 2022). This limitation is particularly problematic for applications like microrobot navigation, where the ability to traverse narrow passages is crucial. The random sampling approach that makes RRT effective in open spaces can become a hindrance in tightly constrained environments, potentially missing optimal or even feasible paths through these critical areas [LLM MEMORY | 2024]."
+
+
+
+
+
+* The answer should briefly provide advantages of the RRT-based path planning.
+
+Supporting quotes
+
+"The Rapidly-exploring Random Tree (RRT) algorithm is a powerful tool for path planning, particularly in high-dimensional and constrained spaces  (12, Kirillova et al., 2007). Its strengths lie in its ability to quickly explore entire environments, generate sub-optimal paths, and handle complex constraints without modeling the entire space  (100, Tian et al., 2022)  (8, Huang et al., 2022). RRT-based methods are computationally efficient for offline path generation and offer probabilistic completeness  (68, Cheng et al., 2020)."
+
+
+
+

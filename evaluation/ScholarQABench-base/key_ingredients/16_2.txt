@@ -1,0 +1,29 @@
+Question
+
+What insights can be obtained about developer behavior from their GitHub commits and pull requests?
+
+
+
+
+
+Nice to have
+
+* The answer could mention some of the tools that can be used to do this data analysis.
+
+Supporting quotes
+
+"This analysis can be done using various tools and techniques, including the OpenSearch User Behavior Insights plugin and GitHub Actions like Pull Request Analytics."
+
+
+
+
+
+* The answer could discuss that user profiles might differ across different repositories and different online sources should be considered to have an accurate measurement.
+
+Supporting quotes
+
+"However, it is of great challenge to accurately profile the expertise of developers over the Internet as their activities often disperse across different online communities. In this regard, the existing works either merely concern a single community, or simply sum up the expertise in individual communities. The former suffers from low accuracy due to incomplete data, while the latter impractically assumes that developer expertise is completely independent and irrelavant across communities."
+
+
+
+

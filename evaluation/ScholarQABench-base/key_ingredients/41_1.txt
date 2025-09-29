@@ -1,0 +1,47 @@
+Question
+
+How have theories of distributed cognition informed the design of features in social computing systems?
+
+
+
+
+
+Most Important
+
+* The answer should begin with introducing distributed cognition.
+
+Supporting quotes
+
+"DCog focuses on the socio-technical system, which usually (but not necessarily) includes individuals. DCog uses the same theoretical language for both people and artifacts. This common language has led others to critique the theory for assuming people are equated with artifacts in some way that denies their humanity."
+
+". As a cognitive theory, DCog is focused on the organization and operation of cognitive systems; that is, with the mechanisms that make up cognitive processes, which result in cognitive accomplishments. It recognizes that "a process is not cognitive simply because it happens in a brain, nor is a process non-cognitive simply because it happens in the interactions among many brains" (Hollan et al., in press)."
+
+"The theory of distributed cognition, like any cognitive theory, seeks to understand the organization of cognitive systems. Unlike traditional theories, however, it extends the reach of what is considered cognitive beyond the individual to encompass interactions between people and with resources and materials in the environment."
+
+"Theories of distributed cognition have significantly influenced the design of features in social computing systems. Distributed cognition is a theoretical approach that emphasizes the interactions among people, artifacts, and both internal and external representations."
+
+"Distributed cognition is a framework for studying cognition that emphasizes the coordination between individuals, artifacts, and the environment. It involves the embodiment of information, the coordination of enaction among embodied agents, and ecological contributions to a cognitive ecosystem."
+
+
+
+
+
+* The answer should provide theories of distributed cognition informed the design of features in social computing systems
+
+Supporting quotes
+
+"The DBO (Desires, Beliefs and Opportunities) theory of action proposed by analytical sociologists aims to provide an action-theoretical basis for building explanatory theories in sociology. Peter Hedstrom claims that the DBO theory is realistic because it does not make assumptions that are known to be false or seriously incompatible with the current scientific understanding about the nature of human action and cognition."
+
+"However, when computers are integrated into the flow of classroom action, a qualitac.re transformation occurs regarding the ways teachers teach and students learn. Cognition ic technology-enhanced classrooms is distributed throughout the system, which includes teachers, students, tools, and various artifacts. In this context, the potential of computers is best exploited "when used in conjunction with the students' intellectual resources, social resources, symbolic resources:. and otier pbysical resoLrces as they function together within a social, constructivist, learning environment" (Steketee, 2006, p. 3).https://www.tandfonline.com/doi/pdf/10.1080/15391523.2008.10782508"Narciss and Koerndle (this issue) examine the enactment of technologyenhanced social-constructive learning scenarios (TecSocCon-LS) in a seventhgrade classroom for foreign language learning. The authors seek to understand the value and limitations of distributed cognition as a heuristic framework for evaluating the viability ofTecSocCon-LS as a means for designing and creating technology-rich classrooms."
+
+"Distributed cognition has also been used to study problem-solving and Bayesian reasoning. Research has shown that the use of external manipulable materials can improve performance and reduce cognitive bias."
+
+" The theory of distributed cognition has been proposed as a new foundation for human-computer interaction research. It emphasizes the need to understand interactions among people and technologies in complex networked environments."
+
+"Distributed cognition has emerged as a significant theoretical foundation in Human-Computer Interaction (HCI), offering a novel perspective on how humans interact with technology and each other."
+
+"The theory posits that cognitive processes are distributed across individuals, artifacts, and environments, rather than being confined to individual minds. Hutchins et al. position distributed cognition as an alternative to information processing psychology, providing a more comprehensive foundation for HCI  (8, Hutchins et al., 2003)."
+
+
+
+

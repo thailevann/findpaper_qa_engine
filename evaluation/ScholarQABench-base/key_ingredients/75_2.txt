@@ -1,28 +1,19 @@
-﻿Question
-How has the citation graph been used to improve neural language models for scientific papers?
-
-
-Most Important
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
-Nice to have
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
+Question
+
+How has the citation graph been used to improve neural language models for scientific papers?
+
+
+
+
+
+Nice to have
+
+* The answer should mention some challenges of integrating citation graphs with neural models for scientific papers.
+
+Supporting quotes
+
+"## 5. Challenges and Future Directions### ScalabilityIntegrating large-scale citation graphs with neural models demands considerable computational resources.### Quality of Citation DataThe utility of citation-aware models is contingent on the quality and comprehensiveness of the underlying citation data.### InterpretabilityIdentifying the specific ways in which citation contexts enhance model outputs remains a challenge, necessitating advanced interpretability techniques.### Future Research AreasOngoing research is focusing on dynamic citation networks, real-time updates to models with new citation data, and even richer contextual embeddings incorporating multimedia content and authorship networks."
+
+
+
+

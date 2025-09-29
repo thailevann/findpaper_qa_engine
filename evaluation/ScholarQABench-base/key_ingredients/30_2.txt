@@ -1,0 +1,19 @@
+Question
+
+how can RRT-based path planning be adapted to efficiently handle narrow pathways
+
+
+
+
+
+Nice to have
+
+* The answer should provide tradeoff between designing algorithms for narrow pathways and wide pathways in path planning.
+
+Supporting quotes
+
+"In half structured road scenarios, the planning area may be vast, which requires the planning strategy to be efficient and flexible enough to obtain feasible paths from the vast area. By generating flexible paths, path planning strategies with small planning steps may handle narrow gap collision avoidance scenarios; however, it is difficult for them to handle wide area scenarios. There should be a balance between planning efficiency and planning flexibility."
+
+
+
+

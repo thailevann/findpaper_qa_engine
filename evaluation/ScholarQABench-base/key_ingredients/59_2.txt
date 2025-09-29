@@ -1,0 +1,21 @@
+Question
+
+How are user demonstrations represented in domain-specific-language programs and used for automation tasks?
+
+
+
+
+
+Nice to have
+
+* The answer should compare the expressiveness of text-based DSLs with graphical DSLs.
+
+Supporting quotes
+
+"There are many advantages of text-based modelling over graphical modelling for the user of DSL: e.g. it takes more space for graphical models to represent some information which is time consuming, writing and printing text is easy while for graphical models the size of graph can exceed the size of paper. During development process sometimes things can be described more efficiently by using text instead of drawing models like conditions and actions. Formatting text is easier and results of automatic algorithms are of good quality. Writing, reading, modifying text does not need any specific platform and can be done almost in every text editor. No additional tools or plug-ins are required."
+
+"Text-based models also have some disadvantages like graphics are more intuitive to give first orientation which is slightly compensated by text-based models by giving outline of code in the form of list or tree. Simulation and animation is more easy using graphics [11]."
+
+
+
+

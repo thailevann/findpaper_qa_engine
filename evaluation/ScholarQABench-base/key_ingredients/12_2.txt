@@ -1,28 +1,21 @@
-﻿Question
-What are good practices for detecting AI-generated texts in situations where false positives are extremely expensive?
-
-
-Most Important
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
-Nice to have
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
+Question
+
+What are good practices for detecting AI-generated texts in situations where false positives are extremely expensive?
+
+
+
+
+
+Nice to have
+
+* The answer could mention some of the most famous AI detection tools.
+
+Supporting quotes
+
+"These can also be used to check for quality or plagiarism issues and to spot-check if you're likely getting human writing (not AI drafts) from employees,freelancers, andagency partners. Some of the most popular AI detectors includeOriginality AI,Content at Scale, andCopyleaks."
+
+"The research covers 12 publicly available tools and two commercial systems (Turnitin and PlagiarismCheck)"
+
+
+
+

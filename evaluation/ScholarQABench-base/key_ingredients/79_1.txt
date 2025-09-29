@@ -1,0 +1,99 @@
+Question
+
+What are the leading approaches for anomoly detection in process mining?
+
+
+
+
+
+Most Important
+
+* Near the beginning, the answer should briefly define process mining.
+
+Supporting quotes
+
+"Process mining is a set of techniques that analyze event logs to extract knowledge about business processes, aiming to improve productivity and reduce costs  (10, Moreira, 2015)  (66, Zhong et al., 2022). "
+
+
+
+
+
+* The answer should highlight the importance of anomaly detection in process mining.
+
+Supporting quotes
+
+"As real processes (e.g. logistics, loan application, payment) become more and moredynamic and complex, it is crucial to be able to analyze these processes in real time and to react adequately to deviations and inconsistencies. The real-time reaction to inconsistencies within the processes highlights new potentials, such as more efficient process design, which goes hand in hand with reducing and preventing losses."https://www.researchgate.net/publication/349279735_Variational_Autoencoder_for_Anomaly_Detection_in_Event_Data_in_Online_Process_Minin"
+
+"While a business process is most often executed following a normal path, anomalies may sometimes arise and can be captured in event logs. Event log anomalies stem, for instance, from system malfunctioning or unexpected behavior of human resources involved in a process. To identify and possibly fix these, anomaly detection has emerged recently as a key discipline in process mining."
+
+"Anomaly detection in process mining focuses on identifying deviations from expected business processes. This can help organizations in diagnosing issues, improving processes, and ensuring compliance."
+
+
+
+
+
+* The answer should briefly introduce some of the statistical methods used for anomaly detection in process mining.
+
+Supporting quotes
+
+"2.1 Statistical-based ApproachesStatistical-based approaches use statistical methods to identify anomalies by comparing process instances or events to expected patterns or distributions.a) Control-flow Based:- These methods focus on detecting anomalies in the sequence of activities.- Example: Bezerra et al. proposed a method that uses frequency-based metrics to identify infrequent traces as potential anomalies [2].b) Performance-based:- These approaches detect anomalies related to process performance, such as unusual durations or waiting times.- Example: Swinnen et al. developed a method that uses statistical process control techniques to identify abnormal process durations [3]."
+
+
+
+
+
+* The answer should mention that deep learning methods, in general, perform better than statistical methods for anomaly detection because feature selection is done automatically.
+
+Supporting quotes
+
+"Hence, existing approaches often exploit traditional process discovery techniques, defining anomalies as traces that deviate from the behavior captured by the discovered process models, e.g., (Bezerra and Wainer 2011; Myers et al. 2018). Other methods have relied on statistical or machine learning (ML) techniques (Rullo et al. 2020; Nolle et al. 2019), exploiting the concept of distance among traces, or reconstructive techniques."
+
+"In addition to the disadvantages of statistical techniques, the required specialized process knowledge and the extraction of suitable features from the examined data also poses a relevant challenge. The development of new models in the areas of deep learning and time series analysis make it possible to reduce precisely this need. With the help of special deep learning methods a specific selection of data features is possible. This includes methods such as convolutional neural networks, recurrent neural networks, generative adversarial networks and variational autoencoder. Especially in the context of anomaly detection in event streams, the superiority of deep learning techniques compared to statistical techniques is shown (Gamboa, 2017) (Ahn et al., 2019) (OMeara et al., 2018)."
+
+"Approaches that address the filtering of event data in an online setting are very limited (van Zelst et al., 2018). These mostly use statistical methods that make a priori assumptions about the underlying relationship of the variables used (Ahn et al., 2020). This leads to the difficulty that underlying probability distributions and variable relationships have to be adjusted for each use case. Furthermore, statistical models are often not suitable for processing high-dimensional data (Ahn et al., 2020)"
+
+
+
+
+
+* The answer should briefly mention that the type of ML model used for anomaly detection can be supervised, semi-supervised, or unsupervised. It should also argue that, due to the difficulty of identifying and labeling abnormal behavior, unsupervised methods are generally preferred.
+
+Supporting quotes
+
+"The type of learning algorithm adopted can be supervised, semi-supervised, or unsupervised."
+
+"In the supervised learning, it is assumed that a large number of labeled observations is available. Anomaly detection is then reduced to a classification problem. Since it is generally hard to obtain labeled data in real-life settings, this type of approach is scarce in the literature."
+
+"Anomaly detection is generally an unsupervised problem that handles unlabeled data (Koschmider et al. 2021)."
+
+
+
+
+
+* The answer should mention deep autoencoders as one of the leading deep learning methods for time-series anomaly detection in process mining.
+
+Supporting quotes
+
+"**Deep Autoencoders**: One of the most promising techniques is the use of deep autoencoders for anomaly detection in process mining. The PMiner framework, proposed in 2024, utilizes a deep autoencoder to automatically detect anomalies in business processes[4]. This approach has shown superior performance compared to state-of-the-art methods when tested on the BPI Challenge dataset.**Variational Autoencoders (VAEs)**: VAEs have been applied for anomaly detection in event data within online process mining environments[2]. This unsupervised approach uses mass-volume and excess-mass scores as metrics for identifying anomalies. The VAE method has been compared favorably to established algorithms such as one-class support vector machines, isolation forests, and local outlier factors."
+
+"Neural network-basedmethods use techniques such as autoencoders (Nguyen et al.2019; Nolle et al.2018; Vijayakamal and Vasumathi2020) to create models that can learn the underlying hidden distribution of process data, or sequential predictive models, such as recurrent neural networks (Nolle et al.2019), where the prediction of the next activity to be executed in a process instance is used for anomaly detection. Anomalous cases are then the ones with higher reconstruction error. While neural network-based methods can provide high performance when properly designed and trained using a sufficient amount of data, they often require large amounts of computational power and memory during training."
+
+
+
+
+
+* The answer should discuss challenges of anomaly detection in process mining such as noisy data, the need for online anomaly detection, and multi-layered structure of data.
+
+Supporting quotes
+
+"Existing analysis methods typically assume that the input event data is completely free of incorrect data and infrequent behavior, which does not usually correspond to reality (van der Aalst et al., 2004) (Leemans et al., 2013) (Hassani et al., 2015). Incorrect data in event streams can lead to incorrect results during further processing."
+
+"Discovering anomalies in an event log is challenging due to the multi-layered structure of event logs, where the observation unit is an event recorded for each activity execution, while the unit of analysis is often a process case, represented by a sequence of events. This characteristic of event logs has led traditional data cleaning techniques on standard tabular and time-series datasets to perform poorly on event logs (Ko and Comuzzi 2021)."
+
+"Approaches that have been conducted in this area using filtering techniques to eliminate erroneous events from event data show an improvement in the quality of process mining techniques which leads to an optimization of the analysis of the processes (Ghionna et al., 2008) (Wang et al., 2015) (Conforti et al., 2017)."
+
+"The majority of these approaches on event data based anomaly detection addresses batch processing, i.e. the processing of historical data. In order to take full advantage of the possibilities offered by anomaly detection methods, it is necessary to transfer these methods to an online setting. This enables the use of anomaly detection methods and subsequent process mining techniques in operational support and allows processes to be influenced in real-time due to deviations in process flow."
+
+
+
+

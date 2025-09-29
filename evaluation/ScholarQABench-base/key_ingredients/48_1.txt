@@ -1,0 +1,95 @@
+Question
+
+What considerations are important for material selection in fabricating industrial robotic grippers?  What are the advantages and disadvantages of soft vs rigid gripper materials?
+
+
+
+
+
+Most Important
+
+* The answer should begin with providing the importance of grippers in industrial robots.
+
+Supporting quotes
+
+"Because of the wide variety of objects manipulated in industrial processes, many different grippers, based on different principles, have been developed. Gripper choice or gripper design is often considered the last problem to be solved when a process is automatized. In this way the choice is often a compromise solution, or only the most common grippers are adopted to satisfy the task."
+
+"To increase the flexibility of grippers, many technological avenues are possible from offering more evolved mechatronic architectures with complex kinematics as well as sensing apparatus and control to, more simply, increasing the strokes of the grippers."
+
+"In the design of flexible and adaptive soft-robotic gripping systems, materials with a small Young's modulus are used in order to be risk-free in interaction with humans."
+
+"When fabricating industrial robotic grippers, the selection of materials is crucial to ensure the gripper's performance, durability, and compatibility with the workpiece."
+
+
+
+
+
+* The answer should provide information on material selection  in fabricating industrial robotic grippers.
+
+Supporting quotes
+
+"The object to be manipulated is a steel cube of edge length of 51mm. On the faces there are very small drilled holes, whose area covers more than 50% of the total surface available. The weight of the object is 330g. The selected grippers for the required operations are the ones belonging to the following categories: x friction two fingers; x friction jaw; x magnetic.https://www.sciencedirect.com/science/article/pii/S2212827114006945" newer materials are being used to improve functionality of grippers, which include piezoelectric, shape memory alloys, smart fluids, carbon fiber, soft fabrics, micro electro mechanical systems, and synthetic sheets and many more. Industrial robots are commonly used in a large number of applications because they present superior performance in terms of accuracy, precision, rigidity, and most importantly speed."
+
+"We showed that soft, modular and adaptive grippers by utilizing different gripping components and materials can increase both performance and flexibility; however, as we argued the challenges in these improvements, introducing softness into the robotic gripper design requires set of design and control principles compared to hard grippers, and smart materials are not capable of providing strong gripping force.https://www.researchgate.net/profile/Nilesh-Sabnis/publication/328065054_A_Review_State_of_The_Art_of_Robotic_Grippers/links/5bb5c81545851574f7f806a4/A-Review-State-of-The-Art-of-Robotic-Grippers.pdf"Another promising material-jamming approach is a granulate-filled pillow stiffened by negative pressure [14]. The stiff surface of the pillow gripper adapts the topology of the handled object. Hence, the object is kept through form closure and the operating vacuum."
+
+"The Fin Ray(r) gripper was selected due to the rigid body joints, which produce an uniform distribution of material strain through the material-bond structure. In conventional grippers with traditional articulated joints the load transmission takes place via line forces (sliding, roller and needle bearings) or via point forces through ball bearings, which lead to unnecessary additional weight on the gripper."
+
+"the material should be suitable for easy processing, have a low weight, a high toughness and a high ductility as well as a high load capacity. Especially silicones and elastomers are commonly used for the production of soft-robotic grippers but are only suitable for lower payloads due to their low Young's modulus."
+
+"The material for the use in heavy-duty softrobotic grippers has to have soft-properties and should offer the possibility of absorbing larger forces without damage through the surface structure of the gripper jaw. At the same time the material has to have sufficient flexibility to adjust the gripper surface to the topology of the handled object."
+
+"Depending on its chemical composition and morphological structure, Polyurethanes (PU) combines the essential properties of thermoplastics, elastomers, and duromers and accomplish all soft-property criteria."
+
+" Polyurethanes are assigned to the polymer class (103 Pa < Young's modulus > 107 Pa) and are among the most commonly used soft-robotic materials."
+
+"Due to the increased Young's modulus of PU compared to silicones, they are well suited as material for the production of heavy-duty soft-robotic grippers. The increased Young's modulus of PU offers the possibility to absorb larger forces with the gripping jaws and at the same time enough flexibility to adapt to the handled object."
+
+"Grippers have then been ranked through a Multiple Attribute Decision Making (MADM) method, in order to identify the best gripping tools for the handling of non-rigid materials."
+
+"Hybrid approaches in robotic gripper design aim to combine the benefits of both soft and rigid materials, addressing the limitations of each while capitalizing on their strengths. This synergy allows for grippers that can adapt to various object shapes while maintaining the ability to handle heavier loads and perform precise manipulations."
+
+"The material must withstand the mechanical stresses involved in gripping and manipulating objects without breaking or deforming."
+
+"- Fatigue resistance is also essential for applications involving repetitive motions."
+
+"- Lightweight materials are preferred to reduce the overall weight of the robotic arm, thereby improving energy efficiency and reducing wear and tear on joints and actuators."
+
+"- The material must provide adequate friction to securely hold different objects without slipping.- Surface texture and coatings can also influence grip effectiveness."
+
+" Materials should be resistant to chemicals if used in environments involving corrosive substances or solvents."
+
+"The gripper must maintain functionality within the temperature range of its operating environment, including extremes."
+
+
+
+
+
+* The answer should provide a comparison of soft vs rigid gripper materials.
+
+Supporting quotes
+
+"Soft grippers have experienced a growing interest due to their considerable flexibility that allows them to grasp a variety of objects, in contrast to hard grippers, which are designed for a specific item. One of their most remarkable characteristics is the ability to manipulate soft objects without damaging them. This, together with their wide range of applications and the use of novels materials and technologies, renders them a very robust device."
+
+"Traditional hard robotic grippers consist of a set of mostly rigid joints and links [3] that have to precisely adapt to the object to not damage it. Consequently, their use is limited to a specific item type. If a variety of objects needed to be manipulated, it will be very difficult, if not impossible, to grasp them with the same rigid gripper."
+
+"It is also worth mentioning the fabric-based soft grippers; these pneumatic actuators present some advantages over others due to their high flexibility, stiffness customizability, and high force-to-weight ratio."
+
+"the soft grippers based on soft pneumatic actuators (SPAs), which offer better compliance, and a higher degree of freedom than the rigid robot, have been actively developed, Due to the inherent compliance of soft materials, complicated controls and additional structures are not needed with soft grippers, as the proper selection of materials of various stiffness allows for simple control. Furthermore, soft grippers with SPAs are constructed from low-cost and readily-available elastomers."
+
+"SPAs with a variety of forms and operating pressures, including granular jamming, and fiber-reinforced SPAs have been suggested; however, their practical application as a robotic gripper has been limited by a small fingertip force and slow actuation speed."
+
+"Soft grippers may require more complex control systems and higher power inputs compared to rigid grippers."
+
+"Rigid grippers are made from strong, durable materials, making them suitable for heavy-duty applications."
+
+"Rigid grippers provide high precision and repeatability, making them suitable for tasks requiring high accuracy."
+
+"Rigid grippers often have simpler control systems and lower power requirements compared to soft grippers."
+
+"- **Limited Flexibility and Adaptability**: Rigid grippers are less adaptable to different workpiece sizes and shapes, making them less suitable for handling delicate or irregularly shaped workpieces.- **Potential for Injury or Damage**: Rigid grippers can cause injury to humans or damage to the environment if not designed or controlled properly.- **Higher Cost and Complexity**: Rigid grippers can be more expensive and complex to design and manufacture compared to soft grippers."
+
+"Soft grippers can allow the gripping of parts with variation in surface geometry, but often focus on gripping alone and may not be able to bring the assembly forces required"
+
+
+
+

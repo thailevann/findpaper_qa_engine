@@ -1,64 +1,69 @@
-﻿Question
-What interfaces have researchers developed to help people perform behavioral evaluation of ML models, and how do they accelerate annotation efforts?
-
-
-Most Important
-* Near the beginning, the answer should briefly define behavioral evaluation of ML models and its importance.
-Supporting quotes
-“Machine learning models with high accuracy on test data can still produce systematic failures, such as harmful biases and safety is- sues, when deployed in the real world. To detect and mitigate such failures, practitioners run behavioral evaluation of their models, checking model outputs for specific types of inputs. Behavioral evaluation is important but challenging, requiring that practitioners discover real-world patterns and validate systematic failures.”
-dl.acm.org/doi/pdf/10.1145/3544548.3581268
-“Behavioral evaluation of machine learning (ML) models involves assessing how models perform across various scenarios and inputs. Researchers have developed several interfaces to facilitate this process, making it easier for both experts and non-experts to evaluate ML models' behavior.”
-* The answer should mention specific examples of interfaces designed for behavioral evaluation of ML models
-Supporting quotes
-
-
-“To identify specific challenges for ML evaluation, we conducted formative interviews with 18 ML practitioners. From the interview results we derived four main design goals for an evaluation system, including supporting comparison over time and no-code analysis. We used these goals to design and implement zeno, a general purpose framework for defining and tracking diverse model behaviors across different ML tasks, models, and data types. zeno combines a Python decorator API for defining core building blocks with an interactive UI for creating slices and reports.”
-dl.acm.org/doi/pdf/10.1145/3544548.3581268
-
-
-“This paper presents EvalLM, a novel interactive system that sup- ports prompt designers in refining LLM prompts by evaluating generated outputs on user-defined criteria. In the interface, the user composes pairs of prompts and a set of evaluation criteria, and then employs LLMs to both generate outputs with the prompts and evaluate the outputs on the criteria. Through the explanations provided by the LLM on its evaluation, the user can iteratively refine their prompts, by identifying where they lack, and their criteria, by identifying where they are unclear.”
-dl.acm.org/doi/pdf/10.1145/3613904.3642216
-“In this paper we propose the design of a graphical tool for fast evaluation of Machine Learning (ML) models performance in classification tasks. The motivation behind this work is to get some intuition on what machine learning model we can use to get the best possible outcome out of our datasets. The designed GUI allows us to decide whether applying data standardization and applying different data dimensionality reduction algorithms based on Principal Component Analysis (PCA). Also, we can choose between 6 generative and discriminative supervised ML classifiers for making the final predictions, including: Logistic Regression, Support Vector Machines, Random Forest, K-nearest Neighbors, Gaussian Naive Bayes and Neural Network (Multilayer Perceptron)”
-IEEE Xplore Full-Text PDF:
-
-“### **1. Active Learning Interfaces**
-Active learning is a method where the ML model actively selects the most informative data points for annotation. This reduces the volume of data needed for training while speeding up the learning process. By focusing on the most representative samples, active learning minimizes the effort required for data annotation and enhances the efficiency of the model training process. For example, in the context of 6G networks, active learning frameworks can optimize both data acquisition and annotation, leading to improved computational efficiency and adaptability in network intelligence[1].”
-
-“### **2. Specialized Annotation Software**
-**WSI2ML** is an example of a specialized annotation software designed for computational pathology. This web-based platform provides a comprehensive toolset for each stage of the ML workflow, from annotation to model validation. By offering a user-friendly interface, WSI2ML simplifies the complex task of annotating whole slide images, which is particularly useful in clinical pathology research. The platform's integrated tools help streamline the annotation process, making it more efficient and accessible to multidisciplinary teams[2].”
-
-“### **3. Collaborative Annotation Tools**
-The **Collaborative Semantic Annotation Tooling (CoAT)** is designed to improve the efficiency and interoperability of semantic annotations, particularly in the secondary use of medical data. CoAT facilitates a collaborative approach to annotation, allowing users to leverage prior annotations made by others. This not only speeds up the annotation process but also helps in achieving a consensus on ambiguous annotations. By enabling cross-institutional data usage and fostering a shared understanding of semantic annotations, CoAT enhances the overall quality and efficiency of the annotation process[3].”
-
-“Interactive features and visual feedback
-TLDR: Interactive features and visual feedback in ML evaluation interfaces enhance user engagement and understanding. These tools often incorporate explainable AI techniques, real-time model updates, and intuitive visualizations to streamline the annotation process and provide insights into model behavior.”
-
-“#### 1. Interactive Visualization Tools
-Interactive visualization tools provide visual representations of model predictions, facilitating a better understanding of model behavior. These tools often come with features to highlight errors, compare performance across different models, and visualize decision boundaries.”
-
-“#### 2. Model Debugging Frameworks
-Model debugging frameworks offer functionalities to test and debug ML models interactively. These frameworks provide interfaces to inspect, modify, and evaluate models on the fly, often supporting various types of inputs and modifications.”
-
-“#### 3. Comparative Analysis Platforms
-These platforms allow users to perform side-by-side comparisons of multiple models or different versions of the same model. Such comparison aids in understanding how changes in model architecture or data affect performance.”
-
-* The answer should explain how these interfaces accelerate annotation efforts by utilizing machine learning, active learning, user-friendly platforms, and collaborative methods.
-Supporting quotes
-“Model generation and testing: A HAR (i.e., ML or DL) model is developed to classify human activities based on the selected features in this phase. The model may be trained using a labeled dataset or unsupervised learning techniques. After the model has been generated, the following steps are carried out before the model is ready to be used: – Model evaluation: The developed model is then evaluated using a test dataset to assess its accuracy and performance. This phase helps to identify any issues or areas for improvement in the model. – Deployment: Finally, the developed model is deployed to a real-world environment, where it is used to classify human activities.”
-arxiv.org/pdf/2307.05988
-“When generating HAR model, a set of sensor data is recorded first. This data is then labeled with the activities under consideration. This step is called annotation. Next, a machine-learning model is trained, which can then be used to classify unlabeled data. In the following, we describe the individual steps [ 18, 25] that are involved in creating a HAR system in more detail.”
-arxiv.org/pdf/2307.05988
-“Prompt engineering is anticipated to become an important role within annotation as it can be used to direct segmentation and reﬁne derived data. It creates an intuitive yet opaque interface for working [158–160]. Prompt engineering to summon agents and elicit outputs is probably the closest phenomena in our mundane world to fantasy ﬁctional depictions of magic. It creates a powerful, intuitive, yet still somewhat obfuscated interface for working with machines. There is as much art as engineering in the development of effective prompts.”
-Augmented behavioral annotation tools, with application to multimodal datasets and models: a systematic review
-“The LOST (Label Objects and Save Time) open-source implementation permits the combination of multiple annotation tools and machine learning algorithms into an ensemble process, which can be strung together in a modular manner, visualized through a web-based user interface which supports the use of Python scripts to control processes. An annotation pipeline (annotation process) can be composed of six different building block types, namely data sources, scripts, annotation tasks, loops, data exports and visualizations, with each element separately parameterized”
-Machine Learning Driven Developments in Behavioral Annotation: A Recent Historical Review | International Journal of Social Robotics (springer.com)
-“we proposed four Bayesian models for obtaining consensus in continuous valued crowd labeling tasks by taking annotator behaviors into account. We also introduced a novel metric for measuring annotator quality. We acquired annotation data on a dataset with known ground truth for evaluating the performance of the proposed models. In addition, we adapted our methods to work with binary labeled data and reported their performance.”
-Modeling annotator behaviors for crowd labeling - ScienceDirect
-“- **Active Learning**: By selecting the most informative data points, active learning reduces the number of samples that need to be annotated, thus saving time and resources.
-- **User-Friendly Platforms**: Tools like WSI2ML provide intuitive interfaces that simplify the annotation process, making it accessible even to those without extensive technical expertise.
-- **Collaborative Approaches**: Tools like CoAT promote collaboration and reuse of existing annotations, reducing redundancy and speeding up the annotation process by building on the work of others.”
-“Machine learning integration to accelerate annotation
-TLDR: Machine learning techniques are increasingly integrated into annotation tools to accelerate the process and reduce human effort. These approaches include active learning, semi-automated labeling, and visual feedback systems that allow users to verify and correct machine-generated annotations efficiently.”
-
-
-Nice to have
+Question
+
+What interfaces have researchers developed to help people perform behavioral evaluation of ML models, and how do they accelerate annotation efforts?
+
+
+
+
+
+Most Important
+
+* Near the beginning, the answer should briefly define behavioral evaluation of ML models and its importance.
+
+Supporting quotes
+
+"Machine learning models with high accuracy on test data can still produce systematic failures, such as harmful biases and safety is- sues, when deployed in the real world. To detect and mitigate such failures, practitioners run behavioral evaluation of their models, checking model outputs for specific types of inputs. Behavioral evaluation is important but challenging, requiring that practitioners discover real-world patterns and validate systematic failures."
+
+"Behavioral evaluation of machine learning (ML) models involves assessing how models perform across various scenarios and inputs. Researchers have developed several interfaces to facilitate this process, making it easier for both experts and non-experts to evaluate ML models' behavior."
+
+
+
+
+
+* The answer should mention specific examples of interfaces designed for behavioral evaluation of ML models
+
+Supporting quotes
+
+"To identify specific challenges for ML evaluation, we conducted formative interviews with 18 ML practitioners. From the interview results we derived four main design goals for an evaluation system, including supporting comparison over time and no-code analysis. We used these goals to design and implement zeno, a general purpose framework for defining and tracking diverse model behaviors across different ML tasks, models, and data types. zeno combines a Python decorator API for defining core building blocks with an interactive UI for creating slices and reports."dl.acm.org/doi/pdf/10.1145/3544548.358126"
+
+"This paper presents EvalLM, a novel interactive system that sup- ports prompt designers in refining LLM prompts by evaluating generated outputs on user-defined criteria. In the interface, the user composes pairs of prompts and a set of evaluation criteria, and then employs LLMs to both generate outputs with the prompts and evaluate the outputs on the criteria. Through the explanations provided by the LLM on its evaluation, the user can iteratively refine their prompts, by identifying where they lack, and their criteria, by identifying where they are unclear."dl.acm.org/doi/pdf/10.1145/3613904.3642216"In this paper we propose the design of a graphical tool for fast evaluation of Machine Learning (ML) models performance in classification tasks. The motivation behind this work is to get some intuition on what machine learning model we can use to get the best possible outcome out of our datasets. The designed GUI allows us to decide whether applying data standardization and applying different data dimensionality reduction algorithms based on Principal Component Analysis (PCA). Also, we can choose between 6 generative and discriminative supervised ML classifiers for making the final predictions, including: Logistic Regression, Support Vector Machines, Random Forest, K-nearest Neighbors, Gaussian Naive Bayes and Neural Network (Multilayer Perceptron)"IEEE Xplore Full-Text PDF"
+
+"### **1. Active Learning Interfaces**Active learning is a method where the ML model actively selects the most informative data points for annotation. This reduces the volume of data needed for training while speeding up the learning process. By focusing on the most representative samples, active learning minimizes the effort required for data annotation and enhances the efficiency of the model training process. For example, in the context of 6G networks, active learning frameworks can optimize both data acquisition and annotation, leading to improved computational efficiency and adaptability in network intelligence[1]."
+
+"### **2. Specialized Annotation Software****WSI2ML** is an example of a specialized annotation software designed for computational pathology. This web-based platform provides a comprehensive toolset for each stage of the ML workflow, from annotation to model validation. By offering a user-friendly interface, WSI2ML simplifies the complex task of annotating whole slide images, which is particularly useful in clinical pathology research. The platform's integrated tools help streamline the annotation process, making it more efficient and accessible to multidisciplinary teams[2]."
+
+"### **3. Collaborative Annotation Tools**The **Collaborative Semantic Annotation Tooling (CoAT)** is designed to improve the efficiency and interoperability of semantic annotations, particularly in the secondary use of medical data. CoAT facilitates a collaborative approach to annotation, allowing users to leverage prior annotations made by others. This not only speeds up the annotation process but also helps in achieving a consensus on ambiguous annotations. By enabling cross-institutional data usage and fostering a shared understanding of semantic annotations, CoAT enhances the overall quality and efficiency of the annotation process[3]."
+
+"Interactive features and visual feedbackTLDR: Interactive features and visual feedback in ML evaluation interfaces enhance user engagement and understanding. These tools often incorporate explainable AI techniques, real-time model updates, and intuitive visualizations to streamline the annotation process and provide insights into model behavior."
+
+"#### 1. Interactive Visualization ToolsInteractive visualization tools provide visual representations of model predictions, facilitating a better understanding of model behavior. These tools often come with features to highlight errors, compare performance across different models, and visualize decision boundaries."
+
+"#### 2. Model Debugging FrameworksModel debugging frameworks offer functionalities to test and debug ML models interactively. These frameworks provide interfaces to inspect, modify, and evaluate models on the fly, often supporting various types of inputs and modifications."
+
+"#### 3. Comparative Analysis PlatformsThese platforms allow users to perform side-by-side comparisons of multiple models or different versions of the same model. Such comparison aids in understanding how changes in model architecture or data affect performance."
+
+
+
+
+
+* The answer should explain how these interfaces accelerate annotation efforts by utilizing machine learning, active learning, user-friendly platforms, and collaborative methods.
+
+Supporting quotes
+
+"Model generation and testing: A HAR (i.e., ML or DL) model is developed to classify human activities based on the selected features in this phase. The model may be trained using a labeled dataset or unsupervised learning techniques. After the model has been generated, the following steps are carried out before the model is ready to be used: - Model evaluation: The developed model is then evaluated using a test dataset to assess its accuracy and performance. This phase helps to identify any issues or areas for improvement in the model. - Deployment: Finally, the developed model is deployed to a real-world environment, where it is used to classify human activities."
+
+"When generating HAR model, a set of sensor data is recorded first. This data is then labeled with the activities under consideration. This step is called annotation. Next, a machine-learning model is trained, which can then be used to classify unlabeled data. In the following, we describe the individual steps [ 18, 25] that are involved in creating a HAR system in more detail."
+
+"Prompt engineering is anticipated to become an important role within annotation as it can be used to direct segmentation and refine derived data. It creates an intuitive yet opaque interface for working [158-160]. Prompt engineering to summon agents and elicit outputs is probably the closest phenomena in our mundane world to fantasy fictional depictions of magic. It creates a powerful, intuitive, yet still somewhat obfuscated interface for working with machines. There is as much art as engineering in the development of effective prompts."
+
+"The LOST (Label Objects and Save Time) open-source implementation permits the combination of multiple annotation tools and machine learning algorithms into an ensemble process, which can be strung together in a modular manner, visualized through a web-based user interface which supports the use of Python scripts to control processes. An annotation pipeline (annotation process) can be composed of six different building block types, namely data sources, scripts, annotation tasks, loops, data exports and visualizations, with each element separately parameterized"
+
+"we proposed four Bayesian models for obtaining consensus in continuous valued crowd labeling tasks by taking annotator behaviors into account. We also introduced a novel metric for measuring annotator quality. We acquired annotation data on a dataset with known ground truth for evaluating the performance of the proposed models. In addition, we adapted our methods to work with binary labeled data and reported their performance."
+
+"- **Active Learning**: By selecting the most informative data points, active learning reduces the number of samples that need to be annotated, thus saving time and resources.- **User-Friendly Platforms**: Tools like WSI2ML provide intuitive interfaces that simplify the annotation process, making it accessible even to those without extensive technical expertise.- **Collaborative Approaches**: Tools like CoAT promote collaboration and reuse of existing annotations, reducing redundancy and speeding up the annotation process by building on the work of others."
+
+"Machine learning integration to accelerate annotationTLDR: Machine learning techniques are increasingly integrated into annotation tools to accelerate the process and reduce human effort. These approaches include active learning, semi-automated labeling, and visual feedback systems that allow users to verify and correct machine-generated annotations efficiently."
+
+
+
+

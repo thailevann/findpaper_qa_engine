@@ -1,0 +1,63 @@
+Question
+
+What are the key differences between participatory design and co-design?
+
+
+
+
+
+Most Important
+
+* The answer should provide information about the origin of participatory and co-design.
+
+Supporting quotes
+
+"Participatory design was first defined in Scandinavian literature "as a model for involving users and designers on the technology itself in a process of technological development" (Asaro, 2000, p. 257)."
+
+"co-designrefers to "the creativity of designers and people not trained in design working together in the design development process" (Sanders & Stappers, 2008, p. 6)."
+
+"The tradition of Scandinavian PD that developed in the 1970s shared concerns and values with labour unions in emancipating workers at the workplace (Bannon and Ehn 2012, 39). Co-Design is also intertwined with a political project of questioning and reconfiguring power relations and notions of expertise (Lenskjold, Olander, and Halse 2015)."
+
+
+
+
+
+* The answer should provide key deifference between
+
+Supporting quotes
+
+"Participatory design implicitly and explicitly intends to create artifacts while transforming people collectively by taking into account other's perspectives (Konings et al., 2014)."
+
+"Co-design is collaborative by mixing together designers, users, novices, experts, citizens, or customers with the assumption that anybody is an expert regarding their own experience and mobilizes their practical and experiential knowledge as well as their conceptual knowledge."
+
+"A few years ago, the Institution decided to transform its activities by introducing what they called "co-design." The main objectives were to develop collaborative learning to accelerate the use of digital tools in both face-to-face and distance learning and to modernize their range of services, including developing a blended learning offer."
+
+"In participatory design, users participating in the design make the tests."
+
+"The co-design session was organized to produce and test prototypes."
+
+". To function as a collaborative tool, the framework is created into a corresponding tangible form as a series of canvases, constructed for co-design participants to work on together."
+
+"PD is a practice of User-Centered Design (UCD), where multiple stakeholders contribute to the design process as active co-designers."
+
+"The aim of PD is for designers to incorporate the realities of the stakeholders' situation into the design process, while for stakeholders the aim is to be able to articulate their needs and goals, and to find appropriate technological means to achieve them."
+
+"PD has the advantages of examining users' needs, challenging assumptions, encouraging reciprocal learning, and creating new ideas [36, 67]. By treating stakeholders as designers rather than consumers, the design team can boost its ability to frame and solve problems, and create value"
+
+"Participatory Design is concerned with the needs, wants, and desires of users, both as individuals and as a whole. However, it is not concerned as such with building technologies that users like or are pleasing. On the contrary, sometimes part of what Participatory Design does is to help users understand possibilities and alternatives, and what it takes to get there."
+
+"Participatory Design embraces ways of working with people who are in some form or another going to be the end-users of the technology. But it does not stop there. Participatory Design works with various ways in which people can represent their peers, qua skills, particular insights, elected representation, etc."
+
+"Participatory Design: Typically focuses on involving end-users and stakeholders in the design of systems, products, or services that directly affect their work or lives. It often has a strong emphasis on power dynamics and democratization of the design process [4].- Co-Design: Has a broader scope and can involve a wider range of stakeholders, including designers, researchers, developers, and end-users. It focuses on collaborative creativity throughout the entire design process [5]."
+
+"Participatory Design: Users are often involved as equal partners in the design process, with a strong emphasis on their expertise and knowledge of their own needs [1].- Co-Design: While users are involved, their role may vary from consultants to co-creators, depending on the specific project and approach [6]."
+
+" Participatory Design: Often employs ethnographic methods, workshops, and prototyping sessions to gather insights and involve users in decision-making [2].- Co-Design: Utilizes a wider range of creative methods, including design games, scenarios, and generative tools to facilitate collaborative ideation and concept development [3]."
+
+"Participatory Design: Explicitly addresses power imbalances and aims to empower users in the design process [4].- Co-Design: While it values user input, it may not always have the same explicit focus on power dynamics as participatory design [5]."
+
+"- Participatory Design: Often aims for consensus-based solutions that meet the needs of all stakeholders [1].- Co-Design: May prioritize innovative and creative outcomes, even if they don't always achieve full consensus among all participants [6]."
+
+
+
+

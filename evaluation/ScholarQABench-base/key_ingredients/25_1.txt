@@ -1,0 +1,95 @@
+Question
+
+Compare the various algorithms for compressing trees in terms of computation complexity.
+
+
+
+
+
+Most Important
+
+* Near the beginning, the answer should briefly outline the unique challenges involved in compressing trees.
+
+Supporting quotes
+
+"These trees are frequently very large, prompting a need for compression for on-disk storage."
+
+"Most of the data compression algorithms regard the input as a sequence of binary numbers and represent the compressed data also as a binary sequence. However, in many areas such as programming language (e.g. LISP and C)and compiler design, it is more desirable to have a compression algorithm which compresses a data structure which is not a binary sequence and which keeps similar data structure in compressed form as the original data. In this paper, we study the problem of compressing tree and graphs into a similar but smaller form so that many properties of the original data structure are kept in the compressed form. Undirected and directed graph are widely used in representing data structures in programming languages"
+
+
+
+
+
+* The answer should specify that tree compression usually focuses on keeping the original runtime of operations on trees while reducing their size. So, the performance is usually measured in terms of the size of the compressed tree and the time complexity of tree operations. In addition to that, the construction time can also be important for some applications.
+
+Supporting quotes
+
+"Tree compression can be seen as a trade-off problem between time and space in which we can choose different strategies depending on whether we prefer better compression results or more efficient operations in the compressed structure. Of special interest is the case where space can be saved while preserving the functionality of the operations; this is called data optimization."
+
+"In the tree optimization problem, a term adopted from the work of Jacobson [4], the task is to maintain the functionality of a tree in the compressed form. That is, we want to perform some tree operations as efficiently as done in the uncompressed case (where an operation is a simple matter of pointer manipulation). We are mainly concerned with applications where the trees are manipulated in the internal memory of a computer. So, the mappings are to bit strings or memory words only."
+
+
+
+
+
+* The answer should discuss that tree compression involves two steps, compression of the structure and compression of the data. While the latter can be done using conventional data compression methods, compressing the structure is challenging.
+
+Supporting quotes
+
+"The compression and optimization of trees is usually performed in two phases: the compression of the structure (linearization of the tree structure) and the compression of the data stored in it (linearization of data). Our general policy is to handle the data and the structure separately. This enables us to compress the plain data by using any of the known methods and independently find an efficient coding method for the tree structure irrespective of the form and contents of the data items stored in the nodes. We shall not consider normal data compression methods but assume that the reader is familiar with e.g. arithmetic coding [7] and Huffman coding [2];"
+
+
+
+
+
+* The answer should list some of the most important algorithms for compressing trees.
+
+Supporting quotes
+
+"Lempel-Ziv compression (LZ) [8, 7] is a well known algorithm that uses a dictionary to encode the original input. LZ compression parses the original sequence into subsequences by maximum prex match and it is proven that LZ compressionachieves optimal compression ratio when the size of the input goes to infinity. LZWcompression is a popular version of LZ method and has been implemented as \compress" command on UNIX systems."
+
+"Chen and Reif [108] decompose an input graph into several binary trees, and finally compress these trees with a proposed tree-compression algorithm. The key idea in compressing a single binary tree is to further decompose this tree into smaller subtrees. These subtrees are small enough that any such subtree can be found multiple times in the input tree. Thus, after the full binary tree decomposition, the authors calculate occurrence probabilities for each subtree and assign the corresponding Huffman code to it. Finally, the tree is encoded by traversing it and assigning the above codes. Now, the method to find and count respective subtrees is similar to counting words in texts. Specifically, the authors traverse the input tree with BFS and build a suffix tree in the process where each node of a suffix tree corresponds to one specific subtree"
+
+"2.1 DAG (Directed Acyclic Graph) Compression- Complexity: O(n), where n is the number of nodes in the tree- Description: DAG compression identifies and merges identical subtrees, creating a more compact representation."
+
+"2.2 Top Trees- Complexity: O(n log n) for construction, O(log n) for many tree operations- Description: Top Trees use a hierarchical decomposition of the tree, allowing for efficient updates and queries."
+
+"2.3 Tree Grammar Compression- Complexity: O(n) for construction, can achieve O(log n) query time for some operations- Description: This method represents the tree as a context-free grammar, exploiting repetitive structures."
+
+"2.4 Succinct Tree Representations- Complexity: O(n) for construction, supports many operations in O(1) time- Description: Succinct representations aim to store the tree in space close to the information-theoretic lower bound while supporting efficient operations."
+
+
+
+
+
+* The answer should conclude that LZ, binary tree, DAG Compression and Succinct Representations generally have the best construction time complexity, followed closely by Tree Grammar Compression. Top Trees have a slightly higher complexity due to their hierarchical nature.
+
+Supporting quotes
+
+"Construction Time Complexity- DAG Compression and Succinct Representations: O(n)- Top Trees: O(n log n)- Tree Grammar Compression: O(n)"
+
+
+
+
+
+* The answer should discuss  the query time of compression methods highlighting the Top tree, the grammar compression, binary tree, and LZ achieve O(log n) for many operations, followed by DAG.
+
+Supporting quotes
+
+"3.2 Query Time Complexity- DAG Compression: Varies depending on the query, can be up to O(n)- Top Trees: O(log n) for many operations- Tree Grammar Compression: Can achieve O(log n) for some operations- Succinct Representations: O(1) for many basic operations"
+
+
+
+
+
+* The answer should discuss the efficiency of different methods in terms of space complexity and provide insight into when each method should be used.
+
+Supporting quotes
+
+"3.3 Space Efficiency- DAG Compression: Can be very efficient for trees with many repeated subtrees- Top Trees: Moderate space efficiency- Tree Grammar Compression: Highly efficient for trees with repetitive structures- Succinct Representations: Theoretically optimal space usageTree Grammar Compression and Succinct Representations generally achieve the best space efficiency, especially for trees with repetitive structures."
+
+"The choice of tree compression algorithm depends on the specific requirements of the application, such as the nature of the tree data, the frequency of updates, and the types of queries to be performed.- For static trees with many repeated subtrees, DAG Compression or Tree Grammar Compression might be preferable.- For dynamic trees requiring frequent updates, Top Trees could be the best choice.- For applications requiring fast queries on basic operations and optimal space usage, Succinct Representations are often ideal."
+
+
+
+

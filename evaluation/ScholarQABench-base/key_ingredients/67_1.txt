@@ -1,0 +1,107 @@
+Question
+
+What are different techniques in Non-linear, Non-stationary signal processing? Which one is much effective in view of Geophysical signals?
+
+
+
+
+
+Most Important
+
+* The answer should introduce non-linear and non-stationary signals.
+
+Supporting quotes
+
+"Nonlinear  signal  processing  has  gained  increasing  attention  in  various  applications,  such  as biomedical signal analysis, fault diagnosis, and image processing[1]. Nonlinear signals are characterized by their  complex  and  non-stationary  nature,  making  their  analysis  and  interpretation  a  challenging  task[2]. Traditional  signal  processing  techniques  such  as  Fourier  analysis  and  wavelet  transform  are  inadequate  for nonlinear signals due to their linear and stationary assumptions."
+
+"Non-linear, non-stationary signal processing techniques have evolved to address the limitations of traditional linear methods. These techniques include neural network-based approaches, time-frequency analysis, and decomposition-based methods, which are better suited for handling complex real-world signals."
+
+
+
+
+
+* The answer should provide techniques in non-linear, non-stationary signal processing.
+
+Supporting quotes
+
+"the selected non-linear techniques were estimation of the maximal Lyapunov exponent, correlation dimension and calculating sample entropy."
+
+"Among the non-linear signal processing techniques the maximal Lyapunov exponent and the correlation dimension are prime candidates for dynamic analysis of biological signals [1]. The maximal Lyapunov exponent and the correlation dimension are both properties of non-linear systems. Their calculation is based on a phase space, a construct which demonstrates the changes of the dynamical variables of the system."https://link.springer.com/article/10.1007/s11517-008-0350-"
+
+"The sample entropy, another technique for dynamic analysis of biological signals, is a measure of regularity of finite length time series and estimates the extent to which the data did not arise from a random process."
+
+"Stein et al.[18]starting from the phase space, implemented an algorithm that uses non-linear predictive forecasting for the RR series, predicting its future behaviour for a few beats by observing other sufficiently similar trajectories in phase space[48]. Given the RRiinterval the next interval RRi+ 1is predicted as the weighed mean of the RR intervals following the three nearest neighbours (found according to Euclidean distance)."
+
+"Approximate entropy (ApEn), reflects the regularity of time series[51]. It measures the logarithmic likelihood that runs of patterns, which are close to each other will remain close in the next incremental comparisons."
+
+"An index of regularity, defined as the degree of recurrence of a pattern in a signal, can be defined by means of the conditional entropy (CE). CE represents the amount of information carried by the most recent sample of a seriesxwhen its pastL[?] 1 samples."
+
+"Ensemble empirical mode decomposition (EEMD) and complete ensemble empirical mode decomposition with adaptive noise (CEEMDAN) algorithms have been proposed for the analysis of nonlinear and non-stationary signals."
+
+"EEMD is prone to mode mixing and requires a large number of trials to achieve accurate results. On the other hand, CEEMDAN overcomes the mode mixing issue and provides more accurate results with fewer trials or computation time."
+
+"EEMD generates multiple noise-added versions of the input signal and applies EMD to each version to obtain a set of IMFs[7]. CEEMDAN further improves upon EEMD by adapting the added noise based on the local characteristics of the signal."
+
+"CEEMDAN improves on EEMD by introducing the concept of complementary ensemble. In addition to adding white noise to the original signal, CEEMDAN adds an ensemble of signals obtained by subtracting a  low-pass  filtered  version  of  the  original  signal  from  the  original  signal."
+
+"We quantify the contributions of the acoustic fltering and the neural network, respectively, for a spoken digit recognition task using four frequency decomposition methods with diferent non-linear characters: Lyon's ear cochleagram, MFCC flter, linear spectrogram, and Spectro HP.https://arxiv.org/pdf/1906.02812"Traveltime inversion methods [14] are based on a linear approximation of the forward model, while seismic full-waveform inversion (FWI) addresses the full non-linear problem, leading to superior inversion accuracy and resolution [15]."
+
+
+
+
+
+* The answer should provide techniques in non-stationary signal processing.
+
+Supporting quotes
+
+"Ensemble empirical mode decomposition (EEMD) and complete ensemble empirical mode decomposition with adaptive noise (CEEMDAN) algorithms have been proposed for the analysis of nonlinear and non-stationary signals."
+
+"Empirical  mode  decomposition (EMD) is a powerful technique for decomposing a non-linear and non-stationary signal into a set of intrinsic mode functions (IMFs) that capture the underlying oscillatory modes of the signal."
+
+"EEMD generates multiple noise-added versions of the input signal and applies EMD to each version to obtain a set of IMFs[7]. CEEMDAN further improves upon EEMD by adapting the added noise based on the local characteristics of the signal."
+
+"As an effective signal separation method of non-stationary signal, empirical mode decomposition (EMD) has been widely used in the data or time series analysis of many engineering fields."
+
+"LMD, ITD and LCD methods try to improve the construction of mean curve in EMD and they maybe work for some or a part of signals, but it is different to verify the superiority of them to EMD for all signals in theory."
+
+"an improved empirical wavelet transform is proposed. This method combines the advantages of piecewise cubic Hermite interpolating polynomial (PCHIP) and the EWT, and is named PCHIP-EWT. The main idea of the proposed method is to select useful sub-bands from the spectrum envelope. The proposed method selects the maximum points of the spectrum to reconstruct the spectrum envelope on the basis of PCHIP."
+
+"The LMD iteration process uses local means and magnitude to decompose the data instead of the cubic spline which is used in the EMD. And the LMD has been proven to be more effective than the EMD in analyzing amplitude and frequency modulated signals.""Jain and Pachori[7]proposed a new iterative approach called eigenvalue decomposition (EVD) and proved that the EVD is neither affected by the ratio of their mean frequencies nor by their relative amplitudes."
+
+"an improved VMD approach that combines VMD and detrended fluctuation analysis (DFA) named DFA-VMD. The noisy and non-stationary signals are first broken down by the VMD and then reconstructed by the DFA. Although the DFA-VMD has the same computational complexity and time complexity with the EMD, it performs better than the EMD in denoising and discrete wavelet threshold filtering."
+
+"the time-variant local autocorrelated polynomial (TVLAP) model in the state space is proposed to model the dynamics of a non-stationary stochastic process (i.e., a signal or a time series), through which the model-based signal processing methods could be utilized to denoise, to correct the outliers/dropouts, and/or to identify anomalies contained in the measurements."
+
+
+
+
+
+* The answer should justify which among non-linear and non-stationary is more effective in view of Geophysical signals.
+
+Supporting quotes
+
+"The Kalman-Bucy method is here analized and applied to the solution of a specific filtering problem to increase the signal message/noise ratio. The method is a time domain treatment of a geophysical process classified as stochastic non-stationary. The derivation of the estimator is based on the relationship between the Kalman-Bucy and Wiener approaches for linear systems."
+
+"A seismic signal represents the transient response of the Earth to excitation due to natural phenomena, such as eathquakes, or due to artificial sources as used in geophysical exploration, and it results in non-stationaty signals in noise."
+
+"Two types of mathematical methods for data treatment can be used to represent a seismic signal: deterministic and stochastic. The deterministic method consists of using physical theories of wave propagation involving solutions of integral and differential equations satisfying contour and initial conditions. The stochastic method takes the statistical description of time series for the expressions of dynamic laws as statistical facts."
+
+"Over the years, geophysical signal analysis techniques have steadily progressed from the use of basic integral transforms to present-day nonlinear signal processing techniques such as wavelet analysis, fractal and multifractal analysis, and empirical mode decomposition technique, which have found their forays in geosciences, paving the way for effectively unravelling the hidden information from the nonlinear and nonstationary geophysical data."
+
+"It is based on Empirical Mode Decomposition (EMD) developed to analyze non-stationary and non-linear processes, which adaptively projects a signal on a basis of empirical AM/FM functions called Intrinsic Modulation Functions (IMFs)"
+
+"studies showed how EMD analysis is suitable for processing non-stationary and non-linear signals in low SNR conditions, enabling a better exploitation of current and past satellite altimetry missions."
+
+"However, the wavelet-based versions of these techniques, respectively denoted as W-MMSE, W-Kalman and W-ANN, rather than the original techniques themselves, have been found to possess better capabilities in forecasting the highly nonlinear geophysical data."
+
+"Other non-linear methodologies applied to complex geophysical time series include detrended fluctuation analysis, chaos theory, and wavelet analysis  (96, Ray et al., 2021)."
+
+"ANNs have been found to be effective in identifying the complex behaviour of most geophysical data which, by their very nature, exhibits extreme variability... and have the ability to analyse non-stationary geophysical data like wavelet transforms."
+
+"Comparative studies have shown that some decomposition methods outperform others in specific applications. For instance, VMD has been found to be superior to Wavelet Transform (WT) and Ensemble EMD (EEMD) in Ground Penetrating Radar (GPR) signal denoising  (45, Xu et al., 2017)."
+
+"For seismic event detection, established methods like the Short-Time Average/Long-Time Average (STA/LTA) algorithm remain widely used  (138, Zainab et al., 2023). However, newer approaches, such as the Akaike Information Criterion (AIC), have also been developed for seismic phase picking  (126, Li et al., 2022)."
+
+
+
+

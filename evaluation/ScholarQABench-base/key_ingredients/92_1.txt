@@ -1,28 +1,97 @@
-﻿Question
-What are some of the challenges associated with creating a training dataset for question answering in scientific domains? Describe some recent methods that try to overcome these challenges.
-
-
-Most Important
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
-Nice to have
-* __
-        Supporting quote 1
-*  __
-        Supporting quote 2
-*  __
-        Supporting quote 3
-*  __
-        Supporting quote 4
-*  __
-        Supporting quote 5
- ...
+Question
+
+What are some of the challenges associated with creating a training dataset for question answering in scientific domains? Describe some recent methods that try to overcome these challenges.
+
+
+
+
+
+Most Important
+
+* The answer should begin with challenges associated with creating a training dataset for question answering in scientific domains.
+
+Supporting quotes
+
+"Besides, the mathematical reasoning abilities of external calculators and Python interpreters are evaluated using computation-intensive QA datasets. However, these evaluation benchmarks may not faithfully reflect the extent to which models leverage external tools, as some questions could still be correctly answered solely using the internal knowledge of the LLMs."
+
+"The questions are designed to simulate real-world information-seeking inquiries. However, they cannot be answered directly with LLMs' internal knowledge, but instead require LLMs to obtain information from the reference corpora via tool use."
+
+"While human experts can produce high-quality questions, the entire process is labor-intensive, timeconsuming, and hard to scale."
+
+"Depending solely on LLMs may generate unanswerable questions or hallucinate information that does not exist in the reference data. Besides, some of the LLM-generated questions are too easy and can be directly answered with only LLMs' internal knowledge."
+
+"We assume that we are given an LLM model M (e.g., GPT-3.5 or Llama-2-7B) that is pre-trained on some source dataset (e.g., Common Crawl). The goal is to adapt M (hereon called the student model) to a new target domain by using a small seed dataset D, where D potentially has unseen characteristics, compared to the pre-trained dataset (e.g., a medical dataset with specific terminology, or a private database with specific characteristics). In this case, the model's zero-shot or fine-tuned performance is likely to be unsatisfactory."
+
+"To enrich D, AugGPT (Dai et al., 2023) has introduced a promising approach that generates additional augmented data by applying a prompted LLM to all available data points in the target training dataset. However, this method falls short by indiscriminately augmenting data without considering the student model's varying performance across different data points."
+
+" However, such an endeavor demands considerable computing resources, maintenance efforts, and user traffic, all while carefully handling potential data privacy issues."
+
+" However, dynamic data collection can be more expensive than its static predecessor as creating examples that elicit a certain model response (i.e., fooling the model) requires more annotator effort, resulting in more time spent, and therefore higher cost per example."
+
+"building a credible QA system for patient-specific EMR QA requires largescale question and answer annotations that sufficiently capture the challenging nature of clinical narratives in the EMR. However, serious privacy concerns about sharing personal health information (Devereaux, 2013; Krumholz et al., 2016), and the tedious nature of assimilating answer annotations from across longitudinal clinical notes, makes this task impractical and possibly erroneous to do manually."
+
+"By sampling many QA pairs per passage, we increase the chance of generating good samples. However, if we sample too many qa pairs the top ranked ones might be too similar."
+
+"Scientific texts are often context-dependent and may leave crucial information implicit, requiring a good grasp of the surrounding context to understand fully."
+
+"One of the primary challenges is the scarcity of annotated datasets in scientific domains. Annotating scientific texts is labor-intensive and requires experts, which restricts the availability of high-quality training datasets."
+
+"Published scientific work may contain measurement errors, contradictory findings, or incomplete information, adding noise to the datasets."
+
+"One of the primary challenges in creating scientific QA datasets is the need for domain expertise. Scientific fields often involve complex concepts, specialized terminology, and intricate relationships between ideas. This makes it difficult for non-experts to generate or validate questions and answers accurately."
+
+"Scientific knowledge evolves rapidly, and datasets can quickly become outdated. Maintaining the relevance and accuracy of scientific QA datasets over time is an ongoing challenge."
+
+
+
+
+
+* The answer should explaining the recent methods used to overcome the challenges associated with creating a training dataset for question answering in scientific domains.
+
+Supporting quotes
+
+"ToolQA attempts to mitigate these issues by selecting data from out-of-scope sources that have not been memorized by LLMs."
+
+"ToolQA is unique in that it focuses on the open-ended use of tools for question-answering, rather than benchmarking the intermediate process of tool use."
+
+" ToolQA creates tool-based question-answer pairs and assesses whether LLMs can arrive at the correct answer, regardless of the tool chains used."
+
+"we propose an automatic three-phase process (Figure 2): (1) We first select data from public sources that are unmemorized by LLMs during Reference Data Collection; (2) We adopt Human-Guided Question Generation to steer LLMs to generate valid questions according to predefined templates; (3) We produce accurate answers for the generated questions with Programmatic Answer Generation."
+
+"The question generation phase aims to generate questions that can be answered by using the available tools over the reference corpora. There are two straightforward strategies to generate questions: 1) letting human experts come up with questions about reference corpora, or 2) relying solely on LLMs to generate questions about the reference corpora."
+
+"we propose a human-guided LLM generation approach that uses question templates to bridge human guidance and automatic LLM generation."
+
+""the true arguments filled into the question template, we can run the tool chains with the corresponding arguments to programmatically extract answers from the reference data. This process enables automatic generation correct answers to questions, even for those questions that involve multi-step reasoning."
+
+"Large Language Models (LLMs) have demonstrated impressive zero shot performance on a wide range of NLP tasks, demonstrating the ability to reason and apply commonsense. A relevant application is to use them for creating high quality synthetic datasets for downstream tasks."
+
+"We develop a data generation pipeline that selects source passages, identifies candidate answers, generates questions, then finally filters or relabels them to improve quality. Using this approach, we amplify a smaller human-written adversarial dataset to a much larger set of synthetic question-answer pairs."
+
+"In self-training, a model is trained to both predict correctly on labelled examples and increase its confidence on unlabelled examples. Self-training can yield complementary accuracy gains with pretraining (Du et al., 2020) and can improve robustness to domain shift (Kumar et al., 2020)."
+
+"Models like SciBERT and BioBERT [Beltagy et al., 2019; Lee et al., 2020] are adaptations of BERT (Bidirectional Encoder Representations from Transformers) specifically for scientific texts. These models leverage transfer learning by initially being pre-trained on large general text corpora and subsequently fine-tuned on scientific literature, making them more adept at understanding domain-specific language."
+
+"Techniques like back-translation, paraphrasing, and other data augmentation methods are employed to artificially increase the size and diversity of training datasets."
+
+"Combining crowdsourcing with expert annotation can strike a balance between scale and quality. Initial annotations by non-experts can be refined through expert review, thus enhancing the quality without fully depending on scarce expert time."
+
+"Active learning involves iteratively selecting the most informative data points for annotation, thus making the most efficient use of expert annotators."
+
+"Leveraging domain-specific knowledge graphs and ontologies can help models understand the context and relationships between different scientific terms."
+
+
+
+
+
+* The answer should provide challenges and their solutions altogether.
+
+Supporting quotes
+
+"Each question requires combining the seed core fact with additional knowledge. However, it is unclear how many additional facts are needed, or whether these facts can even be retrieved from any existing knowledge sources. QASC, on the other hand, explicitly identifies two facts deemed (by crowd workers) to be sufficient to answer a question."
+
+"Many systems answer science questions by composing multiple facts from semi-structured and unstructured knowl8083 edge sources (Khashabi et al. 2016; Khot, Sabharwal, and Clark 2017; Jansen et al. 2017; Khashabi et al. 2018b). However, these often require careful manual tuning due to the large variety of reasoning techniques needed for these questions (Boratko et al. 2018) and the large number of facts that often must be composed together (Jansen 2018; Jansen et al. 2016). By limiting QASC to require exactly 2 hops (thereby avoiding semantic drift issues with longer paths (Fried et al. 2015; Khashabi et al. 2019)) and explicitly annotating these hops, we hope to constrain the problem enough so as to enable the development of supervised models for identifying and composing relevant knowledge."
+
+
+
+

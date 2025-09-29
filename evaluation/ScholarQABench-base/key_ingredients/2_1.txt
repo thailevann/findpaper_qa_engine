@@ -1,0 +1,87 @@
+Question
+
+What are leading methods for generating hard examples of the boolean satisfiability problem, and what are their strengths and weaknesses?
+
+
+
+
+
+Most Important
+
+* The answer should begin with introducing boolean satisfiability.
+
+Supporting quotes
+
+"A satisfying assignment for a formula is an assignment of the variables such that the formula evaluates to 1. It simultaneously satisfies the constraints imposed by all the operators in the formula. Such an assignment may not always exist."
+
+"Boolean Satisfiability Problem (SAT) is a quintessential NP-complete problem, pivotal in theoretical computer science and practical applications like verification and artificial intelligence. Generating hard instances of SAT is crucial for evaluating algorithms, benchmarking SAT solvers, and studying phase transitions."
+
+
+
+
+
+* The answer should provide theleading methods for generating hard examples of the boolean satisfiability problem.
+
+Supporting quotes
+
+"Another motivation for SAT instance generation derives from the training process of machine learning, which requires a large number of instances while keeping a balance between classes in the dataset."
+
+"Non-ML research on pseudo-industrial SAT instance generation is mainly based on structural measures and probabilistic methods. For example Giraldez-Cru and Levg[83] proposed the community attachment (CA) model to generate new instances of given modularity GiraldezCru and Levg[84] leveraged the notions of locality and popularity to portray the scale-free structure of real-world instances in their popularity-similarity (PS) model."
+
+"SATGEN[85] is a generative model trained in an unsupervised way. Different from previous models that parameterize certain graph measures, it uses a GAN to implicitly capture graph-based features of SAT instances. Specifically, real formulae are transformed into LIG as input to GAN for training. The learned model then generates new LIGs which are recovered to CNF formulae by a greedy hill-climbing approach."
+
+"The subsequent work G2SAT[86] improves SATGEN and focuses on bipartite LCG representation. It proposed a novel node-merging (node-splitting) algorithm to generate bipartite graphs from (to) a forest. The key component of G2SAT is a GCN-based classifier that decides node pairs for merging. Specifically, G2SAT adopted GraphSAGE[88] , where node embeddings are updated by previous embeddings of itself and neighbors."
+
+"Overall, there are three variants of G2SAT, namely GCN2S, EGNN2S, and ECC2S. First, GCN2S replaced GraphSAGE with graph convolution in [42] for node embedding. On top of GCN2S, the most distinguishing modification of [87] is that it takes edge features into consideration. Instead of using LCGs, EGNN2S and ECC2S encode CNF formulae as signed VCGs, so that the edges between variables and clauses indicate whether the literal is positive or negative."
+
+"Most SAT solvers work with a restricted representation of formulas in conjunctive normal form (CNF), defined as follows. A literal l is either a positive or a negative occurrence of a variable (for example, x or -x). A clause, c, is the OR of a set of literals, such as (l1[?] l2[?] l3... [?] ln). A CNF formula is the AND of a set of clauses, such as (c1[?] c2[?] c3 [?] cm)"
+
+"Random k-SAT involves generating formulas by randomly selecting clauses, each consisting of k literals, from a given set of variables."
+
+" Geometrical and geo-regular generators: These methods use geometric probability distributions to select variables, potentially generating instances more similar to industrial problems (30, Ansotegui et al., 2008)."
+
+"0-hidden algorithm: This approach can generate hard K-SAT instances with fine-grained control over hardness against local search strategies  (70, Jiang et al., 2023)."
+
+"Random regular graph transformations: This method converts random regular graphs into systems of linear equations, followed by clausification, resulting in hard satisfiable instances (25, J"arvisalo et al., 2006)."
+
+"W2SAT framework: This approach learns intrinsic structures from real-world/industrial instances to generate SAT formulas  (71, Yu et al., 2023)."
+
+"No-Triangle SAT: This algorithm produces hard instances by fixing arity and number of variables while varying the number of clauses (53, O'Sullivan et al., 2019)."
+
+"WnDGen: Generates weakly nondecisive clause sets, which can be difficult for state-of-the-art SAT solvers  (43, Kusper et al., 2013)."
+
+"Frustrated-loop inspired method: Generates weighted MAX-2-SAT instances with known solutions, useful for evaluating MAX-SAT solvers  (54, Ventra et al., 2019)."
+
+"We provide two generation methods of k-SAT instances, called geometrical and the geo-regular, as generalizations of the uniform and regular k-CNF generators. Both are based on the use of a geometric probability distribution to select variables."
+
+"As a solution we introduce a very simple algorithm, called WnDGen, which generates weakly nondecisive clause sets."
+
+"To evaluate a MAX-SAT solver, it is convenient to generate hard MAX-SAT instances with known solutions. Here, we propose a method of generating weighted MAX-2-SAT instances inspired by the frustrated-loop algorithm used by the quantum annealing community."
+
+"Graph-based methods: These approaches, such as those using high-girth bipartite incidence graphs (29, Ansotegui et al., 2008) and digraph-based generators (57, Biro et al., 2020), can produce instances that are particularly challenging for certain types of SAT solvers. For example, minimal unsatisfiable SAT instances generated from strong digraphs are considered among the hardest unsatisfiable clause sets."
+
+"Cryptographically hard instances are generated using cryptographic techniques, such as cryptographic hash functions or encryption algorithms. These instances are designed to be computationally hard to solve, making them ideal for testing the robustness of SAT solvers."
+
+
+
+
+
+* The answer should provide the advantages and disadvantages of method generating hard examples of the boolean satisfiability problem.
+
+Supporting quotes
+
+"The restriction to CNF is an active choice made by SAT solvers as it enables their underlying algorithms. Further, this is not a limitation in terms of the formulas that can be handled. Indeed, with the addition of new auxiliary variables; it is easy to translate any formula into CNF with only a linear increase in size. However, this representation is not used exclusively and there has been recent success with solvers for non-clausal representations (for example, NFLSAT)"
+
+"Encodings have been useful in translating problems from a wide range of domains to SAT, for example, scheduling basketball games, planning in artificial intelligence, validating software models, routing field programmable gate arrays, and synthesizing consistent network configurations. This makes SAT solvers powerful engines for solving constraint satisfaction problems. However, SAT solvers are not always the best engines--there are many cases where specialized techniques work better for various constraint problems, including graph coloring."
+
+"For theoretical interests, numerous combinatorial problems can be expressed in propositional formulae and solved by running a SAT solver[2] , e.g., graph coloring[3] , vertex cover[4] and clique detection[5] . It also serves as a useful tool for automated theorem proving, one typical case of which is the resolution of Keller's conjecture[6] . Moreover, there are plenty of industrial applications of SAT solving, such as bounded model checking, configuration management, and equivalence checking in circuit design."
+
+"Therefore, an effective tool for instance generation helps with data augmentation and improves training."
+
+"An obvious disadvantage of SATGEN is that an LIG does not uniquely map to a SAT formula; thus, the model cannot differentiate between different instances with the same LIG representation. This information loss also leads to extra post-processing and imposed constraints in the recovering stage."
+
+"Strengths of k-SAT- **Parameter Control**: Allows fine-tuning through parameters like the ratio of clauses to variables (r = m/n), which influences the problem's hardness.- **Study of Phase Transitions**: Near the critical threshold (~4.26 for 3-SAT), instances of SAT exhibit a sharp jump in difficulty, providing a natural source of hard instances.### Weaknesses of k-SAT- **Unpredictability**: While near the critical threshold can yield hard instances, the problem's hardness isn't guaranteed.- **Scalability**: Beyond certain sizes and clause lengths, the generation process may become impractically slow."
+
+
+
+

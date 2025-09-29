@@ -1,0 +1,21 @@
+Question
+
+With respect to signal processing which operator is more sensitive to noise detection, first order or second order and why?
+
+
+
+
+
+Nice to have
+
+* The answer should provide the characteristics of first and second order operators in signal processing.
+
+Supporting quotes
+
+"An edge is a rapid change in the pixel intensity of the image. It comprises the critical characteristics and important features of an image. Such rapid changes are detected by using first and second order derivatives."
+
+""One of the primary applications of higher order statistics has been for detection and estimation of nonGaussian signals in Gaussian noise of unknown covariance."
+
+
+
+

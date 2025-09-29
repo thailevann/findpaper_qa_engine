@@ -1,48 +1,21 @@
-﻿Question
-What datasets and methods are used to pre-train models on table specific tasks?
-
-
-Most Important
-* The answer should begin with explaining the uses of datasets and methods used to pre-train models on table specific tasks. 
-Supporting quotes
-“The problem of verifying whether a textual hypothesis holds based on the given evidence, also known as fact verification, plays an important role in the study of natural language understanding and semantic representation. However, existing studies are mainly restricted to dealing with unstructured evidence (e.g., natural language sentences and documents, news, etc), while verification under structured evidence, such as tables, graphs, and databases, remains under-explored.”
-        https://arxiv.org/pdf/1909.02164
-“Data formats such as CSV/TSV, PARQUET, XML and JSON are commonly used to train machine learning algorithms.”
-https://www.sciencedirect.com/science/article/abs/pii/S1570826822000452
-“Pre-training methods for table-specific models often involve adapting language model techniques to tabular data structures. Common objectives include masked language modeling, query execution prediction, and contrastive learning, with a focus on capturing table-specific relationships and semantics.”
-*  The answer should provide datasets used to pre-train models on table specific tasks.
-        Supporting quotes
-“ To this end, we construct a large-scale dataset called TabFact with 16k Wikipedia tables as the evidence for 118k human-annotated natural language statements, which are labeled as either ENTAILED or REFUTED. TabFact is challenging since it involves both soft linguistic reasoning and hard symbolic reasoning.”
-https://arxiv.org/pdf/1909.02164
-“Human-created: Human-created data usually show higher quality than web-crawled ones which might require careful prepossessing for their size, diversity and noises. It is common to manually add extra labels for existing dataset. E.g., ToTTo, a well-labeled dataset for table-to-text with NL descriptions and corresponding web tables, was used by StruG for pretraining.”
-https://arxiv.org/pdf/2201.09745
-“Machine-synthesized: Synthesized data are more targeted and controllable, but require careful designs to ensure meaningfulness and diversity. GraPPa proposed an SCFG (synchronous context-free grammar) and applied it to synthesize sentenceSQL pairs over tables. [Eisenschlos et al., 2020] created counterfactual and synthetic statements for existing Wikipedia tables”
-https://arxiv.org/pdf/2201.09745
-“the frontier LM (T5) could easily achieve promising or even SOTA results on table tasks, demonstrating a strong relationship between text and tables, e.g., in linguistic and world knowledge aspects.”
-https://arxiv.org/pdf/2201.09745
-“WikiTables is a large-scale dataset extracted from Wikipedia tables. It contains millions of tables with diverse content and structure.”
-“TableBank is a large-scale image-based table detection and recognition dataset with fine-grained annotations.”
-“WebTables is a large corpus of relational HTML tables extracted from the Web.”
-*  The answer should provide methods used to pre-train models on table specific tasks.
-        Supporting quotes
-“Table-BERT, this model views the verification task completely as an NLI problem by linearizing a table as a premise sentence p, and applies state-of-the-art language understanding pre-trained model to encode both the table and statements h into distributed representation for classification. This model excels at linguistic reasoning like paraphrasing and inference but lacks symbolic reasoning skills.”
-https://arxiv.org/pdf/1909.02164
-“Latent Program Algorithm, this model applies lexical matching to find linked entities and triggers to filter pre-defined APIs (e.g. argmax, argmin, count, etc). We adopt bread-first-search with memorization to construct the potential program candidates, a discriminator is further utilized to select the most “consistent” latent programs. This model excels at the symbolic reasoning aspects by executing database queries, which also provides better interpretability by laying out the decision rationale.”
-https://arxiv.org/pdf/1909.02164
-“More sophisticated architectures have been developed to better capture table structure. TUTA pre-trains on general tables with hierarchies to model table structural information  (34, Dong et al., 2021). TABBIE furthers the design of TaBERT by using two independent transformers to encode the rows and columns of tables jointly  (81, Chen et al., 2023).”
-“TableGPT
-TableGPT is a generative pre-training approach for table understanding and generation tasks. It uses a transformer-based architecture to model tables as sequences.”
-
-
-* The answer should provide challenges involved in training the models on table specific tasks.
-Supporting quotes
-
-
-“Tabular data is challenging to interpret by machines because of the limited context available to resolve semantic ambiguities, the layout of tables that can be difficult to handle, and the incompleteness of KGs in general. Classical Natural Language Processing (NLP) tasks for unstructured text handle poorly such tables since they do not leverage the table structure and the underlying semantics [17].”
-Nice to have
-* The answer should provide information on what is table specific data.
-        Supporting quotes
-“Tabular data often refers to data that is organized in a table with rows and columns. We observe that this data format is widely used on the Web and within enterprise data repositories. Tables potentially contain rich semantic information that still needs to be interpreted. The process of extracting meaningful information out of tabular data with respect to a semantic artefact, such as an ontology or a knowledge graph, is often referred to as Semantic Table Interpretation (STI) or Semantic Table Annotation.”
-https://www.sciencedirect.com/science/article/abs/pii/S1570826822000452
-“The main idea to make tabular data intelligently processable by machines is to find correspondences between the elements composing the table with entities, concepts, or relations described in knowledge graphs (KG) which can be of general purposes such as DBpedia [4] and Wikidata [5], or enterprise specific.”
-https://www.sciencedirect.com/science/article/abs/pii/S1570826822000452
+Question
+
+What datasets and methods are used to pre-train models on table specific tasks?
+
+
+
+
+
+Nice to have
+
+* The answer should provide information on what is table specific data.
+
+Supporting quotes
+
+"Tabular data often refers to data that is organized in a table with rows and columns. We observe that this data format is widely used on the Web and within enterprise data repositories. Tables potentially contain rich semantic information that still needs to be interpreted. The process of extracting meaningful information out of tabular data with respect to a semantic artefact, such as an ontology or a knowledge graph, is often referred to as Semantic Table Interpretation (STI) or Semantic Table Annotation."
+
+"The main idea to make tabular data intelligently processable by machines is to find correspondences between the elements composing the table with entities, concepts, or relations described in knowledge graphs (KG) which can be of general purposes such as DBpedia [4] and Wikidata [5], or enterprise specific."
+
+
+
+

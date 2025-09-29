@@ -1,63 +1,87 @@
-﻿Question
-How do different fairness metrics correlate with each other across various datasets and model architectures?
-Most Important
-* Near the beginning, the answer should emphasize the importance of studying fairness in ML due to the potential for inherent bias that may be ingrained in the data utilized for training.
-Supporting quotes
-“It is of critical importance to be aware of the historical discrimination embedded in the data and to consider a fairness measure to reduce bias throughout the predictive modeling pipeline.”
-        https://arxiv.org/pdf/2109.05697
-
-
-* The answer should acknowledge the existence of different metrics for fairness in ML and highlight the importance of studying correlation between them.
-Supporting quotes
-“Given various notions of fairness defined in the literature, investigating the correlation and interaction among metrics is vital for addressing the unfairness.”
-https://arxiv.org/pdf/2109.05697
-“To motivate our method, we start by reemphasizing the importance of having correlated fairness across existing prompt-based fairness metrics for a more reliable fairness assessment (Section 4.1).”
-https://arxiv.org/pdf/2406.05918
-“If fairness metrics would indeed show a high positive correlation, we could combine multiple fairness metrics to obtain a more reliable fairness assessment. This increase in reliability intuitively stems from the use of several distinct and accurate sources of bias assessment.”
-https://arxiv.org/pdf/2406.05918
-“If fairness metrics are uncorrelated, an improvement in fairness using one metric will not necessarily lead to an improvement using other metrics (it could lead to fairness degradation on other metrics in the case of negative correlation).”
-https://arxiv.org/pdf/2406.05918
-“That is, we say a fairness measure fi represents a measure fj if fi and fj are highly correlated. Given a universe F of fairness metrics of interest, we seek to find a subset RF , with a significantly smaller size representing all metrics in F.”
-https://arxiv.org/pdf/2109.05697
-
-
-* The answer should list some of the most important metrics for measuring fairness. 
-        Supporting quotes
-“**Statistical Parity (Demographic Parity)**: Measures whether different groups receive positive outcomes at the same rate.”
-“**Equalized Odds**: Requires that the true positive rate and false positive rate are equal across groups.”
-“**Predictive Parity**: Conditions on the prediction and measures whether the accuracy is consistent across groups.”
-“Equal opportunity: Equal opportunity examines the true positive rate (TPR). Meaning it looks at the number of people that returned the loan to see the ratio of them that the model approved.”
-https://superwise.ai/blog/gentle-introduction-ml-fairness-metrics/
-
-
-* The answer should discuss factors that lead to the correlation between various fairness metrics being dependent on the data and model and provide empirical evidence and justifications for that.
-“In this paper, we propose a framework to identify representative fairness metrics for a given context (data and model). The underlying assumption behind this proposal is that correlations are data and model dependent. Having evaluated our correlation estimation quality, in this experiment, we verify that the data/model-dependent assumptions for the correlations are valid.”
-https://arxiv.org/pdf/2109.05697
-“#### Nature of Data. The correlations between fairness metrics can heavily depend on the characteristics of the datasets used:**Disparity in Base Rates**: Datasets with different base rates for different groups might show more significant conflicts between metrics like demographic parity and equalized odds **Feature Distributions**: The distribution of features can affect the fairness metrics. For example, datasets with biased historical data might show different correlations than synthetic datasets designed to be unbiased.”
-“#### Empirical Studies. Research by Binns (2018) indicates that real-world datasets often exhibit complex relationships between fairness metrics. For instance, in COMPAS recidivism data, improving one fairness metric also marginally improves others, but in datasets like Adult Income, the trade-offs are much steeper.”
-“Similarly, Figure 4 verifies that correlations are data-dependent. This is because different datasets represent different underlying distributions with different properties impacting the fairness values.”
-https://arxiv.org/pdf/2109.05697
-“### 4. Influence of Model Architectures#### Type of Models. Different model architectures (e.g., linear models, decision trees, neural networks) have distinct fairness characteristics and hence affect the correlations between fairness metrics:
-**Linear Models**: May show simpler relationships due to their inherent linearity and can sometimes improve fairness metrics in tandem.
-**Complex Models**: Such as neural networks, might display intricate and less predictable relationships between metrics due to their capacity to capture non-linear associations.
-#### Training Procedures
-Fairness-enhancing interventions during training can also impact metric correlations:
-**Regularization Techniques**: Techniques such as fairness constraints added during training might simultaneously improve multiple fairness metrics, according to Agarwal et al. (2018).
-**Adversarial Training**: Can specifically target and manipulate certain fairness metrics, improving one at the expense of others.”
-“Looking at Figure 3, it is clear that correlations are model-dependent. In particular, NN which is capable of constructing more complex boundaries, resulting in more flexible models with a wide range of fairness values for different metrics. As a result, the correlations between fairness metrics for NN was in general, less than the other models.” 
-https://arxiv.org/pdf/2109.05697
-
-
-* The answer should mention some of the correlations that have been identified between different fairness metrics based on both empirical and statistical results.
-        Supporting quotes
-“#### Statistical Correlations: Studies have explored the relationship between these metrics, revealing that they often conflict. For example, Kleinberg et al. (2016) have shown that ensuring both equalized odds and predictive parity simultaneously is generally impossible unless the base rates are equal across groups”
-“#### Empirical Findings: Empirical analyses show that correlations between fairness metrics can vary. Friedler et al. (2019) in "A Comparative Study of Fairness-enhancing Interventions in Machine Learning" demonstrate that fairness-enhancing interventions can affect different metrics in different ways. For instance, methods that improve statistical parity might worsen equalized odds and vice versa.”
-“For example, mitigating unfairness based on the Equal opportunity metric (E-Opp) and Equalized odds difference (odd-dif) in the Credit dataset, shown in Figure 7 (a-c) and (d-f), respectively, results in diminishing unfairness across highly correlated metrics such as Statistical Parity (SP), False negative rate ratio (FNR-rat). For example, mitigating unfairness based on the Equal opportunity metric (E-Opp) and Equalized odds difference (odd-dif) in the Credit dataset, shown in Figure 7 (a-c) and (d-f), respectively, results in diminishing unfairness across highly correlated metrics such as Statistical Parity (SP), False negative rate ratio (FNR-rat).”
-https://arxiv.org/pdf/2109.05697
-
-
-Nice to have
-*  The answer should discuss that the choice of fairness metric is usually driven by business needs.
-        Supporting quotes
-“fairness metrics are a business-driven constraint. What should be considered a protected field, and what fairness criteria to use should be driven by the business. Or, more precisely, the bias, compliance, and regulatory risks that your business is exposed to.”
-https://superwise.ai/blog/gentle-introduction-ml-fairness-metrics/
+Question
+
+How do different fairness metrics correlate with each other across various datasets and model architectures?
+
+
+
+
+
+Most Important
+
+* Near the beginning, the answer should emphasize the importance of studying fairness in MLdue to the potential for inherent bias that may be ingrained in the data utilized for training.
+
+Supporting quotes
+
+"It is of critical importance to be aware of the historical discrimination embedded in the data and to consider a fairness measure to reduce bias throughout the predictive modeling pipeline."
+
+
+
+
+
+* The answer should acknowledge the existence of different metrics for fairness in ML and highlight the importance of studying correlation between them.
+
+Supporting quotes
+
+"Given various notions of fairness defined in the literature, investigating the correlation and interaction among metrics is vital for addressing the unfairness."
+
+"To motivate our method, we start by reemphasizing the importance of having correlated fairness across existing prompt-based fairness metrics for a more reliable fairness assessment (Section 4.1)."
+
+"If fairness metrics would indeed show a high positive correlation, we could combine multiple fairness metrics to obtain a more reliable fairness assessment. This increase in reliability intuitively stems from the use of several distinct and accurate sources of bias assessment."
+
+"If fairness metrics are uncorrelated, an improvement in fairness using one metric will not necessarily lead to an improvement using other metrics (it could lead to fairness degradation on other metrics in the case of negative correlation)."
+
+"That is, we say a fairness measure fi represents a measure fj if fi and fj are highly correlated. Given a universe F of fairness metrics of interest, we seek to find a subset RF , with a significantly smaller size representing all metrics in F."
+
+
+
+
+
+* The answer should list some of the most important metrics for measuring fairness.
+
+Supporting quotes
+
+"**Statistical Parity (Demographic Parity)**: Measures whether different groups receive positive outcomes at the same rate."
+
+"**Equalized Odds**: Requires that the true positive rate and false positive rate are equal across groups."
+
+"**Predictive Parity**: Conditions on the prediction and measures whether the accuracy is consistent across groups."
+
+"Equal opportunity: Equal opportunity examines the true positive rate (TPR). Meaning it looks at the number of people that returned the loan to see the ratio of them that the model approved."
+
+
+
+
+
+* The answer should discuss factors that lead to the correlation between various fairness metrics being dependent on the data and model and provide empirical evidence and justifications for that.
+
+Supporting quotes
+
+"In this paper, we propose a framework to identify representative fairness metrics for a given context (data and model). The underlying assumption behind this proposal is that correlations are data and model dependent. Having evaluated our correlation estimation quality, in this experiment, we verify that the data/model-dependent assumptions for the correlations are valid."
+
+"#### Nature of Data. The correlations between fairness metrics can heavily depend on the characteristics of the datasets used:**Disparity in Base Rates**: Datasets with different base rates for different groups might show more significant conflicts between metrics like demographic parity and equalized odds **Feature Distributions**: The distribution of features can affect the fairness metrics. For example, datasets with biased historical data might show different correlations than synthetic datasets designed to be unbiased."
+
+"#### Empirical Studies. Research by Binns (2018) indicates that real-world datasets often exhibit complex relationships between fairness metrics. For instance, in COMPAS recidivism data, improving one fairness metric also marginally improves others, but in datasets like Adult Income, the trade-offs are much steeper."
+
+"Similarly, Figure 4 verifies that correlations are data-dependent. This is because different datasets represent different underlying distributions with different properties impacting the fairness values."
+
+"### 4. Influence of Model Architectures#### Type of Models. Different model architectures (e.g., linear models, decision trees, neural networks) have distinct fairness characteristics and hence affect the correlations between fairness metrics:**Linear Models**: May show simpler relationships due to their inherent linearity and can sometimes improve fairness metrics in tandem.**Complex Models**: Such as neural networks, might display intricate and less predictable relationships between metrics due to their capacity to capture non-linear associations.#### Training ProceduresFairness-enhancing interventions during training can also impact metric correlations:**Regularization Techniques**: Techniques such as fairness constraints added during training might simultaneously improve multiple fairness metrics, according to Agarwal et al. (2018).**Adversarial Training**: Can specifically target and manipulate certain fairness metrics, improving one at the expense of others."
+
+"Looking at Figure 3, it is clear that correlations are model-dependent. In particular, NN which is capable of constructing more complex boundaries, resulting in more flexible models with a wide range of fairness values for different metrics. As a result, the correlations between fairness metrics for NN was in general, less than the other models."
+
+
+
+
+
+* The answer should mention some of the correlations that have been identified between different fairness metrics based on both empirical and statistical results.
+
+Supporting quotes
+
+"#### Statistical Correlations: Studies have explored the relationship between these metrics, revealing that they often conflict. For example, Kleinberg et al. (2016) have shown that ensuring both equalized odds and predictive parity simultaneously is generally impossible unless the base rates are equal across groups"
+
+"#### Empirical Findings: Empirical analyses show that correlations between fairness metrics can vary. Friedler et al. (2019) in "A Comparative Study of Fairness-enhancing Interventions in Machine Learning" demonstrate that fairness-enhancing interventions can affect different metrics in different ways. For instance, methods that improve statistical parity might worsen equalized odds and vice versa."
+
+"For example, mitigating unfairness based on the Equal opportunity metric (E-Opp) and Equalized odds difference (odd-dif) in the Credit dataset, shown in Figure 7 (a-c) and (d-f), respectively, results in diminishing unfairness across highly correlated metrics such as Statistical Parity (SP), False negative rate ratio (FNR-rat). For example, mitigating unfairness based on the Equal opportunity metric (E-Opp) and Equalized odds difference (odd-dif) in the Credit dataset, shown in Figure 7 (a-c) and (d-f), respectively, results in diminishing unfairness across highly correlated metrics such as Statistical Parity (SP), False negative rate ratio (FNR-rat)."
+
+
+
+
