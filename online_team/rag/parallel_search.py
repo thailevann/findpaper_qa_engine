@@ -171,6 +171,8 @@ class ParallelSearchPipeline:
         
         # Determine requested counts
         requested_final = top_final or top_k or self.config.keyword_config and getattr(self.config.keyword_config, 'top_k', None) or 20
+        print("DEBUG requested_final =", requested_final, "top_k =", top_k)
+
         requested_search_k = max(requested_final, top_k or 0, 50)
 
         # Step 1: Parallel search -- request more from underlying searches so we can merge and still reach requested_final

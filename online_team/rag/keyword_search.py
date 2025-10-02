@@ -48,7 +48,7 @@ class KeywordSearch:
                 must.append({"term": {field: value}})
     def _build_query(self, query_text: str) -> Dict:
         body = {
-            "size": self.config.top_k,
+            "size": self.config.top_k,   # cuối cùng vẫn trả ra top_k
             "_source": ["paper_id", "title", "abstract"], 
             "query": {
                 "bool": {
@@ -66,13 +66,28 @@ class KeywordSearch:
                             "type": "best_fields",
                             "boost": self.config.multi_match_boost
                         }}
-                    ]
+                    ],
+                    "minimum_should_match": 1  
                 }
             },
             "highlight": {
                 "fields": {"title": {}, "abstract": {}}
             },
-            "explain": True
+            "explain": True,
+            "rescore": {
+                "window_size": self.config.top_k,  
+                "query": {
+                    "rescore_query": {
+                        "multi_match": {
+                            "query": query_text,
+                            "fields": ["title^3", "abstract^2"], 
+                            "type": "phrase"  
+                        }
+                    },
+                    "query_weight": 0.7,
+                    "rescore_query_weight": 1.3
+                }
+            }
         }
         return body
 

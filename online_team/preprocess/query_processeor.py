@@ -44,7 +44,6 @@ def decompose_query_with_gpt(query: str) -> Tuple[LLMProcessedQuery, str]:
         content = resp.choices[0].message.content.strip()
         logger.info(f"Raw GPT output:\n{content}")
 
-        # Tìm JSON trong text (GPT đôi khi thêm ```json)
         start = content.find("{")
         end = content.rfind("}") + 1
         json_str = content[start:end]

@@ -7,15 +7,19 @@ from dataclasses import dataclass
 from config import CROSS_ENCODER_MODEL
 import asyncio
 
+import logging
+
+logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO)
 
 @dataclass
 class RerankerConfig:
     top_final: int = 20
     crossencoder_model: str = None
-    batch_size: int = 32
+    batch_size: int = 64
     use_distil: bool = False
     use_crossencoder: bool = True
-    max_candidates_for_rerank: int = 300  
+    max_candidates_for_rerank: int = 200  
 
 class PaperReranker:
     def __init__(self, 
@@ -52,14 +56,9 @@ class PaperReranker:
         if not candidate_results:
             logger.info("No candidate papers to rerank.")
             return []
-
-        # Limit candidates to avoid excessive reranking time
-        max_candidates = getattr(self.config, 'max_candidates_for_rerank', 200)
-        if len(candidate_results) > max_candidates:
-            candidate_results = candidate_results[:max_candidates]
-
+    
         logger.info(f"Number of candidate results before rerank: {len(candidate_results)}")
-
+        
         # Extract unique paper IDs for fetching additional data
         unique_paper_ids = list(set(r.get("paper_id") for r in candidate_results if r.get("paper_id")))
         
@@ -128,7 +127,7 @@ class PaperReranker:
         results.sort(key=lambda x: x["final_score"], reverse=True)
         final_results = results[:top_final]
         
-        logger.info(f"Number of papers after rerank (top_final={top_final}): {len(final_results)}")
+        logger.info(f"Number of papers after rerank): {len(final_results)}")
         
         # Return results in the expected format
         output_results = []

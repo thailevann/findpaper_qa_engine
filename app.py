@@ -48,7 +48,7 @@ def initialize_pipeline():
         top_final=20,
         use_crossencoder=True,
         crossencoder_model=CROSS_ENCODER_MODEL,
-        batch_size=32,
+        batch_size=64,
         use_distil=True
     )
 
@@ -59,8 +59,8 @@ def initialize_pipeline():
         use_parallel_search=True,
         use_multi_field_semantic=True,
         enable_reranking=True,
-        search_timeout=30.0,
-        rerank_timeout=60.0
+        search_timeout=3000.0,
+        rerank_timeout=6000.0
     )
     
     # Initialize pipeline
@@ -238,8 +238,8 @@ async def top_papers(payload: PaperQuery):
     ]
 
     # --- Candidate window for retrieval/rerank ---
-    candidate_top_k = max(payload.limit * 10, 200)
-    candidate_top_final = max(payload.limit * 4, 200)
+    candidate_top_k = payload.limit 
+    candidate_top_final = payload.limit 
 
     final_results = await pipeline.search_with_reranking(
         query_text=processed.rewritten_query or payload.query,
@@ -463,4 +463,3 @@ def search_papers_legacy(payload: PaperQuery):
         "matched_papers": final_results,
         "pipeline_type": "legacy"
     }
-
