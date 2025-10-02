@@ -1,0 +1,162 @@
+# Advanced Search Pipeline Configuration
+# This file contains all configuration for the enhanced retrieval system
+
+# Query Rewriting Configuration
+query_rewriter:
+  model: "gpt-4"  # or "gpt-3.5-turbo" for faster/cheaper
+  use_taxonomy_boost: true
+  temperature: 0.3
+
+# Enhanced Keyword Search Configuration
+keyword_search:
+  top_k: 50
+  title_boost: 5.0
+  abstract_boost: 3.0
+  multi_match_boost: 1.0
+  use_query_expansion: true
+  use_negative_filtering: true
+  aggregation_strategy: "union"  # or "intersection"
+  max_queries_to_execute: 5
+
+# Enhanced Semantic Search Configuration
+semantic_search:
+  top_k: 50
+  knn_num_candidates: 50
+  vector_fields:
+    - "title_embedding"
+    - "abstract_embedding"
+    - "chunks.embedding"
+  use_keyword_boosting: true
+  dataset_boost_factor: 1.3
+  metric_boost_factor: 1.2
+  model_boost_factor: 1.15
+  min_boost_occurrences: 1
+
+# Enhanced Reranker Configuration
+reranker:
+  top_final: 20
+  crossencoder_model: null  # Uses default from config.py
+  batch_size: 32
+  use_distil: true
+  use_crossencoder: true
+  max_candidates_for_rerank: 300
+  
+  # Constraint checking
+  use_constraint_checks: true
+  min_keyword_occurrences: 2
+  
+  # Content boosting
+  use_content_boosting: true
+  boost_if_contains:
+    # NLP/Summarization
+    - "ROUGE"
+    - "BLEU"
+    - "CNN/DailyMail"
+    - "XSum"
+    - "PubMed"
+    - "BART"
+    - "PEGASUS"
+    - "T5"
+    - "benchmark"
+    - "evaluation"
+    - "state-of-the-art"
+    # Computer Vision
+    - "COCO"
+    - "ImageNet"
+    - "Pascal VOC"
+    - "mAP"
+    - "IoU"
+    - "YOLO"
+    - "ResNet"
+    - "Faster R-CNN"
+  
+  downrank_if_contains:
+    # Off-topic terms
+    - "economics"
+    - "macroeconomics"
+    - "finance"
+    - "financial"
+    - "dialogue segmentation"
+    - "bibliometrics"
+    - "patent analysis"
+    - "medical imaging"  # Unless query is about medical
+  
+  # Scoring weights
+  crossencoder_weight: 0.7
+  constraint_weight: 0.15
+  content_boost_weight: 0.15
+
+# Seed Paper Boosting Configuration
+seed_booster:
+  boost_factor: 1.5
+  use_seed_boosting: true
+  
+  # Custom seed papers can be added here
+  # Format: domain -> type -> list of identifiers
+  custom_seeds:
+    nlp_summarization:
+      arxiv_ids:
+        - "1704.04368"  # Pointer-Generator
+        - "1912.08777"  # BART
+        - "1910.13461"  # PEGASUS
+        - "2004.04906"  # LED
+      keywords:
+        - "Get To The Point: Summarization with Pointer-Generator"
+        - "BART: Denoising Sequence-to-Sequence"
+
+# Pipeline Configuration
+pipeline:
+  use_parallel_search: true
+  use_query_rewriting: true
+  use_seed_boosting: true
+  search_timeout: 30.0
+  rerank_timeout: 60.0
+  max_results_before_rerank: 150
+
+# Elasticsearch Configuration
+elasticsearch:
+  host: "http://localhost:9200"
+  text_index: "papers_text"
+  vector_index: "papers_vectors"
+  request_timeout: 120
+
+# Domain-Specific Presets
+# These can be loaded based on query domain detection
+domain_presets:
+  nlp_summarization:
+    boost_terms:
+      - "ROUGE"
+      - "CNN/DailyMail"
+      - "XSum"
+      - "BART"
+      - "PEGASUS"
+      - "abstractive"
+      - "extractive"
+    exclude_terms:
+      - "economics"
+      - "finance"
+      - "dialogue"
+  
+  computer_vision:
+    boost_terms:
+      - "COCO"
+      - "ImageNet"
+      - "mAP"
+      - "IoU"
+      - "YOLO"
+      - "ResNet"
+    exclude_terms:
+      - "NLP"
+      - "text"
+      - "language model"
+  
+  machine_learning_general:
+    boost_terms:
+      - "benchmark"
+      - "evaluation"
+      - "sota"
+      - "baseline"
+    exclude_terms:
+      - "medical"
+      - "biology"
+
