@@ -176,9 +176,7 @@ Expected Outcomes
 - **Keyword Query**: relies on a single variation `"text summarization NLP"`, leading to very limited coverage.  
 - **Filtering**: lacks negative filters → irrelevant domains (economics, bibliometrics, speech) often appear.  
 - **Dataset/Metric Awareness**: does not prioritize benchmark-driven studies (datasets or evaluation metrics), making it harder to identify standard references.  
-- **Reranker**: only uses cross-encoder relevance, with no constraint checks (e.g., frequency of “summarization” in title/abstract).  
-- **Seeding**: no anchoring of foundational works (TextRank, Pointer-Generator, BART, PEGASUS).  
-- **Overall**: results show low precision, noisy recall, and are not strongly domain-focused.  
+- **Reranker**: only uses cross-encoder relevance
 
 ---
 
