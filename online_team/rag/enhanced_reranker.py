@@ -230,7 +230,7 @@ class EnhancedReranker:
         try:
             import math
             return 1.0 / (1.0 + math.exp(-ce_score))
-        except Exception:
+        except Exception: 
             # Fallback to min-max style if sigmoid fails
             normalized = (ce_score + 5) / 10
             return max(0.0, min(1.0, normalized))
