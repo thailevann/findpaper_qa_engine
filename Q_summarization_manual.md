@@ -171,39 +171,25 @@ Expected Outcomes
 # 📌 Review of ASTA System & Recommended Improvements
 
 ## Limitations of ASTA (system.md)
-- Query rewrite is too generic → no taxonomy expansion, missing survey/review emphasis.
-- Keyword query has only one variation ("text summarization NLP") → very limited coverage.
-- No negative filters → irrelevant papers (economics, bibliometrics) easily included.
-- No boosting based on datasets/metrics → hard to prioritize benchmark-driven papers.
-- Reranker only uses cross-encoder relevance, with no constraint checks (e.g., keyword frequency of "summarization").
-- No seeding of core papers → risks missing foundational works (TextRank, Pointer-Generator, etc.).
-- Overall: low precision, noisy recall, results not domain-focused.
+
+- **Query Rewrite**: too simplistic, no taxonomy expansion (e.g., extractive/abstractive, datasets, evaluation), and no emphasis on survey/review works.  
+- **Keyword Query**: relies on a single variation `"text summarization NLP"`, leading to very limited coverage.  
+- **Filtering**: lacks negative filters → irrelevant domains (economics, bibliometrics, speech) often appear.  
+- **Dataset/Metric Awareness**: does not prioritize benchmark-driven studies (datasets or evaluation metrics), making it harder to identify standard references.  
+- **Reranker**: only uses cross-encoder relevance, with no constraint checks (e.g., frequency of “summarization” in title/abstract).  
+- **Seeding**: no anchoring of foundational works (TextRank, Pointer-Generator, BART, PEGASUS).  
+- **Overall**: results show low precision, noisy recall, and are not strongly domain-focused.  
+
+---
 
 ## Improvements Applied (3_10.md)
+
 1. **Query Rewrite Layer**  
-   - Taxonomy-aware expansion (extractive, abstractive, transformer-based, datasets, evaluation).  
-   - Explicit emphasis on survey/review keywords.  
-   - Added `intitle:summarization` rule to focus on relevant titles.  
 
 2. **Keyword Query Layer**  
-   - Multiple variations: abstractive / extractive / long-document.  
-   - Negative filters to exclude irrelevant domains (economics, bibliometrics, etc.).  
 
 3. **Semantic Search Layer**  
-   - Boost papers mentioning benchmark datasets (CNN/DailyMail, XSum, PubMed).  
-   - Boost if metrics appear (ROUGE, BLEU, BERTScore).  
 
 4. **Reranking Improvements**  
-   - Constraint check: abstract/title must contain “summarization” ≥2 times.  
-   - Boost if evaluation terms (ROUGE, evaluation metric) are present.  
-   - Downrank off-topic results.  
 
-5. **Seed Anchoring**  
-   - Whitelist influential papers (TextRank, Pointer-Generator, BART, PEGASUS).  
-   - Guarantees canonical works appear in top results.
 
-## Expected Outcomes
-- 🎯 Higher precision: results are domain-specific and focused on summarization.  
-- 📚 Sufficient recall but with irrelevant noise filtered out.  
-- 🏆 Key benchmark and survey papers reliably included in top results.  
-- 🔎 Domain-aware pipeline, adaptable to other research tasks.
