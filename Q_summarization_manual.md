@@ -4,54 +4,7 @@
 
 ## Search Flow
 
-flowchart TD
-    A[Q: Find Papers on Context Length Limitation] --> B[Step 1: Extract Keywords]
-    B --> B1[Keywords: context length, long document, LLM, survey]
-
-    B1 --> C[Step 2: Search Google Scholar]
-    C --> C1["Query: context length limitation LLM survey 2024"]
-
-    C1 --> D[Step 3: Identify Survey Papers]
-    D --> D1["Survey 1: Beyond the Limits (arXiv:2402.02244)"]
-    D --> D2["Survey 2: What Why How (arXiv:2401.07872)"]
-    D --> D3["Survey 3: Context Engineering (arXiv:2507.13334)"]
-
-    D1 --> E[Step 4: Read Abstracts + Full Text]
-    D2 --> E
-    D3 --> E
-
-    E --> F[Step 5: Extract SOTA Techniques]
-    F --> F1[Taxonomy: 50+ techniques]
-
-    F1 --> G[Step 6: Identify Key Papers]
-    G --> G1[Examples: InftyThink, CURIE, LongReason]
-
-    G1 --> H[Step 7: Search for Specific Papers]
-    H --> H1["Query: arxiv long context reasoning 2025"]
-
-    H1 --> I[Step 8: Collect Papers from Other Sources]
-    I --> I1[Medium/Blogs]
-    I --> I2[GitHub Awesome Lists]
-
-    I1 --> J[Step 9: Compile Results]
-    I2 --> J
-    H1 --> J
-    F1 --> J
-
-    J --> K[Step 10: Validate Each Paper]
-    K --> K1{Relevant?}
-    K1 -->|Yes| L[Keep Paper]
-    K1 -->|No| M[Discard]
-
-    L --> N[Final Output: 10 Highly Relevant Papers]
-
-    %% Styling
-    style A fill:#e1f5ff,stroke:#0366d6,stroke-width:1px
-    style D fill:#fff4e1,stroke:#d17d00,stroke-width:1px
-    style F1 fill:#ffe1e1,stroke:#d10000,stroke-width:1px
-    style N fill:#e1ffe1,stroke:#00a000,stroke-width:1px
-
----
+![alt text](<Untitled diagram _ Mermaid Chart-2025-10-03-011722.png>)
 
 ## Complete Results
 
