@@ -4,7 +4,17 @@
 
 ## Search Flow
 
-![alt text](<Untitled diagram _ Mermaid Chart-2025-10-03-011722.png>)
+Step 1 – Define keywords
+We start by choosing the right keywords, like text summarization, survey, abstractive, LLM.
+
+Step 2 – Search multiple sources
+Then we run these keywords on different platforms: arXiv, Google Scholar, ResearchGate, ScienceDirect, and even blogs or Medium posts.
+
+Step 3 – Collect and filter
+From the search results, we first collect everything, then filter out irrelevant works. At this stage, we also prioritize survey papers and benchmark-driven studies.
+
+Step 4 – Final selection
+Finally, we validate the list and keep only the most relevant papers, ending up with around 10 solid works that cover both classical methods and recent LLM approaches.
 
 ## Complete Results
 
@@ -125,6 +135,37 @@
 - Engineering concerns: prompt design, chunking, post-processing.  
 - Example pipelines: Python + HuggingFace Transformers for personal note summarization.  
 
+
+Manual Search Process
+   |
+   v
+Observations from Manual Search
+   - Need multiple query variations
+   - Surveys are most useful
+   - Benchmarks/metrics help filter
+   - Blogs/practical sources also add value
+   |
+   v
+Compare with ASTA System
+   - Too generic queries
+   - Lacks survey emphasis
+   - No dataset/metric boosting
+   - Misses seed/core papers
+   |
+   v
+Recommendations for ASTA
+   1. Query rewrite with taxonomy + survey keywords
+   2. Rich keyword variations + negative filters
+   3. Semantic search boosting with datasets/metrics
+   4. Reranking constraints (title/abstract check)
+   5. Seed anchoring of influential works
+   |
+   v
+Expected Outcomes
+   - Higher precision
+   - More relevant surveys
+   - Benchmark-driven results
+   - Robust & domain-focused system
 
 
 # 📌 Review of ASTA System & Recommended Improvements
